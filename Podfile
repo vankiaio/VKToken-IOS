@@ -1,0 +1,6 @@
+platform:ios,'9.0'
+target "VKToken" do
+  use_frameworks!
+  pod 'TokenCore', :git=> 'https://github.com/vankiaio/token-core-ios.git', branch: 'master'
+  pod 'PocketSocket', '~> 1.0.1'
+end

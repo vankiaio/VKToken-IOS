@@ -1,0 +1,117 @@
+//
+//  PrefixHeader.pch
+//  VKToken
+//
+//  Created by vankiachain on 2017/11/27.
+//  Copyright © 2017年 vankiachain. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/**
+ *  导入系统文件
+ */
+#import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+
+
+#import "BaseNetworkRequest.h"
+#import "BaseHttpsNetworkRequest.h"
+#import "WalletTableManager.h"
+#import "AccountsTableManager.h"
+#import "CacheTableManager.h"
+
+/**
+ *  导入自定义文件
+ */
+#import "AppConstant.h"
+#import "BaseViewController.h"
+#import "BaseTabBarController.h"
+#import "RootNavigationController.h"
+#import "BaseView.h"
+#import "BaseHeaderView.h"
+#import "BaseTopView.h"
+#import "BaseLabel.h"
+#import "BaseLabel1.h"
+#import "BaseButton.h"
+#import "ExpandHitAreaButton.h"
+#import "BaseTableViewCell.h"
+#import "BaseTableViewCell1.h"
+#import "BaseTextView.h"
+#import "BaseSlimLineView.h"
+#import "BaseBoldLineView.h"
+#import "BaseConfirmButton.h"
+#import "BaseTextField.h"
+#import "BaseTextView_textColorLightGray.h"
+
+#import "LoginPasswordView.h"
+#import "ImageAndTipLabelViewManager.h"
+#import "RequestUrlConstant.h"
+#import "ThemeConstant.h"
+#import "StringConstant.h"
+#import "ContractConstant.h"
+#import "UIColor+SNFoundation.h"
+#import "UIColor+AppConfigColor.h"
+#import "NSDate+ExFoundation.h"
+#import "NSDictionary+ExFoundation.h"
+#import "UIImage+ExFoundation.h"
+#import "NSMutableAttributedString+ExFoundation.h"
+#import "RegularExpression.h"
+#import "WWJRegularJudge.h"
+#import "QuoteLocalHtmlTool.h"
+#import "NSString+Hash.h"
+#import "NSString+Extention.h"
+#import "UIScrollView+Touch.h"
+#import "NumberFormatter.h"
+#import "UITextView+Placeholder.h"
+#import "NSObject+Extension.h"
+#import "SocialManager.h"
+#import "ThirdPayManager.h"
+#import "DeviceType.h"
+#import "WalletUtil.h"
+#import "ArchiveUtil.h"
+#import "OptionModel.h"
+#import "QRCodeModel.h"
+#import "CommonTransferModel.h"
+#import "BaseResult.h"
+#import "RtfBrowserViewController.h"
+
+
+
+/**
+ *  导入第三方库文件
+ */
+#import "UIView+SDAutoLayout.h"
+#import "UIImageView+WebCache.h"
+#import "SDWebImageManager.h"
+#import "UIButton+WebCache.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
+#import "SVProgressHUD.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "FMDB.h"
+#import "MGSwipeButton.h"
+#import "MGSwipeTableCell.h"
+#import "ToastView.h"
+#import "WebViewJavascriptBridge.h"
+#import "SGQRCode.h"
+#import "SWWButton.h"
+#import "LEETheme.h"
+#import "AESCrypt.h"
+#import "UIViewController+CWLateralSlide.h"
+#import "NSString+DecimalsCalculation.h"
+
+#import "DAConfig.h"
+#import "NSBundle+DAUtils.h"
+
+#import "CDZPicker.h"
+
+/*
+ 友盟
+**/
+#import <UMAnalytics/MobClick.h>
+
+#endif /* PrefixHeader_pch */

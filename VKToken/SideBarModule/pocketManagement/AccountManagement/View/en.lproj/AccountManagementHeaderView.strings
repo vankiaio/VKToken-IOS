@@ -1,0 +1,7 @@
+
+/* Class = "UILabel"; text = "Active公钥"; ObjectID = "3f6-tH-LaR"; */
+"3f6-tH-LaR.text" = "Public key (active)";
+
+/* Class = "UILabel"; text = "Owner公钥"; ObjectID = "UCo-43-3cy"; */
+//"UCo-43-3cy.text" = "Public Key (owner)";
+"UCo-43-3cy.text" = "VKT Public Key";
