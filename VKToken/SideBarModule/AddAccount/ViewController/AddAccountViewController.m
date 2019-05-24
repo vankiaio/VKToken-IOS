@@ -105,12 +105,20 @@
     .heightIs(50)
     .widthIs(100);
     
+    NSString *curLanguageText = NSLocalizedString(@"中文", nil);
+    NSString *curLanguageCode = [DAConfig userLanguage];
+    NSLog(@"curLanguage = %@", curLanguageCode);
+    if([curLanguageCode hasPrefix:@"en"]){
+        curLanguageText = @"English";
+    }else if([curLanguageCode hasPrefix:@"zh-Hans"]) {
+        curLanguageText = NSLocalizedString(@"中文", nil);
+    }
     //    vktbtnCreateAccount.frame = CGRectMake(72.5,431,230,50);
-    [vktbtnLanguage setTitle: [NSString stringWithFormat: @"%@ >", NSLocalizedString(@"中文", nil)] forState:(UIControlStateNormal)];
-    NSMutableAttributedString *strvktbtnLanguage = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat: @"%@ >", NSLocalizedString(@"中文", nil)] attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 19], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
+    [vktbtnLanguage setTitle: [NSString stringWithFormat: @"%@ >", curLanguageText] forState:(UIControlStateNormal)];
+    NSMutableAttributedString *strvktbtnLanguage = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat: @"%@ >", curLanguageText] attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 19], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
     vktbtnLanguage.titleLabel.attributedText = strvktbtnLanguage;
     vktbtnLanguage.titleLabel.textAlignment = NSTextAlignmentRight;
-    [vktbtnLanguage addTarget:self action:@selector(changeLanguage) forControlEvents:UIControlEventTouchUpInside];
+    [vktbtnLanguage addTarget:self action:@selector(btnChangeLanguage) forControlEvents:UIControlEventTouchUpInside];
 //    [vktbtnLanguage setImage:[UIImage imageNamed:@"icon_arrow"] forState:UIControlStateNormal];
 //    [vktbtnLanguage setImageEdgeInsets:UIEdgeInsetsMake(0, 80, 0, -90)];
 //
@@ -172,6 +180,7 @@
     [vktbtnCreateAccount setTitle:NSLocalizedString(@"创建账号", nil) forState:(UIControlStateNormal)];
     NSMutableAttributedString *strvktbtnCreateAccount = [[NSMutableAttributedString alloc] initWithString:@"创建账号" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 19], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
     vktbtnCreateAccount.titleLabel.attributedText = strvktbtnCreateAccount;
+    [vktbtnCreateAccount addTarget:self action:@selector(btnCreateAccount) forControlEvents:UIControlEventTouchUpInside];
     
     // 恢复button
     VKTButton *vktbtnRecoveryAccount = [[VKTButton alloc] init];
@@ -183,7 +192,7 @@
     [vktbtnRecoveryAccount setTitle:NSLocalizedString(@"恢复账号", nil) forState:(UIControlStateNormal)];
     NSMutableAttributedString *strvktbtnRecoveryAccount = [[NSMutableAttributedString alloc] initWithString:@"恢复账号" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 19], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
     vktbtnRecoveryAccount.titleLabel.attributedText = strvktbtnRecoveryAccount;
-    
+    [vktbtnRecoveryAccount addTarget:self action:@selector(btnCreateAccount) forControlEvents:UIControlEventTouchUpInside];
     
 
     [self checkWhetherHasFreeQuota];
@@ -193,9 +202,30 @@
 //    }];
 }
 
-- (void)changeLanguage
+// 多语言切换
+- (void)btnChangeLanguage
 {
-    NSLog(@"%s", "Click changeLanguage");
+    NSLog(@"%s", "Click btnChangeLanguage");
+    LanguageSettingViewController *vc = [[LanguageSettingViewController alloc] init];
+    vc.languageSettingViewControllerFromMode = LanguageSettingViewControllerFromLoginPage;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+// 创建账号
+- (void)btnCreateAccount
+{
+    NSLog(@"%s", "Click btnCreateAccount");
+    if (CURRENT_WALLET_HAS_SET_PASSWORD) {
+        CreateAccountViewController *vc = [[CreateAccountViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+}
+
+// 恢复账号
+- (void)btnRestoreAccount
+{
+    NSLog(@"%s", "Click btnRestoreAccount");
     LanguageSettingViewController *vc = [[LanguageSettingViewController alloc] init];
     vc.languageSettingViewControllerFromMode = LanguageSettingViewControllerFromLoginPage;
     [self.navigationController pushViewController:vc animated:YES];
