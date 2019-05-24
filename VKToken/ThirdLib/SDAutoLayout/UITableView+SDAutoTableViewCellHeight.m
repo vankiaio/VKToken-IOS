@@ -124,8 +124,8 @@
 {
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
         NSString *cacheKey = [self cacheKeyForIndexPath:indexPath];
-        [_cacheDictionary removeObjectForKey:cacheKey];
-        [_subviewFrameCacheDict removeObjectForKey:cacheKey];
+        [self->_cacheDictionary removeObjectForKey:cacheKey];
+        [self->_subviewFrameCacheDict removeObjectForKey:cacheKey];
     }];
 }
 
@@ -231,8 +231,8 @@
         [tempHeightCaches enumerateObjectsUsingBlock:^(NSNumber *heightCache, NSUInteger idx, BOOL *stop) {
             if (![heightCache isKindOfClass:[NSNull class]]) {
                 NSString *key = [NSString stringWithFormat:@"%zd-%zd", section, idx];
-                [_cacheDictionary setValue:heightCache forKey:key];
-                [_subviewFrameCacheDict setValue:[tempFrameCaches objectAtIndex:idx] forKey:key];
+                [self->_cacheDictionary setValue:heightCache forKey:key];
+                [self->_subviewFrameCacheDict setValue:[tempFrameCaches objectAtIndex:idx] forKey:key];
             }
         }];
     }
@@ -277,7 +277,7 @@
          //注意：bottomView不能为nil
          [cell setupAutoHeightWithBottomView:bottomView bottomMargin:bottomMargin];
          */
-        NSAssert(self.modelCell.sd_bottomViewsArray.count, NSLocalizedString(@">>>>>> 你的cell还没有调用“setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin”方法或者你传递的bottomView为nil，请检查并修改", nil));
+        NSAssert(self.modelCell.sd_bottomViewsArray.count, @">>>>>> 你的cell还没有调用“setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin”方法或者你传递的bottomView为nil，请检查并修改");
         
 #endif
         

@@ -675,6 +675,7 @@
  */
 "导入账号"="Import account";
 "创建账号"="Create an account";
+"恢复账号"="Restore an account";
 "我是VIP"="Use VIP code to get a new account";
 "限时免费"="Limited time free";
 "使用已有的VKT账号"="Import now!";

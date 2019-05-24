@@ -765,7 +765,7 @@ Class cellContVClass()
 
 - (void)setMaxNumberOfLinesToShow:(NSInteger)lineCount
 {
-    NSAssert(self.ownLayoutModel, NSLocalizedString(@"请在布局完成之后再做此步设置！", nil));
+    NSAssert(self.ownLayoutModel, @"请在布局完成之后再做此步设置！");
     if (lineCount > 0) {
         if (self.isAttributedContent) {
             NSDictionary *attrs = [self.attributedText attributesAtIndex:0 effectiveRange:nil];
@@ -816,19 +816,21 @@ Class cellContVClass()
 
 + (void)load
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        NSArray *selStringsArray = @[@"layoutSubviews"];
-        
-        [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
-            NSString *mySelString = [@"sd_" stringByAppendingString:selString];
+    if (self == [UIView class]) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
             
-            Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
-            Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
-            method_exchangeImplementations(originalMethod, myMethod);
-        }];
-    });
+            NSArray *selStringsArray = @[@"layoutSubviews"];
+            
+            [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
+                NSString *mySelString = [@"sd_" stringByAppendingString:selString];
+                
+                Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
+                Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
+                method_exchangeImplementations(originalMethod, myMethod);
+            }];
+        });
+    }
 }
 
 #pragma mark - properties
@@ -950,7 +952,7 @@ Class cellContVClass()
      3.  view.sd_layout
      .leftEqualToView()...
      */
-    NSAssert(self.superview, NSLocalizedString(@">>>>>>>>>在加入父view之后才可以做自动布局设置", nil));
+    NSAssert(self.superview, @">>>>>>>>>在加入父view之后才可以做自动布局设置");
     
 #endif
     
@@ -1272,6 +1274,14 @@ Class cellContVClass()
     [self layoutTopWithView:view model:model];
     
     [self layoutBottomWithView:view model:model];
+    
+    if ((model.centerX || model.equalCenterX) && !view.fixedWidth) {
+        [self layoutLeftWithView:view model:model];
+    }
+    
+    if ((model.centerY || model.equalCenterY) && !view.fixedHeight) {
+        [self layoutTopWithView:view model:model];
+    }
     
     if (view.sd_maxWidth) {
         [self layoutAutoWidthWidthView:view model:model];

@@ -22,7 +22,6 @@
 #import <UMCommonLog/UMCommonLogHeaders.h>
 #import <UMAnalytics/MobClick.h>
 #import <AlipaySDK/AlipaySDK.h>
-#import "CreatePocketViewController.h"
 #import "AddAccountViewController.h"
 
 

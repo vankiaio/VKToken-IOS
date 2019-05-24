@@ -10,6 +10,7 @@
 #import "LanguageSettingService.h"
 #import "AppDelegate.h"
 #import "BaseTabBarController.h"
+#import "AddAccountViewController.h"
 
 @interface LanguageSettingViewController ()<NavigationViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;
@@ -90,8 +91,13 @@
             [view removeFromSuperview];
         }
         AppDelegate *appDele = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        BaseTabBarController * vc =[[BaseTabBarController alloc]init];
-        appDele.window.rootViewController = vc;
+        if (self.languageSettingViewControllerFromMode == LanguageSettingViewControllerFromLoginPage) {
+            AddAccountViewController * vc =[[AddAccountViewController alloc]init];
+            appDele.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:vc];
+        }else if(self.languageSettingViewControllerFromMode == LanguageSettingViewControllerFromOtherPage) {
+            BaseTabBarController * vc =[[BaseTabBarController alloc]init];
+            appDele.window.rootViewController = vc;
+        }
         [TOASTVIEW showWithText:NSLocalizedString(@"语言切换中", nil) duration:1];
     });
 }

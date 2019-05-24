@@ -18,6 +18,8 @@
 #import "CommonDialogHasTitleView.h"
 #import "CreatePocketViewController.h"
 #import "ImportAccountWithoutAccountNameBaseViewController.h"
+#import "VKTButton.h"
+#import "LanguageSettingViewController.h"
 
 @interface AddAccountViewController ()<CommonDialogHasTitleViewDelegate, UINavigationControllerDelegate>
 @property(nonatomic, strong) NavigationView *navView;
@@ -28,7 +30,9 @@
 @end
 
 @implementation AddAccountViewController
-
+{
+    UIView  *_mainView;
+}
 
 - (NavigationView *)navView{
     if (!_navView) {
@@ -63,28 +67,138 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.navView];
-    [self.view addSubview:self.mainTableView];
-    self.view.lee_theme.LeeConfigBackgroundColor(@"baseAddAccount_background_color");
-    self.mainTableView.lee_theme.LeeConfigBackgroundColor(@"baseAddAccount_background_color");
-    self.mainTableView.frame = CGRectMake(0,0,375,817);
-    self.mainTableView.alpha = 0.5;
+//    [self.view addSubview:self.navView];
+//    [self.view addSubview:self.mainTableView];
+//    self.view.lee_theme.LeeConfigBackgroundColor(@"baseAddAccount_background_color");
+//    self.mainTableView.lee_theme.LeeConfigBackgroundColor(@"baseAddAccount_background_color");
+//    self.mainTableView.frame = CGRectMake(0,0,375,812);
 
+//    [self.view setFrame:CGRectMake(0, -120, SCREEN_WIDTH, SCREEN_HEIGHT)];
+//    [self.view setBounds:CGRectMake(0, 120, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    
+    UIView *mainView = [UIView new];
+    [self.view addSubview:mainView];
+    _mainView = mainView;
+    
+    _mainView.sd_layout
+    .leftSpaceToView(self.view, 0)
+    .topSpaceToView(self.view, 0)
+    .widthIs(SCREEN_WIDTH)
+    .heightIs(SCREEN_HEIGHT);
+    
+    // 创建VKToken BackGround Color
     CAGradientLayer *gl = [CAGradientLayer layer];
-    gl.frame = CGRectMake(0,0,375,817);
+    gl.frame = CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
     gl.startPoint = CGPointMake(0.5, 1);
     gl.endPoint = CGPointMake(0.5, 0);
-    gl.colors = @[(__bridge id)[UIColor colorWithRed:180/255.0 green:253/255.0 blue:255/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:91/255.0 green:210/255.0 blue:214/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:1/255.0 green:167/255.0 blue:173/255.0 alpha:0.5].CGColor];
+    gl.colors = @[(__bridge id)[UIColor colorWithRed:180/255.0 green:253/255.0 blue:255/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:91/255.0 green:210/255.0 blue:214/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:1/255.0 green:167/255.0 blue:173/255.0 alpha:1.0].CGColor];
     gl.locations = @[@(0),@(0.6f),@(1.0f)];
-    [self.mainTableView.layer addSublayer:gl];
+    [_mainView.layer addSublayer:gl];
     
-    self.mainTableView.mj_header.hidden = YES;
-    self.mainTableView.mj_footer.hidden = YES;
+    
+    // 语言button
+    UIButton *vktbtnLanguage = [[UIButton alloc] init];
+    [_mainView addSubview:vktbtnLanguage];
+    vktbtnLanguage.sd_layout
+    .topSpaceToView(_mainView, 50)
+    .rightSpaceToView(_mainView, 10)
+    .heightIs(50)
+    .widthIs(100);
+    
+    //    vktbtnCreateAccount.frame = CGRectMake(72.5,431,230,50);
+    [vktbtnLanguage setTitle: [NSString stringWithFormat: @"%@ >", NSLocalizedString(@"中文", nil)] forState:(UIControlStateNormal)];
+    NSMutableAttributedString *strvktbtnLanguage = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat: @"%@ >", NSLocalizedString(@"中文", nil)] attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 19], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
+    vktbtnLanguage.titleLabel.attributedText = strvktbtnLanguage;
+    vktbtnLanguage.titleLabel.textAlignment = NSTextAlignmentRight;
+    [vktbtnLanguage addTarget:self action:@selector(changeLanguage) forControlEvents:UIControlEventTouchUpInside];
+//    [vktbtnLanguage setImage:[UIImage imageNamed:@"icon_arrow"] forState:UIControlStateNormal];
+//    [vktbtnLanguage setImageEdgeInsets:UIEdgeInsetsMake(0, 80, 0, -90)];
+//
+    
+    // 创建VKToken ImageView
+    UIImageView *imgVKToken = [[UIImageView alloc] init];
+    [_mainView addSubview:imgVKToken];
+    
+    // 加载图片
+    imgVKToken.image = [UIImage imageNamed:@"logo_vkt_l"];
+    imgVKToken.sd_layout
+    .centerXIs(SCREEN_WIDTH/2)
+    .topSpaceToView(_mainView, 140)
+    .widthIs(imgVKToken.image.size.width/2)
+    .heightIs(imgVKToken.image.size.height/2);
+
+    
+    // 创建VKToken label
+    UILabel *labelVKToken = [[UILabel alloc] init];
+    [_mainView addSubview:labelVKToken];
+    labelVKToken.sd_layout
+    .centerXIs(SCREEN_WIDTH/2)
+    .leftSpaceToView(_mainView, 0)
+    .rightSpaceToView(_mainView, 0)
+    .topSpaceToView(imgVKToken, 12)
+    .heightIs(28);
+    
+    NSMutableAttributedString *strVKToken= [[NSMutableAttributedString alloc] initWithString:@"VKToken" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 22], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
+    
+    labelVKToken.attributedText = strVKToken;
+    labelVKToken.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
+    labelVKToken.textAlignment = NSTextAlignmentCenter;
+    
+    // 创建WELCOME label
+    UILabel *labelWelcome = [[UILabel alloc] init];
+    [_mainView addSubview:labelWelcome];
+    labelWelcome.sd_layout
+    .centerXIs(SCREEN_WIDTH/2)
+    .leftSpaceToView(_mainView, 0)
+    .rightSpaceToView(_mainView, 0)
+    .topSpaceToView(labelVKToken, 50)
+    .heightIs(28);
+    
+    NSMutableAttributedString *strlabelWelcome= [[NSMutableAttributedString alloc] initWithString:@"Welcome" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 26], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
+    
+    labelWelcome.attributedText = strlabelWelcome;
+    labelWelcome.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
+    labelWelcome.textAlignment = NSTextAlignmentCenter;
+    
+    
+    // 创建账号button
+    VKTButton *vktbtnCreateAccount = [[VKTButton alloc] init];
+    [_mainView addSubview:vktbtnCreateAccount];
+    vktbtnCreateAccount.sd_layout
+    .centerXIs(SCREEN_WIDTH/2 )
+    .widthRatioToView(_mainView, 0.6)
+    .centerYIs(SCREEN_HEIGHT - 190);
+//    vktbtnCreateAccount.frame = CGRectMake(72.5,431,230,50);
+    [vktbtnCreateAccount setTitle:NSLocalizedString(@"创建账号", nil) forState:(UIControlStateNormal)];
+    NSMutableAttributedString *strvktbtnCreateAccount = [[NSMutableAttributedString alloc] initWithString:@"创建账号" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 19], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
+    vktbtnCreateAccount.titleLabel.attributedText = strvktbtnCreateAccount;
+    
+    // 恢复button
+    VKTButton *vktbtnRecoveryAccount = [[VKTButton alloc] init];
+    [_mainView addSubview:vktbtnRecoveryAccount];
+    vktbtnRecoveryAccount.sd_layout
+    .centerXIs(SCREEN_WIDTH/2 )
+    .widthRatioToView(_mainView, 0.6)
+    .centerYIs(SCREEN_HEIGHT - 120);
+    [vktbtnRecoveryAccount setTitle:NSLocalizedString(@"恢复账号", nil) forState:(UIControlStateNormal)];
+    NSMutableAttributedString *strvktbtnRecoveryAccount = [[NSMutableAttributedString alloc] initWithString:@"恢复账号" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 19], NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
+    vktbtnRecoveryAccount.titleLabel.attributedText = strvktbtnRecoveryAccount;
+    
+    
+
     [self checkWhetherHasFreeQuota];
-    WS(weakSelf);
-    [self.mainService buildDataSource:^(id service, BOOL isSuccess) {
-        [weakSelf.mainTableView reloadData];
-    }];
+//    WS(weakSelf);
+//    [self.mainService buildDataSource:^(id service, BOOL isSuccess) {
+//        [weakSelf.mainTableView reloadData];
+//    }];
+}
+
+- (void)changeLanguage
+{
+    NSLog(@"%s", "Click changeLanguage");
+    LanguageSettingViewController *vc = [[LanguageSettingViewController alloc] init];
+    vc.languageSettingViewControllerFromMode = LanguageSettingViewControllerFromLoginPage;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

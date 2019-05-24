@@ -8,6 +8,16 @@
 
 #import "BaseViewController.h"
 
+/**
+ 从那个模式下跳转过来
+ */
+typedef NS_ENUM(NSInteger, LanguageSettingViewControllerFromMode) {
+    LanguageSettingViewControllerFromLoginPage,
+    LanguageSettingViewControllerFromOtherPage
+};
+
 @interface LanguageSettingViewController : BaseViewController
+
+@property(nonatomic , assign) LanguageSettingViewControllerFromMode languageSettingViewControllerFromMode;
 
 @end
