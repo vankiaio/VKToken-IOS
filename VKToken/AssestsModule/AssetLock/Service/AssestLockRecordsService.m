@@ -10,6 +10,7 @@
 #import "AssestLockRecord.h"
 #import "AssestLockRecordsResult.h"
 #import "AssestLocksResult.h"
+#import "VKToken-swift.h"
 
 @interface AssestLockRecordsService()
 //@property(nonatomic , assign) NSUInteger page;

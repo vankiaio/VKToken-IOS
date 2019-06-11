@@ -26,6 +26,7 @@
 #import "TransferAbi_json_to_bin_request.h"
 #import "RedPacketRecordsViewController.h"
 #import "TokenInfo.h"
+#import "VKToken-swift.h"
 
 @interface RedPacketViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate , UITableViewDataSource, NavigationViewDelegate, RedPacketHeaderViewDelegate, TransferServiceDelegate, LoginPasswordViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;

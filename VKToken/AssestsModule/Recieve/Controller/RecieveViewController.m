@@ -20,6 +20,7 @@
 #import "TokenInfo.h"
 #import "Get_token_info_service.h"
 #import "TransferRecordsViewController.h"
+#import "VKToken-swift.h"
 
 @interface RecieveViewController ()<UIGestureRecognizerDelegate , NavigationViewDelegate, RecieveHeaderViewDelegate, UITextFieldDelegate>
 @property(nonatomic, strong) NavigationView *navView;

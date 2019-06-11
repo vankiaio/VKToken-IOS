@@ -26,6 +26,7 @@
 #import "TransferAbi_json_to_bin_request.h"
 #import "Get_token_info_service.h"
 #import "TransferRecordsViewController.h"
+#import "VKToken-swift.h"
 
 @interface TransferNewViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate , UITableViewDataSource, NavigationViewDelegate, TransferHeaderViewDelegate, ChangeAccountViewControllerDelegate, UITextFieldDelegate, TransferServiceDelegate, LoginPasswordViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;

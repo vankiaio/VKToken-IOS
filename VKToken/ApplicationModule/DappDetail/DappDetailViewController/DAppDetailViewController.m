@@ -50,6 +50,7 @@
 #import "AccountAuthorizationView.h"
 #import "DappWithoutPasswordView.h"
 #import "DappChangeAccountOnNavigationRightView.h"
+#import "VKToken-swift.h"
 
 
 @interface DAppDetailViewController ()<UIGestureRecognizerDelegate,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler, WKDelegate , TransferServiceDelegate, LoginPasswordViewDelegate, UIScrollViewDelegate, DAppExcuteMutipleActionsBaseViewDelegate, ExcuteMultipleActionsServiceDelegate, DappDetailServiceDelegate, AccountAuthorizationViewDelegate, DappWithoutPasswordViewDelegate, DappChangeAccountOnNavigationRightViewDelegate, NavigationViewDelegate>

@@ -17,6 +17,7 @@
 #import "VKT_Key_Encode.h"
 #import "SimpleWalletLoginHeaderView.h"
 #import "TransactionResult.h"
+#import "VKToken-swift.h"
 
 @interface SimpleWalletLoginViewController ()<SimpleWalletLoginHeaderViewDelegate, LoginPasswordViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;

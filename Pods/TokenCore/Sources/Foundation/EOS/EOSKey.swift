@@ -16,7 +16,7 @@ class EOSKey {
     let publicKey = btcKey.compressedPublicKey as Data
     let checksum = (BTCRIPEMD160(publicKey) as Data).bytes[0..<4]
     let base58 = BTCBase58StringWithData(publicKey + checksum)!
-    return "EOS" + base58
+    return "VKT" + base58
   }
 
   var wif: String {

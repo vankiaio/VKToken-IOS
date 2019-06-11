@@ -378,9 +378,11 @@
  CreateAccountViewController.m
  */
 "创建新账号"="Create New Account";
-"5~12位字符，只能由小写字母a~z和数字1~5组成。"="Make up of 1-5 and a-z, 5~12 characters.";
+"用户名,5~12位字符,只能由小写a~z和1~5组成!"="Make up of 1-5 and a-z, 5~12 characters.";
+"密码不可少于8位!"="At least 8 characters!";
 "如果已有账号，请点击这里导入"="Own an account? Click here to import.";
 "创建账号成功!"="Create account success!";
+"两次输入密码不一致!"="Password doesn't match!";
 
 /*
  PocketManagementViewController.m
@@ -418,7 +420,7 @@
 /*
  CreateAccountHeaderView.m
  */
-"备份提示：由于区块链的去中心化特性，VKT账号一旦丢失将无法找回。创建账号后请根据下页的提示妥善备份，以防账号丢失带来的损失。"="Warning：VKT account could not be recovered if you foget it due to the decentralization of blockchain. \nDO backup according to the following flow, or you will take the risk of losing your account and asset.";
+"温馨提示：\n1.账号用于万加链上转账交易。\n2.万加链不存储助记词，也不能找回助记词。"="Warning：VKT account could not be recovered if you foget it due to the decentralization of blockchain. \nDO backup according to the following flow, or you will take the risk of losing your account and asset.";
 
 /*
  VKTMappingImportAccountHeaderView.m
@@ -873,3 +875,16 @@
 "请输入私钥："="Please Input Private key";
 "暂无账号"="No account";
 "变更私钥权限成功"="Change Permision Success";
+
+/*
+ CreateMemonicViewController.m
+ */
+"backup_mnem"="Backup mnemonic";
+"backup_mnem_tips"="The mnemonic is used to restore the wallet or reset the wallet password, copy it accurately on paper, and store it in a safe place that only you know.";
+
+/*
+ ConfirmMemonicViewController.m
+ */
+"confirm_result"="Validation results";
+"reconfirm_mnemonic"="Assist word order verification error, please reconfirm";
+"backup_succ"="Backup success";

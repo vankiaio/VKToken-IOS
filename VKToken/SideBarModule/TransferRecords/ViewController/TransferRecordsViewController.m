@@ -12,6 +12,7 @@
 #import "TransferRecordsHeaderView.h"
 #import "TokenInfo.h"
 #import "TransferDetailsViewController.h"
+#import "VKToken-swift.h"
 
 
 @interface TransferRecordsViewController ()<TransferRecordsHeaderViewDelegate>

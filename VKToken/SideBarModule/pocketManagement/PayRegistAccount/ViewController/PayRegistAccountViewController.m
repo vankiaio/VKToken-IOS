@@ -203,7 +203,7 @@ NSString * const WechatPayDidFinishNotification = @"WechatPayDidFinishNotificati
     }
 
     if (![ RegularExpression validateVktAccountName:self.headerView.accountNameTF.text ]) {
-        [TOASTVIEW showWithText:NSLocalizedString(@"5~12位字符，只能由小写字母a~z和数字1~5组成。", nil)];
+        [TOASTVIEW showWithText:NSLocalizedString(@"用户名,5~12位字符,只能由小写a~z和1~5组成", nil)];
         return;
     }
 

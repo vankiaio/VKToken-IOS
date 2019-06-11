@@ -1311,6 +1311,12 @@
 		24FB2CA820DBF86800AC73A5 /* BandwidthManageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CA720DBF86800AC73A5 /* BandwidthManageHeaderView.m */; };
 		24FB2CAE20DBF99700AC73A5 /* BandwidthManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CAC20DBF99700AC73A5 /* BandwidthManageTableViewCell.m */; };
 		24FB2CB220DBF9CE00AC73A5 /* BandwidthManageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CB120DBF9CE00AC73A5 /* BandwidthManageCellModel.m */; };
+		6E151F8E22AF562200035664 /* CreateMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E151F8822AF562100035664 /* CreateMemonicViewController.xib */; };
+		6E151F8F22AF562200035664 /* CreateMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F8922AF562100035664 /* CreateMemonicViewController.m */; };
+		6E151F9022AF562200035664 /* ConfirmMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F8A22AF562100035664 /* ConfirmMemonicViewController.m */; };
+		6E151F9122AF562200035664 /* ConfirmMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E151F8B22AF562100035664 /* ConfirmMemonicViewController.xib */; };
+		6E151F9422AF649200035664 /* UILabel+SpacesAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */; };
+		6E151F9722AF86D100035664 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F9622AF86D100035664 /* ContentView.m */; };
 		6E1F521A22940C9C003D1C3D /* GetAssestLockRecordsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520622940C9C003D1C3D /* GetAssestLockRecordsRequest.m */; };
 		6E1F521B22940C9C003D1C3D /* AssestLockRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520922940C9C003D1C3D /* AssestLockRecordsViewController.m */; };
 		6E1F521C22940C9C003D1C3D /* AssestLocksResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520B22940C9C003D1C3D /* AssestLocksResult.m */; };
@@ -3701,6 +3707,17 @@
 		24FB2CB920DBFE7200AC73A5 /* BodyScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BodyScrollView.h; sourceTree = "<group>"; };
 		24FB2CBA20DBFE7200AC73A5 /* UIViewAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		3FD54694ABA61B4EAAED3C32 /* Pods_VKToken.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKToken.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E0B081B22AF8BBA003BB1AE /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		6E151F8822AF562100035664 /* CreateMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateMemonicViewController.xib; sourceTree = "<group>"; };
+		6E151F8922AF562100035664 /* CreateMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemonicViewController.m; sourceTree = "<group>"; };
+		6E151F8A22AF562100035664 /* ConfirmMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMemonicViewController.m; sourceTree = "<group>"; };
+		6E151F8B22AF562100035664 /* ConfirmMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmMemonicViewController.xib; sourceTree = "<group>"; };
+		6E151F8C22AF562100035664 /* ConfirmMemonicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmMemonicViewController.h; sourceTree = "<group>"; };
+		6E151F8D22AF562100035664 /* CreateMemonicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemonicViewController.h; sourceTree = "<group>"; };
+		6E151F9222AF649200035664 /* UILabel+SpacesAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SpacesAdjust.h"; sourceTree = "<group>"; };
+		6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SpacesAdjust.m"; sourceTree = "<group>"; };
+		6E151F9522AF86D100035664 /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
+		6E151F9622AF86D100035664 /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
 		6E1F520522940C9C003D1C3D /* GetAssestLockRecordsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAssestLockRecordsRequest.h; sourceTree = "<group>"; };
 		6E1F520622940C9C003D1C3D /* GetAssestLockRecordsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAssestLockRecordsRequest.m; sourceTree = "<group>"; };
 		6E1F520822940C9C003D1C3D /* AssestLockRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssestLockRecordsViewController.h; sourceTree = "<group>"; };
@@ -4330,6 +4347,10 @@
 		1816919820BF7E7A00BF49A8 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				6E151F9522AF86D100035664 /* ContentView.h */,
+				6E151F9622AF86D100035664 /* ContentView.m */,
+				6E151F9222AF649200035664 /* UILabel+SpacesAdjust.h */,
+				6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */,
 				1816919920BF7E9400BF49A8 /* ImageAndTipLabelViewManager.h */,
 				1816919A20BF7E9400BF49A8 /* ImageAndTipLabelViewManager.m */,
 			);
@@ -5168,6 +5189,7 @@
 		18372D522063C9FF004D19D0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6E0B081B22AF8BBA003BB1AE /* Macro.h */,
 				18372D532063CA11004D19D0 /* NumberFormatter.h */,
 				18372D542063CA11004D19D0 /* NumberFormatter.m */,
 				1884127E20C8D7FD005D752C /* DeviceType.h */,
@@ -7005,6 +7027,7 @@
 		187268521FDE315F00C898D1 /* pocketManagement */ = {
 			isa = PBXGroup;
 			children = (
+				6E151F6722AF50EE00035664 /* CreateMemonic */,
 				18CE935321A508CB002F958E /* ResetAccountPermision */,
 				18CE934821A4F56F002F958E /* ImportAccountPermision */,
 				18210839219E6B8300897B60 /* ImportAccountWithoutAccountName */,
@@ -10293,6 +10316,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6E151F6722AF50EE00035664 /* CreateMemonic */ = {
+			isa = PBXGroup;
+			children = (
+				6E151F8722AF562100035664 /* View */,
+			);
+			path = CreateMemonic;
+			sourceTree = "<group>";
+		};
+		6E151F8722AF562100035664 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E151F8822AF562100035664 /* CreateMemonicViewController.xib */,
+				6E151F8922AF562100035664 /* CreateMemonicViewController.m */,
+				6E151F8D22AF562100035664 /* CreateMemonicViewController.h */,
+				6E151F8B22AF562100035664 /* ConfirmMemonicViewController.xib */,
+				6E151F8A22AF562100035664 /* ConfirmMemonicViewController.m */,
+				6E151F8C22AF562100035664 /* ConfirmMemonicViewController.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E1F520322940C9C003D1C3D /* AssetLock */ = {
 			isa = PBXGroup;
 			children = (
@@ -10534,7 +10578,7 @@
 					183C5B7B1FCBEC9400DE6E88 = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -10784,6 +10828,7 @@
 				1816915620BEC1B900BF49A8 /* right_arrow_white@2x.png in Resources */,
 				185D18331FE75CDC0021AD18 /* versionUpdate@3x.png in Resources */,
 				186BDC1521538A9A001190A7 /* CandyTopView.xib in Resources */,
+				6E151F8E22AF562200035664 /* CreateMemonicViewController.xib in Resources */,
 				18AD2BC120D0C9C400536084 /* vote_change_account@2x.png in Resources */,
 				183FF6F520C0FD700058D010 /* qq_login@2x.png in Resources */,
 				6E1F52CD2296962C003D1C3D /* tabicon_wallet_ac@2x.png in Resources */,
@@ -11105,6 +11150,7 @@
 				18D07A8A20EB676900DF1FDF /* createAccount@2x.png in Resources */,
 				1889E1C7217B4D34002ECF38 /* circleTip_yellow@2x.png in Resources */,
 				183FF73A20C14B980058D010 /* thumb_BB@2x.png in Resources */,
+				6E151F9122AF562200035664 /* ConfirmMemonicViewController.xib in Resources */,
 				18CEA641210233A500B2BFE2 /* PocketManagementHeaderView.xib in Resources */,
 				18A99B0720E6644000E32A29 /* Vkt.js in Resources */,
 				18CE935221A4F627002F958E /* ImportAccountPermisionHeaderView.xib in Resources */,
@@ -11426,12 +11472,14 @@
 				18423A201FFF5C6C006AB986 /* ScanQRCodeSuccessViewController.m in Sources */,
 				1801994A2133F905005296BB /* RedPacketRecordsTableViewCell.m in Sources */,
 				188C305D1FFE0EF400A357F3 /* BindPhoneNumberViewController.m in Sources */,
+				6E151F9422AF649200035664 /* UILabel+SpacesAdjust.m in Sources */,
 				18112F671FCD016000BEA0D9 /* IQNSArray+Sort.m in Sources */,
 				1878BCA920845759002A76F5 /* RedpacketService.m in Sources */,
 				187D9BE32080B6570059BD2A /* SocialSharePanelView.m in Sources */,
 				18C622BC1FD63C340043447F /* RecieveHeaderView.m in Sources */,
 				18291F2420ECE5A400D19CB9 /* BaseResult.m in Sources */,
 				1862E79E20DBC80B00F26629 /* TradeRamHeaderView.m in Sources */,
+				6E151F9722AF86D100035664 /* ContentView.m in Sources */,
 				18388D472119431400FF5C3E /* CreateAccountOrderRequest.m in Sources */,
 				18ECBCC6215B5D3600BAE3C2 /* DappDetailService.m in Sources */,
 				183226FB20A2A76600BF6D6F /* DAppDetailViewController.m in Sources */,
@@ -11499,6 +11547,7 @@
 				18C7F768211AF924006AD456 /* CheckWhetherHasFreeQuotaResuest.m in Sources */,
 				189CECA120CFE70300F81AD8 /* GetNowVoteWeightRequest.m in Sources */,
 				18CEA6672105D22500B2BFE2 /* RootNavigationController.m in Sources */,
+				6E151F9022AF562200035664 /* ConfirmMemonicViewController.m in Sources */,
 				18112F681FCD016000BEA0D9 /* IQUIScrollView+Additions.m in Sources */,
 				1832CC44200761C400C055B6 /* AskQuestionModel.m in Sources */,
 				18EE055D1FDFB31800134E5C /* ImportAccountHeaderView.m in Sources */,
@@ -11572,6 +11621,7 @@
 				185BCFC32085A47000C4A558 /* RedPacket.m in Sources */,
 				18F054D020CBB8DE001B0A29 /* OptionModel.m in Sources */,
 				18FA76F32062578A00545E73 /* GetRequiredPublicKeyRequest.m in Sources */,
+				6E151F8F22AF562200035664 /* CreateMemonicViewController.m in Sources */,
 				1886079C1FCC012F00B00EE7 /* NSDictionary+ExFoundation.m in Sources */,
 				18CE933421A2CB62002F958E /* Keys.m in Sources */,
 				18CE931F21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.m in Sources */,
@@ -12953,7 +13003,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos12.1]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PJ28Z45RWS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -12979,7 +13029,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.vankiachain.VKToken.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = vankia;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OBJC_BRIDGING_HEADER = "VKToken/ThirdLib/VKToken-Bridging-Header.h";
@@ -13002,7 +13052,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos12.1]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PJ28Z45RWS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -13028,7 +13078,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.vankiachain.VKToken.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = vankia;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OBJC_BRIDGING_HEADER = "VKToken/ThirdLib/VKToken-Bridging-Header.h";

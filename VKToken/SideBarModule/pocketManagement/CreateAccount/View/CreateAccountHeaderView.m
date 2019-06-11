@@ -18,7 +18,7 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    self.tipTextView.placeholder = NSLocalizedString(@"备份提示：由于区块链的去中心化特性，VKT账号一旦丢失将无法找回。创建账号后请根据下页的提示妥善备份，以防账号丢失带来的损失。", nil);
+    self.tipTextView.placeholder = NSLocalizedString(@"温馨提示：\n1.账号用于万加链上转账交易。\n2.万加链不存储助记词，也不能找回助记词。", nil);
 }
 
 - (IBAction)agreeTermBtn:(UIButton *)sender {

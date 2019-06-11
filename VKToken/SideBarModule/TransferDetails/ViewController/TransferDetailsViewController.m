@@ -12,6 +12,7 @@
 #import "TransferDetailsHeaderView.h"
 #import "DAppDetailViewController.h"
 #import "DappModel.h"
+#import "VKToken-swift.h"
 
 @interface TransferDetailsViewController ()
 @property(nonatomic, strong) NavigationView *navView;

@@ -18,6 +18,7 @@
 #import "DAppDetailViewController.h"
 #import "CommonDialogHasTitleView.h"
 #import "AddAccountViewController.h"
+#import "VKToken-swift.h"
 
 @interface DiscoverMainViewController ()<ScrollMenuViewDelegate, DiscoverMainHeaderViewDelegate, CommonDialogHasTitleViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;

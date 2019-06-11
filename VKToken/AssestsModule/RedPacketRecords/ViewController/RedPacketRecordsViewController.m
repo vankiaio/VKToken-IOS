@@ -15,6 +15,7 @@
 #import "RedPacketRecordsTableViewCell.h"
 #import "ForwardRedPacketViewController.h"
 #import "TokenInfo.h"
+#import "VKToken-swift.h"
 
 @interface RedPacketRecordsViewController ()<TransferRecordsHeaderViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;

@@ -65,11 +65,11 @@ void uncaughtExceptionHandler(NSException*exception){
         
         UIViewController *vc;
         if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {
-//            vc = [[BBLoginViewController alloc] init];
-            vc = [[AddAccountViewController alloc] init];
+            vc = [[BBLoginViewController alloc] init];
+//            vc = [[AddAccountViewController alloc] init];
         }else if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
-//            vc = [[BBLoginViewController alloc] init];
-            vc = [[AddAccountViewController alloc] init];
+            vc = [[BBLoginViewController alloc] init];
+//            vc = [[AddAccountViewController alloc] init];
         }
         
         // 如果本地没有当前账号对应的钱包
@@ -204,8 +204,8 @@ extern NSString *AlipayDidFinishNotification;
 //        [LEETheme defaultTheme:SOCIAL_MODE];
 //    }
     
-    // VKT钱包主题使用黑盒模式
-    [LEETheme defaultTheme:BLACKBOX_MODE];
+    // VKT钱包主题使用社交模式
+    [LEETheme defaultTheme:SOCIAL_MODE];
     
     //    [LEETheme defaultChangeThemeAnimationDuration:0.0f];
     

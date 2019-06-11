@@ -13,6 +13,8 @@
 @interface AssestsMainHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *userAccountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAssetsLabel;
+@property (weak, nonatomic) IBOutlet UIButton *transferLabel;
+@property (weak, nonatomic) IBOutlet UIButton *recieveLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *totalAssestsVisibleBtn;
 

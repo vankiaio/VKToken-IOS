@@ -26,6 +26,7 @@
 #import "Get_account_permission_service.h"
 #import "ImportAccountPermisionViewController.h"
 #import "ResetAccountPermisionViewController.h"
+#import "VKToken-swift.h"
 
 @interface AccountManagementViewController ()<UIGestureRecognizerDelegate,  NavigationViewDelegate, ExportPrivateKeyViewDelegate, SliderVerifyViewDelegate, LoginPasswordViewDelegate, AskQuestionTipViewDelegate, AccountManagementHeaderViewDelegate, CommonDialogHasPasswordTFViewDelegate>
 @property(nonatomic , strong) AccountManagementService *mainService;

@@ -26,9 +26,11 @@
 /**
  当前 账号名
  */
-#define CURRENT_ACCOUNT_NAME [[NSUserDefaults standardUserDefaults] objectForKey:Current_Account_name]
+//#define CURRENT_ACCOUNT_NAME [[NSUserDefaults standardUserDefaults] objectForKey:Current_Account_name]
+#define CURRENT_ACCOUNT_NAME [[TokenCoreVKT sharedTokenCoreVKT] getVktAccountName:nil]
 
-#define CURRENT_AccountTable_HAS_Account [[AccountsTableManager accountTable] accountsTableHasAccount]
+//#define CURRENT_AccountTable_HAS_Account [[AccountsTableManager accountTable] accountsTableHasAccount]
+#define CURRENT_AccountTable_HAS_Account [[TokenCoreVKT sharedTokenCoreVKT] hasVktWallet:nil] > 0
 
 /**
  当前 token_info_array

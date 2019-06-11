@@ -47,6 +47,10 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addAssestsImageDidTap)];
     [self.addAssestsImageView addGestureRecognizer:tap];
+    [self.transferLabel.layer setCornerRadius:5];
+    self.transferLabel.layer.masksToBounds = YES;
+    [self.recieveLabel.layer setCornerRadius:5];
+    self.recieveLabel.layer.masksToBounds = YES;
     
 }
 

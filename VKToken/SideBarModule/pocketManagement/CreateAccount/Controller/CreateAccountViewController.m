@@ -15,7 +15,7 @@
 #import "BaseTabBarController.h"
 #import "CreateAccountService.h"
 #import "CreateAccountRequest.h"
-#import "VktPrivateKey.h"
+//#import "VktPrivateKey.h"
 #import "ImportAccountViewController.h"
 #import "VKTMappingImportAccountViewController.h"
 #import "RtfBrowserViewController.h"
@@ -23,6 +23,8 @@
 #import "GetAccountRequest.h"
 #import "GetAccount.h"
 #import "GetAccountResult.h"
+#import "CreateMemonicViewController.h"
+#import "VKToken-swift.h"
 
 
 @interface CreateAccountViewController ()<UIGestureRecognizerDelegate,  NavigationViewDelegate, CreateAccountHeaderViewDelegate, LoginPasswordViewDelegate>
@@ -52,7 +54,7 @@
 - (CreateAccountHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"CreateAccountHeaderView" owner:nil options:nil] firstObject];
-        _headerView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH, 277);
+        _headerView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH, 550);
         _headerView.delegate = self;
     }
     return _headerView;
@@ -78,6 +80,7 @@
     [super viewDidLoad];
     [self.view addSubview:self.navView];
     [self.view addSubview:self.headerView];
+//    self.headerView.accountNameTF.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"请输入用户名,5~12位字符,字母a~z和数字1~5组成", nil) attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 14], NSForegroundColorAttributeName: [UIColor whiteColor]}];
 //    [self configImportAccountBtn];
 }
 
@@ -97,7 +100,16 @@
         return;
     }
     if (![ RegularExpression validateVktAccountName:self.headerView.accountNameTF.text ]) {
-        [TOASTVIEW showWithText:NSLocalizedString(@"5~12位字符，只能由小写字母a~z和数字1~5组成。", nil)];
+        [TOASTVIEW showWithText:NSLocalizedString(@"用户名,5~12位字符,只能由小写a~z和1~5组成!", nil)];
+        return;
+    }
+    if (self.headerView.passwordToSet.text.length < 1
+               || self.headerView.passwordToConfirm.text.length < 1) {
+         [TOASTVIEW showWithText:NSLocalizedString(@"密码不可少于8位!", nil)];
+        return;
+    }
+    if (![self.headerView.passwordToSet.text isEqualToString:self.headerView.passwordToConfirm.text]) {
+         [TOASTVIEW showWithText:NSLocalizedString(@"两次输入密码不一致!", nil)];
         return;
     }
     [self checkAccountExist];
@@ -116,7 +128,18 @@
                 [TOASTVIEW showWithText: NSLocalizedString(@"账号已存在", nil)];
                 return ;
             }else{
-                [weakSelf.view addSubview:self.loginPasswordView];
+                TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+                [tokenCoreVKT generateIdentity:nil:self.headerView.passwordToConfirm.text];
+                NSLog(NSLocalizedString(@"generateIdentity助记词:%@", nil), tokenCoreVKT.requestResult);
+                
+                [tokenCoreVKT deriveEosWallet:self.headerView.passwordToConfirm.text];
+                NSLog(NSLocalizedString(@"deriveEosWallet助记词:%@", nil), tokenCoreVKT.requestResult);
+                
+                //    [tokenCoreVKT importEthPrivateKey];
+                //    NSLog(NSLocalizedString(@"importEthPrivateKey助记词:%@", nil), tokenCoreVKT.requestResult);
+                if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedDescending) {
+                    [self createkeys];
+                }
             }
         }
     } failure:^(id DAO, NSError *error) {
@@ -175,18 +198,32 @@
  */
 - (void)createkeys{
     WS(weakSelf);
-    VktPrivateKey *ownerPrivateKey = [[VktPrivateKey alloc] initVktPrivateKey];
+//    VktPrivateKey *ownerPrivateKey = [[VktPrivateKey alloc] initVktPrivateKey];
 //    VktPrivateKey *activePrivateKey = [[VktPrivateKey alloc] initVktPrivateKey];
-    VktPrivateKey *activePrivateKey = ownerPrivateKey;
+//    VktPrivateKey *activePrivateKey = ownerPrivateKey;
+    
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    
     if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {
         weakSelf.createAccountService.createVKTAccountRequest.uid = CURRENT_WALLET_UID;
     }else if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
         weakSelf.createAccountService.createVKTAccountRequest.uid = @"6f1a8e0eb24afb7ddc829f96f9f74e9d";
     }
     weakSelf.createAccountService.createVKTAccountRequest.vktAccountName = weakSelf.headerView.accountNameTF.text;
-    weakSelf.createAccountService.createVKTAccountRequest.ownerKey = ownerPrivateKey.vktPublicKey;
-    weakSelf.createAccountService.createVKTAccountRequest.activeKey = activePrivateKey.vktPublicKey;
-    NSLog(@"{ownerPrivateKey:%@\nvktPublicKey:%@\nactivePrivateKey:%@\nvktPublicKey:%@\n}", ownerPrivateKey.vktPrivateKey, ownerPrivateKey.vktPublicKey, activePrivateKey.vktPrivateKey, activePrivateKey.vktPublicKey);
+    weakSelf.createAccountService.createVKTAccountRequest.ownerKey = [tokenCoreVKT getVktPublicKey:weakSelf.headerView.passwordToConfirm.text:nil];
+    weakSelf.createAccountService.createVKTAccountRequest.activeKey = [tokenCoreVKT getVktPublicKey:weakSelf.headerView.passwordToConfirm.text:nil];
+    
+    //test
+    CreateMemonicViewController *vc = [[CreateMemonicViewController alloc] init];
+    //                    createPrivateKeyViewController.walletModel = _walletModel;
+    //                    createPrivateKeyViewController.privateWords = [[_walletModel.mnemonic tb_encodeStringWithKey:_walletModel.password] componentsSeparatedByString:@" "];
+    NSString* nsmnemonic = [tokenCoreVKT getVktMnemonic:weakSelf.headerView.passwordToConfirm.text:nil];
+    NSArray *mnemonicList = [nsmnemonic componentsSeparatedByString:@" "];
+    vc.privateWords = mnemonicList;
+   [weakSelf.navigationController pushViewController:vc animated:YES];
+    return;
+    
+//    NSLog(@"{ownerPrivateKey:%@\nvktPublicKey:%@\nactivePrivateKey:%@\nvktPublicKey:%@\n}", ownerPrivateKey.vktPrivateKey, ownerPrivateKey.vktPublicKey, activePrivateKey.vktPrivateKey, activePrivateKey.vktPublicKey);
     // 创建vkt账号
     
     [weakSelf.createAccountService createVKTAccount:^(id service, BOOL isSuccess) {
@@ -196,29 +233,38 @@
             if ([code isEqualToNumber:@0]) {
                 // 创建账号成功
                 [TOASTVIEW showWithText:NSLocalizedString(@"创建账号成功!", nil)];
+                // TokenCoreVKT添加账户
+                [tokenCoreVKT setVktAccountName:weakSelf.headerView.accountNameTF.text];
                 // 本地数据库添加账号
                 AccountInfo *model = [[AccountInfo alloc] init];
                 model.account_name = weakSelf.headerView.accountNameTF.text;
                 model.account_img = ACCOUNT_DEFALUT_AVATAR_IMG_URL_STR;
-                model.account_active_public_key = activePrivateKey.vktPublicKey;
-                model.account_owner_public_key = ownerPrivateKey.vktPublicKey;
-                model.account_active_private_key = [AESCrypt encrypt:activePrivateKey.vktPrivateKey password:weakSelf.loginPasswordView.inputPasswordTF.text];
-                model.account_owner_private_key = [AESCrypt encrypt:ownerPrivateKey.vktPrivateKey password:weakSelf.loginPasswordView.inputPasswordTF.text];
-                model.is_privacy_policy = @"0";
-                [[AccountsTableManager accountTable] addRecord: model];
-                [WalletUtil setMainAccountWithAccountInfoModel:model];
+                model.account_active_public_key = [tokenCoreVKT getVktPublicKey:weakSelf.headerView.passwordToConfirm.text:nil];
+                model.account_owner_public_key = [tokenCoreVKT getVktPublicKey:weakSelf.headerView.passwordToConfirm.text:nil];
+//                model.account_active_private_key = [AESCrypt encrypt:activePrivateKey.vktPrivateKey password:weakSelf.loginPasswordView.inputPasswordTF.text];
+//                model.account_owner_private_key = [AESCrypt encrypt:ownerPrivateKey.vktPrivateKey password:weakSelf.loginPasswordView.inputPasswordTF.text];
                 
-                
-                BackupAccountViewController *vc = [[BackupAccountViewController alloc] init];
-                if (weakSelf.createAccountViewControllerFromVC == CreateAccountViewControllerFromCreatePocketVC) {
-                    vc.backupAccountViewControllerFromVC = BackupAccountViewControllerFromCreatePocketVC;
-                }else if(weakSelf.createAccountViewControllerFromVC == CreateAccountViewControllerFromPocketManagementVC){
-                   vc.backupAccountViewControllerFromVC = BackupAccountViewControllerFromPocketManagementVC;
-                }
-                vc.accountName =  weakSelf.headerView.accountNameTF.text ;
-                [weakSelf.navigationController pushViewController:vc animated:YES];
-                
-                [weakSelf.loginPasswordView removeFromSuperview];
+                // commnet for todo
+//                model.is_privacy_policy = @"0";
+//                [[AccountsTableManager accountTable] addRecord: model];
+//                [WalletUtil setMainAccountWithAccountInfoModel:model];
+//
+//
+//                BackupAccountViewController *vc = [[BackupAccountViewController alloc] init];
+//                if (weakSelf.createAccountViewControllerFromVC == CreateAccountViewControllerFromCreatePocketVC) {
+//                    vc.backupAccountViewControllerFromVC = BackupAccountViewControllerFromCreatePocketVC;
+//                }else if(weakSelf.createAccountViewControllerFromVC == CreateAccountViewControllerFromPocketManagementVC){
+//                   vc.backupAccountViewControllerFromVC = BackupAccountViewControllerFromPocketManagementVC;
+//                }
+//                vc.accountName =  weakSelf.headerView.accountNameTF.text ;
+//                [weakSelf.navigationController pushViewController:vc animated:YES];
+//
+//                [weakSelf.loginPasswordView removeFromSuperview];
+//                [self alertRequiredPasswordWithSubTilte:nil action:^{
+                    CreateMemonicViewController *vc = [[CreateMemonicViewController alloc] init];
+//                    createPrivateKeyViewController.walletModel = _walletModel;
+//                    createPrivateKeyViewController.privateWords = [[_walletModel.mnemonic tb_encodeStringWithKey:_walletModel.password] componentsSeparatedByString:@" "];
+                    [weakSelf.navigationController pushViewController:vc animated:YES];
                 
             }else{
                 [TOASTVIEW showWithText:VALIDATE_STRING(service[@"message"])];

@@ -17,6 +17,8 @@
 
 @interface CreateAccountHeaderView : BaseView
 @property (weak, nonatomic) IBOutlet UITextField *accountNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordToSet;
+@property (weak, nonatomic) IBOutlet UITextField *passwordToConfirm;
 @property (weak, nonatomic) IBOutlet UIButton *agreeItemBtn;
 @property(nonatomic, weak) id<CreateAccountHeaderViewDelegate> delegate;
 @end

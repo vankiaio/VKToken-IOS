@@ -139,11 +139,11 @@
         BTCMutableBigNumber* denominator = [BTCMutableBigNumber one];
         for (NSInteger count = 0; count < m; count++) {
             if (formula != count) { // skip element with i == j
-                BTCMutableBigNumber* startposition = [[[BTCBigNumber alloc] initWithInt64:[points[formula][1] longLongValue]] mutableCopy];
-                BTCBigNumber* negnextposition = [[BTCBigNumber alloc] initWithInt64:-[points[count][1] longLongValue]];
-                [numerator multiply:negnextposition mod:prime];
-                [startposition add:negnextposition];
-                [denominator multiply:startposition mod:prime];
+                BTCMutableBigNumber* starition = [[[BTCBigNumber alloc] initWithInt64:[points[formula][1] longLongValue]] mutableCopy];
+                BTCBigNumber* negnexition = [[BTCBigNumber alloc] initWithInt64:-[points[count][1] longLongValue]];
+                [numerator multiply:negnexition mod:prime];
+                [starition add:negnexition];
+                [denominator multiply:starition mod:prime];
             }
         }
         BTCMutableBigNumber* value = [points[formula][2] mutableCopy];

@@ -19,7 +19,6 @@
 #import "PersonalSettingViewController.h"
 #import "ImportAccountsRequest.h"
 #import "AssestsCollectionViewController.h"
-#import "VKToken-Swift.h"
 
 @interface PocketManagementViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate , UITableViewDataSource, NavigationViewDelegate, BackupPocketViewDelegate, UIDocumentInteractionControllerDelegate, ChangePasswordViewDelegate, PocketManagementHeaderViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;
@@ -198,16 +197,6 @@
 }
 
 - (void)backupWalletBtnDidClick{
-    WRAPTokenCoreVKT *tokenCoreVKT = [[WRAPTokenCoreVKT alloc] init];
-    [tokenCoreVKT generateIdentity:nil];
-    NSLog(NSLocalizedString(@"generateIdentity助记词:%@", nil), tokenCoreVKT.requestResult);
-    
-    [tokenCoreVKT deriveEosWallet];
-    NSLog(NSLocalizedString(@"deriveEosWallet助记词:%@", nil), tokenCoreVKT.requestResult);
-    
-//    [tokenCoreVKT importEthPrivateKey];
-//    NSLog(NSLocalizedString(@"importEthPrivateKey助记词:%@", nil), tokenCoreVKT.requestResult);
-    
     [self.view addSubview:self.backupPocketView];
     Wallet *wallet = CURRENT_WALLET;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -226,9 +215,6 @@
     [wallet_json writeToFile:theFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 - (void)changePasswordBtnDidClick{
-    WRAPTokenCoreVKT *tokenCoreVKT = [[WRAPTokenCoreVKT alloc] init];
-    [tokenCoreVKT deriveEosWallet];
-    NSLog(NSLocalizedString(@"deriveEosWallet助记词:%@", nil), tokenCoreVKT.requestResult);
     [self.view addSubview:self.changePasswordView];
 }
 

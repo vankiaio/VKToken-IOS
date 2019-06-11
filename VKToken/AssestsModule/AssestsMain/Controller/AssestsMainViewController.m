@@ -63,6 +63,7 @@
 #import "VipRegistAccountViewController.h"
 #import "PayRegistAccountViewController.h"
 #import "CreateAccountViewController.h"
+#import "VKToken-swift.h"
 
 @interface AssestsMainViewController ()<UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, ChangeAccountViewControllerDelegate, CQMarqueeViewDelegate, AdvertisementViewDelegate, PocketManagementViewControllerDelegate, VersionUpdateTipViewDelegate, AddAssestsViewControllerDelegate, AccountNotExistViewDelegate, CommonDialogHasTitleViewDelegate, AssestsMainAddAccountViewDelegate>
 

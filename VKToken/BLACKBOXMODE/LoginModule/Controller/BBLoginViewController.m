@@ -17,6 +17,7 @@
 #import "AddAccountViewController.h"
 #import "RtfBrowserViewController.h"
 #import "Choose_BB_walletBtn.h"
+#import "VKToken-swift.h"
 
 @interface BBLoginViewController ()<BBLoginHeaderViewDelegate, BBLoginCreateWalletViewDelegate, BBLoginChooseWalletFooterViewDelegate>
 @property(nonatomic, strong) UIScrollView *mainScrollView1;
@@ -34,11 +35,16 @@
     if (!_mainScrollView1) {
         _mainScrollView1 = [[UIScrollView alloc] initWithFrame:(CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))];
         _mainScrollView1.backgroundColor = [UIColor whiteColor];
-        NSArray *localWalletsArr = [[WalletTableManager walletTable] selectAllLocalWallet];
-        if (localWalletsArr.count > 0) {
+        TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+        
+        if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedAscending) {
              _mainScrollView1.contentSize = CGSizeMake(SCREEN_WIDTH, self.chooseWalletBackgroundView.height_sd);
         }else{
-            _mainScrollView1.contentSize = CGSizeMake(SCREEN_WIDTH, self.createWalletView.height_sd);
+            // 创建账号(TokenCoreVKT)
+            AddAccountViewController *vc = [[AddAccountViewController alloc] init];
+            vc.addAccountViewControllerFromMode = AddAccountViewControllerFromLoginPage;
+            [self.navigationController pushViewController:vc animated:YES];
+            
         }
         
         if (@available(iOS 11.0, *)) {
@@ -151,8 +157,8 @@
         [self.chooseWalletFooterView removeFromSuperview];
         self.chooseWalletFooterView = nil;
         
-        NSArray *localWalletsArr = [[WalletTableManager walletTable] selectAllLocalWallet];
-        if (localWalletsArr.count > 0) {
+        TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+        if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedDescending) {
             [self.mainScrollView1 addSubview:self.chooseWalletBackgroundView];
         }
     }
@@ -168,11 +174,18 @@
     if ([DeviceType getIsIpad]) {
         self.mainScrollView1.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT+HEADERVIEW_HEIGHT);
     }
-    NSArray *localWalletsArr = [[WalletTableManager walletTable] selectAllLocalWallet];
-    if (localWalletsArr.count > 0) {
-        [self.mainScrollView1 addSubview:self.chooseWalletBackgroundView];
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    
+    if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedDescending) {
+//        [self.mainScrollView1 addSubview:self.chooseWalletBackgroundView];
+        // 如果本地有当前账号对应的钱包
+        [((AppDelegate *)[[UIApplication sharedApplication] delegate]).window setRootViewController: [[BaseTabBarController alloc] init]];
+        
     }else{
-        [self.mainScrollView1 addSubview:self.createWalletView];
+        // 创建账号(TokenCoreVKT)
+        AddAccountViewController *vc = [[AddAccountViewController alloc] init];
+        vc.addAccountViewControllerFromMode = AddAccountViewControllerFromLoginPage;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
@@ -275,6 +288,7 @@
                 [((AppDelegate *)[[UIApplication sharedApplication] delegate]).window setRootViewController: [[BaseTabBarController alloc] init]];
                 
             }else{
+                // 创建账号(TokenCoreVKT)
                 AddAccountViewController *vc = [[AddAccountViewController alloc] init];
                 vc.addAccountViewControllerFromMode = AddAccountViewControllerFromLoginPage;
                 [self.navigationController pushViewController:vc animated:YES];
