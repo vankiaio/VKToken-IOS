@@ -112,12 +112,12 @@
     // 设置默认资产
     self.headerView.assestChooserLabel.text = self.currentAssestsType;
     [self requestRate];
-    [MobClick beginLogPageView:@"pe收款"]; //("Pagename"为页面名称，可自定义)
+    [MobClick beginLogPageView:@"VKToken收款"]; //("Pagename"为页面名称，可自定义)
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [MobClick endLogPageView:@"pe收款"];
+    [MobClick endLogPageView:@"VKToken收款"];
 }
 
 - (void)viewDidLoad {

@@ -209,7 +209,7 @@
 - (UILabel *)tipLabel{
     if (!_tipLabel) {
         _tipLabel = [[UILabel alloc] init];
-        _tipLabel.text = NSLocalizedString(@"授权代表您信任该Dapp，PE不对由此造成的损失负责", nil);
+        _tipLabel.text = NSLocalizedString(@"授权代表您信任该Dapp，VKToken不对由此造成的损失负责", nil);
         _tipLabel.font = [UIFont systemFontOfSize:13];
         _tipLabel.textColor = HEXCOLOR(0x999999);
         _tipLabel.textAlignment = NSTextAlignmentCenter;

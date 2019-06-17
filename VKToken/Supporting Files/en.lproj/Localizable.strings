@@ -425,7 +425,7 @@
 /*
  VKTMappingImportAccountHeaderView.m
  */
-"该功能仅适用于VKT映射获得的私钥，且每个映射获得的私钥只能创建一个的VKT账号。"="Only work for the private keys from VKT mapping and could create only one accout each. \nIf you have created accout with your private key by PE or other wallet, Please Import your accout.";
+"该功能仅适用于VKT映射获得的私钥，且每个映射获得的私钥只能创建一个的VKT账号。"="Only work for the private keys from VKT mapping and could create only one accout each. \nIf you have created accout with your private key by VKToken or other wallet, Please Import your accout.";
 
 /*
  ImportAccountViewController.m
@@ -544,7 +544,7 @@
 /*
  PeRichListViewController.m
  */
-"pE富豪榜"="Rich List";
+"VKToken富豪榜"="Rich List";
 
 /*
  AccountsTableManager.m
@@ -782,19 +782,19 @@
 "转账授权"="Transfer Authorize";
 "取消授权"="Cancel Authorizing";
 "失败"="Failed!";
-"授权代表您信任该Dapp，PE不对由此造成的损失负责"="Don't authorize unless you turst the dapp, and PE is liability exemption.";
+"授权代表您信任该Dapp，VKToken不对由此造成的损失负责"="Don't authorize unless you turst the dapp, and VKToken is liability exemption.";
 "确认授权"="Authorize";
 "密码"="Password";
 "请输入钱包密码"="Set the wallet password";
 "请求授权账户和本地账户不同,请谨慎操作"="Auth account is different form local account, be extremely careful!";
 "请查看所有签名内容后再确认"="Please check all signature informations.";
-"1. 使用免密功能将通过本地缓存为您自动填充密码；\n 2. 退出Dapp后免密功能自动失效，下次需要重新开启；\n 3. PE不会保存您的密码。\n"=" 1. Password-free work with local cache; \n 2. Password-free expired when exit；\n 3. PE will not save your password.";
+"1. 使用免密功能将通过本地缓存为您自动填充密码；\n 2. 退出Dapp后免密功能自动失效，下次需要重新开启；\n 3. VKToken不会保存您的密码。\n"=" 1. Password-free work with local cache; \n 2. Password-free expired when exit；\n 3. VKToken will not save your password.";
 "更多任务, 敬请期待"="More tasks coming soon!";
 "最多选取30个节点"="Cloud not vote more than 30 nodes";
 
 "选择您的VKT账号"="Select VKT account";
 "选择您的Token"="Selcet Token";
-"确认即同意第三方Dapp的用户协议与隐私政策"="The Dapp provided by third party. You should agree third party Terms and Private Policy to continue. PE takes no responsibility for this Dapp.";
+"确认即同意第三方Dapp的用户协议与隐私政策"="The Dapp provided by third party. You should agree third party Terms and Private Policy to continue. VKToken takes no responsibility for this Dapp.";
 "笔交易"="transactions";
 "交易成功，共转出"="Done. Send";
 "交易失败"="Tx failed";
@@ -876,6 +876,41 @@
 "暂无账号"="No account";
 "变更私钥权限成功"="Change Permision Success";
 
+"tip_one"="Password strength is critical to guard your wallet.";
+"tip_two"="We can't recover the password, please backup cautiously.";
+
+"wallet_foundation"="Foundation";
+"wallet_name"="Wallet Name";
+"set_pwd"="Password";
+"repeat_pwd"="Repeat";
+"pwd_hint"="Password Hint";
+"pwd_optional"="optional";
+"read_agree"="Read & agreed on";
+"input_private_key"="Please input your private key";
+"derive_path"="Path";
+"import_start"="Start Importing";
+
+"pwd_length_tip"="At least 8 characters, better to mix letters, digits, symbols.";
+"pwd_length_weak"="Password is too weak, easily get hacked.";
+
+"mnemonic_write_down"="Please backup the mnemonic words";
+"confirm_mnemonic_title"="Confirm your mnemonic words";
+"confirm_mnemonic_desc"="Please choose mnemonic words in order and make sure your mnemonic was correct written";
+"entry_agree"="Agree with Terms of Service and Privacy Policy to Enter";
+"tap_reauth"="Retry";
+
+"send_trans_fail"="Unable to Make a Transaction";
+"desc_wrong_pwd"="Wrong Password";
+
+"backup_wallet_line_prefix"="For your wallet (";
+"backup_wallet_line_suffix"=")'s safety";
+"backup_tips"="Please backup the mnemonic or the private key";
+"backup_now"="Backup now";
+
+"read_first"="Read the Policies First";
+"about_us_desc"="TokenPocket is a Safe, Simple and Powerful digital assets light wallet. We aim to make Blockchain happen to average users.";
+
+
 /*
  CreateMemonicViewController.m
  */
@@ -888,3 +923,30 @@
 "confirm_result"="Validation results";
 "reconfirm_mnemonic"="Assist word order verification error, please reconfirm";
 "backup_succ"="Backup success";
+
+/*
+ MemonicImportWalletViewController.m
+ */
+"wallet_foundation"="Foundation";
+"wallet_name"="Wallet Name";
+"set_pwd"="Password";
+"repeat_pwd"="Repeat";
+"pwd_hint"="Password Hint";
+"pwd_optional"="optional";
+"read_agree"="Read & agreed on";
+"input_private_key"="Please input your private key";
+"input_mnemonic_words"="Please enter a mnemonic, separated by spaces";
+"derive_path"="Path";
+"import_start"="Start Importing";
+
+/*
+ MemonicImportWalletViewController.m
+ */
+"custom_path"="Your Custom Path";
+"service_privacy"="Terms of Service and Privacy Policy";
+"pwd_not_match"="Password doesn't match, please try again";
+"importing"="Importing...";
+"m_new_wallet"="M-Wallet";
+"import_succ"="Import Successfully";
+"import_fail"="Import Failed";
+"input_mnemonic_words"="Please use space to separate the mnemonic words";

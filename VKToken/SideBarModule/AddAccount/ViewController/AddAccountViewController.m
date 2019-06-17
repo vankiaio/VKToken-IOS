@@ -20,6 +20,7 @@
 #import "ImportAccountWithoutAccountNameBaseViewController.h"
 #import "VKTButton.h"
 #import "LanguageSettingViewController.h"
+#import "MemonicImportWalletViewController.h"
 
 @interface AddAccountViewController ()<CommonDialogHasTitleViewDelegate, UINavigationControllerDelegate>
 @property(nonatomic, strong) NavigationView *navView;
@@ -192,7 +193,7 @@
     [vktbtnRecoveryAccount setTitle:NSLocalizedString(@"恢复账号", nil) forState:(UIControlStateNormal)];
     NSMutableAttributedString *strvktbtnRecoveryAccount = [[NSMutableAttributedString alloc] initWithString:@"恢复账号" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size: 19], NSForegroundColorAttributeName: [UIColor whiteColor]}];
     vktbtnRecoveryAccount.titleLabel.attributedText = strvktbtnRecoveryAccount;
-    [vktbtnRecoveryAccount addTarget:self action:@selector(btnCreateAccount) forControlEvents:UIControlEventTouchUpInside];
+    [vktbtnRecoveryAccount addTarget:self action:@selector(btnRestoreAccount) forControlEvents:UIControlEventTouchUpInside];
     
 
     [self checkWhetherHasFreeQuota];
@@ -226,9 +227,10 @@
 - (void)btnRestoreAccount
 {
     NSLog(@"%s", "Click btnRestoreAccount");
-    LanguageSettingViewController *vc = [[LanguageSettingViewController alloc] init];
-    vc.languageSettingViewControllerFromMode = LanguageSettingViewControllerFromLoginPage;
-    [self.navigationController pushViewController:vc animated:YES];
+//    LanguageSettingViewController *vc = [[LanguageSettingViewController alloc] init];
+//    vc.languageSettingViewControllerFromMode = LanguageSettingViewControllerFromLoginPage;
+    MemonicImportWalletViewController *_memonicVC = [[MemonicImportWalletViewController alloc] initWithNibName:@"MemonicImportWalletViewController" bundle:nil];
+    [self.navigationController pushViewController:_memonicVC animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

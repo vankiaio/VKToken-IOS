@@ -364,8 +364,9 @@
 
 - (void)confirmBtnDidClick:(UIButton *)sender{
     // 验证密码输入是否正确
-    Wallet *current_wallet = CURRENT_WALLET;
-    if (![WalletUtil validateWalletPasswordWithSha256:current_wallet.wallet_shapwd password:self.loginPasswordView.inputPasswordTF.text]) {
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    
+    if([[tokenCoreVKT  verifyWalletPassword:self.loginPasswordView.inputPasswordTF.text:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         [TOASTVIEW showWithText:NSLocalizedString(@"密码输入错误!", nil)];
         [self removePasswordView];
         return;
@@ -373,9 +374,8 @@
     
     if ([self.currentAction isEqualToString:@"ExportPrivateKey"]) {
         [self.view addSubview:self.exportPrivateKeyView];
-        AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.model.account_name];
-//        NSString *privateKeyStr = [NSString stringWithFormat:@"OWNKEY:\n%@    \n\nACTIVEKEY：\n%@\n",  [AESCrypt decrypt:model.account_owner_private_key password:self.loginPasswordView.inputPasswordTF.text],[AESCrypt decrypt:model.account_active_private_key password:self.loginPasswordView.inputPasswordTF.text]];
-        NSString *privateKeyStr = [NSString stringWithFormat:@"Private Key:\n%@    \n\n",  [AESCrypt decrypt:model.account_owner_private_key password:self.loginPasswordView.inputPasswordTF.text]];
+
+        NSString *privateKeyStr = [NSString stringWithFormat:@"Private Key:\n%@    \n\n",  [tokenCoreVKT getVktPrivateKey: self.loginPasswordView.inputPasswordTF.text:nil]];
         self.exportPrivateKeyView.contentTextView.text = privateKeyStr;
         [self.loginPasswordView removeFromSuperview];
     }else if ([self.currentAction isEqualToString:@"DeleteAccount"]){

@@ -121,7 +121,7 @@
 // 隐藏自带的导航栏
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [MobClick beginLogPageView:@"pe转账"]; //("Pagename"为页面名称，可自定义)
+    [MobClick beginLogPageView:@"VKToken转账"]; //("Pagename"为页面名称，可自定义)
     
     // 设置默认的转账账号及资产
     if (self.transferModel || self.recieveTokenModel) {
@@ -162,7 +162,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [MobClick endLogPageView:@"vkt转账"];
+    [MobClick endLogPageView:@"转账"];
 }
 
 - (void)viewDidLoad {
@@ -330,8 +330,9 @@
 
 - (void)confirmBtnDidClick:(UIButton *)sender{
     // 验证密码输入是否正确
-    Wallet *current_wallet = CURRENT_WALLET;
-    if (![WalletUtil validateWalletPasswordWithSha256:current_wallet.wallet_shapwd password:self.loginPasswordView.inputPasswordTF.text]) {
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    
+    if([[tokenCoreVKT  verifyWalletPassword:self.loginPasswordView.inputPasswordTF.text:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         [TOASTVIEW showWithText:NSLocalizedString(@"密码输入错误!", nil)];
         return;
     }

@@ -18,7 +18,7 @@
 
 
 /**
- pe 富豪榜钱包
+ VKToken 富豪榜钱包
  */
 @property(nonatomic, strong) Follow *walletModel;
 

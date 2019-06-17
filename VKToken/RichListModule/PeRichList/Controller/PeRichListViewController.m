@@ -22,7 +22,7 @@
 
 - (NavigationView *)navView{
     if (!_navView) {
-        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"back" title:NSLocalizedString(@"pE富豪榜", nil)rightBtnImgName:@"" delegate:self];
+        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"back" title:NSLocalizedString(@"VKToken富豪榜", nil)rightBtnImgName:@"" delegate:self];
     }
     return _navView;
 }

@@ -107,12 +107,12 @@
     self.currentAccountName = CURRENT_ACCOUNT_NAME;
     // 设置资产
     self.headerView.assestChooserLabel.text = self.currentToken.token_symbol;
-    [MobClick beginLogPageView:@"pe发红包"];
+    [MobClick beginLogPageView:@"VKToken发红包"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [MobClick endLogPageView:@"pe发红包"];
+    [MobClick endLogPageView:@"VKToken发红包"];
 }
 
 - (void)viewDidLoad {

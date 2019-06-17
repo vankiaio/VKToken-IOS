@@ -1,5 +1,5 @@
 //
-//  TPOSMacro.h
+//  Macro.h
 //  TokenBank
 //
 //  Created by MarcusWoo on 04/01/2018.
@@ -69,4 +69,4 @@
 #define Log(...) {}
 #endif
 
-#endif /* TPOSMacro_h */
+#endif /* Macro_h */

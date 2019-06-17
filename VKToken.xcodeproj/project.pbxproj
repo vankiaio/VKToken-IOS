@@ -1311,10 +1311,6 @@
 		24FB2CA820DBF86800AC73A5 /* BandwidthManageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CA720DBF86800AC73A5 /* BandwidthManageHeaderView.m */; };
 		24FB2CAE20DBF99700AC73A5 /* BandwidthManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CAC20DBF99700AC73A5 /* BandwidthManageTableViewCell.m */; };
 		24FB2CB220DBF9CE00AC73A5 /* BandwidthManageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CB120DBF9CE00AC73A5 /* BandwidthManageCellModel.m */; };
-		6E151F8E22AF562200035664 /* CreateMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E151F8822AF562100035664 /* CreateMemonicViewController.xib */; };
-		6E151F8F22AF562200035664 /* CreateMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F8922AF562100035664 /* CreateMemonicViewController.m */; };
-		6E151F9022AF562200035664 /* ConfirmMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F8A22AF562100035664 /* ConfirmMemonicViewController.m */; };
-		6E151F9122AF562200035664 /* ConfirmMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E151F8B22AF562100035664 /* ConfirmMemonicViewController.xib */; };
 		6E151F9422AF649200035664 /* UILabel+SpacesAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */; };
 		6E151F9722AF86D100035664 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F9622AF86D100035664 /* ContentView.m */; };
 		6E1F521A22940C9C003D1C3D /* GetAssestLockRecordsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520622940C9C003D1C3D /* GetAssestLockRecordsRequest.m */; };
@@ -1417,6 +1413,18 @@
 		6E1F52D82296962C003D1C3D /* icon_copy_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1F527E2296962C003D1C3D /* icon_copy_white@3x.png */; };
 		6E1F52D92296962C003D1C3D /* icon_drag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1F527F2296962C003D1C3D /* icon_drag@3x.png */; };
 		6E1F52DA2296962C003D1C3D /* logo_van_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1F52802296962C003D1C3D /* logo_van_green@2x.png */; };
+		6E9AF83622B1055B00D3514D /* CreateMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */; };
+		6E9AF83722B1055B00D3514D /* CreateMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */; };
+		6E9AF83822B1055B00D3514D /* ConfirmMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */; };
+		6E9AF83922B1055B00D3514D /* ConfirmMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83322B1055B00D3514D /* ConfirmMemonicViewController.xib */; };
+		6E9AF83F22B106B700D3514D /* MemonicImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83C22B106B700D3514D /* MemonicImportWalletViewController.xib */; };
+		6E9AF84022B106B700D3514D /* MemonicImportWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83D22B106B700D3514D /* MemonicImportWalletViewController.m */; };
+		6E9AF84222B1E80000D3514D /* RetrivePathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF84122B1E80000D3514D /* RetrivePathCell.m */; };
+		6E9AF84622B1EF7D00D3514D /* PasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF84522B1EF7D00D3514D /* PasswordView.m */; };
+		6E9AF84A22B1F2BB00D3514D /* NJOPasswordStrengthEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF84922B1F2BB00D3514D /* NJOPasswordStrengthEvaluator.m */; };
+		6E9AF84D22B1F53F00D3514D /* UIImage+.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF84B22B1F53F00D3514D /* UIImage+.m */; };
+		6E9AF84F22B2064500D3514D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF84E22B2064500D3514D /* Assets.xcassets */; };
+		6E9AF85122B2384B00D3514D /* RetrivePathCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF85022B2384B00D3514D /* RetrivePathCell.xib */; };
 		6EC292ED228D8034006DB42F /* TokenCoreVKT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC292EA228D8034006DB42F /* TokenCoreVKT.swift */; };
 		6EC292EE228D8034006DB42F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC292EB228D8034006DB42F /* Constants.swift */; };
 		6EC292EF228D8034006DB42F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC292EC228D8034006DB42F /* Utils.swift */; };
@@ -3708,12 +3716,6 @@
 		24FB2CBA20DBFE7200AC73A5 /* UIViewAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		3FD54694ABA61B4EAAED3C32 /* Pods_VKToken.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKToken.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0B081B22AF8BBA003BB1AE /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
-		6E151F8822AF562100035664 /* CreateMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateMemonicViewController.xib; sourceTree = "<group>"; };
-		6E151F8922AF562100035664 /* CreateMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemonicViewController.m; sourceTree = "<group>"; };
-		6E151F8A22AF562100035664 /* ConfirmMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMemonicViewController.m; sourceTree = "<group>"; };
-		6E151F8B22AF562100035664 /* ConfirmMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmMemonicViewController.xib; sourceTree = "<group>"; };
-		6E151F8C22AF562100035664 /* ConfirmMemonicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmMemonicViewController.h; sourceTree = "<group>"; };
-		6E151F8D22AF562100035664 /* CreateMemonicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemonicViewController.h; sourceTree = "<group>"; };
 		6E151F9222AF649200035664 /* UILabel+SpacesAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SpacesAdjust.h"; sourceTree = "<group>"; };
 		6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SpacesAdjust.m"; sourceTree = "<group>"; };
 		6E151F9522AF86D100035664 /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
@@ -3827,6 +3829,25 @@
 		6E1F527E2296962C003D1C3D /* icon_copy_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy_white@3x.png"; sourceTree = "<group>"; };
 		6E1F527F2296962C003D1C3D /* icon_drag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_drag@3x.png"; sourceTree = "<group>"; };
 		6E1F52802296962C003D1C3D /* logo_van_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_van_green@2x.png"; sourceTree = "<group>"; };
+		6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateMemonicViewController.xib; sourceTree = "<group>"; };
+		6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemonicViewController.m; sourceTree = "<group>"; };
+		6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMemonicViewController.m; sourceTree = "<group>"; };
+		6E9AF83322B1055B00D3514D /* ConfirmMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmMemonicViewController.xib; sourceTree = "<group>"; };
+		6E9AF83422B1055B00D3514D /* ConfirmMemonicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmMemonicViewController.h; sourceTree = "<group>"; };
+		6E9AF83522B1055B00D3514D /* CreateMemonicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemonicViewController.h; sourceTree = "<group>"; };
+		6E9AF83C22B106B700D3514D /* MemonicImportWalletViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemonicImportWalletViewController.xib; sourceTree = "<group>"; };
+		6E9AF83D22B106B700D3514D /* MemonicImportWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = sourcecode.c.objc; path = MemonicImportWalletViewController.m; sourceTree = "<group>"; };
+		6E9AF83E22B106B700D3514D /* MemonicImportWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemonicImportWalletViewController.h; sourceTree = "<group>"; };
+		6E9AF84122B1E80000D3514D /* RetrivePathCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RetrivePathCell.m; sourceTree = "<group>"; };
+		6E9AF84322B1E81B00D3514D /* RetrivePathCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RetrivePathCell.h; sourceTree = "<group>"; };
+		6E9AF84422B1EF5100D3514D /* PasswordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordView.h; sourceTree = "<group>"; };
+		6E9AF84522B1EF7D00D3514D /* PasswordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordView.m; sourceTree = "<group>"; };
+		6E9AF84822B1F2BB00D3514D /* NJOPasswordStrengthEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJOPasswordStrengthEvaluator.h; sourceTree = "<group>"; };
+		6E9AF84922B1F2BB00D3514D /* NJOPasswordStrengthEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJOPasswordStrengthEvaluator.m; sourceTree = "<group>"; };
+		6E9AF84B22B1F53F00D3514D /* UIImage+.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+.m"; sourceTree = "<group>"; };
+		6E9AF84C22B1F53F00D3514D /* UIImage+.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+.h"; sourceTree = "<group>"; };
+		6E9AF84E22B2064500D3514D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E9AF85022B2384B00D3514D /* RetrivePathCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RetrivePathCell.xib; sourceTree = "<group>"; };
 		6EC292E1228D7FC6006DB42F /* VKToken-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VKToken-Bridging-Header.h"; sourceTree = "<group>"; };
 		6EC292EA228D8034006DB42F /* TokenCoreVKT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenCoreVKT.swift; sourceTree = "<group>"; };
 		6EC292EB228D8034006DB42F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -4001,6 +4022,7 @@
 		18112F051FCD003E00BEA0D9 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				6E9AF84722B1F2BB00D3514D /* PasswordStrength */,
 				6EC292E9228D8004006DB42F /* TokenCoreVKT */,
 				18C6C14D21A690AD00250887 /* SGQRCode */,
 				18D02EF2214F8063006D2776 /* PocketSocketWebSocket */,
@@ -4353,6 +4375,11 @@
 				6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */,
 				1816919920BF7E9400BF49A8 /* ImageAndTipLabelViewManager.h */,
 				1816919A20BF7E9400BF49A8 /* ImageAndTipLabelViewManager.m */,
+				6E9AF85022B2384B00D3514D /* RetrivePathCell.xib */,
+				6E9AF84122B1E80000D3514D /* RetrivePathCell.m */,
+				6E9AF84322B1E81B00D3514D /* RetrivePathCell.h */,
+				6E9AF84422B1EF5100D3514D /* PasswordView.h */,
+				6E9AF84522B1EF7D00D3514D /* PasswordView.m */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -5189,6 +5216,8 @@
 		18372D522063C9FF004D19D0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6E9AF84C22B1F53F00D3514D /* UIImage+.h */,
+				6E9AF84B22B1F53F00D3514D /* UIImage+.m */,
 				6E0B081B22AF8BBA003BB1AE /* Macro.h */,
 				18372D532063CA11004D19D0 /* NumberFormatter.h */,
 				18372D542063CA11004D19D0 /* NumberFormatter.m */,
@@ -7027,7 +7056,8 @@
 		187268521FDE315F00C898D1 /* pocketManagement */ = {
 			isa = PBXGroup;
 			children = (
-				6E151F6722AF50EE00035664 /* CreateMemonic */,
+				6E9AF83A22B106B700D3514D /* ImportMnemonic */,
+				6E9AF82D22B1055B00D3514D /* CreateMnemonic */,
 				18CE935321A508CB002F958E /* ResetAccountPermision */,
 				18CE934821A4F56F002F958E /* ImportAccountPermision */,
 				18210839219E6B8300897B60 /* ImportAccountWithoutAccountName */,
@@ -7282,6 +7312,7 @@
 				18FDFFBB202451CB00AEB4FA /* QRCode */,
 				182B8F9520AD59A700C43AEC /* LEETheme */,
 				18E72E321FCC1A8800D09CA3 /* Images */,
+				6E9AF84E22B2064500D3514D /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -10316,27 +10347,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6E151F6722AF50EE00035664 /* CreateMemonic */ = {
-			isa = PBXGroup;
-			children = (
-				6E151F8722AF562100035664 /* View */,
-			);
-			path = CreateMemonic;
-			sourceTree = "<group>";
-		};
-		6E151F8722AF562100035664 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6E151F8822AF562100035664 /* CreateMemonicViewController.xib */,
-				6E151F8922AF562100035664 /* CreateMemonicViewController.m */,
-				6E151F8D22AF562100035664 /* CreateMemonicViewController.h */,
-				6E151F8B22AF562100035664 /* ConfirmMemonicViewController.xib */,
-				6E151F8A22AF562100035664 /* ConfirmMemonicViewController.m */,
-				6E151F8C22AF562100035664 /* ConfirmMemonicViewController.h */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		6E1F520322940C9C003D1C3D /* AssetLock */ = {
 			isa = PBXGroup;
 			children = (
@@ -10496,6 +10506,62 @@
 				6E1F525522969627003D1C3D /* tabicon_wallet_n@3x.png */,
 			);
 			path = 201905;
+			sourceTree = "<group>";
+		};
+		6E9AF82D22B1055B00D3514D /* CreateMnemonic */ = {
+			isa = PBXGroup;
+			children = (
+				6E9AF82E22B1055B00D3514D /* Controller */,
+				6E9AF82F22B1055B00D3514D /* View */,
+			);
+			path = CreateMnemonic;
+			sourceTree = "<group>";
+		};
+		6E9AF82E22B1055B00D3514D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E9AF82F22B1055B00D3514D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */,
+				6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */,
+				6E9AF83522B1055B00D3514D /* CreateMemonicViewController.h */,
+				6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */,
+				6E9AF83322B1055B00D3514D /* ConfirmMemonicViewController.xib */,
+				6E9AF83422B1055B00D3514D /* ConfirmMemonicViewController.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E9AF83A22B106B700D3514D /* ImportMnemonic */ = {
+			isa = PBXGroup;
+			children = (
+				6E9AF83B22B106B700D3514D /* View */,
+			);
+			path = ImportMnemonic;
+			sourceTree = "<group>";
+		};
+		6E9AF83B22B106B700D3514D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E9AF83C22B106B700D3514D /* MemonicImportWalletViewController.xib */,
+				6E9AF83D22B106B700D3514D /* MemonicImportWalletViewController.m */,
+				6E9AF83E22B106B700D3514D /* MemonicImportWalletViewController.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E9AF84722B1F2BB00D3514D /* PasswordStrength */ = {
+			isa = PBXGroup;
+			children = (
+				6E9AF84822B1F2BB00D3514D /* NJOPasswordStrengthEvaluator.h */,
+				6E9AF84922B1F2BB00D3514D /* NJOPasswordStrengthEvaluator.m */,
+			);
+			path = PasswordStrength;
 			sourceTree = "<group>";
 		};
 		6EC292E9228D8004006DB42F /* TokenCoreVKT */ = {
@@ -10828,7 +10894,7 @@
 				1816915620BEC1B900BF49A8 /* right_arrow_white@2x.png in Resources */,
 				185D18331FE75CDC0021AD18 /* versionUpdate@3x.png in Resources */,
 				186BDC1521538A9A001190A7 /* CandyTopView.xib in Resources */,
-				6E151F8E22AF562200035664 /* CreateMemonicViewController.xib in Resources */,
+				6E9AF83622B1055B00D3514D /* CreateMemonicViewController.xib in Resources */,
 				18AD2BC120D0C9C400536084 /* vote_change_account@2x.png in Resources */,
 				183FF6F520C0FD700058D010 /* qq_login@2x.png in Resources */,
 				6E1F52CD2296962C003D1C3D /* tabicon_wallet_ac@2x.png in Resources */,
@@ -10952,6 +11018,7 @@
 				185D181E1FE75B270021AD18 /* pocket@2x.png in Resources */,
 				18291F4C20EE40C900D19CB9 /* QRCode_green@2x.png in Resources */,
 				6E1F52A72296962C003D1C3D /* icon_up@2x.png in Resources */,
+				6E9AF84F22B2064500D3514D /* Assets.xcassets in Resources */,
 				1872F133202D6F0C005B5915 /* addFollow@3x.png in Resources */,
 				1830A94D202BF796009ACDD8 /* oct_avatar@2x.png in Resources */,
 				6E1F52922296962C003D1C3D /* icon_me_setting@3x.png in Resources */,
@@ -10964,6 +11031,7 @@
 				185D184C1FE760D10021AD18 /* QRCodeBackground@2x.png in Resources */,
 				185D18641FE766240021AD18 /* folder@3x.png in Resources */,
 				183FF74620C159740058D010 /* transaction_history_BB@2x.png in Resources */,
+				6E9AF85122B2384B00D3514D /* RetrivePathCell.xib in Resources */,
 				186F69F320F4961F00FFF881 /* BPCandidateFooterView.xib in Resources */,
 				185D183C1FE75ECA0021AD18 /* rectangle_UnSelected@3x.png in Resources */,
 				188A88952170527A00BE196A /* DAppExcuteMutipleActionsBaseViewTitleImage@3x.png in Resources */,
@@ -11150,7 +11218,7 @@
 				18D07A8A20EB676900DF1FDF /* createAccount@2x.png in Resources */,
 				1889E1C7217B4D34002ECF38 /* circleTip_yellow@2x.png in Resources */,
 				183FF73A20C14B980058D010 /* thumb_BB@2x.png in Resources */,
-				6E151F9122AF562200035664 /* ConfirmMemonicViewController.xib in Resources */,
+				6E9AF83922B1055B00D3514D /* ConfirmMemonicViewController.xib in Resources */,
 				18CEA641210233A500B2BFE2 /* PocketManagementHeaderView.xib in Resources */,
 				18A99B0720E6644000E32A29 /* Vkt.js in Resources */,
 				18CE935221A4F627002F958E /* ImportAccountPermisionHeaderView.xib in Resources */,
@@ -11159,6 +11227,7 @@
 				18AD2BC420D0C9C400536084 /* vote_change_account@3x.png in Resources */,
 				181130D21FCD468100BEA0D9 /* tip@2x.png in Resources */,
 				18291F1820ECA97300D19CB9 /* candy_Icon@3x.png in Resources */,
+				6E9AF83F22B106B700D3514D /* MemonicImportWalletViewController.xib in Resources */,
 				18AD2BD420D11BB300536084 /* advertisement_BP_Vote@3x.png in Resources */,
 				6E1F52C02296962C003D1C3D /* logo_van_green@3x.png in Resources */,
 				18BE63FD20EF81AB00238492 /* inviteFriend_icon@2x.png in Resources */,
@@ -11482,6 +11551,7 @@
 				6E151F9722AF86D100035664 /* ContentView.m in Sources */,
 				18388D472119431400FF5C3E /* CreateAccountOrderRequest.m in Sources */,
 				18ECBCC6215B5D3600BAE3C2 /* DappDetailService.m in Sources */,
+				6E9AF84A22B1F2BB00D3514D /* NJOPasswordStrengthEvaluator.m in Sources */,
 				183226FB20A2A76600BF6D6F /* DAppDetailViewController.m in Sources */,
 				18D07A7E20EB5AF900DF1FDF /* PocketManagementServiceTableViewCell.m in Sources */,
 				1826AD3F2079F54A0046EE7C /* PersonalSettingHeaderView.m in Sources */,
@@ -11529,6 +11599,7 @@
 				185DD6CE206CA80400BCFFCF /* MJProperty.m in Sources */,
 				18388D59211988EC00FF5C3E /* WechatPayRespResult.m in Sources */,
 				180FDF8A20219D5700BE593F /* AssestsMainTableViewCell.m in Sources */,
+				6E9AF84222B1E80000D3514D /* RetrivePathCell.m in Sources */,
 				1841419C202029B400A789ED /* RichlistDetailService.m in Sources */,
 				18BE5E9C21808731001B4610 /* CpuNetManageViewController.m in Sources */,
 				18F054D320CBBBFB001B0A29 /* BPCandidateService.m in Sources */,
@@ -11547,7 +11618,6 @@
 				18C7F768211AF924006AD456 /* CheckWhetherHasFreeQuotaResuest.m in Sources */,
 				189CECA120CFE70300F81AD8 /* GetNowVoteWeightRequest.m in Sources */,
 				18CEA6672105D22500B2BFE2 /* RootNavigationController.m in Sources */,
-				6E151F9022AF562200035664 /* ConfirmMemonicViewController.m in Sources */,
 				18112F681FCD016000BEA0D9 /* IQUIScrollView+Additions.m in Sources */,
 				1832CC44200761C400C055B6 /* AskQuestionModel.m in Sources */,
 				18EE055D1FDFB31800134E5C /* ImportAccountHeaderView.m in Sources */,
@@ -11614,6 +11684,7 @@
 				188F7A1920CA87A600911034 /* BPCandidateListViewController.m in Sources */,
 				18AD2BDE20D213E300536084 /* BPCandidateDetailViewController.m in Sources */,
 				189E3EC1201C5B980022AF19 /* RSKInternalUtility.m in Sources */,
+				6E9AF84D22B1F53F00D3514D /* UIImage+.m in Sources */,
 				1860442720D3517D00BEE917 /* UnstakeVktAbiJsonTobinRequest.m in Sources */,
 				183FF6E920C0D6820058D010 /* PBKDF2.m in Sources */,
 				18B44E5A208730D700BF41BA /* ShareModel.m in Sources */,
@@ -11621,7 +11692,6 @@
 				185BCFC32085A47000C4A558 /* RedPacket.m in Sources */,
 				18F054D020CBB8DE001B0A29 /* OptionModel.m in Sources */,
 				18FA76F32062578A00545E73 /* GetRequiredPublicKeyRequest.m in Sources */,
-				6E151F8F22AF562200035664 /* CreateMemonicViewController.m in Sources */,
 				1886079C1FCC012F00B00EE7 /* NSDictionary+ExFoundation.m in Sources */,
 				18CE933421A2CB62002F958E /* Keys.m in Sources */,
 				18CE931F21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.m in Sources */,
@@ -11630,6 +11700,7 @@
 				183F044A2150DB7A008C45B3 /* Abi_bin_to_json.m in Sources */,
 				18466DAA2010A049002E675A /* UIView+PYSearchExtension.m in Sources */,
 				18154F29201ABB5F00F73D14 /* UpdateUserNameRequest.m in Sources */,
+				6E9AF84022B106B700D3514D /* MemonicImportWalletViewController.m in Sources */,
 				1831F3AA20170FAB002CE94D /* AccountResult.m in Sources */,
 				6E1F521B22940C9C003D1C3D /* AssestLockRecordsViewController.m in Sources */,
 				184142622020A98100A789ED /* EnterpriseDetailViewController.m in Sources */,
@@ -11693,6 +11764,7 @@
 				189E3EBF201C5B980022AF19 /* RSKImageCropViewController.m in Sources */,
 				18C61D0E21772447003D9FC5 /* ExpandHitAreaButton.m in Sources */,
 				188F7A0D20CA5A7E00911034 /* LanguageSettingViewController.m in Sources */,
+				6E9AF83722B1055B00D3514D /* CreateMemonicViewController.m in Sources */,
 				1856E683210B1E55008EFC88 /* AccountQRCodeManagementHeaderView.m in Sources */,
 				18A2F46A1FF0A20A00B6CE43 /* FMDatabasePool.m in Sources */,
 				18210847219E738100897B60 /* Get_key_accounts_request.m in Sources */,
@@ -11829,6 +11901,7 @@
 				18C5C4801FCFB77F002A65CB /* NSString+Extention.m in Sources */,
 				184D61761FD4F36300EA26B1 /* NSDictionary+HYBUnicodeReadable.m in Sources */,
 				18CE934D21A4F603002F958E /* ImportAccountPermisionViewController.m in Sources */,
+				6E9AF84622B1EF7D00D3514D /* PasswordView.m in Sources */,
 				1878BCB420848A0D002A76F5 /* BaseHttpsNetworkRequest.m in Sources */,
 				185DD6DB206D119600BCFFCF /* AskQuestionTipView.m in Sources */,
 				181130091FCD01B800BEA0D9 /* SDWebImageCoder.m in Sources */,
@@ -11992,6 +12065,7 @@
 				180FDFCC2021B9E500BE593F /* PocketManagementService.m in Sources */,
 				18233E14206238000087D60B /* uECC.c in Sources */,
 				1816919B20BF7E9400BF49A8 /* ImageAndTipLabelViewManager.m in Sources */,
+				6E9AF83822B1055B00D3514D /* ConfirmMemonicViewController.m in Sources */,
 				6E1F522022940C9C003D1C3D /* AssestLockRecordTableViewCell.m in Sources */,
 				186BDC9C2154C3C2001190A7 /* NotifyDappServerResult.m in Sources */,
 				1812BB5D20B3AD3800C70801 /* AssestDetailFooterView.m in Sources */,

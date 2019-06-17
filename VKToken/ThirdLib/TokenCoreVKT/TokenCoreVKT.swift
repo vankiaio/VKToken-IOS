@@ -36,7 +36,7 @@ public class TokenCoreVKT:NSObject{
             let identity: Identity
             if let mnemonic = mnemonic {
                 mnemonicStr = mnemonic
-                identity = try Identity.recoverIdentity(metadata: metadata, mnemonic: mnemonic, password: Constants.password)
+                identity = try Identity.recoverIdentity(metadata: metadata, mnemonic: mnemonic, password: password!)
             } else {
                 (mnemonicStr, identity) = try Identity.createIdentity(password: password!, metadata: metadata)
             }
@@ -92,6 +92,23 @@ public class TokenCoreVKT:NSObject{
         }
     }
     
+    @objc(getVktPrivateKey::)
+    func getVktPrivateKey(password: String? = nil) throws -> NSString{
+        do {
+            guard let identity = Identity.currentIdentity else {
+                requestResult = "Pls create or recover an identity first"
+                return NSString("");
+            }
+            
+            if let existWallet = try? WalletManager.findWalletByAddress( identity.wallets.first { (wallet) -> Bool in
+                return wallet.imTokenMeta.chain == .eos}!.address, on: .eos) {
+                return NSString(string:try! existWallet.privateKeys(password: password!)[0].privateKey)
+            }else{
+                return NSString("");
+            }
+        }
+    }
+    
     @objc(hasVktWallet:)
     func hasVktWallet() throws -> NSNumber{
         do {
@@ -99,7 +116,7 @@ public class TokenCoreVKT:NSObject{
                 requestResult = "Pls create or recover an identity first"
                 return NSNumber(value: 0);
             }
-            return NSNumber(value: identity.wallets.count)
+            return NSNumber(value: identity.wallets.count == 3)
         }
     }
     
@@ -165,6 +182,23 @@ public class TokenCoreVKT:NSObject{
                 return NSString(string:try! existWallet.exportMnemonic(password: password!))
             }else{
                 return NSString("");
+            }
+        }
+    }
+    
+    @objc(verifyWalletPassword::)
+    func verifyWalletPassword(password: String? = nil) throws -> NSNumber{
+        do {
+            guard let identity = Identity.currentIdentity else {
+                requestResult = "Pls create or recover an identity first"
+                return false as NSNumber;
+            }
+            
+            if let existWallet = try? WalletManager.findWalletByAddress( identity.wallets.first { (wallet) -> Bool in
+                return wallet.imTokenMeta.chain == .eth}!.address, on: .eth) {
+                return try! existWallet.verifyPassword(password!) as NSNumber
+            }else{
+                return false as NSNumber;
             }
         }
     }

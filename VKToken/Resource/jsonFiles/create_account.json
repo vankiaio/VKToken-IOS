@@ -1,10 +1,10 @@
 {
   "type": "actions_QRCode",
   "actions": [{
-      "account": "vktio",
+      "account": "eosio",
       "name": "newaccount",
       "authorization": [{
-        "actor": "vktio",
+        "actor": "eosio",
         "permission": "active"
       }],
       "data": {
@@ -17,7 +17,7 @@
           "threshold": 1,
           "waits": []
         },
-        "creator": "vktio",
+        "creator": "eosio",
         "name": "feishen11111",
         "owner": {
           "accounts": [],
@@ -31,14 +31,14 @@
       }
     },
     {
-      "account": "vktio",
+      "account": "eosio",
       "name": "delegatebw",
       "authorization": [{
-        "actor": "vktio",
+        "actor": "eosio",
         "permission": "active"
       }],
       "data": {
-        "from": "vktio",
+        "from": "eosio",
         "receiver": "feishen11111",
         "stake_cpu_quantity": "1.0000 SYS",
         "stake_net_quantity": "2.0000 SYS",
@@ -46,14 +46,14 @@
       }
     },
     {
-      "account": "vktio",
+      "account": "eosio",
       "name": "buyram",
       "authorization": [{
-        "actor": "vktio",
+        "actor": "eosio",
         "permission": "active"
       }],
      "data": {
-        "payer": "vktio",
+        "payer": "eosio",
         "quant": "3.0000 SYS",
         "receiver": "feishen11111"
      }

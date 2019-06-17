@@ -21,8 +21,8 @@
 /**
  SmartContractName
  */
-#define ContractName_VKTIOTOKEN @"vktio.token"
-#define ContractName_VKTIO @"vktio"
+#define ContractName_VKTIOTOKEN @"eosio.token"
+#define ContractName_VKTIO @"eosio"
 #define ContractName_OCTOTHEMOON @"octtothemoon"
 #define ContractName_HELLOWORLDGO @"helloworldgo"
 #define ContractName_OCASKANS @"ocaskans"
@@ -48,7 +48,7 @@
 
 
 #define RedPacketReciever @"vktredpacket"
-#define RedPacketSpecialAccount_VKTIO @"vktio"
+#define RedPacketSpecialAccount_VKTIO @"eosio"
 
 
 #endif /* ContractConstant_h */

@@ -8,8 +8,8 @@
 /* Class = "UILabel"; text = "VKT账号"; ObjectID = "bEL-0w-RtT"; */
 "bEL-0w-RtT.text" = "VKT账号";
 
-/* Class = "UILabel"; text = "授权代表您信任该Dapp，PE不对由此造成的损失负责"; ObjectID = "kam-kR-NeW"; */
-"kam-kR-NeW.text" = "授权代表您信任该Dapp，PE不对由此造成的损失负责";
+/* Class = "UILabel"; text = "授权代表您信任该Dapp，VKToken不对由此造成的损失负责"; ObjectID = "kam-kR-NeW"; */
+"kam-kR-NeW.text" = "授权代表您信任该Dapp，VKToken不对由此造成的损失负责";
 
 /* Class = "UIButton"; normalTitle = "确认授权"; ObjectID = "vts-DM-7Ws"; */
 "vts-DM-7Ws.normalTitle" = "确认授权";
