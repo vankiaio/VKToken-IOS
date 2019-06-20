@@ -8,7 +8,7 @@
 
 #import "PasswordView.h"
 //#import "UIColor+Hex.h"
-//#import "TPOSLocalizedHelper.h"
+//#import "LocalizedHelper.h"
 
 #define levelViewW 10
 #define levelViewH 5

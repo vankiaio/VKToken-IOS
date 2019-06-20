@@ -137,7 +137,7 @@
                 
                 //    [tokenCoreVKT importEthPrivateKey];
                 //    NSLog(NSLocalizedString(@"importEthPrivateKey助记词:%@", nil), tokenCoreVKT.requestResult);
-                if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedDescending) {
+                if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] != NSOrderedSame) {
                     [self createkeys];
                 }
             }

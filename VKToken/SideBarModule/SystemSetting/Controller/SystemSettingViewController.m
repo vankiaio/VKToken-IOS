@@ -15,10 +15,17 @@
 #import "LanguageSettingViewController.h"
 #import "AboutUsViewController.h"
 #import "ShareToFrirndsViewController.h"
+#import "Macro.h"
+#import "AuthID.h"
+#import "AuthPasswordViewController.h"
+
+@import LocalAuthentication;
 
 @interface SystemSettingViewController ()< UIGestureRecognizerDelegate, NavigationViewDelegate, UITableViewDelegate , UITableViewDataSource>
 @property(nonatomic, strong) NavigationView *navView;
 @property(nonatomic , strong) NSDictionary *dataSourceDictionary;
+@property (nonatomic, strong) UISwitch *fingerprintLoginSwitch;
+@property (nonatomic, strong) NSString *authString;
 @end
 
 @implementation SystemSettingViewController
@@ -33,15 +40,45 @@
 
 - (NSDictionary *)dataSourceDictionary{
     if (!_dataSourceDictionary) {
+        NSString *authType = [[NSUserDefaults standardUserDefaults] objectForKey:kAuthTypeKey];
+        if (authType) {
+            if ([authType isEqualToString:kAuthTypePassword]) {
+                _authString = NSLocalizedString(@"login_pwd", nil);
+            } else if ([authType isEqualToString:kAuthTypeFaceId]) {
+                _authString = NSLocalizedString(@"login_faceid", nil);
+            } else if ([authType isEqualToString:kAuthTypeTouchId]) {
+                _authString = NSLocalizedString(@"login_touchid", nil);
+            }
+        } else {
+            switch ([AuthID sharedInstance].supportBiometricType) {
+                case AuthSupportTypeNone:
+                    _authString = NSLocalizedString(@"login_pwd", nil);
+                    break;
+                case AuthSupportTypeTouchID:
+                    _authString = NSLocalizedString(@"login_touchid", nil);
+                    break;
+                case AuthSupportTypeFaceID:
+                    _authString = NSLocalizedString(@"login_faceid", nil);
+                    break;
+                default:
+                    _authString = NSLocalizedString(@"login_pwd", nil);
+                    break;
+            }
+        }
+        
+        BOOL isSwitchOn = ([[NSUserDefaults standardUserDefaults] objectForKey:kAuthSwithOnStatusKey] != nil);
+        
+    
         if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {
             _dataSourceDictionary = @{
-                                      @"firstSection" : @[NSLocalizedString(@"清空缓存", nil), NSLocalizedString(@"语言", nil), NSLocalizedString(@"意见反馈", nil)]  ,
+                                      @"firstSection" : @[NSLocalizedString(@"清空缓存", nil), NSLocalizedString(@"语言", nil),
+                                                        @{@"title":NSLocalizedString(_authString, nil),@"switch":@(isSwitchOn)},NSLocalizedString(@"意见反馈", nil)]  ,
                                       @"secondSection" : @[ NSLocalizedString(@"法律条款与隐私政策", nil), NSLocalizedString(@"关于我们", nil)],
                                       @"thirdSection": @[NSLocalizedString(@"分享给好友", nil)]
                                       };//NSLocalizedString(@"语言", nil),
         }else if(LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
             _dataSourceDictionary = @{
-                                      @"firstSection" : @[NSLocalizedString(@"清空缓存", nil), NSLocalizedString(@"语言", nil)],
+                                      @"firstSection" : @[NSLocalizedString(@"清空缓存", nil), NSLocalizedString(@"语言", nil), @{@"title":NSLocalizedString(_authString, nil),@"switch":@(isSwitchOn)}],
                                       @"secondSection" : @[ NSLocalizedString(@"法律条款与隐私政策", nil), NSLocalizedString(@"关于我们", nil)]
                                       };//NSLocalizedString(@"语言", nil),
         }
@@ -78,16 +115,33 @@
     
     if (indexPath.section == 0) {
         NSArray *topArr = [self.dataSourceDictionary objectForKey:@"firstSection"];
-        cell.textLabel.text = topArr[indexPath.row];
-        if([cell.textLabel.text isEqualToString:NSLocalizedString(@"清空缓存", nil)]){
-            NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)[0];
-            cell.detailTextLabel.text = [cachePath fileSize];
-            cell.detailTextLabel.textColor = RGB(240, 143, 67);
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
-            cell.rightIconImageView.hidden = YES;
-        }
         if (indexPath.row == (topArr.count-1)) {
+            NSDictionary *dict = [self.dataSourceDictionary objectForKey:@"firstSection"][indexPath.row];
+            if (dict) {
+                cell.textLabel.text = [dict objectForKey:@"title"];
+                NSNumber *switchValue = dict[@"switch"];
+                if (switchValue == nil) {
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                } else {
+                    UISwitch *fingerprintLoginSwitch = [[UISwitch alloc] init];
+                    [fingerprintLoginSwitch addTarget:self action:@selector(valueChnage:) forControlEvents:UIControlEventTouchUpInside];
+                    fingerprintLoginSwitch.on = [switchValue boolValue];
+                    cell.accessoryView = fingerprintLoginSwitch;
+                    _fingerprintLoginSwitch = fingerprintLoginSwitch;
+                }
+                
+            }
+            cell.rightIconImageView.hidden = YES;
             cell.bottomLineView.hidden = YES;
+        }else {
+            cell.textLabel.text = topArr[indexPath.row];
+            if([cell.textLabel.text isEqualToString:NSLocalizedString(@"清空缓存", nil)]){
+                NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)[0];
+                cell.detailTextLabel.text = [cachePath fileSize];
+                cell.detailTextLabel.textColor = RGB(240, 143, 67);
+                cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+                cell.rightIconImageView.hidden = YES;
+            }
         }
     }else if (indexPath.section == 1){
         NSArray *bottomArr = [self.dataSourceDictionary objectForKey:@"secondSection"];
@@ -103,6 +157,19 @@
         }
     }
     return cell;
+}
+
+- (void)valueChnage:(UISwitch *)switchView {
+    AuthPasswordViewController *vc = [[AuthPasswordViewController alloc] initWithNibName:@"AuthPasswordViewController" bundle:nil];
+    
+    if (switchView.on) {
+        vc.pwdType = kPasswordTypeSet;
+        vc.title = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"set", nil),self.authString];
+    } else {
+        vc.pwdType = kPasswordTypeCancel;
+        vc.title = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"cancel", nil),self.authString];
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

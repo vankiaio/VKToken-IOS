@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (VKT)
+@interface UIImage (VKTOKEN)
 
 + (UIImage *)tb_imageWithURL:(NSURL *)url;
 

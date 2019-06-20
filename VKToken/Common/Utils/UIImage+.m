@@ -9,7 +9,7 @@
 #import "UIImage+.h"
 #import <Accelerate/Accelerate.h>
 
-@implementation UIImage (VKT)
+@implementation UIImage (VKTOKEN)
 
 + (UIImage *)tb_imageWithURL:(NSURL *)url {
     NSURLRequest *req = [NSURLRequest requestWithURL:url];

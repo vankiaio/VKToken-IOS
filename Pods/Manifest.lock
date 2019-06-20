@@ -13,6 +13,7 @@ PODS:
   - PocketSocket/Server (1.0.1):
     - PocketSocket/Client
   - SipHash (1.2.2)
+  - Toast (4.0.0)
   - TokenCore (0.1):
     - BigInt (= 3.0.0)
     - CryptoSwift (= 0.9.0)
@@ -20,6 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - PocketSocket (~> 1.0.1)
+  - Toast
   - TokenCore (from `https://github.com/vankiaio/token-core-ios.git`, branch `master`)
 
 SPEC REPOS:
@@ -29,6 +31,7 @@ SPEC REPOS:
     - GRKOpenSSLFramework
     - PocketSocket
     - SipHash
+    - Toast
 
 EXTERNAL SOURCES:
   TokenCore:
@@ -46,8 +49,9 @@ SPEC CHECKSUMS:
   GRKOpenSSLFramework: 35944e317e6336b2944ad70b059d84db6b2d8532
   PocketSocket: 9c6867d66fb4f962af96b9b07f4b45bb561b2c2a
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TokenCore: ddbea2578a2b091c8429a9b9671460b5e22a56c4
 
-PODFILE CHECKSUM: 4eb4e62e3c6855ce428e96e79d796845ce6c2644
+PODFILE CHECKSUM: f3fa8658f3dc2cb685369144de6282d7e91e80da
 
 COCOAPODS: 1.6.1

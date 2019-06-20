@@ -251,6 +251,9 @@
 "法律条款与隐私政策"="法律条款与隐私政策";
 "关于VKToken"="关于VKToken";
 "清理成功~"="清理成功~";
+"login_pwd"="密码登录";
+"login_faceid"="面部识别";
+"login_touchid"="指纹识别";
 
 /*
  LanguageSettingService.m
@@ -819,6 +822,7 @@
 "请分别输入Owner私钥和Active私钥："="请分别输入Owner私钥和Active私钥：";
 "请选择您想要导入的账号"="请选择您想要导入的账号";
 "下一步"="下一步";
+"next_step"="下一步";
 "点击导入"="点击导入";
 "导入成功"="导入成功";
 "导入失败"="导入失败";
@@ -853,17 +857,6 @@
 
 "tip_one"="密码用于保护私钥和交易授权，强度非常重要";
 "tip_two"="TokenPocket不存储密码，也无法帮您找回，请务必牢记";
-
-"wallet_foundation"="钱包体系";
-"wallet_name"="钱包名称";
-"set_pwd"="设置密码";
-"repeat_pwd"="确认密码";
-"pwd_hint"="提示信息";
-"pwd_optional"="可不填";
-"read_agree"="我已仔细阅读并同意";
-"input_private_key"="请输入明文私钥";
-"input_mnemonic_words"="请输入助记词，按空格做分隔";
-"import_start"="开始导入";
 
 "pwd_length_tip"="不少于8位字符，建议混合大小写字母、数字、特殊符号";
 "pwd_length_weak"="密码强度太低，极易被黑客破解";
@@ -913,6 +906,8 @@
 "input_mnemonic_words"="请输入助记词，按空格做分隔";
 "derive_path"="取回路径";
 "import_start"="开始导入";
+"recovery_account"="恢复账号";
+
 
 /*
  MemonicImportWalletViewController.m
@@ -924,3 +919,31 @@
 "m_new_wallet"="M-新钱包";
 "import_succ"="导入成功";
 "import_fail"="导入失败";
+
+/*
+ AuthID.m
+ */
+"input_pwd"="输入密码";
+"auth_with_touchId"="通过Home键验证已有指纹";
+
+/*
+ EnterAuthViewController.m
+ */
+"auth_pwd"="密码验证";
+"touch_pwd"="点击进行密码验证";
+"touch_touchId"="点击唤醒指纹验证";
+"touch_faceId"="点击唤醒面部验证";
+
+/*
+ AuthPasswordViewController.m
+ */
+"set_pwd"="请先设置密码";
+"repeat_pwd"="请再次输入密码";
+"input_pwd_auth"="请输入密码，以验证身份";
+"contact_us"="出问题了，赶紧和我们联系吧";
+"wrong_pwd"="密码不正确，请重新输入";
+"no_deviceId"="对不起，当前设备不支持指纹/面部ID";
+"deviceId_wrong"="指纹/面部ID不正确，验证失败";
+"auth_failed"="验证失败";
+"auth_fail_to_pwd"="多次错误，指纹/面部ID已被锁定，请到手机解锁界面输入密码";
+"setting_succ"="设置成功";

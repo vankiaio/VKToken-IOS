@@ -366,8 +366,8 @@
             return ;
         }
         NSLog(@"approve_abi_to_json_request_success: --binargs: %@",data[@"data"][@"binargs"] );
-        AccountInfo *accountInfo = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:CURRENT_ACCOUNT_NAME];
-        weakSelf.mainService.available_keys = @[VALIDATE_STRING(accountInfo.account_owner_public_key) , VALIDATE_STRING(accountInfo.account_active_public_key)];
+//        AccountInfo *accountInfo = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:CURRENT_ACCOUNT_NAME];
+        weakSelf.mainService.available_keys = @[VALIDATE_STRING([tokenCoreVKT getVktPublicKey: self.loginPasswordView.inputPasswordTF.text:nil]) , VALIDATE_STRING([tokenCoreVKT getVktPublicKey: self.loginPasswordView.inputPasswordTF.text:nil])];
         
         weakSelf.mainService.action = ContractAction_TRANSFER;
         weakSelf.mainService.code = weakSelf.currentToken.contract_name;

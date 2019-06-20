@@ -23,6 +23,9 @@
 #import <UMAnalytics/MobClick.h>
 #import <AlipaySDK/AlipaySDK.h>
 #import "AddAccountViewController.h"
+#import "EnterAuthViewController.h"
+#import "Macro.h"
+#import "VKToken-swift.h"
 
 
 @interface AppDelegate ()<WXApiDelegate, QQApiInterfaceDelegate>
@@ -49,20 +52,20 @@ void uncaughtExceptionHandler(NSException*exception){
     BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
     [self.window setRootViewController: rootVC];
     // 初始化气泡
-//    [self configLEEBubble];
+    [self configLEEBubble];
     
     
     [[SocialManager socialManager] initWithSocialSDK:application didFinishLaunchingWithOptions:launchOptions];
     
-    Wallet *wallet = CURRENT_WALLET;
+//    Wallet *wallet = CURRENT_WALLET;
     
-    if (wallet) {
-        
-        // 如果本地有当前账号对应的钱包且有账号
-        [self.window setRootViewController: rootVC];
-        
-    }else{
-        
+//    if (wallet) {
+//
+//        // 如果本地有当前账号对应的钱包且有账号
+//        [self.window setRootViewController: rootVC];
+//
+//    }else{
+    
         UIViewController *vc;
         if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {
             vc = [[BBLoginViewController alloc] init];
@@ -72,16 +75,42 @@ void uncaughtExceptionHandler(NSException*exception){
 //            vc = [[AddAccountViewController alloc] init];
         }
         
-        // 如果本地没有当前账号对应的钱包
-        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
-        [self.window setRootViewController: navi];
-    }
+        [self rootViewController:^(UIViewController *viewController) {
+            // 如果本地没有当前账号对应的钱包
+            UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:viewController];
+            [self.window setRootViewController: navi];
+        }];
+//    }
     NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
+    
+    // registor messeage
+    [self registerNotifications];
     
     [self integrateUMengSDK];
 
     return YES;
+}
+
+- (void)registerNotifications {
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addWallet) name:kCreateWalletNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteWallet) name:kDeleteWalletNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAuthSuccess:) name:kAuthEnterAppSuccessNotification object:nil];
+}
+
+- (void)onAuthSuccess:(NSNotification *)notification {
+    
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    
+    if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+        UIViewController *vc = [[BBLoginViewController alloc] init];
+        // 如果本地没有当前账号对应的钱包
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self.window setRootViewController: navi];
+    } else {
+        BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
+        [self.window setRootViewController: rootVC];
+    }
 }
 
 /*
@@ -156,6 +185,26 @@ extern NSString *AlipayDidFinishNotification;
     return YES;
 }
 
+- (void)rootViewController:(void (^)(UIViewController *viewController))root {
+    BOOL shouldCheckFingerprint = [[[NSUserDefaults standardUserDefaults] objectForKey:kAuthSwithOnStatusKey] boolValue];
+    if (shouldCheckFingerprint) {
+        //返回指纹验证的VC
+        EnterAuthViewController *vc = [[EnterAuthViewController alloc] initWithNibName:@"EnterAuthViewController" bundle:nil];
+        root(vc);
+    } else {
+        TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+        
+        if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+            UIViewController *vc = [[BBLoginViewController alloc] init];
+            // 如果本地没有当前账号对应的钱包
+            UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self.window setRootViewController: navi];
+        } else {
+            BaseTabBarController *rootVC = [[BaseTabBarController alloc] init];
+            [self.window setRootViewController: rootVC];
+        }
+    }
+}
 
 // NOTE: 9.0以后使用新API接口
 //- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
@@ -205,7 +254,7 @@ extern NSString *AlipayDidFinishNotification;
 //    }
     
     // VKT钱包主题使用社交模式
-    [LEETheme defaultTheme:SOCIAL_MODE];
+    [LEETheme defaultTheme:BLACKBOX_MODE];
     
     //    [LEETheme defaultChangeThemeAnimationDuration:0.0f];
     

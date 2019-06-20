@@ -57,6 +57,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hintLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pwdStrengthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (nonatomic, assign) BOOL importing;
 
@@ -83,6 +84,7 @@
     self.hintTextfield.placeholder = NSLocalizedString(@"pwd_optional", nil);
     [self.startImportButton setTitle:NSLocalizedString(@"import_start", nil) forState:UIControlStateNormal];
     self.hintTextfield.placeholder = NSLocalizedString(@"pwd_optional", nil);
+    self.titleLabel.text = NSLocalizedString(@"recovery_account", nil);
 }
 
 - (void)responseLeftButton {

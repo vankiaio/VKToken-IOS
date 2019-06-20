@@ -37,7 +37,7 @@
         _mainScrollView1.backgroundColor = [UIColor whiteColor];
         TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
         
-        if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedAscending) {
+        if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] != NSOrderedSame) {
              _mainScrollView1.contentSize = CGSizeMake(SCREEN_WIDTH, self.chooseWalletBackgroundView.height_sd);
         }else{
             // 创建账号(TokenCoreVKT)
@@ -158,7 +158,7 @@
         self.chooseWalletFooterView = nil;
         
         TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
-        if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedDescending) {
+        if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] != NSOrderedSame) {
             [self.mainScrollView1 addSubview:self.chooseWalletBackgroundView];
         }
     }
@@ -176,7 +176,7 @@
     }
     TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
     
-    if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedDescending) {
+    if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] != NSOrderedSame) {
 //        [self.mainScrollView1 addSubview:self.chooseWalletBackgroundView];
         // 如果本地有当前账号对应的钱包
         [((AppDelegate *)[[UIApplication sharedApplication] delegate]).window setRootViewController: [[BaseTabBarController alloc] init]];

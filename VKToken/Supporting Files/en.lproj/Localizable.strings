@@ -274,6 +274,9 @@
 "法律条款与隐私政策"="Term of Usage and Privacy Policy";
 "关于VKToken"="About VKToken";
 "清理成功~"="Cleared~";
+"login_pwd"="Password Login";
+"login_faceid"="FaceID";
+"login_touchid"="TouchID";
 
 /*
  LanguageSettingService.m
@@ -847,6 +850,7 @@
 "请分别输入Owner私钥和Active私钥："="Input Owner key and Active key in two boxes：";
 "请选择您想要导入的账号"="Select accounts to import:";
 "下一步"="Next";
+"next_step"="Next";
 "点击导入"="Click to import";
 "导入成功"="Imported";
 "导入失败"="Fail";
@@ -878,17 +882,6 @@
 
 "tip_one"="Password strength is critical to guard your wallet.";
 "tip_two"="We can't recover the password, please backup cautiously.";
-
-"wallet_foundation"="Foundation";
-"wallet_name"="Wallet Name";
-"set_pwd"="Password";
-"repeat_pwd"="Repeat";
-"pwd_hint"="Password Hint";
-"pwd_optional"="optional";
-"read_agree"="Read & agreed on";
-"input_private_key"="Please input your private key";
-"derive_path"="Path";
-"import_start"="Start Importing";
 
 "pwd_length_tip"="At least 8 characters, better to mix letters, digits, symbols.";
 "pwd_length_weak"="Password is too weak, easily get hacked.";
@@ -938,6 +931,7 @@
 "input_mnemonic_words"="Please enter a mnemonic, separated by spaces";
 "derive_path"="Path";
 "import_start"="Start Importing";
+"recovery_account"="Restore account";
 
 /*
  MemonicImportWalletViewController.m
@@ -950,3 +944,30 @@
 "import_succ"="Import Successfully";
 "import_fail"="Import Failed";
 "input_mnemonic_words"="Please use space to separate the mnemonic words";
+
+/*
+ AuthID.m
+ */
+"input_pwd"="Password";
+"auth_with_touchId"="Authenticate TouchID Through Home Button";
+
+/*
+ EnterAuthViewController.m
+ */
+"auth_pwd"="Auth with Password";
+"touch_pwd"="Wake up Password";
+"touch_touchId"="Wake up TouchID";
+"touch_faceId"="Wake up FaceID";
+
+/*
+ AuthPasswordViewController.m
+ */
+"set_pwd"="Password";
+"repeat_pwd"="Repeat Password";
+"input_pwd_auth"="Repeat Password to Authorization";
+"contact_us"="Oops, contact us!";
+"wrong_pwd"="Wrong, try again";
+"no_deviceId"="Sorry, your device don't support TouchID/FaceID";
+"deviceId_wrong"="TouchID/FaceID authentication failed";
+"auth_fail_to_pwd"="TouchID/FaceID locked, input your password.";
+"setting_succ"="Setting successfully";
