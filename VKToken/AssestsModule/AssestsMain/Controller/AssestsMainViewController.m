@@ -106,7 +106,7 @@
 - (AssestsMainHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"AssestsMainHeaderView" owner:nil options:nil] firstObject];
-        _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 290);   
+        _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 210);   
     }
     return _headerView;
 }
@@ -249,7 +249,7 @@
         self.navigationItem.title = @"";
         
         self.gradientLayer = [CAGradientLayer layer];
-        self.gradientLayer.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT + 290 );
+        self.gradientLayer.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT + 210 );
         self.gradientLayer.startPoint = CGPointMake(1, 1);
         self.gradientLayer.endPoint = CGPointMake(0, 0);
         if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {

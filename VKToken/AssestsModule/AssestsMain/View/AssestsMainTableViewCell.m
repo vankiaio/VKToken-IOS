@@ -107,10 +107,10 @@
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        CGFloat topSpace = 18.5;
+        CGFloat topSpace = 22.5;
         CGFloat labelHeight = 16;
         [self.contentView addSubview:self.assestsImg];
-        self.assestsImg.sd_layout.leftSpaceToView(self.contentView, 16).centerYEqualToView(self.contentView).widthIs(40).heightEqualToWidth();
+        self.assestsImg.sd_layout.topSpaceToView(self.contentView, topSpace).leftSpaceToView(self.contentView, 18).centerYEqualToView(self.contentView).widthIs(40).heightEqualToWidth();
         
 //        [self.contentView addSubview:self.lable_24h];
 //        self.lable_24h.sd_layout.topSpaceToView(self.contentView, topSpace).rightSpaceToView(self.contentView, MARGIN_20).widthIs(30).heightIs(labelHeight);

@@ -107,7 +107,15 @@
 //            [self.layer addSublayer:layer];
 
         }else if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
-            self.backgroundColor = RGB(37, 37, 41);
+//            self.backgroundColor = RGB(37, 37, 41);
+            CAGradientLayer *layer = [CAGradientLayer layer];
+            layer.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
+            layer.startPoint = CGPointMake(1, 1);
+            layer.endPoint = CGPointMake(0, 0);
+            layer.colors = @[(__bridge id)RGB(8, 178, 184).CGColor, (__bridge id)RGB(8, 178, 184).CGColor];
+            //             layer.colors = @[(__bridge id)HEX_RGB(0x1B6EE7).CGColor, (__bridge id)HEX_RGB(0x2F83FE).CGColor];
+            layer.locations = @[@(0.0f), @(1.0f)];
+            [self.layer addSublayer:layer];
         }
         
 
@@ -125,7 +133,7 @@
         self.rightBtn2.sd_layout.rightSpaceToView(self.rightBtn1, MARGIN_10).bottomSpaceToView(_originNavView, 0).widthIs(BUTTON_HEIGHT).heightIs(BUTTON_HEIGHT);
         
         [_originNavView addSubview:self.titleImg];
-        self.titleImg.sd_layout.centerXEqualToView(self).bottomSpaceToView(_originNavView, 12).widthIs(95).heightIs(15);
+        self.titleImg.sd_layout.centerXEqualToView(self).bottomSpaceToView(_originNavView, 0).widthIs(40).heightIs(40);
         
         
         // 滑动后的导航栏
