@@ -15,13 +15,13 @@
     self = [super init];
     if (self) {
         
-        self.lee_theme.LeeAddTextColor(SOCIAL_MODE, HEXCOLOR(0x666666)).LeeAddTextColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF));
+        self.lee_theme.LeeAddTextColor(SOCIAL_MODE, HEXCOLOR(0x666666)).LeeAddTextColor(BLACKBOX_MODE, HEXCOLOR(0x666666));
     }
     return self;
 }
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    self.lee_theme.LeeAddTextColor(SOCIAL_MODE, HEXCOLOR(0x666666)).LeeAddTextColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF));
+    self.lee_theme.LeeAddTextColor(SOCIAL_MODE, HEXCOLOR(0x666666)).LeeAddTextColor(BLACKBOX_MODE, HEXCOLOR(0x666666));
 }
 @end

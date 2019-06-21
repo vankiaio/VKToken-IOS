@@ -83,8 +83,7 @@
     
     if ([self.currentAccountName isEqualToString:model.from]) {
         self.amountLabel.text = [NSString stringWithFormat:@"-%@",  model.quantity];
-        
-        self.amountLabel.textColor = LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE ? HEXCOLOR(0xFFFFFF ) : HEXCOLOR(0x140F26 );
+        self.amountLabel.textColor = LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE ? HEXCOLOR(0xAD2020 ) : HEXCOLOR(0x140F26 );
     }else if([self.currentAccountName isEqualToString:model.to]){
         self.amountLabel.text = [NSString stringWithFormat:@"+%@",  model.quantity];
         self.amountLabel.textColor = HEXCOLOR(0xE903C);

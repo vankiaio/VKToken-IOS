@@ -34,7 +34,8 @@
     if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {
         self.memoTV.placeholderColor = HEX_RGB_Alpha(0x666666, 1);
     }else if(LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
-        self.memoTV.placeholderColor = HEXCOLOR(0xFFFFFF);
+//        self.memoTV.placeholderColor = HEXCOLOR(0xFFFFFF);
+        self.memoTV.placeholderColor = HEX_RGB_Alpha(0x666666, 1);
     }
     
     self.transferBtn.lee_theme

@@ -14,14 +14,14 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.lee_theme.LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xEEEEEE)).LeeAddBackgroundColor(BLACKBOX_MODE, HEX_RGB_Alpha(0xFFFFFF, 0.1));
+        self.lee_theme.LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xEEEEEE)).LeeAddBackgroundColor(BLACKBOX_MODE, HEX_RGB_Alpha(0xEEEEEE, 1.0));
     }
     return self;
 }
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    self.lee_theme.LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xEEEEEE)).LeeAddBackgroundColor(BLACKBOX_MODE, HEX_RGB_Alpha(0xFFFFFF, 0.1));
+    self.lee_theme.LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xEEEEEE)).LeeAddBackgroundColor(BLACKBOX_MODE, HEX_RGB_Alpha(0xEEEEEE, 1.0));
 }
 
 

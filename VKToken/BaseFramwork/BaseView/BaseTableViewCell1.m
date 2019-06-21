@@ -36,7 +36,7 @@
         
         self.contentView.lee_theme
         .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xFFFFFF))
-        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x282A34));
+        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF));
         self.textLabel.lee_theme.LeeConfigTextColor(@"common_font_color_1");
         
         [self.contentView addSubview:self.bottomLineView];
@@ -51,7 +51,7 @@
     [super awakeFromNib];
     self.contentView.lee_theme
     .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xFFFFFF))
-    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x282A34));
+    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF));
     
     self.textLabel.lee_theme.LeeConfigTextColor(@"common_font_color_1");
 }

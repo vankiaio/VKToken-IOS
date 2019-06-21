@@ -16,7 +16,7 @@
     if (self) {
         self.lee_theme
         .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0x4D7BFE))
-        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x0B78E3));
+        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x4D7BFE));
     }
     return self;
 }
@@ -25,6 +25,6 @@
     [super awakeFromNib];
     self.lee_theme
     .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0x4D7BFE))
-    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x0B78E3));
+    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x4D7BFE));
 }
 @end

@@ -33,7 +33,7 @@
 //    self.backgroundColor = [UIColor colorWithHexString:@"fff4d8"];
     self.lee_theme
         .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xFEFCEC))
-    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x474747));
+    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0xFEFCEC));
     self.clipsToBounds = YES;
     
     //------- 左边的喇叭 -------//
@@ -55,7 +55,7 @@
     [self addSubview:marqueeBgView];
     marqueeBgView.lee_theme
     .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xFEFCEC ))
-    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x474747 ));
+    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0xFEFCEC ));
     marqueeBgView.clipsToBounds = YES;
     
     // marquee label
@@ -63,7 +63,7 @@
     [marqueeBgView addSubview:_marqueeLabel];
 //    _marqueeLabel.textColor = [UIColor colorWithHexString:@"ff6666"];
     _marqueeLabel.lee_theme.LeeAddTextColor(SOCIAL_MODE, HEXCOLOR(0xF76A24))
-        .LeeAddTextColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF));
+        .LeeAddTextColor(BLACKBOX_MODE, HEXCOLOR(0xF76A24));
     _marqueeLabel.font = [UIFont systemFontOfSize:13];
 }
 

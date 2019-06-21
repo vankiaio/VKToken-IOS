@@ -28,7 +28,7 @@
 
 - (NavigationView *)navView{
     if (!_navView) {
-        _navView =  [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"back_white" title:NSLocalizedString(@"节点投票", nil)rightBtnTitleName:NSLocalizedString(@"投票规则", nil)delegate:self];
+        _navView =  [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"节点投票", nil)rightBtnTitleName:NSLocalizedString(@"投票规则", nil)delegate:self];
         _navView.backgroundColor = HEXCOLOR(0x000000);
         _navView.titleLabel.textColor = HEXCOLOR(0xFFFFFF);
         [_navView.rightBtn setTitleColor:HEXCOLOR(0xFFFFFF) forState:(UIControlStateNormal)];

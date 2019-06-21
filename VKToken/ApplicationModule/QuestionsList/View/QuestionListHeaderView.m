@@ -25,7 +25,7 @@
     if (!_backBtn) {
         _backBtn = [[UIButton alloc] init];
         [_backBtn addTarget:self action:@selector(backBtn:) forControlEvents:(UIControlEventTouchUpInside)];
-        [_backBtn setImage:[UIImage imageNamed:@"back_white"] forState:(UIControlStateNormal)];
+        [_backBtn setImage:[UIImage imageNamed:@"icon_back"] forState:(UIControlStateNormal)];
         
     }
     return _backBtn;

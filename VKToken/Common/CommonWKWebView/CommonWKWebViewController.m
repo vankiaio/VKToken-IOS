@@ -59,10 +59,10 @@
     if (!_backItem) {
         _backItem = [[UIBarButtonItem alloc] init];
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"back_white"], UIControlStateNormal);
+        btn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal);
         btn.lee_theme
         .LeeAddButtonTitleColor(SOCIAL_MODE, HEXCOLOR(0x000000), UIControlStateNormal)
-        .LeeAddButtonTitleColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF), UIControlStateNormal);
+        .LeeAddButtonTitleColor(BLACKBOX_MODE, HEXCOLOR(0x000000), UIControlStateNormal);
         [btn setTitle:NSLocalizedString(@"返回", nil) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(backNative) forControlEvents:UIControlEventTouchUpInside];
         [btn.titleLabel setFont:[UIFont systemFontOfSize:17]];
@@ -80,7 +80,7 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.lee_theme
         .LeeAddButtonTitleColor(SOCIAL_MODE, HEXCOLOR(0x000000), UIControlStateNormal)
-        .LeeAddButtonTitleColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF), UIControlStateNormal);
+        .LeeAddButtonTitleColor(BLACKBOX_MODE, HEXCOLOR(0x000000), UIControlStateNormal);
         [btn setTitle:NSLocalizedString(@"关闭", nil) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(closeNative) forControlEvents:UIControlEventTouchUpInside];
         [btn.titleLabel setFont:[UIFont systemFontOfSize:17]];

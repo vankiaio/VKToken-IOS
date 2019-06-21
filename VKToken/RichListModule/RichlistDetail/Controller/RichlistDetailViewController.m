@@ -53,7 +53,7 @@
 
 - (NavigationView *)navView{
     if (!_navView) {
-        _navView = [[NavigationView alloc] initNavigationViewWithFrame:(CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT)) LeftBtnImgName:@"back_white" titleImage:@"VKToken" rightImgName:@"addFollow" delegate:self];
+        _navView = [[NavigationView alloc] initNavigationViewWithFrame:(CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT)) LeftBtnImgName:@"icon_back" titleImage:@"VKToken" rightImgName:@"addFollow" delegate:self];
     }
     return _navView;
 }

@@ -38,7 +38,7 @@
             _mainTableView.separatorColor = HEX_RGB(0xEEEEEE);
             
         }else if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
-            _mainTableView.separatorColor = HEX_RGB_Alpha(0xFFFFFF, 0.1);
+            _mainTableView.separatorColor = HEX_RGB_Alpha(0xEEEEEE, 0.1);
         }
         
         if (@available(iOS 11.0, *)) {

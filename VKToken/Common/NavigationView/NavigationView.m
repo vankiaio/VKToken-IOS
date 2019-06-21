@@ -46,7 +46,7 @@
         _rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         _rightBtn.lee_theme
         .LeeAddButtonTitleColor(SOCIAL_MODE, HEXCOLOR(0x2A2A2A), UIControlStateNormal)
-        .LeeAddButtonTitleColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF), UIControlStateNormal);
+        .LeeAddButtonTitleColor(BLACKBOX_MODE, HEXCOLOR(0x2A2A2A), UIControlStateNormal);
     }
     return _rightBtn;
 }

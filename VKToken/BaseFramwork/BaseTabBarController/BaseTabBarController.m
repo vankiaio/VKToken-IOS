@@ -79,9 +79,18 @@
         //    [self.tabBar setBadgeTop:9];
         
     }else if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
-        [self.tabBar setBackgroundImage:img];
+        // Create a new layer which is the width of the device and with a heigh
+        // of 0.5px.
+        CALayer *topBorder = [CALayer layer];
+        topBorder.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 0.5f);
         
-        [self.tabBar setShadowImage:img];
+        // Set the background colour of the new layer to the colour you wish to
+        // use for the border.
+        topBorder.backgroundColor = [HEXCOLOR(0xEEEEEE) CGColor];
+        
+        
+        // Add the later to the tab bar's existing layer
+        [self.tabBar.layer addSublayer:topBorder];
         
     }
 }
@@ -111,6 +120,11 @@
     [self setupChildViewController:dappVC title:NSLocalizedString(@"发现", nil)imageName:@"application_unSelect" seleceImageName:@"application_select" BB_imageName:@"application_unSelect_BB" BB_seleceImageName:@"application_select_BB"];
 
     self.viewControllers = _VCS;
+    
+    //通过这两个参数来调整badge位置
+    [self.tabBar setTabIconWidth:40];
+    [self.tabBar setBadgeTop:6];
+    [self.tabBar setBadgeStyle:kCustomBadgeStyleNumber value:1 atIndex:1];
 }
 
 -(void)setupChildViewController:(UIViewController*)controller title:(NSString *)title imageName:(NSString *)imageName seleceImageName:(NSString *)selectImageName BB_imageName:(NSString *)BB_imageName BB_seleceImageName:(NSString *)BB_selectImageName{
@@ -138,19 +152,17 @@
         controller.tabBarItem.selectedImage = [[UIImage imageNamed:BB_selectImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         // 普通状态下的文字属性
         NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
-        normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:9];
-        normalAttrs[NSForegroundColorAttributeName] = HEXCOLOR(0x5C5D65);
+        normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+        normalAttrs[NSForegroundColorAttributeName] = HEXCOLOR(0xC5CAD4);
         [controller.tabBarItem setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
         
         // 选中状态下的文字属性
         NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-        selectedAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:9];
-        selectedAttrs[NSForegroundColorAttributeName] = HEXCOLOR(0xFFFFFF);
+        selectedAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+        selectedAttrs[NSForegroundColorAttributeName] = HEXCOLOR(0x2A2A2A);
         [controller.tabBarItem setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
 
     }
-    
-    
     
     
     //包装导航控制器

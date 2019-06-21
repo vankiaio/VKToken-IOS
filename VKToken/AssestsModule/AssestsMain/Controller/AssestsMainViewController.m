@@ -234,13 +234,13 @@
     [super viewDidLoad];
     if (CURRENT_AccountTable_HAS_Account) {
         // if delete current account, set default by mainaccount
-        AccountInfo *currentAccount = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:VALIDATE_STRING(CURRENT_ACCOUNT_NAME)];
+//        AccountInfo *currentAccount = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:VALIDATE_STRING(CURRENT_ACCOUNT_NAME)];
         
         // after create acount, mainwin show can show account info
-        if([VALIDATE_STRING(CURRENT_ACCOUNT_NAME) isEqualToString: @""] || currentAccount == nil)
+        if([VALIDATE_STRING(CURRENT_ACCOUNT_NAME) isEqualToString: @""] )
         {
-            AccountInfo *model =[[[AccountsTableManager accountTable] selectAccountTable] firstObject];
-            [[NSUserDefaults standardUserDefaults] setObject:VALIDATE_STRING(model.account_name)  forKey:Current_Account_name];
+//            AccountInfo *model =[[[AccountsTableManager accountTable] selectAccountTable] firstObject];
+            [[NSUserDefaults standardUserDefaults] setObject:VALIDATE_STRING(CURRENT_ACCOUNT_NAME)  forKey:Current_Account_name];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [self.ids removeAllObjects];
         }
@@ -255,7 +255,7 @@
         if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {
             self.gradientLayer.colors = @[(__bridge id)HEXCOLOR(0x1667DF).CGColor, (__bridge id)HEXCOLOR(0x2E82FE).CGColor];
         }else if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
-            self.gradientLayer.colors = @[(__bridge id)HEXCOLOR(0x23242A).CGColor, (__bridge id)HEXCOLOR(0x282828).CGColor];
+            self.gradientLayer.colors = @[(__bridge id)HEXCOLOR(0x1667DF).CGColor, (__bridge id)HEXCOLOR(0x2E82FE).CGColor];
         }
         self.gradientLayer.locations = @[@(0.0f), @(1.0f)];
         [self.view.layer addSublayer:self.gradientLayer];
