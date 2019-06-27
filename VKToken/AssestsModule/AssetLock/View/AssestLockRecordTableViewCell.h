@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseLabel2.h"
 #import "AssestLockRecord.h"
 
 @interface AssestLockRecordTableViewCell : BaseTableViewCell

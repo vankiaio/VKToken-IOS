@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AssestLockRecordsHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADK-hL-XiM" userLabel="line1" customClass="BaseSlimLineView">
@@ -23,14 +23,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHl-Qk-DBG" userLabel="backgroundView" customClass="BaseView">
-                    <rect key="frame" x="0.0" y="1" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="1" width="375" height="80"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orj-VH-nCY" customClass="BaseLabel2">
-                            <rect key="frame" x="20" y="14.5" width="0.0" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="锁仓总额(VKT)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyc-7e-SfT" userLabel="Locked Title Label" customClass="BaseLabel2">
+                            <rect key="frame" x="128" y="10" width="119.5" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="21" id="aU0-cq-Nyk"/>
+                                <constraint firstAttribute="height" constant="21" id="ExH-z8-Mzn"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -48,18 +48,27 @@
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orj-VH-nCY" customClass="BaseLabel2">
+                            <rect key="frame" x="187.5" y="41" width="0.0" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="aU0-cq-Nyk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="32"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="1tK-nk-Db3"/>
-                        <constraint firstItem="Orj-VH-nCY" firstAttribute="leading" secondItem="sHl-Qk-DBG" secondAttribute="leading" constant="20" id="QUe-KG-V8S"/>
+                        <constraint firstItem="Fyc-7e-SfT" firstAttribute="centerX" secondItem="sHl-Qk-DBG" secondAttribute="centerX" id="3vm-Hy-EgE"/>
+                        <constraint firstItem="Orj-VH-nCY" firstAttribute="centerX" secondItem="sHl-Qk-DBG" secondAttribute="centerX" id="GDu-w5-mqL"/>
+                        <constraint firstItem="Fyc-7e-SfT" firstAttribute="top" secondItem="sHl-Qk-DBG" secondAttribute="top" constant="10" id="I4Z-t0-UxH"/>
+                        <constraint firstItem="Orj-VH-nCY" firstAttribute="top" secondItem="Fyc-7e-SfT" secondAttribute="bottom" constant="10" id="c3U-1V-vCa"/>
                         <constraint firstAttribute="trailing" secondItem="MxA-cU-llV" secondAttribute="trailing" id="dU2-Lu-hl2"/>
                         <constraint firstItem="BzW-Pf-tjK" firstAttribute="centerY" secondItem="sHl-Qk-DBG" secondAttribute="centerY" id="mdN-Ol-QsS"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="nuQ-gd-VEy"/>
-                        <constraint firstItem="Orj-VH-nCY" firstAttribute="centerY" secondItem="sHl-Qk-DBG" secondAttribute="centerY" id="snt-is-UkJ"/>
+                        <constraint firstAttribute="height" constant="80" id="nuQ-gd-VEy"/>
                         <constraint firstAttribute="bottom" secondItem="MxA-cU-llV" secondAttribute="bottom" id="t4j-7z-lcF"/>
                         <constraint firstItem="MxA-cU-llV" firstAttribute="top" secondItem="sHl-Qk-DBG" secondAttribute="top" id="vvD-b8-Y5l"/>
-                        <constraint firstItem="BzW-Pf-tjK" firstAttribute="leading" secondItem="Orj-VH-nCY" secondAttribute="trailing" constant="5" id="yaK-vU-9Bm"/>
                         <constraint firstItem="MxA-cU-llV" firstAttribute="leading" secondItem="sHl-Qk-DBG" secondAttribute="leading" id="ycp-br-Hg0"/>
                         <constraint firstItem="MxA-cU-llV" firstAttribute="centerX" secondItem="sHl-Qk-DBG" secondAttribute="centerX" id="zmX-R1-fAJ"/>
                     </constraints>
@@ -71,10 +80,10 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgX-pC-7Sk" userLabel="line2" customClass="BaseSlimLineView">
-                    <rect key="frame" x="0.0" y="51" width="375" height="0.5"/>
+                    <rect key="frame" x="0.0" y="93" width="375" height="10"/>
                     <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="0.91939920770000005" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="0.5" id="LTk-Yc-Chq"/>
+                        <constraint firstAttribute="height" constant="10" id="LTk-Yc-Chq"/>
                     </constraints>
                 </view>
             </subviews>
@@ -84,15 +93,21 @@
                 <constraint firstItem="CgX-pC-7Sk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="464-nB-UoI"/>
                 <constraint firstItem="ADK-hL-XiM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4w4-65-p7W"/>
                 <constraint firstAttribute="trailing" secondItem="CgX-pC-7Sk" secondAttribute="trailing" id="79l-gx-Fq2"/>
-                <constraint firstItem="CgX-pC-7Sk" firstAttribute="top" secondItem="sHl-Qk-DBG" secondAttribute="bottom" id="Kzb-Lq-sa1"/>
                 <constraint firstItem="ADK-hL-XiM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="N3Y-8r-Ozc"/>
                 <constraint firstAttribute="trailing" secondItem="ADK-hL-XiM" secondAttribute="trailing" id="eQk-Gd-9Fd"/>
                 <constraint firstAttribute="trailing" secondItem="sHl-Qk-DBG" secondAttribute="trailing" id="fLy-l5-UQZ"/>
+                <constraint firstAttribute="bottom" secondItem="CgX-pC-7Sk" secondAttribute="bottom" id="kKO-jA-4E3"/>
                 <constraint firstItem="sHl-Qk-DBG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rXA-9W-AjE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="ADK-hL-XiM"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="lockedAmountLabel" destination="Orj-VH-nCY" id="W3V-ox-4yE"/>
+                <outlet property="lockedTitleLabel" destination="Fyc-7e-SfT" id="kSf-PD-8fb"/>
             </connections>
             <point key="canvasLocation" x="137.5" y="54.5"/>
         </view>

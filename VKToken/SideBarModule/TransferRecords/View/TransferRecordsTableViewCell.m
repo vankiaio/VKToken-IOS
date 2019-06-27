@@ -9,6 +9,7 @@
 #import "TransferRecordsTableViewCell.h"
 
 @interface TransferRecordsTableViewCell()
+@property(nonatomic, strong) UIImageView *assestsImg;
 @property(nonatomic, strong) BaseLabel *titleLabel;
 @property(nonatomic, strong) UILabel *amountLabel;
 @property(nonatomic, strong) UILabel *belongBlockLabel;
@@ -16,6 +17,14 @@
 
 
 @implementation TransferRecordsTableViewCell
+
+- (UIImageView *)assestsImg{
+    if (!_assestsImg) {
+        _assestsImg = [[UIImageView alloc] init];
+        _assestsImg.sd_cornerRadius = @(8);
+    }
+    return _assestsImg;
+}
 
 - (BaseLabel *)titleLabel{
     if (!_titleLabel) {
@@ -49,15 +58,18 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self.contentView addSubview:self.assestsImg];
+        self.assestsImg.sd_layout.leftSpaceToView(self.contentView, MARGIN_20).topSpaceToView(self.contentView, 16).centerYEqualToView(self.contentView).widthIs(40).heightEqualToWidth();
+        
         [self.contentView addSubview:self.titleLabel];
-        self.titleLabel.sd_layout.leftSpaceToView(self.contentView, MARGIN_20).topSpaceToView(self.contentView, 16).heightIs(20).widthIs(SCREEN_WIDTH - (2 * MARGIN_20) - 80);
+        self.titleLabel.sd_layout.leftSpaceToView(self.assestsImg, MARGIN_10).topSpaceToView(self.contentView, 16).heightIs(20).widthIs(SCREEN_WIDTH - (2 * MARGIN_20) - 80);
         
         [self.contentView addSubview:self.amountLabel];
         self.amountLabel.sd_layout.rightSpaceToView(self.contentView, MARGIN_20).topSpaceToView(self.contentView, 16).heightIs(20);
         [self.amountLabel setSingleLineAutoResizeWithMaxWidth:SCREEN_WIDTH / 2];
         
         [self.contentView addSubview:self.belongBlockLabel];
-        self.belongBlockLabel.sd_layout.leftSpaceToView(self.contentView, MARGIN_20).topSpaceToView(self.titleLabel, 1).heightIs(20);
+        self.belongBlockLabel.sd_layout.leftSpaceToView(self.assestsImg, MARGIN_10).topSpaceToView(self.titleLabel, 1).heightIs(20);
         [self.belongBlockLabel setSingleLineAutoResizeWithMaxWidth:SCREEN_WIDTH / 2];
         
     }
@@ -75,8 +87,10 @@
     }else{
         // transfer
         if ([self.currentAccountName isEqualToString:model.from]) {
+            self.assestsImg.image = [UIImage imageNamed:@"icon_up"];
             self.titleLabel.text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"发送给", nil), model.to];
         }else if ([self.currentAccountName isEqualToString:model.to]){
+            self.assestsImg.image = [UIImage imageNamed:@"icon_down"];
             self.titleLabel.text = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"接受自", nil), model.from];
         }
     }

@@ -42,6 +42,7 @@
 @property(nonatomic , strong) NSArray *platformNameArr;
 @property(nonatomic , strong) AssestDetailFooterView *footerView;
 @property(nonatomic , strong) UIImageView *sparklinesImageView;
+@property(nonatomic , strong) NSNumber* filterType;
 @end
 
 @implementation AssestsDetailViewController
@@ -63,9 +64,9 @@
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"AssestsDetailHeaderView" owner:nil options:nil] firstObject];
         if (kIs_iPhoneX) {
-            _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 183+50+25);
+            _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 243+50+25);
         }else{
-            _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 183+50);
+            _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 243+50);
         }
         
         _headerView.delegate = self;
@@ -191,6 +192,7 @@
     self.currentAccountName = self.accountName;
     self.currentAssestsType = self.model.token_symbol;
     self.currentContractName = self.model.contract_name;
+    _filterType = [NSNumber numberWithInteger:0];
     [self requestTransactionHistory];
     [self configHeaderView];
    
@@ -224,8 +226,17 @@
 }
 
 - (void)requestTransactionHistory{
-    self.transactionRecordsService.getTransactionRecordsRequest.from = self.accountName;
-    self.transactionRecordsService.getTransactionRecordsRequest.to = self.accountName;
+    if(_filterType.intValue == 0)
+    {
+        self.transactionRecordsService.getTransactionRecordsRequest.from = self.accountName;
+        self.transactionRecordsService.getTransactionRecordsRequest.to = self.accountName;
+    }else if(_filterType.intValue == 1){
+        self.transactionRecordsService.getTransactionRecordsRequest.from = @"";
+        self.transactionRecordsService.getTransactionRecordsRequest.to = self.accountName;
+    }else if(_filterType.intValue == 2){
+        self.transactionRecordsService.getTransactionRecordsRequest.from = self.accountName;
+        self.transactionRecordsService.getTransactionRecordsRequest.to = @"";
+    }
     self.transactionRecordsService.getTransactionRecordsRequest.symbols = [NSMutableArray arrayWithObjects:@{@"symbolName":VALIDATE_STRING(self.model.token_symbol)  , @"contractName": VALIDATE_STRING(self.model.contract_name) }, nil];
     [self loadNewData];
 }
@@ -259,14 +270,14 @@
         self.headerView.fluctuateLabel.attributedText = attrString;
     }
     //todo 锁仓
-    if (self.model.asset_market_cap_cny.integerValue == 0 ) {
-        self.headerView.totalLabel.text = NSLocalizedString(@"我们正在努力寻找它的价格...", nil);
+    if (self.model.locked_amount.integerValue == 0 ) {
+        self.headerView.lockedLabel.text = NSLocalizedString(@"暂无锁仓", nil);
     }else{
-        self.headerView.totalLabel.text = [NSString stringWithFormat:@"%@(24h)%@CNY", NSLocalizedString(@"额", nil),self.model.asset_market_cap_cny];
+        self.headerView.lockedLabel.text = [NSString stringWithFormat:@"%@:%@ %@", NSLocalizedString(@"锁仓", nil), [NumberFormatter displayStringFromNumber:@(self.model.locked_amount.doubleValue)],self.model.token_symbol];
     }
     self.headerView.accountLabel.text = self.accountName;
     
-    self.headerView.Assest_balance_Label.text = [NSString stringWithFormat:@"%@ %@", [NumberFormatter displayStringFromNumber:@(self.model.balance.doubleValue)], self.model.token_symbol];
+    self.headerView.Assest_balance_Label.text = [NSString stringWithFormat:@"%@:%@ %@", NSLocalizedString(@"余额", nil), [NumberFormatter displayStringFromNumber:@(self.model.balance.doubleValue-self.model.locked_amount.doubleValue)], self.model.token_symbol];
     
 //    self.headerView.assest_value_label.text = [NSString stringWithFormat:@"≈%@ CNY", [NumberFormatter displayStringFromNumber:@(self.model.balance.doubleValue * self.model.asset_price_cny.doubleValue)]];
     
@@ -403,6 +414,28 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)copyAccountBtnDidClick:(UIButton *)sender{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string =VALIDATE_STRING(self.model.account_name);
+    [TOASTVIEW showWithText:NSLocalizedString(@"复制成功", nil)];
+}
+
+// 筛选转账列表
+- (void)transferClassTabBarDidClick:(UITabBarItem *)sender{
+//        NSString* msg = [NSString stringWithFormat:@"您选中第【%d】项"
+//                         , sender.tag];
+//        // 创建、并显示一个UIAlertView控件
+//        UIAlertView* alert = [[UIAlertView alloc]
+//                              initWithTitle:@"提示"
+//                              message:msg
+//                              delegate:nil
+//                              cancelButtonTitle:@"OK"
+//                              otherButtonTitles: nil];
+//        [alert show];
+    _filterType = [NSNumber numberWithInteger:sender.tag];
+    [self requestTransactionHistory];
+}
+
 #pragma mark UITableView + 下拉刷新 隐藏时间 + 上拉加载
 #pragma mark - 数据处理相关
 #pragma mark 下拉刷新数据
@@ -452,6 +485,5 @@
         }
     }];
 }
-
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseLabel2.h"
 
 @protocol AssestLockRecordsHeaderViewDelegate<NSObject>
 @optional
@@ -15,6 +16,7 @@
 @end
 
 @interface AssestLockRecordsHeaderView : BaseView
+@property (weak, nonatomic) IBOutlet BaseLabel2 *lockedTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lockedAmountLabel;
 @property(nonatomic, weak) id<AssestLockRecordsHeaderViewDelegate> delegate;
 

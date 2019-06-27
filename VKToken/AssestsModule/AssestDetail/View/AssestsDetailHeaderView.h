@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @protocol AssestsDetailHeaderViewDelegate<NSObject>
-- (void)transferBtnDidClick;
-- (void)recieveBtnDidClick;
-- (void)redPacketBtnDidClick;
-- (void)assetsLocksBtnDidClick:(UIButton *)sender;
+- (IBAction)transferBtnDidClick;
+- (IBAction)recieveBtnDidClick;
+- (IBAction)redPacketBtnDidClick;
+- (IBAction)assetsLocksBtnDidClick:(UIButton *)sender;
+- (IBAction)transferClassTabBarDidClick:(UITabBarItem *)sender;
+- (IBAction)copyAccountBtnDidClick:(UIButton *)sender;
 @end
 
 @class TendencyChartView;
@@ -23,9 +25,10 @@
 
 @property (weak, nonatomic) IBOutlet TendencyChartView *tendencyChartView;
 @property (weak, nonatomic) IBOutlet UILabel *fluctuateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lockedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *Assest_balance_Label;
 @property (weak, nonatomic) IBOutlet UILabel *assest_value_label;
-
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 @end

@@ -111,6 +111,8 @@
     }
     // 设置默认资产
     self.headerView.assestChooserLabel.text = self.currentAssestsType;
+    self.headerView.generateQRCodeBtn.layer.masksToBounds = YES;
+    self.headerView.generateQRCodeBtn.layer.cornerRadius = 5.0;
     [self requestRate];
     [MobClick beginLogPageView:@"VKToken收款"]; //("Pagename"为页面名称，可自定义)
 }

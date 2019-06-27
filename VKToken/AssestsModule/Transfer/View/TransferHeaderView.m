@@ -20,9 +20,12 @@
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.memoTV.placeholder = NSLocalizedString(@"请在此输入memo", nil);
-    self.assest_balanceLabel.font = [UIFont boldSystemFontOfSize:14];
-    self.assest_balance_ConvertLabel.font = [UIFont boldSystemFontOfSize:14];
-    self.amount_ConvertLabel.font = [UIFont boldSystemFontOfSize:24];
+    self.memoTV.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:16.0];
+    self.nameFromTF.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:16.0];
+    self.nameTF.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:16.0];
+    self.assest_balanceLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:16.0];
+    self.assest_balance_ConvertLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:16.0];
+    self.amount_ConvertLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:16.0];
     
     self.memoBaseView.lee_theme
     .LeeConfigBackgroundColor(@"baseView_background_color");

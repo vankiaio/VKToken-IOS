@@ -9,9 +9,9 @@
 #import "AssestLockRecordTableViewCell.h"
 
 @interface AssestLockRecordTableViewCell()
-@property(nonatomic, strong) BaseLabel *lockedAmountLabel;
+@property(nonatomic, strong) BaseLabel2 *lockedAmountLabel;
 @property(nonatomic, strong) UILabel *lockedAmountValueLabel;
-@property(nonatomic, strong) BaseLabel *unlockTimeLabel;
+@property(nonatomic, strong) BaseLabel2 *unlockTimeLabel;
 @property(nonatomic, strong) UILabel *unlockTimeValueLabel;
 
 @end
@@ -19,9 +19,9 @@
 
 @implementation AssestLockRecordTableViewCell
 
-- (BaseLabel *)lockedAmountLabel{
+- (BaseLabel2 *)lockedAmountLabel{
     if (!_lockedAmountLabel) {
-        _lockedAmountLabel = [[BaseLabel alloc] init];
+        _lockedAmountLabel = [[BaseLabel2 alloc] init];
         _lockedAmountLabel.font = [UIFont systemFontOfSize:14];
         _lockedAmountLabel.textAlignment = NSTextAlignmentLeft;
     }
@@ -32,15 +32,14 @@
     if (!_lockedAmountValueLabel) {
         _lockedAmountValueLabel = [[UILabel alloc] init];
         _lockedAmountValueLabel.font = [UIFont systemFontOfSize:14];
-        _lockedAmountValueLabel.textColor = HEXCOLOR(0xB0B0B0);
         _lockedAmountValueLabel.textAlignment = NSTextAlignmentRight;
     }
     return _lockedAmountValueLabel;
 }
 
-- (UILabel *)unlockTimeLabel{
+- (BaseLabel2 *)unlockTimeLabel{
     if (!_unlockTimeLabel) {
-        _unlockTimeLabel = [[BaseLabel alloc] init];
+        _unlockTimeLabel = [[BaseLabel2 alloc] init];
         _unlockTimeLabel.font = [UIFont systemFontOfSize:14];
         _unlockTimeLabel.textAlignment = NSTextAlignmentLeft;
     }
@@ -51,7 +50,6 @@
     if (!_unlockTimeValueLabel) {
         _unlockTimeValueLabel = [[UILabel alloc] init];
         _unlockTimeValueLabel.font = [UIFont systemFontOfSize:14];
-        _unlockTimeValueLabel.textColor = HEXCOLOR(0xB0B0B0);
         _unlockTimeValueLabel.textAlignment = NSTextAlignmentRight;
     }
     return _unlockTimeValueLabel;

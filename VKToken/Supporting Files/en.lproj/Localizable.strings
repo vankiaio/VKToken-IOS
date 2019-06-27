@@ -38,6 +38,11 @@
 "24小时涨跌幅"="24h change";
 "总市值"="Total Market Value";
 "今日"="Today";
+"锁仓"="Locked";
+"余额"="Balance";
+"总额(VKT)"="Total(VKT)";
+"暂无锁仓"="No Locked";
+
 
 
 /*

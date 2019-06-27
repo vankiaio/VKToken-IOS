@@ -21,6 +21,7 @@
 @interface TransferHeaderView : BaseView
 
 @property (weak, nonatomic) IBOutlet UILabel *assestChooserLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameFromTF;
 @property (weak, nonatomic) IBOutlet UITextField *nameTF;
 @property (weak, nonatomic) IBOutlet UITextField *amountTF;
 

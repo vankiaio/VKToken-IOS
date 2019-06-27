@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+0.0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjo-nm-6xz" customClass="BaseLabel">
-                    <rect key="frame" x="126.5" y="15" width="122" height="30"/>
+                    <rect key="frame" x="116.5" y="15" width="122" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="HnN-JM-eXH"/>
                     </constraints>
@@ -25,17 +25,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VKT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jQ-gE-G3a" customClass="BaseLabel">
-                    <rect key="frame" x="252.5" y="15" width="28" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="242.5" y="15" width="44" height="31"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转账成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJH-0a-6r5" customClass="BaseLabel1">
-                    <rect key="frame" x="163" y="51" width="49.5" height="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转账成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJH-0a-6r5" customClass="BaseLabel2">
+                    <rect key="frame" x="151.5" y="51" width="72.5" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="PIa-YP-EHe"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -44,10 +44,10 @@
             <constraints>
                 <constraint firstItem="5jQ-gE-G3a" firstAttribute="top" secondItem="Fjo-nm-6xz" secondAttribute="top" id="57J-6e-Rg5"/>
                 <constraint firstItem="Fjo-nm-6xz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="5W2-fM-SL3"/>
-                <constraint firstItem="jJH-0a-6r5" firstAttribute="centerX" secondItem="Fjo-nm-6xz" secondAttribute="centerX" id="ROQ-DA-qQo"/>
+                <constraint firstItem="jJH-0a-6r5" firstAttribute="centerX" secondItem="Fjo-nm-6xz" secondAttribute="centerX" constant="10" id="ROQ-DA-qQo"/>
                 <constraint firstItem="jJH-0a-6r5" firstAttribute="top" secondItem="Fjo-nm-6xz" secondAttribute="bottom" constant="6" id="f81-11-Zif"/>
                 <constraint firstItem="5jQ-gE-G3a" firstAttribute="leading" secondItem="Fjo-nm-6xz" secondAttribute="trailing" constant="4" id="hQS-sW-jz0"/>
-                <constraint firstItem="Fjo-nm-6xz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jfx-3q-g25"/>
+                <constraint firstItem="Fjo-nm-6xz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-10" id="jfx-3q-g25"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

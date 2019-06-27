@@ -7,19 +7,20 @@
 //
 
 #import "TransferDetailsTableViewCell.h"
+#import "BaseLabel2.h"
 
 @interface TransferDetailsTableViewCell()
 
-@property(nonatomic, strong) BaseLabel1 *titleLabel;
+@property(nonatomic, strong) BaseLabel2 *titleLabel;
 @property(nonatomic, strong) BaseLabel *detailLabel;
 @end
 
 
 @implementation TransferDetailsTableViewCell
 
-- (BaseLabel1 *)titleLabel{
+- (BaseLabel2 *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel = [[BaseLabel1 alloc] init];
+        _titleLabel = [[BaseLabel2 alloc] init];
         _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textAlignment = NSTextAlignmentLeft;
     }
@@ -31,8 +32,6 @@
         _detailLabel = [[BaseLabel alloc] init];
         _detailLabel.font = [UIFont systemFontOfSize:14];
         _detailLabel.textAlignment = NSTextAlignmentRight;
-        
-        
     }
     return _detailLabel;
 }
@@ -40,8 +39,6 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.bottomLineView.hidden = YES;
-       
-        
     }
     return self;
 }
@@ -68,18 +65,10 @@
         
     }
     
-    
-    
-    
-    
     self.titleLabel.text = VALIDATE_STRING(model.optionName);
     self.detailLabel.text = model.detail.length > 0 ? model.detail : @" ";
     
-    
-    
-    
     [self setupAutoHeightWithBottomView:self.detailLabel bottomMargin:MARGIN_15];
 }
-
 
 @end

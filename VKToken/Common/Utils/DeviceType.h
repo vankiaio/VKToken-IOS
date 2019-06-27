@@ -13,4 +13,8 @@
  如果想要判断设备是ipad，要用如下方法
  */
 + (BOOL)getIsIpad;
+/**
+ 如果想要判断设备是iphone X，要用如下方法
+ */
++ (BOOL)isiPhoneX;
 @end

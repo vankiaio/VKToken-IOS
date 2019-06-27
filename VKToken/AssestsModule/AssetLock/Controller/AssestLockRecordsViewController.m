@@ -45,7 +45,7 @@
 - (AssestLockRecordsHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"AssestLockRecordsHeaderView" owner:nil options:nil] firstObject];
-        _headerView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH, 52);
+        _headerView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH, 103);
         _headerView.delegate = self;
     }
     return _headerView;
@@ -75,9 +75,10 @@
     
     [self.view addSubview:self.navView];
     [self.view addSubview:self.headerView];
-    self.mainTableView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT + 52, SCREEN_WIDTH, SCREEN_HEIGHT - NAVIGATIONBAR_HEIGHT - 52);
+    self.mainTableView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT + 103, SCREEN_WIDTH, SCREEN_HEIGHT - NAVIGATIONBAR_HEIGHT - 103);
     [self.view addSubview:self.mainTableView];
     [self.mainTableView.mj_header beginRefreshing];
+    self.headerView.lockedTitleLabel.text = [NSString stringWithFormat:@"%@(VKT)",NSLocalizedString(@"锁仓总额", nil)];
     
 //    NSArray *accountArray = [[AccountsTableManager accountTable ] selectAccountTable];
 //    for (AccountInfo *model in accountArray) {
@@ -168,7 +169,7 @@
                 // 拿到当前的下拉刷新控件，结束刷新状态
                 [weakSelf.mainTableView.mj_header endRefreshing];
                 [IMAGE_TIP_LABEL_MANAGER removeImageAndTipLabelViewManager];
-                self.headerView.lockedAmountLabel.text = [NSString stringWithFormat:@"%@: %@ VKT",NSLocalizedString(@"锁仓总额", nil), self.mainService.assestLocksResult.amountlocked];
+                self.headerView.lockedAmountLabel.text = [NSString stringWithFormat:@"%@", self.mainService.assestLocksResult.amountlocked];
             }
         }else{
             [weakSelf.mainTableView.mj_header endRefreshing];
