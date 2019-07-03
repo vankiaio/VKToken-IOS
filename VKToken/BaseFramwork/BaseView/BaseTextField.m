@@ -19,7 +19,7 @@
         .LeeConfigBackgroundColor(@"baseView_background_color")
         .LeeConfigTextColor(@"common_font_color_1")
         .LeeAddPlaceholderColor(SOCIAL_MODE, HEXCOLOR(0xDDDDDD))
-        .LeeAddPlaceholderColor(BLACKBOX_MODE, RGBACOLOR(221, 221, 221, 0.4));
+        .LeeAddPlaceholderColor(BLACKBOX_MODE, HEXCOLOR(0xDDDDDD));
         self.font =  [UIFont boldSystemFontOfSize:15.0f];
         
         
@@ -33,7 +33,7 @@
     .LeeConfigBackgroundColor(@"baseView_background_color")
     .LeeConfigTextColor(@"common_font_color_1")
     .LeeAddPlaceholderColor(SOCIAL_MODE, HEXCOLOR(0xDDDDDD))
-    .LeeAddPlaceholderColor(BLACKBOX_MODE, RGBACOLOR(221, 221, 221, 0.4));
+    .LeeAddPlaceholderColor(BLACKBOX_MODE, HEXCOLOR(0xDDDDDD));
     self.font =  [UIFont boldSystemFontOfSize:15.0f];
     
 

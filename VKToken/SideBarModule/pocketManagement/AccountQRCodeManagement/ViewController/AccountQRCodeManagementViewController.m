@@ -118,7 +118,7 @@
     [dic setObject: @"account_QRCode" forKey:@"type"];
     //帐号二维码
     NSString *QRCodeJsonStr = [dic mj_JSONString];
-    self.headerView.QRCodeImg.image  = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"account_default_blue" logoScaleToSuperView:0.2];
+    self.headerView.QRCodeImg.image  = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"logo_bg_blue" logoScaleToSuperView:0.2];
 }
 
 //AccountQRCodeManagementHeaderViewDelegate

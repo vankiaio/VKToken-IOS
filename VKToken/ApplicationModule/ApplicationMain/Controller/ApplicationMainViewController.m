@@ -137,7 +137,7 @@
 
 - (void)configBannerView{
     WS(weakSelf);
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CYCLESCROLLVIEW_HEIGHT) delegate:self placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CYCLESCROLLVIEW_HEIGHT) delegate:self placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     cycleScrollView.imageURLStringsGroup = weakSelf.mainService.imageURLStringsGroup;
     cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     [weakSelf.headerView addSubview:cycleScrollView];

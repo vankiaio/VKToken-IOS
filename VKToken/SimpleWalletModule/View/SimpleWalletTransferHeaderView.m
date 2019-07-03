@@ -290,7 +290,7 @@
     
     
     
-    [self.dappAvatarImgView sd_setImageWithURL: String_To_URL(self.model.dappIcon) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.dappAvatarImgView sd_setImageWithURL: String_To_URL(self.model.dappIcon) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.dappNameLabel.text = self.model.dappName;
     self.amountDetailLabel.text = [NSString stringWithFormat:@"%@ %@", self.model.amount, self.model.symbol];
     self.fromDetailLabel.text = self.model.from;

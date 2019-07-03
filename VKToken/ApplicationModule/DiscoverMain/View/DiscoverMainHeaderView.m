@@ -126,7 +126,7 @@
     DappModel *model = self.model.starDapps[0];
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.contentMode = UIViewContentModeScaleToFill;
-    [imageView sd_setImageWithURL:String_To_URL(model.dappPicture) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [imageView sd_setImageWithURL:String_To_URL(model.dappPicture) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     
     [self.starDappBaseView addSubview:imageView];
     imageView.sd_layout.leftSpaceToView(self.starDappBaseView, 30).rightSpaceToView(self.starDappBaseView, 20).topSpaceToView(self.starDappBaseView, 0).bottomSpaceToView(self.starDappBaseView, 30);
@@ -167,7 +167,7 @@
     for (int i = 0 ; i < recommendDappsModelArray.count ; i ++) {
         DappModel *model = recommendDappsModelArray[i];
         UIImageView *img = [[UIImageView alloc] init];
-        [img sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.dappIcon)) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+        [img sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.dappIcon)) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
         img.tag = 1000 + i;
         img.layer.cornerRadius = 12;
         img.layer.masksToBounds = YES;

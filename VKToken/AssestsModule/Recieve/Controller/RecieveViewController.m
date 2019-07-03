@@ -40,8 +40,16 @@
 - (NavigationView *)navView{
     if (!_navView) {
 //         _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"资产收款", nil) rightBtnTitleName:NSLocalizedString(@"收款记录", nil) delegate:self];
-        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"资产收款", nil) rightBtnTitleName:NSLocalizedString(@"", nil) delegate:self];
-        _navView.leftBtn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal);
+        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_navi_back" title:NSLocalizedString(@"资产收款", nil) rightBtnTitleName:NSLocalizedString(@"", nil) delegate:self];
+        _navView.leftBtn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_navi_back"], UIControlStateNormal);
+        CAGradientLayer *layer = [CAGradientLayer layer];
+        layer.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
+        layer.colors = @[(__bridge id)[UIColor colorWithRed:1/255.0 green:167/255.0 blue:173/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:30/255.0 green:167/255.0 blue:173/255.0 alpha:1.0].CGColor];
+        layer.locations = @[@(0),@(1.0f)];
+        [_navView.layer addSublayer:layer];
+        [_navView addSubview: _navView.leftBtn];
+        [_navView addSubview: _navView.titleLabel];
+        _navView.titleLabel.textColor = [UIColor whiteColor];
     }
     return _navView;
 }
@@ -49,7 +57,7 @@
 - (RecieveHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"RecieveHeaderView" owner:nil options:nil] firstObject];
-        _headerView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH, 210);
+        _headerView.frame = CGRectMake(0, NAVIGATIONBAR_HEIGHT, SCREEN_WIDTH, 667);
         _headerView.delegate = self;
         _headerView.amountTF.delegate = self;
     }
@@ -111,8 +119,10 @@
     }
     // 设置默认资产
     self.headerView.assestChooserLabel.text = self.currentAssestsType;
-    self.headerView.generateQRCodeBtn.layer.masksToBounds = YES;
-    self.headerView.generateQRCodeBtn.layer.cornerRadius = 5.0;
+    self.headerView.assetLogoImg.image = [UIImage imageNamed:@"logo_van_green"];
+    self.headerView.accountTFLabel.text = CURRENT_ACCOUNT_NAME;
+//    self.headerView.generateQRCodeBtn.layer.masksToBounds = YES;
+//    self.headerView.generateQRCodeBtn.layer.cornerRadius = 5.0;
     [self requestRate];
     [MobClick beginLogPageView:@"VKToken收款"]; //("Pagename"为页面名称，可自定义)
 }
@@ -128,7 +138,7 @@
     
     [self.view addSubview:self.navView];
     [self.view addSubview:self.headerView];
-    self.view.lee_theme.LeeConfigBackgroundColor(@"baseHeaderView_background_color");
+//    self.view.lee_theme.LeeConfigBackgroundColor(@"baseHeaderView_background_color");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:self.headerView.amountTF];
 }
 
@@ -168,21 +178,31 @@
 }
 
 - (void)textFieldChange:(NSNotification *)notification {
-    BOOL isCanSubmit = self.headerView.amountTF.text.length != 0;
-    if (isCanSubmit) {
-        self.headerView.generateQRCodeBtn.lee_theme
-        .LeeConfigBackgroundColor(@"confirmButtonNormalStateBackgroundColor");
-    } else {
-        self.headerView.generateQRCodeBtn.lee_theme
-        .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xCCCCCC))
-        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0xA3A3A3));
-    }
-    self.headerView.generateQRCodeBtn.enabled = isCanSubmit;
+//    BOOL isCanSubmit = self.headerView.amountTF.text.length != 0;
+//    if (isCanSubmit) {
+//        self.headerView.generateQRCodeBtn.lee_theme
+//        .LeeConfigBackgroundColor(@"confirmButtonNormalStateBackgroundColor");
+//    } else {
+//        self.headerView.generateQRCodeBtn.lee_theme
+//        .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xCCCCCC))
+//        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0xA3A3A3));
+//    }
+//    self.headerView.generateQRCodeBtn.enabled = isCanSubmit;
     if (IsStrEmpty(self.currentToken.coinmarket_id)  ) {
-        self.headerView.tipLabel.text = [NSString stringWithFormat:@"≈0CNY"];
+//        self.headerView.tipLabel.text = [NSString stringWithFormat:@"≈0CNY"];
     }else{
-        self.headerView.tipLabel.text = [NSString stringWithFormat:@"≈%@CNY" , [NumberFormatter displayStringFromNumber:@(self.headerView.amountTF.text.doubleValue * self.assest_price_cny.doubleValue)]];
+//        self.headerView.tipLabel.text = [NSString stringWithFormat:@"≈%@CNY" , [NumberFormatter displayStringFromNumber:@(self.headerView.amountTF.text.doubleValue * self.assest_price_cny.doubleValue)]];
         
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:VALIDATE_STRING(CURRENT_ACCOUNT_NAME)  forKey:@"account_name"];
+        [dic setObject:VALIDATE_STRING(self.currentAssestsType)  forKey:@"token"];
+        [dic setObject:VALIDATE_STRING(self.headerView.amountTF.text)  forKey:@"quantity"];
+        [dic setObject:VALIDATE_STRING(self.currentToken.contract_name)  forKey:@"contract"];
+        [dic setObject:@"token_make_collections_QRCode"  forKey:@"type"];
+        
+        //钱包二维码
+        NSString *QRCodeJsonStr = [dic mj_JSONString];
+        self.headerView.recieveAssestsQRCodeImg.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"logo_bg_blue" logoScaleToSuperView:0.2];
     }
 }
 
@@ -233,13 +253,12 @@
     }];
 }
 
-
 - (void)createQRCodeBtnDidClick:(UIButton *)sender{
     [self.view endEditing:YES];
     [self.view addSubview:self.recieveQRCodeView];
     self.recieveQRCodeView.amountLabel.text = self.headerView.amountTF.text;
     self.recieveQRCodeView.assestTypeLabel.text = [NSString stringWithFormat:@"/ %@", self.currentAssestsType];
-
+    
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:VALIDATE_STRING(CURRENT_ACCOUNT_NAME)  forKey:@"account_name"];
     [dic setObject:VALIDATE_STRING(self.currentAssestsType)  forKey:@"token"];
@@ -249,7 +268,7 @@
     
     //钱包二维码
     NSString *QRCodeJsonStr = [dic mj_JSONString];
-    self.recieveQRCodeView.recieveAssestsQRCodeImg.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"account_default_blue" logoScaleToSuperView:0.2];
+    self.recieveQRCodeView.recieveAssestsQRCodeImg.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"logo_bg_blue" logoScaleToSuperView:0.2];
 }
 
 - (void)removeRecieveQRCodeView{

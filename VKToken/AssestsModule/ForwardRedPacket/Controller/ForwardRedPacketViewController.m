@@ -186,7 +186,7 @@
 
 - (void)configHeaderView{
     Wallet *wallet = CURRENT_WALLET;
-    [self.headerView.avatarImgView sd_setImageWithURL:String_To_URL(wallet.wallet_img) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.headerView.avatarImgView sd_setImageWithURL:String_To_URL(wallet.wallet_img) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.headerView.accountLabel.text = self.redPacketModel.from;
     self.headerView.memoLabel.text = self.redPacketModel.memo;
     self.headerView.tipLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@%@，%@%@%@", nil), self.redPacketModel.count, NSLocalizedString(@"个红包", nil),NSLocalizedString(@"共", nil), self.redPacketModel.amount, self.redPacketModel.coin];

@@ -157,7 +157,7 @@
     [self.view addSubview:self.mainTableView];
     [self.mainTableView setTableHeaderView:self.headerView];
     Wallet *wallet = CURRENT_WALLET;
-    [self.headerView.avatarImageView sd_setImageWithURL:String_To_URL(wallet.wallet_img) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.headerView.avatarImageView sd_setImageWithURL:String_To_URL(wallet.wallet_img) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.headerView.accountNameLabel.text = self.redPacketModel.from;
     self.headerView.memoLabel.text = self.redPacketModel.memo;
 

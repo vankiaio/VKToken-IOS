@@ -61,13 +61,13 @@
 
 
 //-(void)setModel:(Application *)model{
-//    [_img sd_setImageWithURL: String_To_URL(VALIDATE_STRING(model.applyIcon) )  placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+//    [_img sd_setImageWithURL: String_To_URL(VALIDATE_STRING(model.applyIcon) )  placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
 //    _titleLabel.text = model.applyName;
 //    _descriptionLabel.text = model.applyDetails;
 //}
 
 - (void)setModel:(DappModel *)model{
-    [_img sd_setImageWithURL: String_To_URL(VALIDATE_STRING(model.dappIcon) )  placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [_img sd_setImageWithURL: String_To_URL(VALIDATE_STRING(model.dappIcon) )  placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     _titleLabel.text = model.dappName;
     _descriptionLabel.text = model.dappIntro;
 }

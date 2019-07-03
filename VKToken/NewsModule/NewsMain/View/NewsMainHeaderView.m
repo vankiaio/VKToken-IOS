@@ -23,7 +23,7 @@
 
 - (SDCycleScrollView *)scrollView{
     if (!_scrollView) {
-        _scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CYCLESCROLLVIEW_HEIGHT) delegate:nil placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+        _scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CYCLESCROLLVIEW_HEIGHT) delegate:nil placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
         _scrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     }
     return _scrollView;
@@ -83,7 +83,7 @@
     TYCyclePagerViewCell *cell = [pagerView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndex:index];
     
     News *model = self.datas[index];
-    [cell.imageView sd_setImageWithURL:String_To_URL(model.imageUrl) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [cell.imageView sd_setImageWithURL:String_To_URL(model.imageUrl) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     return cell;
 }
 

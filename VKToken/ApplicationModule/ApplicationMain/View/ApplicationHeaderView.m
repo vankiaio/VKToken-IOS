@@ -27,7 +27,7 @@
     for (int i = 0 ; i < array.count ; i ++) {
         Enterprise *model = array[i];
         UIImageView *img = [[UIImageView alloc] init];
-        [img sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.enterpriseIcon)) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+        [img sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.enterpriseIcon)) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
         img.tag = 1000 + i;
         img.userInteractionEnabled = YES;
         img.sd_cornerRadius = @(itemWidth_height / 2);

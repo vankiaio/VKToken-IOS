@@ -26,6 +26,7 @@
 #import "TransferAbi_json_to_bin_request.h"
 #import "Get_token_info_service.h"
 #import "TransferRecordsViewController.h"
+#import "ContactTableViewController.h"
 #import "VKToken-swift.h"
 
 @interface TransferNewViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate , UITableViewDataSource, NavigationViewDelegate, TransferHeaderViewDelegate, ChangeAccountViewControllerDelegate, UITextFieldDelegate, TransferServiceDelegate, LoginPasswordViewDelegate>
@@ -137,6 +138,7 @@
             self.currentAssestsType = self.recieveTokenModel.token;
         }
         self.headerView.assestChooserLabel.text = self.currentAssestsType;
+        self.headerView.nameFromTF.text = CURRENT_ACCOUNT_NAME;
         for (TokenInfo *token in self.get_token_info_service_data_array) {
             if ([token.token_symbol isEqualToString:self.currentAssestsType]) {
                 self.currentToken = token;
@@ -160,7 +162,9 @@
             return;
         }
     }
+    self.headerView.transferBtn.layer.cornerRadius = 5.0f;
     [self requestRate];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -295,16 +299,18 @@
 }
 
 - (void)contactBtnDidClick:(UIButton *)sender {
-    ChangeAccountViewController *vc = [[ChangeAccountViewController alloc] init];
-    NSMutableArray *temp = [NSMutableArray array];
-    for (Follow *follow in self.mainService.richListDataArray) {
-        WalletAccount *walletAccount = [[WalletAccount alloc] init];
-        walletAccount.vktAccountName = follow.displayName;
-        [temp addObject:walletAccount];
-    }
-    vc.dataArray = temp;
-    vc.changeAccountDataArrayType = ChangeAccountDataArrayTypeNetworking;
-    vc.delegate = self;
+//    ChangeAccountViewController *vc = [[ChangeAccountViewController alloc] init];
+//    NSMutableArray *temp = [NSMutableArray array];
+//    for (Follow *follow in self.mainService.richListDataArray) {
+//        WalletAccount *walletAccount = [[WalletAccount alloc] init];
+//        walletAccount.vktAccountName = follow.displayName;
+//        [temp addObject:walletAccount];
+//    }
+//    vc.dataArray = temp;
+//    vc.changeAccountDataArrayType = ChangeAccountDataArrayTypeNetworking;
+//    vc.delegate = self;
+    //创建tableView视图控制器
+    ContactTableViewController *vc = [[ContactTableViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

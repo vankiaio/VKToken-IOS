@@ -68,7 +68,7 @@
     self.simpleWalletLoginModel = [SimpleWalletLoginModel mj_objectWithKeyValues:self.scannedResult];
     self.view.lee_theme.LeeConfigBackgroundColor(@"baseAddAccount_background_color");
     
-    [self.headerView.dappAvatarView sd_setImageWithURL:String_To_URL(self.simpleWalletLoginModel.dappIcon) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.headerView.dappAvatarView sd_setImageWithURL:String_To_URL(self.simpleWalletLoginModel.dappIcon) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.headerView.dappNameLabel.text = self.simpleWalletLoginModel.dappName;
     self.headerView.vktAccountNameLabel.text = CURRENT_ACCOUNT_NAME;
 }

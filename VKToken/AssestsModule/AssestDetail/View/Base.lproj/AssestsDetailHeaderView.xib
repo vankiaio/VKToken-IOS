@@ -17,7 +17,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BDS-Hg-9Ec" userLabel="bg Image View">
                     <rect key="frame" x="20" y="5" width="335" height="182"/>
-                    <color key="backgroundColor" red="0.35686274509803922" green="0.82352941176470584" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.031372549020000001" green="0.69867295029999998" blue="0.7216107249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="335" id="Uww-3v-YFn"/>
                     </constraints>
@@ -174,7 +174,7 @@
                 <constraint firstItem="cPT-XA-d7o" firstAttribute="leading" secondItem="BDS-Hg-9Ec" secondAttribute="leading" constant="20" id="fe8-7l-v13"/>
                 <constraint firstItem="YaW-Op-6Nm" firstAttribute="top" secondItem="cPT-XA-d7o" secondAttribute="bottom" constant="25" id="goD-Zc-93q"/>
                 <constraint firstItem="EKl-YA-NB5" firstAttribute="top" secondItem="4D7-Dd-bnL" secondAttribute="bottom" constant="10" id="lsQ-tp-lpD"/>
-                <constraint firstItem="BDS-Hg-9Ec" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YaW-Op-6Nm" secondAttribute="trailing" constant="20" symbolic="YES" id="nZx-6R-Zeo"/>
+                <constraint firstItem="BDS-Hg-9Ec" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YaW-Op-6Nm" secondAttribute="trailing" symbolic="YES" id="nZx-6R-Zeo"/>
                 <constraint firstItem="cPT-XA-d7o" firstAttribute="top" secondItem="TUT-Ff-Vaq" secondAttribute="top" id="ob4-no-9nn"/>
                 <constraint firstItem="4D7-Dd-bnL" firstAttribute="top" secondItem="YaW-Op-6Nm" secondAttribute="bottom" constant="5" id="s4w-86-nvY"/>
                 <constraint firstItem="l1P-w5-hlp" firstAttribute="leading" secondItem="TUT-Ff-Vaq" secondAttribute="leading" id="tCj-IN-H0y"/>

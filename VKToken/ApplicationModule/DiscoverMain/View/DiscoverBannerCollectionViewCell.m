@@ -98,7 +98,7 @@
     
     
     
-    [self.avatarImgView sd_setImageWithURL:String_To_URL(model.dappPicture) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.avatarImgView sd_setImageWithURL:String_To_URL(model.dappPicture) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.titleLabel.text = model.dappName;
     self.tagLabel.text = model.dappCategoryName;
 //    self.tagLabel.textColor = model.textColor;

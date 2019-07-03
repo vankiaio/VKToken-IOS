@@ -360,7 +360,7 @@
     }else if ([self.model.token_symbol isEqualToString:@"OCT"]){
         model.imageName = @"oct_avatar";
     }else{
-        model.imageName = @"account_default_blue";
+        model.imageName = @"logo_bg_blue";
     }
     model.title = [NSString stringWithFormat:@"%@%@",self.model.token_symbol, NSLocalizedString(@"最新咨询详情", nil)];
     

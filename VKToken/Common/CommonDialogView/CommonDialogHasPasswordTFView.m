@@ -58,7 +58,7 @@
 - (UIImageView *)avatarImg{
     if (!_avatarImg) {
         _avatarImg = [[UIImageView alloc] init];
-        _avatarImg.image = [UIImage imageNamed:@"account_default_blue"];
+        _avatarImg.image = [UIImage imageNamed:@"logo_bg_blue"];
     }
     return _avatarImg;
 }

@@ -48,7 +48,7 @@
 }
 
 -(void)setModel:(CandyEquityModel *)model{
-    [self.img sd_setImageWithURL:String_To_URL(model.avatar) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.img sd_setImageWithURL:String_To_URL(model.avatar) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.titleLabel.text = model.title;
 }
 

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" ambiguous="YES" id="iN0-l3-epB" customClass="RichlistHeaderView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RichlistHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -89,6 +89,7 @@
                         <constraint firstItem="J8j-yE-wjT" firstAttribute="top" secondItem="5ri-sH-RnC" secondAttribute="top" id="Zst-zP-KeH"/>
                         <constraint firstItem="ysJ-R0-iy7" firstAttribute="top" secondItem="5ri-sH-RnC" secondAttribute="top" id="dRd-KA-pAv"/>
                         <constraint firstItem="ysJ-R0-iy7" firstAttribute="leading" secondItem="5ri-sH-RnC" secondAttribute="leading" id="dRm-yE-k4T"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J8j-yE-wjT" secondAttribute="trailing" constant="20" symbolic="YES" id="kPI-5W-UaY"/>
                         <constraint firstAttribute="bottom" secondItem="2mf-1n-Rji" secondAttribute="bottom" constant="15" id="knZ-2h-14j"/>
                         <constraint firstItem="2mf-1n-Rji" firstAttribute="top" secondItem="5ri-sH-RnC" secondAttribute="top" constant="15" id="lgo-28-X2d"/>
                         <constraint firstAttribute="trailing" secondItem="ysJ-R0-iy7" secondAttribute="trailing" id="qOR-pW-AEr"/>
@@ -152,7 +153,6 @@
                 <constraint firstAttribute="trailing" secondItem="5ri-sH-RnC" secondAttribute="trailing" id="TPB-Xz-c9o"/>
                 <constraint firstAttribute="trailing" secondItem="I6o-qa-HJ5" secondAttribute="trailing" id="U3H-zp-vWe"/>
                 <constraint firstItem="I6o-qa-HJ5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="WTS-tj-ZG7"/>
-                <constraint firstAttribute="bottom" secondItem="d8v-By-zgo" secondAttribute="bottom" id="XNu-6z-rjt"/>
                 <constraint firstItem="5ri-sH-RnC" firstAttribute="top" secondItem="iKe-sm-oJb" secondAttribute="bottom" id="Xpb-yy-lqy"/>
                 <constraint firstItem="iKe-sm-oJb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ahG-27-qNd"/>
                 <constraint firstItem="d8v-By-zgo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jnN-Y6-cCi"/>

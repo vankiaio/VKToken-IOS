@@ -55,7 +55,7 @@
     NSString *QRCodeJsonStr = [dic mj_JSONString];
     
     // 2、将CIImage转换成UIImage，并放大显示
-    imageView.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"account_default_blue" logoScaleToSuperView:0.2];
+    imageView.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"logo_bg_blue" logoScaleToSuperView:0.2];
     
     
 }

@@ -103,7 +103,7 @@
     
     //钱包二维码
     NSString *QRCodeJsonStr = [dic mj_JSONString];
-    self.walletQRCodeView.walletQRCodeImg.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"account_default_blue" logoScaleToSuperView:0.2];
+    self.walletQRCodeView.walletQRCodeImg.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"logo_bg_blue" logoScaleToSuperView:0.2];
 }
 
 - (void)avatarBtnDidClick:(UIButton *)sender{

@@ -147,7 +147,7 @@
 
 -(void)setModel:(TokenInfo *)model{
     self.assestsImg.image = [UIImage imageNamed:model.iconUrl];
-    [self.assestsImg sd_setImageWithURL:String_To_URL(model.iconUrl) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.assestsImg sd_setImageWithURL:String_To_URL(model.iconUrl) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     
     self.assestsTokenLabel.text = [NSString stringWithFormat:@"%@",VALIDATE_STRING(model.token_symbol)];
 

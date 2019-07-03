@@ -63,7 +63,7 @@
     for (int i = 0 ; i < array.count ; i ++) {
         Enterprise *model = array[i];
         UIImageView *img = [[UIImageView alloc] init];
-        [img sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.enterpriseIcon)) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+        [img sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.enterpriseIcon)) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
         img.tag = 1000 + i;
         img.userInteractionEnabled = YES;
         img.sd_cornerRadius = @(itemWidth_height / 2);
@@ -96,7 +96,7 @@
 }
 
 - (void)updateStarViewWithModel:(Application *)model{
-    [self.starImg sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.applyIcon)) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.starImg sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.applyIcon)) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.starTitleLabel.text = [NSString stringWithFormat:@" %@", model.applyName];
     self.starDetailView.text = model.applyDetails;
 }

@@ -26,7 +26,7 @@
 
 
 - (void)updateStarViewWithModel:(Application *)model{
-    [self.starImg sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.applyIcon)) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.starImg sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.applyIcon)) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.starTitleLabel.text = [NSString stringWithFormat:@"%@", model.applyName];
     self.starDetailLabel.text = model.applyDetails;
 }

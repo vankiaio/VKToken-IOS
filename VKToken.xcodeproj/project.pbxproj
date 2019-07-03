@@ -932,6 +932,8 @@
 		24FB2CA820DBF86800AC73A5 /* BandwidthManageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CA720DBF86800AC73A5 /* BandwidthManageHeaderView.m */; };
 		24FB2CAE20DBF99700AC73A5 /* BandwidthManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CAC20DBF99700AC73A5 /* BandwidthManageTableViewCell.m */; };
 		24FB2CB220DBF9CE00AC73A5 /* BandwidthManageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FB2CB120DBF9CE00AC73A5 /* BandwidthManageCellModel.m */; };
+		6E0E95E122C5E42300089F46 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E95DE22C5E42200089F46 /* Person.m */; };
+		6E0E95E222C5E42300089F46 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E95DF22C5E42200089F46 /* ContactCell.m */; };
 		6E151F9422AF649200035664 /* UILabel+SpacesAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */; };
 		6E151F9722AF86D100035664 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E151F9622AF86D100035664 /* ContentView.m */; };
 		6E1F521A22940C9C003D1C3D /* GetAssestLockRecordsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520622940C9C003D1C3D /* GetAssestLockRecordsRequest.m */; };
@@ -965,6 +967,10 @@
 		6EC6B8EE22B796CD00E5129A /* AuthPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC6B8ED22B796CC00E5129A /* AuthPasswordViewController.xib */; };
 		6EC6B8F322BA10DD00E5129A /* EnterAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6B8F222BA10DD00E5129A /* EnterAuthViewController.m */; };
 		6EC6B8F522BA11E100E5129A /* EnterAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC6B8F422BA11E000E5129A /* EnterAuthViewController.xib */; };
+		6EC8B6AF22C5E44B0006D9F0 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6A822C5E44A0006D9F0 /* DetailsViewController.m */; };
+		6EC8B6B022C5E44B0006D9F0 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6A922C5E44A0006D9F0 /* SearchResultController.m */; };
+		6EC8B6B122C5E44B0006D9F0 /* ContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6AA22C5E44A0006D9F0 /* ContactTableViewController.m */; };
+		6EC8B6B222C5E44B0006D9F0 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */; };
 		D5BDAA720B08CDDFDEACA5C8 /* Pods_VKToken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD54694ABA61B4EAAED3C32 /* Pods_VKToken.framework */; };
 /* End PBXBuildFile section */
 
@@ -2874,6 +2880,10 @@
 		24FB2CBA20DBFE7200AC73A5 /* UIViewAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		3FD54694ABA61B4EAAED3C32 /* Pods_VKToken.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKToken.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0B081B22AF8BBA003BB1AE /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		6E0E95DD22C5E42200089F46 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
+		6E0E95DE22C5E42200089F46 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		6E0E95DF22C5E42200089F46 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		6E0E95E022C5E42200089F46 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		6E151F9222AF649200035664 /* UILabel+SpacesAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SpacesAdjust.h"; sourceTree = "<group>"; };
 		6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SpacesAdjust.m"; sourceTree = "<group>"; };
 		6E151F9522AF86D100035664 /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
@@ -2930,6 +2940,14 @@
 		6EC6B8EF22BA0F4F00E5129A /* EnterAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnterAuthViewController.h; sourceTree = "<group>"; };
 		6EC6B8F222BA10DD00E5129A /* EnterAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnterAuthViewController.m; sourceTree = "<group>"; };
 		6EC6B8F422BA11E000E5129A /* EnterAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterAuthViewController.xib; sourceTree = "<group>"; };
+		6EC8B6A722C5E44A0006D9F0 /* ContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewController.h; sourceTree = "<group>"; };
+		6EC8B6A822C5E44A0006D9F0 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		6EC8B6A922C5E44A0006D9F0 /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
+		6EC8B6AA22C5E44A0006D9F0 /* ContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewController.m; sourceTree = "<group>"; };
+		6EC8B6AB22C5E44A0006D9F0 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
+		6EC8B6AC22C5E44A0006D9F0 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		6EC8B6AD22C5E44A0006D9F0 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		AFAE409D652850E019785CE8 /* Pods-VKToken.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKToken.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKToken/Pods-VKToken.debug.xcconfig"; sourceTree = "<group>"; };
 		E9EE9F0D161AD0B85DB36F92 /* Pods-VKToken.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKToken.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKToken/Pods-VKToken.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -6021,6 +6039,7 @@
 		187268521FDE315F00C898D1 /* pocketManagement */ = {
 			isa = PBXGroup;
 			children = (
+				6E0E95D922C5CBCC00089F46 /* AddressBook */,
 				6E9AF83A22B106B700D3514D /* ImportMnemonic */,
 				6E9AF82D22B1055B00D3514D /* CreateMnemonic */,
 				18CE935321A508CB002F958E /* ResetAccountPermision */,
@@ -9007,6 +9026,49 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6E0E95D922C5CBCC00089F46 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				6E0E95DC22C5CCA800089F46 /* Model */,
+				6E0E95DB22C5CC2800089F46 /* ViewController */,
+				6E0E95DA22C5CC1D00089F46 /* View */,
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		6E0E95DA22C5CC1D00089F46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E0E95DB22C5CC2800089F46 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6EC8B6AD22C5E44A0006D9F0 /* AddViewController.h */,
+				6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */,
+				6EC8B6A722C5E44A0006D9F0 /* ContactTableViewController.h */,
+				6EC8B6AA22C5E44A0006D9F0 /* ContactTableViewController.m */,
+				6EC8B6AC22C5E44A0006D9F0 /* DetailsViewController.h */,
+				6EC8B6A822C5E44A0006D9F0 /* DetailsViewController.m */,
+				6EC8B6AB22C5E44A0006D9F0 /* SearchResultController.h */,
+				6EC8B6A922C5E44A0006D9F0 /* SearchResultController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6E0E95DC22C5CCA800089F46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E0E95DD22C5E42200089F46 /* ContactCell.h */,
+				6E0E95DF22C5E42200089F46 /* ContactCell.m */,
+				6E0E95E022C5E42200089F46 /* Person.h */,
+				6E0E95DE22C5E42200089F46 /* Person.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6E1F520322940C9C003D1C3D /* AssetLock */ = {
 			isa = PBXGroup;
 			children = (
@@ -9573,6 +9635,7 @@
 				18BE612A20FF3B3300BAD50C /* Add_user_token_request.m in Sources */,
 				18D475B6215CD6C400F3BF22 /* GetVktBalanceModel.m in Sources */,
 				18E72E241FCC116F00D09CA3 /* ApplicationMainViewController.m in Sources */,
+				6EC8B6AF22C5E44B0006D9F0 /* DetailsViewController.m in Sources */,
 				18291F5520EE548E00D19CB9 /* UserInfoResult.m in Sources */,
 				1856A4EE2008887200D62FEB /* NSBundle+MJRefresh.m in Sources */,
 				18B2912720898C530032EE27 /* GetRedPacketRecordRequest.m in Sources */,
@@ -9739,6 +9802,7 @@
 				189CECA120CFE70300F81AD8 /* GetNowVoteWeightRequest.m in Sources */,
 				18CEA6672105D22500B2BFE2 /* RootNavigationController.m in Sources */,
 				18112F681FCD016000BEA0D9 /* IQUIScrollView+Additions.m in Sources */,
+				6EC8B6B022C5E44B0006D9F0 /* SearchResultController.m in Sources */,
 				1832CC44200761C400C055B6 /* AskQuestionModel.m in Sources */,
 				18EE055D1FDFB31800134E5C /* ImportAccountHeaderView.m in Sources */,
 				1832F938211D7B0A0089C394 /* ExcuteActionsResult.m in Sources */,
@@ -9846,6 +9910,7 @@
 				244769FF20DD494800B7283C /* PriceResult.m in Sources */,
 				189CEC8220CFB5F800F81AD8 /* MyVoteInfoResult.m in Sources */,
 				189E3EC4201C5B980022AF19 /* UIImage+RSKImageCropper.m in Sources */,
+				6E0E95E122C5E42300089F46 /* Person.m in Sources */,
 				181130171FCD01B800BEA0D9 /* UIImage+GIF.m in Sources */,
 				184D61771FD4F36300EA26B1 /* NSSet+HYBUnicodeReadable.m in Sources */,
 				1841426E2020B11000A789ED /* GetEnterpriseDetailRequest.m in Sources */,
@@ -9872,6 +9937,7 @@
 				189CEC7020CE7B7F00F81AD8 /* RegisterAccountToVoteSystem_Abi_json_to_bin_request.m in Sources */,
 				1808FCC6202AD1A000625C37 /* PopUpAccountsWindow.m in Sources */,
 				1832F92B211D32870089C394 /* ExcuteActionsViewController.m in Sources */,
+				6EC8B6B222C5E44B0006D9F0 /* AddViewController.m in Sources */,
 				18C7F76C211AFA93006AD456 /* CheckWhetherHasFreeQuotaResult.m in Sources */,
 				1811301C1FCD01B800BEA0D9 /* UIView+WebCache.m in Sources */,
 				1811301A1FCD01B800BEA0D9 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -9922,6 +9988,7 @@
 				18C622B11FD63B960043447F /* RedPacketHeaderView.m in Sources */,
 				1889E1A4217B21BD002ECF38 /* AssestsCollectionTableViewCell.m in Sources */,
 				185BBA9C1FF4883100DE2AC1 /* Wallet.m in Sources */,
+				6E0E95E222C5E42300089F46 /* ContactCell.m in Sources */,
 				6E1F522122940C9C003D1C3D /* AssestLockRecordsHeaderView.m in Sources */,
 				182CDF4B201EFF4C002B87B6 /* MessageFeedbackService.m in Sources */,
 				183C6442211AA1F7001C9C4A /* AccountOrderStatus.m in Sources */,
@@ -10204,6 +10271,7 @@
 				18CDFAF92029880000D21DF4 /* GetAccountRequest.m in Sources */,
 				181EC31220C4CC08001994D3 /* ApplicationHeaderView.m in Sources */,
 				18EE05241FDF70E600134E5C /* PocketManagementViewController.m in Sources */,
+				6EC8B6B122C5E44B0006D9F0 /* ContactTableViewController.m in Sources */,
 				183FF8C61FF34C80006C25F1 /* NewsResult.m in Sources */,
 				188F7A0A20CA350E00911034 /* BPRecommendAgentService.m in Sources */,
 				1860510B2028456B00C87DDF /* WkDelegateController.m in Sources */,

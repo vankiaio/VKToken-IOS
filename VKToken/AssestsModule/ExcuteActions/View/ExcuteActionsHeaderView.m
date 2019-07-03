@@ -53,7 +53,7 @@
 }
 
 - (void)updateViewWithModel:(ExcuteActionsResult *)model{
-    [_img sd_setImageWithURL: String_To_URL(VALIDATE_STRING(model.dappIcon) )  placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [_img sd_setImageWithURL: String_To_URL(VALIDATE_STRING(model.dappIcon) )  placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     _titleLabel.text = model.dappName;
     _descriptionLabel.text = model.desc;
 }

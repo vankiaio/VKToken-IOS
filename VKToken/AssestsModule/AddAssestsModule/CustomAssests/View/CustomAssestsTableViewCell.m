@@ -75,7 +75,7 @@
 
 -(void)setModel:(CustomToken *)model{
     _model = model;
-    [_avatarImg sd_setImageWithURL: String_To_URL(model.iconUrl) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [_avatarImg sd_setImageWithURL: String_To_URL(model.iconUrl) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     _titleLabel.text = model.assetName;
     _detailLabel.text = model.contractName;
 }

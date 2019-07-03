@@ -94,7 +94,7 @@
     _model = model;
     self.titleLabel.text = model.title;
     self.summaryLable.text = model.summary;
-    [self.photoImg sd_setImageWithURL:String_To_URL(model.imageUrl) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.photoImg sd_setImageWithURL:String_To_URL(model.imageUrl) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.timeLabel.text = model.createTime;
 }
 @end

@@ -39,13 +39,13 @@
 }
 
 - (void)updateViewWithModel:(Enterprise *)model{
-    [self.introImg sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.publicImage)) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.introImg sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.publicImage)) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.introTextLabel.text = VALIDATE_STRING(model.summary);
     
 }
 
 - (void)upadteRecommandViewWithModel:(Application *)model{
-    [self.recommandImg sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.applyIcon)) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [self.recommandImg sd_setImageWithURL:String_To_URL(VALIDATE_STRING(model.applyIcon)) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     self.recommandApplicationTitleLabel.text = VALIDATE_STRING(model.applyName);
     self.recommandApplicationDetailLabel.text = VALIDATE_STRING(model.applyDetails);
 }

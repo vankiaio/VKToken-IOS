@@ -44,7 +44,7 @@
             [self addSubview:baseView];
             
             UIImageView *img = [[UIImageView alloc] init];
-            [img sd_setImageWithURL:String_To_URL(VALIDATE_STRING(imageArr[i])) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+            [img sd_setImageWithURL:String_To_URL(VALIDATE_STRING(imageArr[i])) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
             img.image = [UIImage imageNamed:imageArr[i]];
             img.frame = CGRectMake(itemWidth/2 - 35 ,16, 20, 20);
             

@@ -427,7 +427,7 @@
     [params setObject:@"account_priviate_key_QRCode" forKey:@"type"];
     NSString *jsonStr = [params mj_JSONString];
     
-    self.exportPrivateKeyView.QRCodeimg.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:jsonStr logoImageName:@"account_default_blue" logoScaleToSuperView:0.2];
+    self.exportPrivateKeyView.QRCodeimg.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:jsonStr logoImageName:@"logo_bg_blue" logoScaleToSuperView:0.2];
     
 
 }

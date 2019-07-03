@@ -156,7 +156,7 @@
         _mainAccountImg.hidden = YES;
     }
     
-    [_avatarImg sd_setImageWithURL: String_To_URL(model.account_name) placeholderImage:[UIImage imageNamed:@"account_default_blue"]];
+    [_avatarImg sd_setImageWithURL: String_To_URL(model.account_name) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     
     if (model.account_owner_public_key.length > 6) {
         _detailLabel.text = NSLocalizedString(@"Active权限＋Owner权限", nil);
