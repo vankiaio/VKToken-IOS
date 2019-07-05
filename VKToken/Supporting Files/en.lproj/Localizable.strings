@@ -61,7 +61,7 @@
  */
 "锁仓记录"="Locked Record";
 "总额"="Total Balance";
-"锁仓"="Locked Balance";
+"锁仓"="Locked";
 "解锁时间"="Unlock Time";
 "锁定数量"="Locked Amount";
 "锁仓总额"="Total Locked Amount";

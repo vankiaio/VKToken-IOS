@@ -967,7 +967,6 @@
 		6EC6B8EE22B796CD00E5129A /* AuthPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC6B8ED22B796CC00E5129A /* AuthPasswordViewController.xib */; };
 		6EC6B8F322BA10DD00E5129A /* EnterAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6B8F222BA10DD00E5129A /* EnterAuthViewController.m */; };
 		6EC6B8F522BA11E100E5129A /* EnterAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC6B8F422BA11E000E5129A /* EnterAuthViewController.xib */; };
-		6EC8B6AF22C5E44B0006D9F0 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6A822C5E44A0006D9F0 /* DetailsViewController.m */; };
 		6EC8B6B022C5E44B0006D9F0 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6A922C5E44A0006D9F0 /* SearchResultController.m */; };
 		6EC8B6B122C5E44B0006D9F0 /* ContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6AA22C5E44A0006D9F0 /* ContactTableViewController.m */; };
 		6EC8B6B222C5E44B0006D9F0 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */; };
@@ -2880,9 +2879,9 @@
 		24FB2CBA20DBFE7200AC73A5 /* UIViewAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		3FD54694ABA61B4EAAED3C32 /* Pods_VKToken.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKToken.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0B081B22AF8BBA003BB1AE /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
-		6E0E95DD22C5E42200089F46 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
+		6E0E95DD22C5E42200089F46 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactCell.h; path = ../Model/ContactCell.h; sourceTree = "<group>"; };
 		6E0E95DE22C5E42200089F46 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		6E0E95DF22C5E42200089F46 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		6E0E95DF22C5E42200089F46 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactCell.m; path = ../Model/ContactCell.m; sourceTree = "<group>"; };
 		6E0E95E022C5E42200089F46 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		6E151F9222AF649200035664 /* UILabel+SpacesAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SpacesAdjust.h"; sourceTree = "<group>"; };
 		6E151F9322AF649200035664 /* UILabel+SpacesAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SpacesAdjust.m"; sourceTree = "<group>"; };
@@ -2941,11 +2940,9 @@
 		6EC6B8F222BA10DD00E5129A /* EnterAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnterAuthViewController.m; sourceTree = "<group>"; };
 		6EC6B8F422BA11E000E5129A /* EnterAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterAuthViewController.xib; sourceTree = "<group>"; };
 		6EC8B6A722C5E44A0006D9F0 /* ContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewController.h; sourceTree = "<group>"; };
-		6EC8B6A822C5E44A0006D9F0 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		6EC8B6A922C5E44A0006D9F0 /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		6EC8B6AA22C5E44A0006D9F0 /* ContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewController.m; sourceTree = "<group>"; };
 		6EC8B6AB22C5E44A0006D9F0 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
-		6EC8B6AC22C5E44A0006D9F0 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		6EC8B6AD22C5E44A0006D9F0 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		AFAE409D652850E019785CE8 /* Pods-VKToken.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKToken.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKToken/Pods-VKToken.debug.xcconfig"; sourceTree = "<group>"; };
@@ -9039,6 +9036,8 @@
 		6E0E95DA22C5CC1D00089F46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E0E95DD22C5E42200089F46 /* ContactCell.h */,
+				6E0E95DF22C5E42200089F46 /* ContactCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -9050,8 +9049,6 @@
 				6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */,
 				6EC8B6A722C5E44A0006D9F0 /* ContactTableViewController.h */,
 				6EC8B6AA22C5E44A0006D9F0 /* ContactTableViewController.m */,
-				6EC8B6AC22C5E44A0006D9F0 /* DetailsViewController.h */,
-				6EC8B6A822C5E44A0006D9F0 /* DetailsViewController.m */,
 				6EC8B6AB22C5E44A0006D9F0 /* SearchResultController.h */,
 				6EC8B6A922C5E44A0006D9F0 /* SearchResultController.m */,
 			);
@@ -9061,8 +9058,6 @@
 		6E0E95DC22C5CCA800089F46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6E0E95DD22C5E42200089F46 /* ContactCell.h */,
-				6E0E95DF22C5E42200089F46 /* ContactCell.m */,
 				6E0E95E022C5E42200089F46 /* Person.h */,
 				6E0E95DE22C5E42200089F46 /* Person.m */,
 			);
@@ -9635,7 +9630,6 @@
 				18BE612A20FF3B3300BAD50C /* Add_user_token_request.m in Sources */,
 				18D475B6215CD6C400F3BF22 /* GetVktBalanceModel.m in Sources */,
 				18E72E241FCC116F00D09CA3 /* ApplicationMainViewController.m in Sources */,
-				6EC8B6AF22C5E44B0006D9F0 /* DetailsViewController.m in Sources */,
 				18291F5520EE548E00D19CB9 /* UserInfoResult.m in Sources */,
 				1856A4EE2008887200D62FEB /* NSBundle+MJRefresh.m in Sources */,
 				18B2912720898C530032EE27 /* GetRedPacketRecordRequest.m in Sources */,

@@ -13,8 +13,8 @@
 
 @property (nonatomic,retain) UIButton *image;
 @property (nonatomic,retain) UITextField *name;
-@property (nonatomic,retain) UITextField *gender;
-@property (nonatomic,retain) UITextField *phone;
+@property (nonatomic,retain) UITextField *account;
+@property (nonatomic,retain) UITextField *comment;
 @property (nonatomic,retain) UIImagePickerController *pick;
 @property (nonatomic,retain) UIAlertView *alertView;
 
@@ -48,36 +48,27 @@
 //创建视图
 - (void)createView{
     
-    //头像
-    _image = [[UIButton alloc] initWithFrame:CGRectMake(50, 20, 114, 114)];
-    _image.backgroundColor = [UIColor lightGrayColor];
-    _image.layer.masksToBounds = YES;
-    _image.layer.cornerRadius = 57;
-    [_image setTitle:@"添加照片" forState:UIControlStateNormal];
-    [_image addTarget:self action:@selector(addPhoto:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_image];
     //姓名
-    _name = [[UITextField alloc] initWithFrame:CGRectMake(200, 20, 100, 30)];
+    _name = [[UITextField alloc] initWithFrame:CGRectMake(80, 20, 200, 30)];
     _name.borderStyle = UITextBorderStyleRoundedRect;
     _name.placeholder = @"姓名";
     _name.returnKeyType = UIReturnKeyNext;
     _name.delegate = self;
     [self.view addSubview:_name];
-    //性别
-    _gender = [[UITextField alloc] initWithFrame:CGRectMake(200, 60, 100, 30)];
-    _gender.borderStyle = UITextBorderStyleRoundedRect;
-    _gender.placeholder = @"性别";
-    _gender.returnKeyType = UIReturnKeyNext;
-    _gender.delegate = self;
-    [self.view addSubview:_gender];
-    //电话
-    _phone = [[UITextField alloc] initWithFrame:CGRectMake(200, 100, 150, 30)];
-    _phone.borderStyle = UITextBorderStyleRoundedRect;
-    _phone.placeholder = @"电话号码";
-    _phone.keyboardType = UIKeyboardTypePhonePad;
-    _phone.returnKeyType = UIReturnKeyDone;
-    _phone.delegate = self;
-    [self.view addSubview:_phone];
+    //账号
+    _account = [[UITextField alloc] initWithFrame:CGRectMake(80, 60, 200, 30)];
+    _account.borderStyle = UITextBorderStyleRoundedRect;
+    _account.placeholder = @"账号";
+    _account.returnKeyType = UIReturnKeyNext;
+    _account.delegate = self;
+    [self.view addSubview:_account];
+    //备注
+    _comment = [[UITextField alloc] initWithFrame:CGRectMake(80, 100, 200, 30)];
+    _comment.borderStyle = UITextBorderStyleRoundedRect;
+    _comment.placeholder = @"备注";
+    _comment.returnKeyType = UIReturnKeyDone;
+    _comment.delegate = self;
+    [self.view addSubview:_comment];
 }
 
 #pragma mark - 取消和保存事件
@@ -96,9 +87,9 @@
         Person *per = [Person new];
         //model赋值
         per.name = _name.text;
-        per.image = @"newPerson.png";
-        per.gender = _gender.text;
-        per.phoneNumber = _phone.text;
+        per.image = @"logo_van_green";
+        per.account = _account.text;
+        per.comment = _comment.text;
         //代理传值
         [_delegate sendPerson:per];
         //关闭键盘
@@ -134,10 +125,10 @@
 #pragma mark - textField代理事件
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if ([textField isEqual:_name]) {
-        [_gender becomeFirstResponder];
+        [_account becomeFirstResponder];
         return YES;
-    }else if ([textField isEqual:_gender]){
-        [_phone becomeFirstResponder];
+    }else if ([textField isEqual:_account]){
+        [_comment becomeFirstResponder];
         return YES;
     }
     
@@ -148,18 +139,8 @@
 #pragma mark - 保存验证
 - (BOOL)checkForSave{
     //判断姓名和电话号码是否为空
-    if ([_name.text isEqualToString:@""] || _name.text == nil || [_phone.text isEqualToString:@""] || _phone.text == nil) {
-        _alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"姓名或电话号码不能为空" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [_alertView show];
-        return NO;
-    }
-    //如果电话号码个数不是11
-    if (_phone.text.length != 11) {
-        if (_alertView == nil) {
-            _alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"电话号码输入有误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        }else{
-            _alertView.message = @"电话号码输入有误";
-        }
+    if ([_name.text isEqualToString:@""] || _name.text == nil || [_account.text isEqualToString:@""] || _account.text == nil) {
+        _alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"姓名或区块链账号不能为空" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [_alertView show];
         return NO;
     }

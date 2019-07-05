@@ -28,29 +28,28 @@
     [self.contentView addSubview:_image];
     
     //姓名
-    _name = [[UILabel alloc] initWithFrame:CGRectMake(150, 10, 100, 30)];
+    _name = [[UILabel alloc] initWithFrame:CGRectMake(100, 10, 120, 30)];
     _name.textColor = [UIColor blackColor];
+    _name.font = [UIFont systemFontOfSize:22];
     [self.contentView addSubview:_name];
     
-    //性别
-    _gender = [[UIImageView alloc] initWithFrame:CGRectMake(100, 10, 30, 30)];
-    [self.contentView addSubview:_gender];
+    //账户
+    _account = [[UILabel alloc] initWithFrame:CGRectMake(220, 10, 120, 30)];
+    _name.textColor = [UIColor blackColor];
+    [self.contentView addSubview:_account];
     
-    //电话
-    _phone = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, 200, 30)];
-    _phone.textColor = [UIColor lightGrayColor];
-    [self.contentView addSubview:_phone];
+    //备注
+    _commnet = [[UILabel alloc] initWithFrame:CGRectMake(100, 40, 200, 30)];
+    _commnet.textColor = [UIColor blackColor];
+    [self.contentView addSubview:_commnet];
 }
 
 - (void)setPer:(Person *)per{
     _image.image = [UIImage imageNamed:per.image];
     _name.text = per.name;
-    _phone.text = per.phoneNumber;
-    if ([per.gender isEqualToString:@"男"]) {
-        _gender.image = [UIImage imageNamed:@"male.png"];
-    }else{
-        _gender.image = [UIImage imageNamed:@"female.png"];
-    }
+    _account.text = per.account;
+    _commnet.text = per.comment;
+
 }
 
 - (void)awakeFromNib {

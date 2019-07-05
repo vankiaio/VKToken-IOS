@@ -82,7 +82,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzf-gr-yCb" userLabel="Balance Label" customClass="BaseLabel1">
-                            <rect key="frame" x="60" y="11.5" width="0.0" height="20"/>
+                            <rect key="frame" x="10" y="11.5" width="0.0" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="Zz8-Wv-0Iz"/>
                             </constraints>
@@ -104,7 +104,7 @@
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bzf-gr-yCb" secondAttribute="trailing" constant="20" symbolic="YES" id="QRz-39-KiV"/>
                         <constraint firstItem="XhW-Nm-6hl" firstAttribute="leading" secondItem="EKl-YA-NB5" secondAttribute="leading" id="Quz-H8-xS7"/>
                         <constraint firstItem="bzf-gr-yCb" firstAttribute="centerY" secondItem="XhW-Nm-6hl" secondAttribute="centerY" id="XOx-57-EP3"/>
-                        <constraint firstItem="bzf-gr-yCb" firstAttribute="leading" secondItem="spc-9x-OlX" secondAttribute="trailing" constant="60" id="YKP-rI-uid"/>
+                        <constraint firstItem="bzf-gr-yCb" firstAttribute="leading" secondItem="spc-9x-OlX" secondAttribute="trailing" constant="10" id="YKP-rI-uid"/>
                         <constraint firstAttribute="bottom" secondItem="XhW-Nm-6hl" secondAttribute="bottom" constant="-5" id="kH2-QW-aW8"/>
                         <constraint firstAttribute="leading" secondItem="spc-9x-OlX" secondAttribute="leading" id="mUF-fD-YkL"/>
                         <constraint firstAttribute="trailing" secondItem="XhW-Nm-6hl" secondAttribute="trailing" id="zsy-nS-2l0"/>

@@ -29,7 +29,7 @@
 #import "ContactTableViewController.h"
 #import "VKToken-swift.h"
 
-@interface TransferNewViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate , UITableViewDataSource, NavigationViewDelegate, TransferHeaderViewDelegate, ChangeAccountViewControllerDelegate, UITextFieldDelegate, TransferServiceDelegate, LoginPasswordViewDelegate>
+@interface TransferNewViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate , UITableViewDataSource, NavigationViewDelegate, TransferHeaderViewDelegate, ChangeAccountViewControllerDelegate,ChangeContactViewControllerDelegate, UITextFieldDelegate, TransferServiceDelegate, LoginPasswordViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;
 @property(nonatomic, strong) TransferHeaderView *headerView;
 @property(nonatomic, strong) TransferService *mainService;
@@ -311,11 +311,13 @@
 //    vc.delegate = self;
     //创建tableView视图控制器
     ContactTableViewController *vc = [[ContactTableViewController alloc] init];
+    vc.changeContactDataArrayType = ChangeContactDataArrayTypeNetworking;
+    vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-//ChangeAccountViewControllerDelegate
--(void)changeAccountCellDidClick:(NSString *)name{
+//ChangeContactViewControllerDelegate
+-(void)changeContactCellDidClick:(NSString *)name{
     NSLog(@"%@" ,name);
     self.headerView.nameTF.text = name;
 }

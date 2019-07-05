@@ -14,8 +14,8 @@
 @property (nonatomic,retain) Person *per;
 
 @property (nonatomic,retain) UIImageView *image;
-@property (nonatomic,retain) UIImageView *gender;
+@property (nonatomic,retain) UILabel *account;
 @property (nonatomic,retain) UILabel *name;
-@property (nonatomic,retain) UILabel *phone;
+@property (nonatomic,retain) UILabel *commnet;
 
 @end

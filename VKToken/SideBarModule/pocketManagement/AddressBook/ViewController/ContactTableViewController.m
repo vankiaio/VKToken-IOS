@@ -8,7 +8,6 @@
 
 #import "ContactTableViewController.h"
 #import "Person.h"
-#import "DetailsViewController.h"
 #import "AddViewController.h"
 #import "ContactCell.h"
 #import "SearchResultController.h"
@@ -31,11 +30,24 @@ static NSString *identifier = @"myCellReuse";
 - (instancetype)initWithStyle:(UITableViewStyle)style{
     if (self = [super initWithStyle:style]) {
         //获取文件路径
-        _addressPath = [[NSBundle mainBundle] pathForResource:@"AddressBook" ofType:@"plist"];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        _addressPath = [documentsDirectory stringByAppendingPathComponent:@"AddressBook.plist"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        if (![fileManager fileExistsAtPath: _addressPath])
+        {
+            _addressPath = [documentsDirectory stringByAppendingPathComponent: [NSString stringWithFormat: @"AddressBook.plist"] ];
+        }
+
         //获取文件内容(字典)
-        self.dictionary = [NSMutableDictionary dictionaryWithContentsOfFile:_addressPath];
+        _dictionary = [NSMutableDictionary dictionaryWithContentsOfFile:_addressPath];
+        if(!_dictionary){
+            // If the file doesn’t exist, create an empty dictionary
+            _dictionary = [[NSMutableDictionary alloc] initWithCapacity:1];
+        }
         //获取分组名
-        self.array = [NSMutableArray arrayWithArray:[_dictionary allKeys]];
+        _array = [NSMutableArray arrayWithArray:[_dictionary allKeys]];
         //分组名排序
         [_array sortUsingSelector:@selector(compare:)];
     }
@@ -44,21 +56,16 @@ static NSString *identifier = @"myCellReuse";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //设置navigationBar的颜色和标题
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationItem.title = @"所有联系人";
     //注册cell
     [self.tableView registerClass:[ContactCell class] forCellReuseIdentifier:identifier];
     //添加编辑按钮
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.editButtonItem.title = @"编辑";
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.editButtonItem.title = @"编辑";
     //添加添加联系人按钮
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewContact:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewContact:)];
     //设置搜索控制器
     SearchResultController *search = [[SearchResultController alloc] init];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:search];
@@ -146,10 +153,15 @@ static NSString *identifier = @"myCellReuse";
     Person *per = [Person new];
     //赋值
     [per setValuesForKeysWithDictionary:dic];
-    DetailsViewController *details = [[DetailsViewController alloc] init];
-    //传值
-    details.per = per;
-    [self.navigationController pushViewController:details animated:YES];
+//    [self.navigationController pushViewController:details animated:YES];
+    
+
+    if (self.delegate && [self.delegate respondsToSelector:@selector(changeContactCellDidClick:)]) {
+        [self.delegate changeContactCellDidClick:per.account];
+        [self.navigationController popViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
 }
 
 #pragma mark - tableview编辑事件
@@ -178,7 +190,7 @@ static NSString *identifier = @"myCellReuse";
 //4.完成编辑
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-        // Delete the row from the data source
+    // Delete the row from the data source
     //处理数据
     //获取分组
     NSString *key = _array[indexPath.section];
@@ -202,7 +214,7 @@ static NSString *identifier = @"myCellReuse";
         //操作UI
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
-     [_dictionary writeToFile:_addressPath atomically:YES];
+    [_dictionary writeToFile:_addressPath atomically:YES];
     
 }
 
@@ -246,7 +258,7 @@ static NSString *identifier = @"myCellReuse";
 - (void)sendPerson:(Person *)per{
     //数据处理
     //per信息转换为字典
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:per.name,@"name",per.gender,@"gender",per.image,@"image",per.phoneNumber,@"phoneNumber", nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:per.name,@"name",per.account,@"account",per.image,@"image",per.comment,@"comment", nil];
     //获取联系人姓名首字母,并转化为大写
     NSString *key = [[per.name substringToIndex:1] capitalizedString];
     //判断分组是否存在
@@ -264,6 +276,13 @@ static NSString *identifier = @"myCellReuse";
         //如果存在,直接添加到末尾
         [arr addObject:dic];
     }
+    
+    //保存数据
+    if (![_dictionary writeToFile:_addressPath atomically:YES]) {
+        // 0k, let's try to create a text file
+        NSLog(@"Contact writing error!");
+    }
+    
     //重新加载数据
     [self.tableView reloadData];
     

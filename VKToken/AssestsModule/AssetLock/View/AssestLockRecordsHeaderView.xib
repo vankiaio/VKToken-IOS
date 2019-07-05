@@ -49,9 +49,9 @@
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orj-VH-nCY" customClass="BaseLabel2">
-                            <rect key="frame" x="187.5" y="41" width="0.0" height="21"/>
+                            <rect key="frame" x="187.5" y="41" width="0.0" height="28"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="21" id="aU0-cq-Nyk"/>
+                                <constraint firstAttribute="height" constant="28" id="aU0-cq-Nyk"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="32"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -11,8 +11,8 @@
 @interface Person : NSObject
 
 @property (nonatomic,retain) NSString *name;
-@property (nonatomic,retain) NSString *gender;
+@property (nonatomic,retain) NSString *account;
 @property (nonatomic,retain) NSString *image;
-@property (nonatomic,retain) NSString *phoneNumber;
+@property (nonatomic,retain) NSString *comment;
 
 @end
