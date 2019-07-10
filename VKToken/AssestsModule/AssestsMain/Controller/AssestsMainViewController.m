@@ -63,6 +63,7 @@
 #import "VipRegistAccountViewController.h"
 #import "PayRegistAccountViewController.h"
 #import "CreateAccountViewController.h"
+#import "CheckInView.h"
 #import "VKToken-swift.h"
 
 @interface AssestsMainViewController ()<UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, ChangeAccountViewControllerDelegate, CQMarqueeViewDelegate, AdvertisementViewDelegate, PocketManagementViewControllerDelegate, VersionUpdateTipViewDelegate, AddAssestsViewControllerDelegate, AccountNotExistViewDelegate, CommonDialogHasTitleViewDelegate, AssestsMainAddAccountViewDelegate>
@@ -85,6 +86,7 @@
 @property(nonatomic , strong) CommonDialogHasTitleView *commonDialogHasTitleView;
 @property(nonatomic , assign) BOOL currentWalletHasSetPassword;
 @property(nonatomic , strong) AssestsMainAddAccountView *assestsMainAddAccountView;
+@property(nonatomic , strong) CheckInView *checkInView;
 @end
 
 @implementation AssestsMainViewController
@@ -94,8 +96,8 @@
     if (!_navView) {
         _navView = [[CustomNavigationView alloc] initWithFrame:(CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT))];
         if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE) {
-             //VKT Show scan QR code
-            _navView.rightBtn2.hidden = NO;
+             //delete old scan QR code
+            _navView.rightBtn2.hidden = YES;
         }else{
             _navView.rightBtn2.hidden = NO;
         }
@@ -212,12 +214,20 @@
     return _assestsMainAddAccountView;
 }
 
+- (CheckInView *)checkInView{
+    if (!_checkInView) {
+        _checkInView = [[[NSBundle mainBundle] loadNibNamed:@"CheckInView" owner:nil options:nil] firstObject];
+        _checkInView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    }
+    return _checkInView;
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     Wallet *wallet = CURRENT_WALLET;
     if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE) {
-        [_navView.leftBtn sd_setImageWithURL:nil forState:(UIControlStateNormal) placeholderImage:[UIImage imageNamed:@"setting"]];
+        [_navView.leftBtn sd_setImageWithURL:nil forState:(UIControlStateNormal) placeholderImage:[UIImage imageNamed:@"icon_scan"]];
     }else{
         [_navView.leftBtn sd_setImageWithURL:wallet.wallet_img forState:(UIControlStateNormal) placeholderImage:[UIImage imageNamed:@"wallet_default_avatar"]];
     }
@@ -340,22 +350,71 @@
     WS(weakSelf);
     // 默认的导航栏 block
     [self.navView setLeftBtnDidClickBlock:^{
-        if (CURRENT_WALLET_HAS_SET_PASSWORD) {
-            [weakSelf profileCenter];
+//        if (CURRENT_WALLET_HAS_SET_PASSWORD) {
+//            [weakSelf profileCenter];
+//
+//        }else{
+//            weakSelf.currentWalletHasSetPassword = YES;
+//            [weakSelf addCommonDialogHasTitleViewOfSetPassword];
+//        }
+        // 1. 获取摄像设备
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        if (device) {
+            AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+            if (status == AVAuthorizationStatusNotDetermined) {
+                [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                    
+                    if (granted) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            ScanQRCodeViewController *vc = [[ScanQRCodeViewController alloc] init];
+                            [weakSelf.navigationController pushViewController:vc animated:YES];
+                        });
+                        // 用户第一次同意了访问相机权限
+                        NSLog(NSLocalizedString(@"用户第一次同意了访问相机权限 - - %@", nil), [NSThread currentThread]);
+                    }else {
+                        // 用户第一次拒绝了访问相机权限
+                        NSLog(NSLocalizedString(@"用户第一次拒绝了访问相机权限 - - %@", nil), [NSThread currentThread]);
+                    }
+                    
+                    
+                }];
+            }else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+                ScanQRCodeViewController *vc = [[ScanQRCodeViewController alloc] init];
+                vc.get_token_info_service_data_array = self.get_token_info_service.dataSourceArray;
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
+                UIAlertController *alertC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"温馨提示", nil)message:NSLocalizedString(@"请去-> [设置 - 隐私 - 相机 - VKT Wallet] 打开访问开关", nil)preferredStyle:(UIAlertControllerStyleAlert)];
+                UIAlertAction *alertA = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil)style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                
+                [alertC addAction:alertA];
+                [weakSelf presentViewController:alertC animated:YES completion:nil];
+                
+            } else if (status == AVAuthorizationStatusRestricted) {
+                NSLog(NSLocalizedString(@"因为系统原因, 无法访问相册", nil));
+            }
             
-        }else{
-            weakSelf.currentWalletHasSetPassword = YES;
-            [weakSelf addCommonDialogHasTitleViewOfSetPassword];
+            
+        }else {
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"温馨提示", nil)message:NSLocalizedString(@"未检测到您的摄像头", nil)preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *alertA = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil)style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertC addAction:alertA];
+            [weakSelf presentViewController:alertC animated:YES completion:nil];
         }
         
     }];
    
     [self.navView setRightBtn1DidClickBlock:^{
-        
-            PocketManagementViewController *vc = [[PocketManagementViewController alloc] init];
-            vc.delegate = weakSelf;
-            vc.mainService.currentAccountName = CURRENT_ACCOUNT_NAME;
-            [weakSelf.navigationController pushViewController:vc animated:YES];
+        [self.view addSubview:self.checkInView];
+        self.checkInView.accountName.text = CURRENT_ACCOUNT_NAME;
+//            CheckInView *vc = [[CheckInView alloc] init];
+//            vc.delegate = weakSelf;
+//            vc.mainService.currentAccountName = CURRENT_ACCOUNT_NAME;
+//            [weakSelf.navigationController pushViewController:vc animated:YES];
         
     }];
     

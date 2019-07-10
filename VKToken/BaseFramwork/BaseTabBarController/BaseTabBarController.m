@@ -16,6 +16,7 @@
 #import "XYTabBar.h"
 #import "RootNavigationController.h"
 #import "DiscoverMainViewController.h"
+#import "MineViewController.h"
 
 @interface BaseTabBarController()<UITabBarControllerDelegate>
 @property (nonatomic,strong) NSMutableArray * VCS;//tabbar root VC
@@ -116,8 +117,8 @@
     [self setupChildViewController:newsVC title:NSLocalizedString(@"新闻", nil) imageName:@"news_unSelect" seleceImageName:@"news_select" BB_imageName:@"news_unSelect_BB" BB_seleceImageName:@"news_select_BB"];
     
 
-    DiscoverMainViewController *dappVC = [[DiscoverMainViewController alloc]init];
-    [self setupChildViewController:dappVC title:NSLocalizedString(@"发现", nil)imageName:@"application_unSelect" seleceImageName:@"application_select" BB_imageName:@"application_unSelect_BB" BB_seleceImageName:@"application_select_BB"];
+    MineViewController *dappVC = [[MineViewController alloc]init];
+    [self setupChildViewController:dappVC title:NSLocalizedString(@"我的", nil)imageName:@"application_unSelect" seleceImageName:@"application_select" BB_imageName:@"application_unSelect_BB" BB_seleceImageName:@"application_select_BB"];
 
     self.viewControllers = _VCS;
     

@@ -124,7 +124,7 @@
     [self.pathTable registerNib:[UINib nibWithNibName:@"RetrivePathCell" bundle:nil] forCellReuseIdentifier:@"RetrivePathCell"];
     self.pathTable.hidden = YES;
     
-    [self.startImportButton setBackgroundImage:[UIImage tb_imageWithColor:[UIColor colorWithRGBHex:0x2890FE] andSize:CGSizeMake(kScreenWidth, 47)] forState:UIControlStateNormal];
+    [self.startImportButton setBackgroundImage:[UIImage tb_imageWithColor:[UIColor colorWithRGBHex:0x08B2B8] andSize:CGSizeMake(kScreenWidth, 47)] forState:UIControlStateNormal];
     self.startImportButton.layer.cornerRadius = 4;
     self.startImportButton.layer.masksToBounds = YES;
     self.startImportButton.enabled = NO;

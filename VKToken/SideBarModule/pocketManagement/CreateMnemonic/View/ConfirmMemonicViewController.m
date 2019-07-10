@@ -115,7 +115,7 @@
     //next button
     _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _nextButton.frame = CGRectMake(PrivateKeyView_X, CGRectGetMaxY(_keyConfirmView.frame) + NextButttonSpace_Y, BTN_Width, BTN_Height);
-    [_nextButton setBackgroundColor:HEX_RGB_Alpha(0x2890FE, 1)];
+    [_nextButton setBackgroundColor:HEX_RGB_Alpha(0x08B2B8, 1)];
     [_nextButton setTitle:NSLocalizedString(@"next_step", nil) forState: UIControlStateNormal];
     _nextButton.layer.cornerRadius = 4.0;
     [_nextButton addTarget:self action:@selector(clickNextButton:) forControlEvents:UIControlEventTouchUpInside];

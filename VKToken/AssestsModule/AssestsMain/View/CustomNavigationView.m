@@ -32,7 +32,7 @@
     if (!_rightBtn1) {
         _rightBtn1 = [[UIButton alloc] init];
         [_rightBtn1 addTarget:self action:@selector(rightBtn1DidClick:) forControlEvents:(UIControlEventTouchUpInside)];
-        [_rightBtn1 setImage:[UIImage imageNamed:@"pocketManagement_icon"] forState:(UIControlStateNormal)];
+        [_rightBtn1 setImage:[UIImage imageNamed:@"icon_qd"] forState:(UIControlStateNormal)];
     }
     return _rightBtn1;
 }
@@ -124,10 +124,10 @@
         self.originNavView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
         
         [_originNavView addSubview:self.leftBtn];
-        self.leftBtn.sd_layout.leftSpaceToView(_originNavView, 16).bottomSpaceToView(_originNavView, 5).widthIs(30).heightIs(30);
+        self.leftBtn.sd_layout.leftSpaceToView(_originNavView, 15).bottomSpaceToView(_originNavView, 5).widthIs(BUTTON_HEIGHT).heightIs(BUTTON_HEIGHT);
         
         [_originNavView addSubview:self.rightBtn1];
-        self.rightBtn1.sd_layout.rightSpaceToView(_originNavView, 6).bottomSpaceToView(_originNavView, 0).widthIs(BUTTON_HEIGHT).heightIs(BUTTON_HEIGHT);
+        self.rightBtn1.sd_layout.rightSpaceToView(_originNavView, 15).bottomSpaceToView(_originNavView, 5).widthIs(BUTTON_HEIGHT).heightIs(BUTTON_HEIGHT);
         
         [_originNavView addSubview:self.rightBtn2];
         self.rightBtn2.sd_layout.rightSpaceToView(self.rightBtn1, MARGIN_10).bottomSpaceToView(_originNavView, 0).widthIs(BUTTON_HEIGHT).heightIs(BUTTON_HEIGHT);

@@ -43,7 +43,7 @@
     [self changePrivateKeyCommentLabelStyle];
     [self createPrivateKeyLabel];
     
-    [self.nextButton setBackgroundColor:[UIColor colorWithRGBHex:0x2890FE alpha:1.0]];
+    [self.nextButton setBackgroundColor:[UIColor colorWithRGBHex:0x08B2B8 alpha:1.0]];
     self.nextButton.layer.cornerRadius = self.nextButton.frame.size.height/10;
     [self.nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.nextButton setTitle:NSLocalizedString(@"next_step", nil) forState:UIControlStateNormal];

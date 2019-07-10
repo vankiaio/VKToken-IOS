@@ -576,6 +576,7 @@
  */
 "新闻"="News";
 "发现"="Discover";
+"我的"="Mine";
 
 /*
  NewsMainViewController.m
@@ -976,3 +977,14 @@
 "deviceId_wrong"="TouchID/FaceID authentication failed";
 "auth_fail_to_pwd"="TouchID/FaceID locked, input your password.";
 "setting_succ"="Setting successfully";
+
+/*
+ MineViewController.m
+ */
+"账号本"="Account book";
+"消息"="Message";
+"设置"="Setting";
+"使用条款"="Terms of Use";
+"意见反馈"="Feedback";
+"关于我们"="About Us";
+"邀请码"="Invitation Code";

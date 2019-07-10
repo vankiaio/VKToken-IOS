@@ -4,4 +4,5 @@ target "VKToken" do
   pod 'TokenCore', :git=> 'https://github.com/vankiaio/token-core-ios.git', branch: 'master'
   pod 'PocketSocket', '~> 1.0.1'
   pod 'Toast'
+  pod 'Masonry'
 end

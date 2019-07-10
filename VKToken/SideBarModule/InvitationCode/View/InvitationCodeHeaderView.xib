@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InvitationCodeHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qo-Dn-54S" userLabel="MainView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDq-Ig-g7S" userLabel="QRView">
+                            <rect key="frame" x="34.5" y="45" width="345" height="450"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="您的专属邀请码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dp-9v-X5h" userLabel="Label1">
+                                    <rect key="frame" x="109" y="25" width="127" height="26"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="使用邀请码创建账号获取VKT奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-uL-rVd" userLabel="Label2">
+                                    <rect key="frame" x="60" y="56" width="225" height="21"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="15"/>
+                                    <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5V23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQb-Yc-yp1" userLabel="InvitationCode Label">
+                                    <rect key="frame" x="112" y="87" width="121" height="70"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="70" id="A2X-AY-0c2"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                    <color key="textColor" red="0.031372549019607843" green="0.69803921568627447" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBw-qI-XU8" customClass="LineView">
+                                    <rect key="frame" x="30" y="182" width="285" height="1"/>
+                                    <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="285" id="1Yz-st-lVv"/>
+                                        <constraint firstAttribute="height" constant="1" id="Qe9-tU-WFZ"/>
+                                    </constraints>
+                                </view>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-e9-hhZ" userLabel="Recieve Invitation Code Img">
+                                    <rect key="frame" x="117.5" y="213" width="110" height="110"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="110" id="cZF-8B-fWJ"/>
+                                        <constraint firstAttribute="height" constant="110" id="gaM-Lj-1kN"/>
+                                        <constraint firstAttribute="height" constant="110" id="iSa-dE-U2D"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="kja-sf-64Q"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫码下载万加链钱包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqe-rJ-NiJ" userLabel="Label3">
+                                    <rect key="frame" x="105" y="338" width="135" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="GCC-tO-SVD"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="15"/>
+                                    <color key="textColor" red="0.52156862745098043" green="0.7803921568627451" blue="0.78823529411764703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_van" translatesAutoresizingMaskIntoConstraints="NO" id="BR7-dM-b7b">
+                                    <rect key="frame" x="125.5" y="384" width="94" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="9Et-XR-spL"/>
+                                        <constraint firstAttribute="width" constant="94" id="HyD-zy-jQc"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="qBw-qI-XU8" firstAttribute="centerX" secondItem="iDq-Ig-g7S" secondAttribute="centerX" id="EdR-Ef-Z8g"/>
+                                <constraint firstItem="YQb-Yc-yp1" firstAttribute="top" secondItem="RJu-uL-rVd" secondAttribute="bottom" constant="10" id="G2B-XV-U4g"/>
+                                <constraint firstItem="YQb-Yc-yp1" firstAttribute="centerX" secondItem="iDq-Ig-g7S" secondAttribute="centerX" id="Gmv-Wf-3uj"/>
+                                <constraint firstItem="BR7-dM-b7b" firstAttribute="centerX" secondItem="iDq-Ig-g7S" secondAttribute="centerX" id="J3d-7L-j6Z"/>
+                                <constraint firstItem="0dp-9v-X5h" firstAttribute="top" secondItem="iDq-Ig-g7S" secondAttribute="top" constant="25" id="JBZ-Ng-jf7"/>
+                                <constraint firstItem="0dp-9v-X5h" firstAttribute="centerX" secondItem="iDq-Ig-g7S" secondAttribute="centerX" id="TWL-Vp-hNe"/>
+                                <constraint firstItem="RJu-uL-rVd" firstAttribute="top" secondItem="0dp-9v-X5h" secondAttribute="bottom" constant="5" id="U1K-i1-GnL"/>
+                                <constraint firstItem="BR7-dM-b7b" firstAttribute="top" secondItem="jqe-rJ-NiJ" secondAttribute="bottom" constant="25" id="UWV-6L-wpj"/>
+                                <constraint firstItem="jqe-rJ-NiJ" firstAttribute="top" secondItem="pQK-e9-hhZ" secondAttribute="bottom" constant="15" id="YnL-KM-9aY"/>
+                                <constraint firstAttribute="height" constant="450" id="cCs-K3-Gbl"/>
+                                <constraint firstAttribute="width" constant="345" id="fTE-0q-ctO"/>
+                                <constraint firstItem="pQK-e9-hhZ" firstAttribute="centerX" secondItem="iDq-Ig-g7S" secondAttribute="centerX" id="gQM-hm-OQ6"/>
+                                <constraint firstItem="pQK-e9-hhZ" firstAttribute="top" secondItem="qBw-qI-XU8" secondAttribute="bottom" constant="30" id="m2E-Qt-HaZ"/>
+                                <constraint firstItem="qBw-qI-XU8" firstAttribute="top" secondItem="YQb-Yc-yp1" secondAttribute="bottom" constant="25" id="pE0-KR-vdD"/>
+                                <constraint firstItem="RJu-uL-rVd" firstAttribute="centerX" secondItem="iDq-Ig-g7S" secondAttribute="centerX" id="qvc-au-PGR"/>
+                                <constraint firstItem="jqe-rJ-NiJ" firstAttribute="centerX" secondItem="iDq-Ig-g7S" secondAttribute="centerX" id="r4K-w8-WYw"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.30817839499999999" green="0.72983688120000001" blue="0.74892038110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="iDq-Ig-g7S" firstAttribute="top" secondItem="4Qo-Dn-54S" secondAttribute="top" constant="45" id="YHC-V1-kQe"/>
+                        <constraint firstItem="iDq-Ig-g7S" firstAttribute="centerX" secondItem="4Qo-Dn-54S" secondAttribute="centerX" id="mCe-ka-Qqi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4Qo-Dn-54S" secondAttribute="bottom" id="84Q-yq-bnC"/>
+                <constraint firstItem="4Qo-Dn-54S" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RaO-gj-Yge"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4Qo-Dn-54S" secondAttribute="trailing" id="emX-nW-0JJ"/>
+                <constraint firstItem="4Qo-Dn-54S" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="kjH-1v-Tyl"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="mainView" destination="4Qo-Dn-54S" id="fFQ-lb-52t"/>
+                <outlet property="qrView" destination="iDq-Ig-g7S" id="BbO-PH-8ah"/>
+                <outlet property="shareInvitationQRCodeImg" destination="pQK-e9-hhZ" id="19t-Dd-v1s"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo_van" width="188" height="60"/>
+    </resources>
+</document>

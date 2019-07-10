@@ -15,8 +15,8 @@
     self = [super init];
     if (self) {
         self.lee_theme
-        .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0x4D7BFE))
-        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x4D7BFE));
+        .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0x08B2B8))
+        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x08B2B8));
     }
     return self;
 }
@@ -24,7 +24,7 @@
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.lee_theme
-    .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0x4D7BFE))
-    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x4D7BFE));
+    .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0x08B2B8))
+    .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x08B2B8));
 }
 @end
