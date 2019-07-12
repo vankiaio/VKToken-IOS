@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,9 +16,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参考价格：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrH-UZ-hwe">
-                    <rect key="frame" x="20" y="20" width="80" height="14"/>
+                    <rect key="frame" x="20" y="20" width="66.5" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="XjH-uF-D2v"/>
                         <constraint firstAttribute="height" constant="14" id="p8c-QC-611"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -26,9 +25,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24h涨跌：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnY-s3-GmM">
-                    <rect key="frame" x="20" y="49" width="80" height="14"/>
+                    <rect key="frame" x="20" y="49" width="63.5" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="khp-b8-kd6"/>
                         <constraint firstAttribute="height" constant="14" id="qhh-bS-4ZR"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -36,17 +34,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总市值：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwG-H7-SnN" userLabel="Label3">
-                    <rect key="frame" x="20" y="78" width="80" height="14"/>
+                    <rect key="frame" x="20" y="78" width="53.5" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="qA3-OM-gKH"/>
                         <constraint firstAttribute="height" constant="14" id="sPa-uk-0n2"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="------来自Pocket  VKT------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mho-aC-mdt">
-                    <rect key="frame" x="95" y="112" width="185.5" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="------来自VKToken------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mho-aC-mdt">
+                    <rect key="frame" x="106" y="112" width="163" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="V9R-kC-kJk"/>
                     </constraints>
@@ -95,14 +92,17 @@
                 <constraint firstItem="eKP-lQ-h4P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="9cm-9h-lhN"/>
                 <constraint firstItem="VwG-H7-SnN" firstAttribute="top" secondItem="MnY-s3-GmM" secondAttribute="bottom" constant="15" id="AFi-bA-5td"/>
                 <constraint firstItem="hrH-UZ-hwe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="HDq-MU-hlF"/>
+                <constraint firstItem="Tt3-GL-HO1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VwG-H7-SnN" secondAttribute="trailing" constant="8" symbolic="YES" id="HvS-gt-OIU"/>
                 <constraint firstItem="MKg-TP-auf" firstAttribute="top" secondItem="Mho-aC-mdt" secondAttribute="bottom" constant="20" id="L3q-3N-P4C"/>
                 <constraint firstAttribute="trailing" secondItem="MKg-TP-auf" secondAttribute="trailing" constant="20" id="M3O-F2-AIF"/>
+                <constraint firstItem="dtf-2u-rcV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MnY-s3-GmM" secondAttribute="trailing" constant="8" symbolic="YES" id="Prd-s0-OmZ"/>
                 <constraint firstItem="dtf-2u-rcV" firstAttribute="top" secondItem="eKP-lQ-h4P" secondAttribute="bottom" constant="15" id="Q6q-X9-vbC"/>
                 <constraint firstItem="Tt3-GL-HO1" firstAttribute="top" secondItem="dtf-2u-rcV" secondAttribute="bottom" constant="15" id="UxV-yw-Fcz"/>
                 <constraint firstItem="MKg-TP-auf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ViO-Ik-C5M"/>
                 <constraint firstItem="hrH-UZ-hwe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="bpk-LH-l8M"/>
                 <constraint firstItem="MnY-s3-GmM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ccq-92-lqo"/>
                 <constraint firstItem="VwG-H7-SnN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="dmj-pK-287"/>
+                <constraint firstItem="eKP-lQ-h4P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hrH-UZ-hwe" secondAttribute="trailing" constant="8" symbolic="YES" id="fFj-tV-BLl"/>
                 <constraint firstAttribute="trailing" secondItem="Tt3-GL-HO1" secondAttribute="trailing" constant="20" id="g4H-fV-rEV"/>
                 <constraint firstItem="Mho-aC-mdt" firstAttribute="top" secondItem="VwG-H7-SnN" secondAttribute="bottom" constant="20" id="kWw-aS-PT5"/>
                 <constraint firstItem="MnY-s3-GmM" firstAttribute="top" secondItem="hrH-UZ-hwe" secondAttribute="bottom" constant="15" id="nVe-lz-IAW"/>

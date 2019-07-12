@@ -8,15 +8,8 @@
 
 #import "MemonicImportWalletViewController.h"
 #import "RetrivePathCell.h"
-//#import "H5ViewController.h"
 #import "UIImage+.h"
-//#import "UIColor+Hex.h"
 #import "Macro.h"
-//#import "BlockChainModel.h"
-//#import "Web3Handler.h"
-//#import "NSString+.h"
-//#import "WalletModel.h"
-//#import "WalletDao.h"
 #import "NJOPasswordStrengthEvaluator.h"
 #import "PasswordView.h"
 #import "Get_key_accounts_request.h"
@@ -58,16 +51,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *hintLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pwdStrengthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
+@property (nonatomic, strong) NavigationView *navView;
 @property (nonatomic, assign) BOOL importing;
 
 @end
 
 @implementation MemonicImportWalletViewController
 
+- (NavigationView *)navView{
+    if (!_navView) {
+        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"恢复账号", nil)rightBtnTitleName:@"" delegate:self];
+        _navView.leftBtn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal);
+    }
+    return _navView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self.view addSubview:self.navView];
     [self setupData];
     [self setupSubviews];
 }
@@ -137,6 +138,12 @@
 //        self.chainNameLabel.text = self.blockchain.desc;
         self.chainNameLabel.text = @"self.blockchain.desc";
 //    }
+}
+
+// NavigationViewDelegate
+-(void)leftBtnDidClick{
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)checkStartButtonStatus {
@@ -268,8 +275,37 @@
             if ([result.code isEqualToNumber:@0]) {
                 
                 if (result.account_names.count > 0) {
+                    
+                    Wallet *wallet = CURRENT_WALLET;
+                    if(!wallet) {
+                        // 如果本地没有钱包
+                        Wallet *model = [[Wallet alloc] init];
+                        //    model.wallet_name = self.createWalletView.walletNameTF.text;
+                        model.wallet_name = @"VKToken";
+                        
+                        model.wallet_shapwd = [WalletUtil generate_wallet_shapwd_withPassword:password];
+                        model.wallet_uid = [model.wallet_name sha256];
+                        model.account_info_table_name = [NSString stringWithFormat:@"%@_%@", ACCOUNTS_TABLE,model.wallet_uid];
+                        [[WalletTableManager walletTable] addRecord: model];
+                        [[NSUserDefaults standardUserDefaults] setObject: model.wallet_uid  forKey:Current_wallet_uid];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                    }
                     // TokenCoreVKT添加账户
                     [tokenCoreVKT setVktAccountName:result.account_names[0]];
+                    // 本地公钥和网络公钥匹配, 允许进行导入本地操作
+                    AccountInfo *accountInfo = [[AccountInfo alloc] init];
+                    accountInfo.account_name = result.account_names[0];
+                    accountInfo.account_img = ACCOUNT_DEFALUT_AVATAR_IMG_URL_STR;
+                    accountInfo.account_active_public_key = get_key_accounts_request.public_key;
+                    accountInfo.account_owner_public_key = get_key_accounts_request.public_key;
+                    accountInfo.account_active_private_key = [AESCrypt encrypt:privateKeyStr password:password];
+                    accountInfo.account_owner_private_key = accountInfo.account_active_private_key;
+                    accountInfo.is_privacy_policy = @"0";
+                    [[AccountsTableManager accountTable] addRecord:accountInfo];
+                    [WalletUtil setMainAccountWithAccountInfoModel:accountInfo];
+                    
+                    [TOASTVIEW showWithText:NSLocalizedString(@"账号导入成功!", nil)];
+                    [((AppDelegate *)[[UIApplication sharedApplication] delegate]).window setRootViewController: [[BaseTabBarController alloc] init]];
                     [TOASTVIEW showWithText:NSLocalizedString(@"账号导入成功!", nil)];
                     [((AppDelegate *)[[UIApplication sharedApplication] delegate]).window setRootViewController: [[BaseTabBarController alloc] init]];
                 }
@@ -290,41 +326,6 @@
         });
     });
     
-}
-
-- (void)createWalletToServerWithAddress:(NSString *)address toLocalWithPrivateKey:(NSString *)privateKey mnemonic:(NSString *)mnemonic blockchainId:(NSString *)blockchainId {
-    NSString *walletName = NSLocalizedString(@"m_new_wallet", nil);
-//    NSString *password = [self.pwdTextfield.text tb_md5];
-//    NSString *enprivateKey = [privateKey tb_encodeStringWithKey:password];
-//    NSString *hit = _hintTextfield.text;
-//    __weak typeof(self) weakSelf = self;
-//    weakSelf.importing = NO;
-//    NSTimeInterval milisecondedDate = ([[NSDate date] timeIntervalSince1970] * 1000);
-//    NSString *walletId = [NSString stringWithFormat:@"%.0f", milisecondedDate];
-//    WalletModel *walletModel = [WalletModel new];
-//    walletModel.walletName = walletName;
-//    walletModel.address = address;
-//    walletModel.privateKey = enprivateKey;
-//    walletModel.password = password;
-//    walletModel.passwordTips = hit;
-//    walletModel.walletId = walletId;
-//    walletModel.blockChainId = blockchainId;
-//    walletModel.dbVersion = kDBVersion;
-//    walletModel.backup = YES;
-//    uint32_t index = arc4random()%5+1;
-//    walletModel.walletIcon = [NSString stringWithFormat:@"icon_wallet_avatar_%u",index];
-//    //存到本地
-//    [weakSelf.walletDao addWalletWithWalletModel:walletModel complement:^(BOOL success) {
-//        if (success) {
-//            [SVProgressHUD showSuccessWithStatus:[[LocalizedHelper standardHelper] stringWithKey:@"import_succ"]];
-//            [weakSelf responseLeftButton];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:kCreateWalletNotification object:walletModel];
-//        } else {
-//            [SVProgressHUD showErrorWithStatus:[[LocalizedHelper standardHelper] stringWithKey:@"import_fail"]];
-//            weakSelf.importing = NO;
-//            [weakSelf checkStartButtonStatus];
-//        }
-//    }];
 }
 
 #pragma mark - UITextViewDelegate

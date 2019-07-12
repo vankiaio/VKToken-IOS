@@ -10,13 +10,13 @@
 #import "AccountManagementHeaderView.h"
 #import "NavigationView.h"
 #import "ExportPrivateKeyView.h"
+#import "ExportMnemonicView.h"
 #import "AccountPravicyProtectionRequest.h"
 #import "SetMainAccountRequest.h"
 #import "SliderVerifyView.h"
 #import "AskQuestionTipView.h"
 #import "AppDelegate.h"
 #import "BBLoginViewController.h"
-#import "AccountManagementService.h"
 #import "VKTResourceManageViewController.h"
 #import "UnStakeVKTViewController.h"
 #import "GetAccountResult.h"
@@ -27,13 +27,15 @@
 #import "ImportAccountPermisionViewController.h"
 #import "ResetAccountPermisionViewController.h"
 #import "VKToken-swift.h"
+#import "Macro.h"
+#import <Masonry/Masonry.h>
 
-@interface AccountManagementViewController ()<UIGestureRecognizerDelegate,  NavigationViewDelegate, ExportPrivateKeyViewDelegate, SliderVerifyViewDelegate, LoginPasswordViewDelegate, AskQuestionTipViewDelegate, AccountManagementHeaderViewDelegate, CommonDialogHasPasswordTFViewDelegate>
-@property(nonatomic , strong) AccountManagementService *mainService;
+@interface AccountManagementViewController ()<UIGestureRecognizerDelegate,  NavigationViewDelegate, ExportMnemonicViewDelegate, ExportPrivateKeyViewDelegate, SliderVerifyViewDelegate, LoginPasswordViewDelegate, AskQuestionTipViewDelegate, AccountManagementHeaderViewDelegate, CommonDialogHasPasswordTFViewDelegate>
 @property(nonatomic, strong) AccountManagementHeaderView *headerView;
 @property(nonatomic , strong) UIView *footerView;
 @property(nonatomic, strong) NavigationView *navView;
 @property(nonatomic, strong) ExportPrivateKeyView *exportPrivateKeyView;
+@property(nonatomic, strong) ExportMnemonicView *exportMnemonicView;
 @property(nonatomic, strong) SetMainAccountRequest *setMainAccountRequest;
 @property(nonatomic, strong) SliderVerifyView *sliderVerifyView;
 @property(nonatomic, strong) LoginPasswordView *loginPasswordView;
@@ -44,23 +46,17 @@
 @property(nonatomic, strong) AccountPravicyProtectionRequest *accountPravicyProtectionRequest;
 @property(nonatomic , strong) CommonDialogHasPasswordTFView *commonDialogHasPasswordTFView;
 @property(nonatomic , strong) Get_account_permission_service *get_account_permission_service;
+@property (nonatomic, strong) NSArray *tableSources;
 @end
 
 @implementation AccountManagementViewController
 
-- (AccountManagementService *)mainService{
-    if (!_mainService) {
-        _mainService = [[AccountManagementService alloc] init];
-    }
-    return _mainService;
-}
-
 - (NavigationView *)navView{
     if (!_navView) {
-        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:@"" rightBtnImgName:nil delegate:self];
+        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"账号管理",nil) rightBtnImgName:nil delegate:self];
         _navView.leftBtn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal);
         if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE) {
-            _navView.rightBtn.hidden = YES;
+            _navView.rightBtn.hidden = NO;
         }
     }
     return _navView;
@@ -80,7 +76,7 @@
         _footerView = [[UIView alloc] init];
         _footerView.lee_theme
         .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0xF5F5F5))
-        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x161823));
+        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0xF5F5F5));
         _footerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 100);
         [_footerView addSubview:self.sliderVerifyView];
         [_footerView addSubview:self.tipLabel];
@@ -97,6 +93,16 @@
     }
     return _exportPrivateKeyView;
 }
+
+- (ExportMnemonicView *)exportMnemonicView{
+    if (!_exportMnemonicView) {
+        _exportMnemonicView = [[[NSBundle mainBundle] loadNibNamed:@"ExportMnemonicView" owner:nil options:nil] firstObject];
+        _exportMnemonicView.frame = [UIScreen mainScreen].bounds;
+        _exportMnemonicView.delegate = self;
+    }
+    return _exportMnemonicView;
+}
+
 - (SetMainAccountRequest *)setMainAccountRequest{
     if (!_setMainAccountRequest) {
         _setMainAccountRequest = [[SetMainAccountRequest alloc] init];
@@ -170,6 +176,14 @@
     return _get_account_permission_service;
 }
 
+#pragma mark - Private
+- (void)setupData {
+    self.tableSources = @[@[],
+                          @[@{@"icon":@"",@"title":NSLocalizedString(@"账号",nil),@"action":@"pushToChangeAccount"}],
+                          @[@{@"icon":@"",@"title":NSLocalizedString(@"导出助记词",nil),@"action":@"pushToExportMnemonic"},
+                            @{@"icon":@"",@"title":NSLocalizedString(@"导出私钥",nil),@"action":@"pushToExportPrivateKey"}]
+                          ];
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -191,16 +205,17 @@
     [self.view addSubview:self.mainTableView];
     self.mainTableView.lee_theme
     .LeeConfigBackgroundColor(@"baseHeaderView_background_color");
-    [self.mainTableView setTableHeaderView:self.headerView];
+//    [self.mainTableView setTableHeaderView:self.headerView];
     [self.mainTableView setTableFooterView:self.footerView];
     self.mainTableView.mj_header.hidden = YES;
     self.mainTableView.mj_footer.hidden = YES;
-    [self.mainService buildDataSource:^(id service, BOOL isSuccess) {
-        [self.mainTableView reloadData];
-    }];
+    [self setupData];
+    [self setupConstraints];
+//    [self.mainService buildDataSource:^(id service, BOOL isSuccess) {
+//        [self.mainTableView reloadData];
+//    }];
     
-    self.navView.titleLabel.text = self.model.account_name;
-    
+//    self.navView.titleLabel.text = self.model.account_name;
     
 }
 
@@ -221,77 +236,98 @@
     [self requestRemoteAccountInfo];
 }
 
-//UITableViewDelegate , UITableViewDataSource
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell1 *cell = [tableView dequeueReusableCellWithIdentifier:CELL_REUSEIDENTIFIER];
+
+- (void)setupConstraints {
+    [self.mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.navView).with.offset(100);
+    }];
+}
+
+- (void)setNavigationBarColor {
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+}
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.tableSources.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *infos = self.tableSources[section];
+    if (infos) {
+        return infos.count;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *const mineCellId = @"mineCellId";
+    NSDictionary *dict = self.tableSources[indexPath.section][indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mineCellId];
     if (!cell) {
-        cell = [[BaseTableViewCell1 alloc] initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier:CELL_REUSEIDENTIFIER];
-    }
-    
-    NSString *str = self.mainService.dataSourceArray[indexPath.row];
-    if ([str isEqualToString:NSLocalizedString(@"设为主账号", nil)]) {
-        UISwitch *switchView = [[UISwitch alloc] init];
-        if ([self.model.is_main_account isEqualToString:@"1"]) {
-            switchView.on = YES;
-            switchView.enabled = NO;
+        if([[dict objectForKey:@"title"] compare: NSLocalizedString(@"账号",nil)] == NSOrderedSame){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:mineCellId];
         }else{
-            switchView.on = NO;
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineCellId];
         }
-        switchView.onTintColor = HEXCOLOR(0x4D7BFE);
-        
-        [switchView addTarget:self action:@selector(setToMainAccountBtnDidClick:) forControlEvents:(UIControlEventValueChanged)];
-        [cell.contentView addSubview:switchView];
-        switchView.sd_layout.rightSpaceToView(cell.contentView, MARGIN_20).centerYEqualToView(cell.contentView).widthIs(58).heightIs(30);
-        
-    }else if ([str isEqualToString:NSLocalizedString(@"保护隐私", nil)]){
-        UISwitch *switchView = [[UISwitch alloc] init];
-        if ([self.model.is_privacy_policy isEqualToString:@"1"]) {
-            switchView.on = YES;
-        }else{
-            switchView.on = NO;
-        }
-        switchView.onTintColor = HEXCOLOR(0x4D7BFE);
-        [switchView addTarget:self action:@selector(setProtectPrivate:) forControlEvents:(UIControlEventValueChanged)];
-        [cell.contentView addSubview:switchView];
-        switchView.sd_layout.rightSpaceToView(cell.contentView, MARGIN_20).centerYEqualToView(cell.contentView).widthIs(58).heightIs(30);
-    }else{
-        cell.rightIconImgName = @"right_arrow_gray";
-        [cell.contentView addSubview:cell.rightIconImageView];
-        cell.rightIconImageView.sd_layout.rightSpaceToView(cell.contentView, 20).widthIs(7).heightIs(14).centerYEqualToView(cell.contentView);
     }
-    cell.textLabel.font = [UIFont systemFontOfSize:15];
-    cell.textLabel.text = VALIDATE_STRING(self.mainService.dataSourceArray[indexPath.row]);
+    if (dict) {
+        cell.textLabel.font = [UIFont systemFontOfSize:16];
+        cell.textLabel.textColor = [UIColor colorWithRGBHex:0x323334];
+        cell.textLabel.text = [dict objectForKey:@"title"];
+        cell.detailTextLabel.text = CURRENT_ACCOUNT_NAME;
+        cell.imageView.image = [UIImage imageNamed:[dict objectForKey:@"icon"]];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 49;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return section == 0 ? 0 : 12;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 12)];
+    view.backgroundColor = [UIColor colorWithRGBHex:0xf5f5f9];
+    return view;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *str = self.mainService.dataSourceArray[indexPath.row];
-    if ([str isEqualToString:NSLocalizedString(@"设为主账号", nil)]) {
-        NSLog(@"设为主账号");
-    }else if([str isEqualToString:NSLocalizedString(@"保护隐私", nil)]){
-        NSLog(@"保护隐私");
-    }else if([str isEqualToString:NSLocalizedString(@"VKT资源管理", nil)]){
-        [MobClick event:@"钱包管理_账号详情_资源管理"];
-        VKTResourceManageViewController *vc = [[VKTResourceManageViewController alloc] init];
-        vc.currentAccountName = self.model.account_name;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if([str isEqualToString:NSLocalizedString(@"导出私钥", nil)]){
-        [self exportPrivateKeyBtnDidClick:nil];
-    }else if([str isEqualToString:NSLocalizedString(@"VKT一键赎回", nil)]){
-        [MobClick event:@"钱包管理_账号详情_一键赎回"];
-        [self unStakeBtnClick];
+    NSDictionary *info = self.tableSources[indexPath.section][indexPath.row];
+    NSString *action = info[@"action"];
+    if (action) {
+        SEL selector = NSSelectorFromString(action);
+        [self performSelector:selector withObject:nil];
     }
 }
+#pragma mark - push
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.mainService.dataSourceArray.count;
+- (void)pushToChangeAccount {
+//    self.currentAction = @"ExportMnemonic";
+//    [self.view addSubview:self.loginPasswordView];
+    
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 46;
+- (void)pushToExportMnemonic {
+    self.currentAction = @"ExportMnemonic";
+    [self.view addSubview:self.loginPasswordView];
+    
 }
+
+- (void)pushToExportPrivateKey {
+    self.currentAction = @"ExportPrivateKey";
+    [self.view addSubview:self.loginPasswordView];
+    
+}
+
 
 //AccountManagementHeaderViewDelegate
 - (void)setToMainAccountBtnDidClick:(UISwitch *)sender{
@@ -372,9 +408,15 @@
         return;
     }
     
-    if ([self.currentAction isEqualToString:@"ExportPrivateKey"]) {
-        [self.view addSubview:self.exportPrivateKeyView];
+    if ([self.currentAction isEqualToString:@"ExportMnemonic"]) {
+        [self.view addSubview:self.exportMnemonicView];
 
+        NSString *mnemonicStr = [NSString stringWithFormat:@"Mnemonic words:\n%@    \n\n",  [tokenCoreVKT getVktMnemonic: self.loginPasswordView.inputPasswordTF.text:nil]];
+        self.exportMnemonicView.contentTextView.text = mnemonicStr;
+        [self.loginPasswordView removeFromSuperview];
+    }else if ([self.currentAction isEqualToString:@"ExportPrivateKey"]) {
+        [self.view addSubview:self.exportPrivateKeyView];
+        
         NSString *privateKeyStr = [NSString stringWithFormat:@"Private Key:\n%@    \n\n",  [tokenCoreVKT getVktPrivateKey: self.loginPasswordView.inputPasswordTF.text:nil]];
         self.exportPrivateKeyView.contentTextView.text = privateKeyStr;
         [self.loginPasswordView removeFromSuperview];
@@ -449,10 +491,16 @@
     [TOASTVIEW showWithText:NSLocalizedString(@"复制成功", nil)];
 }
 
-
-- (void)copyBtnDidClick:(UIButton *)sender{
+- (void)copyPrivateKeyBtnDidClick:(UIButton *)sender{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.exportPrivateKeyView.contentTextView.text;
+    [TOASTVIEW showWithText:NSLocalizedString(@"复制成功", nil)];
+}
+
+- (void)copyMnemonicBtnDidClick:(UIButton *)sender{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = self.exportMnemonicView.contentTextView.text;
+    [TOASTVIEW showWithText:NSLocalizedString(@"复制成功", nil)];
 }
 
 // NavigationViewDelegate

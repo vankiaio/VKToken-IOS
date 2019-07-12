@@ -167,13 +167,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [LEETheme startTheme:BLACKBOX_MODE];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.mainScrollView1];
-    [self.mainScrollView1 addSubview:self.loginHeaderView];
-    if ([DeviceType getIsIpad]) {
-        self.mainScrollView1.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT+HEADERVIEW_HEIGHT);
-    }
+//    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+//    self.view.backgroundColor = [UIColor whiteColor];
+//    [self.view addSubview:self.mainScrollView1];
+//    [self.mainScrollView1 addSubview:self.loginHeaderView];
+//    if ([DeviceType getIsIpad]) {
+//        self.mainScrollView1.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT+HEADERVIEW_HEIGHT);
+//    }
+    self.view.frame = CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
+    self.view.alpha = 1.0;
+    
+    CAGradientLayer *gl = [CAGradientLayer layer];
+    gl.frame = CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
+    gl.startPoint = CGPointMake(0.5, 1);
+    gl.endPoint = CGPointMake(0.5, 0);
+    gl.colors = @[(__bridge id)[UIColor colorWithRed:180/255.0 green:253/255.0 blue:255/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:91/255.0 green:210/255.0 blue:214/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:1/255.0 green:167/255.0 blue:173/255.0 alpha:1.0].CGColor];
+    gl.locations = @[@(0),@(0.6f),@(1.0f)];
+    [self.view.layer addSublayer:gl];
+    
     TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
     
     if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] != NSOrderedSame) {

@@ -85,14 +85,11 @@
         self.activePublicKeyLabel.text = localAccount.account_active_public_key;
         [self.activePublicKeyTipLabel removeFromSuperview];
         self.activeTipLabel.text = NSLocalizedString(@"变更私钥", nil);
-        
     }
-    
-    
 }
 
 
-- (void)updateViewWithGet_account_permission_service:(Get_account_permission_service *)get_account_permission_service{
+-(void)updateViewWithGet_account_permission_service:(Get_account_permission_service *)get_account_permission_service{
     // owner_public_key
     self.ownerTipLabel.hidden = NO;
     
@@ -112,8 +109,8 @@
             }
         }
     }
-    
-    if (get_account_permission_service.chainAccountActivePublicKeyArray.count==0) {
+
+    if(get_account_permission_service.chainAccountActivePublicKeyArray.count==0) {
         self.activeTipLabel.textColor = HEXCOLOR(0xE8554A);
         self.activeTipLabel.text = [NSString stringWithFormat:@"%@%@", _localAccount.account_name,NSLocalizedString(@"未创建成功", nil)];
     }else{

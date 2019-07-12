@@ -1,3 +1,18 @@
 
-/* Class = "UILabel"; text = "资产交易记录"; ObjectID = "1V3-Bp-MUC"; */
-"1V3-Bp-MUC.text" = "资产交易记录";
+/* Class = "UILabel"; text = "交易记录"; ObjectID = "1V3-Bp-MUC"; */
+"1V3-Bp-MUC.text" = "交易记录";
+
+/* Class = "UILabel"; text = "account"; ObjectID = "TUT-Ff-Vaq"; */
+"TUT-Ff-Vaq.text" = "account";
+
+/* Class = "UITabBarItem"; title = "全部"; ObjectID = "TfC-77-2Oc"; */
+"TfC-77-2Oc.title" = "全部";
+
+/* Class = "UILabel"; text = "总额 (VKT)"; ObjectID = "YaW-Op-6Nm"; */
+"YaW-Op-6Nm.text" = "总额 (VKT)";
+
+/* Class = "UITabBarItem"; title = "转入"; ObjectID = "hA1-je-bW3"; */
+"hA1-je-bW3.title" = "转入";
+
+/* Class = "UITabBarItem"; title = "转出"; ObjectID = "mdP-PV-kip"; */
+"mdP-PV-kip.title" = "转出";

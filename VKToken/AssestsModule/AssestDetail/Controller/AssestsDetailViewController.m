@@ -27,6 +27,8 @@
 #import "TransferDetailsViewController.h"
 #import "AssestLockRecordsViewController.h"
 #import "AssestsDetailHeaderView.h"
+#import "AccountManagementViewController.h"
+#import "VKToken-swift.h"
 
 @interface AssestsDetailViewController ()< UITableViewDelegate , UITableViewDataSource, NavigationViewDelegate, AssestsDetailHeaderViewDelegate, SocialSharePanelViewDelegate, AssestDetailFooterViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;
@@ -54,7 +56,7 @@
         if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {
             _navView.rightBtn.hidden = NO;
         }else if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
-            _navView.rightBtn.hidden = YES;
+            _navView.rightBtn.hidden = NO;
         }
     }
     return _navView;
@@ -196,33 +198,6 @@
     [self requestTransactionHistory];
     [self configHeaderView];
    
-//    NSValue *value0 = [NSValue valueWithCGPoint:(CGPointMake(0, 40))];
-//    NSValue *value1 = [NSValue valueWithCGPoint:(CGPointMake(10, 20))];
-//    NSValue *value2 = [NSValue valueWithCGPoint:(CGPointMake(15, 70))];
-//    NSValue *value3 = [NSValue valueWithCGPoint:(CGPointMake(20, 20))];
-//    NSValue *value4 = [NSValue valueWithCGPoint:(CGPointMake(25, 60))];
-//    NSValue *value5 = [NSValue valueWithCGPoint:(CGPointMake(30, 66))];
-//    NSValue *value6 = [NSValue valueWithCGPoint:(CGPointMake(35, 70))];
-//    NSValue *value7 = [NSValue valueWithCGPoint:(CGPointMake(40, 7))];
-//    NSValue *value8 = [NSValue valueWithCGPoint:(CGPointMake(45, 88))];
-//    NSValue *value9 = [NSValue valueWithCGPoint:(CGPointMake(50, 30))];
-//    NSValue *value10 = [NSValue valueWithCGPoint:(CGPointMake(100, 40))];
-//    NSValue *value11 = [NSValue valueWithCGPoint:(CGPointMake(120, 20))];
-//    NSValue *value12 = [NSValue valueWithCGPoint:(CGPointMake(160, 70))];
-//    NSValue *value13 = [NSValue valueWithCGPoint:(CGPointMake(200, 20))];
-//    NSValue *value14 = [NSValue valueWithCGPoint:(CGPointMake(220, 60))];
-//    NSValue *value15 = [NSValue valueWithCGPoint:(CGPointMake(230, 66))];
-//    NSValue *value16 = [NSValue valueWithCGPoint:(CGPointMake(240, 70))];
-//    NSValue *value17 = [NSValue valueWithCGPoint:(CGPointMake(260, 7))];
-//    NSValue *value18 = [NSValue valueWithCGPoint:(CGPointMake(280, 88))];
-//    NSValue *value19 = [NSValue valueWithCGPoint:(CGPointMake(300, 30))];
-//    NSMutableArray *arr = [NSMutableArray arrayWithObjects:value0, value1 , value2 , value3 , value4 , value5 , value6 , value7 , value8 , value9   ,value10, value11 , value12 , value13 , value14 , value15 , value16 , value17 , value18 , value19  ,nil];
-//
-//    self.headerView.tendencyChartView.pointArray = arr;
-//    [self.headerView.tendencyChartView drawBulletLayer];
-//    [self.headerView.tendencyChartView animation];
-    
-    
 }
 
 - (void)requestTransactionHistory{
@@ -331,16 +306,12 @@
 }
 
 - (void)rightBtnDidClick {
-    [self.view addSubview:self.shareBaseView];
-    self.shareBaseView.sd_layout.leftSpaceToView(self.view, 0).rightSpaceToView(self.view, 0).bottomSpaceToView(self.view, 0).heightIs(SCREEN_HEIGHT);
-    self.assestsShareDetailView.referencePriceLabel.text = [NSString stringWithFormat:@"¥%@", [NumberFormatter displayStringFromNumber:@(self.model.asset_price_cny.doubleValue)]];
-   
-    if ([self.model.asset_price_change_in_24h hasPrefix:@"-"]) {
-        self.assestsShareDetailView.priceChangeIn24hLabel.text = [NSString stringWithFormat:@"%@%%", self.model.asset_price_change_in_24h];
-    }else{
-        self.assestsShareDetailView.priceChangeIn24hLabel.text = [NSString stringWithFormat:@"+%@%%", self.model.asset_price_change_in_24h];
-    }
-    self.assestsShareDetailView.totalMarketCapitalizationLabel.text = [NSString stringWithFormat:@"¥%@", [NumberFormatter displayStringFromNumber:@(self.model.asset_market_cap_cny.doubleValue)]];
+    WS(weakSelf);
+    AccountInfo *model;
+    model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:CURRENT_ACCOUNT_NAME];
+    AccountManagementViewController *vc = [[AccountManagementViewController alloc] init];
+    vc.model = model;
+    [weakSelf.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)dismiss{

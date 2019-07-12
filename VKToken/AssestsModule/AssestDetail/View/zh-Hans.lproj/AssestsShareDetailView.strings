@@ -1,6 +1,6 @@
 
-/* Class = "UILabel"; text = "------来自Pocket  VKT------"; ObjectID = "Mho-aC-mdt"; */
-"Mho-aC-mdt.text" = "------来自Pocket  VKT------";
+/* Class = "UILabel"; text = "------来自VKToken------"; ObjectID = "Mho-aC-mdt"; */
+"Mho-aC-mdt.text" = "------来自VKToken------";
 
 /* Class = "UILabel"; text = "24h涨跌："; ObjectID = "MnY-s3-GmM"; */
 "MnY-s3-GmM.text" = "24h涨跌：";

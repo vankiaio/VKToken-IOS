@@ -6,10 +6,10 @@
 //  Copyright © 2017年 vankiachain. All rights reserved.
 //
 
-#import "ExportPrivateKeyView.h"
+#import "ExportMnemonicView.h"
 
 
-@interface ExportPrivateKeyView()<UIGestureRecognizerDelegate, UITextViewDelegate>
+@interface ExportMnemonicView()<UIGestureRecognizerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *upBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *contentTextBaseView;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ExportPrivateKeyView
+@implementation ExportMnemonicView
 
 - (UIImageView *)QRCodeimg{
     if (!_QRCodeimg) {
@@ -57,8 +57,8 @@
 
 - (void)dismiss{
     [self removeFromSuperview];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(exportPrivateKeyViewShouldDismiss)]) {
-        [self.delegate exportPrivateKeyViewShouldDismiss];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(exportMnemonicViewShouldDismiss)]) {
+        [self.delegate exportMnemonicViewShouldDismiss];
     }
 }
 
@@ -81,14 +81,14 @@
     }
 }
 
-- (IBAction)copyOwnerPrivateKeyBtnClick:(UIButton *)sender {
+- (IBAction)copyOwnerMnemonicBtnClick:(UIButton *)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(copyOwnerPrivateKeyBtnDidClick)]) {
         [self.delegate copyOwnerPrivateKeyBtnDidClick];
     }
 }
 
 
-- (IBAction)copyActivePrivateKeyBtnClick:(UIButton *)sender {
+- (IBAction)copyActiveMnemonicBtnClick:(UIButton *)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(copyActivePrivateKeyBtnDidClick)]) {
         [self.delegate copyActivePrivateKeyBtnDidClick];
     }
@@ -100,8 +100,8 @@
     self.QRCodeimg.hidden = YES;
     self.contentTextView.hidden = NO;
     self.contentTextBaseView.hidden = NO;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(copyPrivateKeyBtnDidClick:)]) {
-        [self.delegate copyPrivateKeyBtnDidClick:sender];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(copyMnemonicBtnDidClick:)]) {
+        [self.delegate copyMnemonicBtnDidClick:sender];
     }
 }
 

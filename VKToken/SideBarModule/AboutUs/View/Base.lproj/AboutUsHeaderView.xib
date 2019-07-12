@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +22,7 @@
                         <constraint firstAttribute="height" constant="100" id="v9l-0C-Vcw"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pocket VKT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Br0-Vz-b7V" customClass="BaseLabel">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VKToken" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Br0-Vz-b7V" customClass="BaseLabel">
                     <rect key="frame" x="20" y="148.5" width="335" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="LsG-Tw-oF2"/>
@@ -39,7 +43,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1q-93-ykz">
                     <rect key="frame" x="0.0" y="207.5" width="375" height="156"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Pocket VKT是一款跨平台的移动端 VKT钱包应用，以“生活中的区块链，口袋里的 VKT”为核心设计理念，除了基本的区块链钱包功能外，还接入各类基于区块链的服务和DAPP，打造一站式 VKT生态平台，让区块链更贴近生活，更加好玩。" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V29-13-nAx" customClass="BaseTextView_textColorLightGray">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="VKToken是一款跨平台的移动端 VKT钱包应用，以“生活中的区块链，口袋里的 VKT”为核心设计理念，除了基本的区块链钱包功能外，还接入各类基于区块链的服务和DAPP，打造一站式 VKT生态平台，让区块链更贴近生活，更加好玩。" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V29-13-nAx" customClass="BaseTextView_textColorLightGray">
                             <rect key="frame" x="20" y="10" width="335" height="146"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>

@@ -9,8 +9,8 @@
 #import "SocialManager.h"
 
 
-#define WX_APP_ID @"wxde396b6e74029855"
-#define WX_AppSecret @"b33d07486a01a84d163498b9be2cfe8d"
+#define WX_APP_ID @"wx54d2b8e4b2e42792"
+#define WX_AppSecret @"3fccafd6d2a6002bb34c758b789ebfa6"
 
 #define QQ_APP_ID @"1106779320"
 #define QQ_KEY @"XHdoC72UY7Gt22Cu"

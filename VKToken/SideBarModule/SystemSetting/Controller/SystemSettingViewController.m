@@ -214,6 +214,7 @@
     BaseTableViewCell1 *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell.textLabel.text isEqualToString:NSLocalizedString(@"语言", nil)]) {
         LanguageSettingViewController *vc = [[LanguageSettingViewController alloc] init];
+        vc.languageSettingViewControllerFromMode = LanguageSettingViewControllerFromOtherPage;
         [self.navigationController pushViewController:vc animated:YES];
     }else if([cell.textLabel.text isEqualToString:NSLocalizedString(@"清空缓存", nil)]){
         // clear cache

@@ -18,6 +18,7 @@
 @property (nonatomic,retain) NSMutableArray *array;
 @property (nonatomic,retain) UISearchController *searchController;
 @property (nonatomic,retain) NSString *addressPath;
+@property (nonatomic , strong) UIBarButtonItem *backItem;
 
 @end
 
@@ -57,13 +58,16 @@ static NSString *identifier = @"myCellReuse";
 - (void)viewDidLoad {
     [super viewDidLoad];
     //设置navigationBar的颜色和标题
-    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
-    self.navigationItem.title = @"所有联系人";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:17.0f]}];
+    self.navigationItem.title = NSLocalizedString(@"VKT账号本", nil);
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     //注册cell
     [self.tableView registerClass:[ContactCell class] forCellReuseIdentifier:identifier];
-    //添加编辑按钮
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    self.editButtonItem.title = @"编辑";
+    //添加返回按钮
+    self.navigationItem.leftBarButtonItems =@[self.backItem];
+    [self.navigationItem.leftBarButtonItem.customView.widthAnchor constraintEqualToConstant:30].active = YES;
+    [self.navigationItem.leftBarButtonItem.customView.heightAnchor constraintEqualToConstant:30].active = YES;
     //添加添加联系人按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewContact:)];
     //设置搜索控制器
@@ -77,6 +81,30 @@ static NSString *identifier = @"myCellReuse";
     [myView addSubview:self.searchController.searchBar];
     self.tableView.tableHeaderView = myView;
 }
+
+-(UIBarButtonItem *)backItem{
+    if (!_backItem) {
+        _backItem = [[UIBarButtonItem alloc] init];
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal);
+        btn.lee_theme
+        .LeeAddButtonTitleColor(SOCIAL_MODE, HEXCOLOR(0x000000), UIControlStateNormal)
+        .LeeAddButtonTitleColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF), UIControlStateNormal);
+        [btn setTitle:NSLocalizedString(@"返回", nil) forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(closeNative) forControlEvents:UIControlEventTouchUpInside];
+        [btn.titleLabel setFont:[UIFont systemFontOfSize:17]];
+        //左对齐
+        //让返回按钮内容继续向左边偏移15，如果不设置的话，就会发现返回按钮离屏幕的左边的距离有点儿大，不美观
+        btn.frame = CGRectMake(-40, -40, 50, 40);
+        _backItem.customView = btn;
+    }
+    return _backItem;
+}
+
+- (void)closeNative {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -413,6 +413,7 @@
 /*
  AccountManagementViewController.m
  */
+"账号管理"="Account Manager";
 "滑动删除账号"="Slide to Block Up This Account";
 "将滑块滑动到右侧指定位置内即可删除"="Slide to the specific postion and unlock your wallet.";
 "    将二维码分享到"="    Share QR code to";
@@ -420,6 +421,7 @@
 "保护隐私"="Privacy Protection";
 "VKT资源管理"="VKT Resources Management";
 "导出私钥"="Export Private Key";
+"导出助记词"="Export Mnemonic Words";
 "VKT一键赎回"="Unstake VKT";
 "设置主账号成功!"="Set as main account!";
 "删除账号成功!"="Delete account success!";
@@ -988,3 +990,19 @@
 "意见反馈"="Feedback";
 "关于我们"="About Us";
 "邀请码"="Invitation Code";
+
+/*
+ ContactTableViewController.m
+ */
+"VKT账号本"="VKT contact book";
+
+/*
+ AddViewController.m
+ */
+"新建联系人"="New contact";
+"名称"="User name";
+"账号"="Account name";
+"备注"="Note";
+"请输入名称"="Please enter the user name";
+"请输入或者粘贴账号名称"="Please enter or paste the account name";
+"请输入备注"="Please enter the note";

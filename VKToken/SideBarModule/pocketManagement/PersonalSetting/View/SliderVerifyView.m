@@ -33,7 +33,7 @@
         _orignalImg = [[UIImageView alloc] init];
         _orignalImg.lee_theme
         .LeeAddImage(SOCIAL_MODE, [UIImage imageNamed:@"slider_white"])
-        .LeeAddImage(BLACKBOX_MODE, [UIImage imageNamed:@"slider_blue"]);
+        .LeeAddImage(BLACKBOX_MODE, [UIImage imageNamed:@"slider_white"]);
         _orignalImg.layer.cornerRadius = 6;
         _orignalImg.layer.masksToBounds = YES;
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(orignalImgDidPan:)];
@@ -61,7 +61,7 @@
         _tipLabel.font = [UIFont systemFontOfSize:14];
         _tipLabel.lee_theme
         .LeeAddTextColor(SOCIAL_MODE, HEXCOLOR(0xFFFFFF))
-        .LeeAddTextColor(BLACKBOX_MODE, HEXCOLOR(0x0B78E3));
+        .LeeAddTextColor(BLACKBOX_MODE, HEXCOLOR(0xFFFFFF));
     }
     return _tipLabel;
 }
@@ -78,11 +78,11 @@
         destinationRandomOrigin_X = [self getRandomNumber: SCREEN_WIDTH/ 2 to: SCREEN_WIDTH - 54 - (48 * 2)];// 48 为 self 距左/右的边距
         self.lee_theme
         .LeeAddBackgroundColor(SOCIAL_MODE, HEXCOLOR(0x4D7BFE))
-        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x161823));
+        .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0x08B2B8));
         self.layer.cornerRadius = 8;
         self.layer.masksToBounds = YES;
         self.layer.borderWidth = 1;
-        self.layer.borderColor = HEXCOLOR(0x4E7CFD).CGColor;
+        self.layer.borderColor = HEXCOLOR(0x7DFCFF).CGColor;
         
         [self addSubview:self.orignalImg];
         self.orignalImg.frame = CGRectMake(MARGIN_4, MARGIN_4, SLIDER_WIDTH, SLIDER_HEIGHT);

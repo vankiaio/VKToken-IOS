@@ -969,6 +969,9 @@
 		6E15521322D497CD00F69404 /* InvitationCodeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E15521222D497CD00F69404 /* InvitationCodeHeaderView.m */; };
 		6E15521622D4980000F69404 /* InvitationCodeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E15521522D4980000F69404 /* InvitationCodeHeaderView.xib */; };
 		6E15521822D49EB400F69404 /* InvitationCoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E15521722D49EB400F69404 /* InvitationCoreViewController.m */; };
+		6E15521C22D5939A00F69404 /* AddContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E15521B22D5939A00F69404 /* AddContactCell.m */; };
+		6E15524122D8857B00F69404 /* ExportMnemonicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E15523F22D8857A00F69404 /* ExportMnemonicView.m */; };
+		6E15525122D8914B00F69404 /* ExportMnemonicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E15524F22D8914B00F69404 /* ExportMnemonicView.xib */; };
 		6E1F521A22940C9C003D1C3D /* GetAssestLockRecordsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520622940C9C003D1C3D /* GetAssestLockRecordsRequest.m */; };
 		6E1F521B22940C9C003D1C3D /* AssestLockRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520922940C9C003D1C3D /* AssestLockRecordsViewController.m */; };
 		6E1F521C22940C9C003D1C3D /* AssestLocksResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520B22940C9C003D1C3D /* AssestLocksResult.m */; };
@@ -1955,8 +1958,6 @@
 		186F695D20F494D500FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VKTMappingImportAccountHeaderView.strings; sourceTree = "<group>"; };
 		186F695F20F494D600FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VKTMappingImportAccountHeaderView.strings"; sourceTree = "<group>"; };
 		186F696120F4951200FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AssestsDetailHeaderView.xib; sourceTree = "<group>"; };
-		186F696420F4951500FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AssestsDetailHeaderView.strings; sourceTree = "<group>"; };
-		186F696620F4951800FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AssestsDetailHeaderView.strings"; sourceTree = "<group>"; };
 		186F696820F4952700FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AssestsShareDetailView.xib; sourceTree = "<group>"; };
 		186F696B20F4952A00FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AssestsShareDetailView.strings; sourceTree = "<group>"; };
 		186F696D20F4952B00FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AssestsShareDetailView.strings"; sourceTree = "<group>"; };
@@ -2958,6 +2959,15 @@
 		6E15521522D4980000F69404 /* InvitationCodeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationCodeHeaderView.xib; sourceTree = "<group>"; };
 		6E15521722D49EB400F69404 /* InvitationCoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvitationCoreViewController.m; sourceTree = "<group>"; };
 		6E15521922D49EC100F69404 /* InvitationCoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvitationCoreViewController.h; sourceTree = "<group>"; };
+		6E15521A22D5938A00F69404 /* AddContactCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddContactCell.h; sourceTree = "<group>"; };
+		6E15521B22D5939A00F69404 /* AddContactCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddContactCell.m; sourceTree = "<group>"; };
+		6E15523F22D8857A00F69404 /* ExportMnemonicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportMnemonicView.m; sourceTree = "<group>"; };
+		6E15524022D8857B00F69404 /* ExportMnemonicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportMnemonicView.h; sourceTree = "<group>"; };
+		6E15525022D8914B00F69404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ExportMnemonicView.xib; sourceTree = "<group>"; };
+		6E15525622D8948500F69404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ExportMnemonicView.strings"; sourceTree = "<group>"; };
+		6E15525722D8948800F69404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ExportMnemonicView.strings; sourceTree = "<group>"; };
+		6E15525922D895C300F69404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AssestsDetailHeaderView.strings"; sourceTree = "<group>"; };
+		6E15525B22D895DE00F69404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AssestsDetailHeaderView.strings; sourceTree = "<group>"; };
 		6E1F520522940C9C003D1C3D /* GetAssestLockRecordsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAssestLockRecordsRequest.h; sourceTree = "<group>"; };
 		6E1F520622940C9C003D1C3D /* GetAssestLockRecordsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAssestLockRecordsRequest.m; sourceTree = "<group>"; };
 		6E1F520822940C9C003D1C3D /* AssestLockRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssestLockRecordsViewController.h; sourceTree = "<group>"; };
@@ -5795,6 +5805,9 @@
 				1868571A1FE10C13002A683A /* ExportPrivateKeyView.h */,
 				1868571B1FE10C13002A683A /* ExportPrivateKeyView.m */,
 				186F6A7A20F4978500FFF881 /* ExportPrivateKeyView.xib */,
+				6E15524022D8857B00F69404 /* ExportMnemonicView.h */,
+				6E15523F22D8857A00F69404 /* ExportMnemonicView.m */,
+				6E15524F22D8914B00F69404 /* ExportMnemonicView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -9087,6 +9100,8 @@
 			children = (
 				6E0E95DD22C5E42200089F46 /* ContactCell.h */,
 				6E0E95DF22C5E42200089F46 /* ContactCell.m */,
+				6E15521A22D5938A00F69404 /* AddContactCell.h */,
+				6E15521B22D5939A00F69404 /* AddContactCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -9532,6 +9547,7 @@
 				186F6A3920F4971500FFF881 /* UnBindSocialPlatformHeaderView.xib in Resources */,
 				18DBBB19206523A00050EE20 /* PGDatePicker.bundle in Resources */,
 				186F6A2420F4968A00FFF881 /* LoginPasswordView.xib in Resources */,
+				6E15525122D8914B00F69404 /* ExportMnemonicView.xib in Resources */,
 				1860C60D2133A9BD00E39056 /* TransferToMoreAccount.json in Resources */,
 				18466DA52010A049002E675A /* PYSearch.bundle in Resources */,
 				186F6A0F20F4965500FFF881 /* SideBarMainView.xib in Resources */,
@@ -9691,6 +9707,7 @@
 				2473F12F20DF74E300BE3D22 /* NSString+DecimalsCalculation.h in Sources */,
 				2473F13020DF74E300BE3D22 /* NSString+DecimalsCalculation.m in Sources */,
 				24C59BE120DC029D008E81A4 /* BodyScrollView.m in Sources */,
+				6E15521C22D5939A00F69404 /* AddContactCell.m in Sources */,
 				24C59BE020DC028B008E81A4 /* PageSegmentView.m in Sources */,
 				18ECBCC2215B340700BAE3C2 /* DappPushMessageModel.m in Sources */,
 				183AE1F92019B8FE002041F9 /* EnterpriseListRequest.m in Sources */,
@@ -9823,6 +9840,7 @@
 				1864FA851FF23218005F636D /* RichListCell.m in Sources */,
 				188607A01FCC012F00B00EE7 /* UIColor+SNFoundation.m in Sources */,
 				182CDF51201EFFB4002B87B6 /* FeedbackTableViewCell.m in Sources */,
+				6E15524122D8857B00F69404 /* ExportMnemonicView.m in Sources */,
 				18291F4920EE399400D19CB9 /* ScrollMenuView.m in Sources */,
 				18A1782E218B047000521343 /* DiscoverMainHeaderView.m in Sources */,
 				188D196D2134FEA6006D59AC /* ForwardRedPacketHeaderView.m in Sources */,
@@ -10654,8 +10672,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				186F696120F4951200FFF881 /* Base */,
-				186F696420F4951500FFF881 /* en */,
-				186F696620F4951800FFF881 /* zh-Hans */,
+				6E15525922D895C300F69404 /* zh-Hans */,
+				6E15525B22D895DE00F69404 /* en */,
 			);
 			name = AssestsDetailHeaderView.xib;
 			sourceTree = "<group>";
@@ -11294,6 +11312,16 @@
 				6E1551C722D326E400F69404 /* Base */,
 			);
 			name = CheckInView.xib;
+			sourceTree = "<group>";
+		};
+		6E15524F22D8914B00F69404 /* ExportMnemonicView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E15525022D8914B00F69404 /* Base */,
+				6E15525622D8948500F69404 /* zh-Hans */,
+				6E15525722D8948800F69404 /* en */,
+			);
+			name = ExportMnemonicView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

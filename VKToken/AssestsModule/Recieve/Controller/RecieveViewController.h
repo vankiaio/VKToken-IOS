@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TransferModel.h"
+#import "TokenInfo.h"
 
 @interface RecieveViewController : BaseViewController
 @property(nonatomic, strong) TransferModel *transferModel;

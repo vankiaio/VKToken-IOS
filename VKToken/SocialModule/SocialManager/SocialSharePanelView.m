@@ -43,7 +43,7 @@
         label.textColor = HEXCOLOR(0x2A2A2A);
         label.font = [UIFont systemFontOfSize:12];
         label.textAlignment = NSTextAlignmentCenter;
-        label.frame = CGRectMake(item_margin + (itemWidth_height + item_margin)*i-15, self.labelTopSpace+29+22, 60, itemWidth_height);
+        label.frame = CGRectMake(item_margin + (itemWidth_height + item_margin)*i-15, self.labelTopSpace+29+12, 60, itemWidth_height);
         [self addSubview:img];
         [self addSubview:label];
     }

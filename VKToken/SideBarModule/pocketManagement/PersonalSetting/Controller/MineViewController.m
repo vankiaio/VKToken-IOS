@@ -68,7 +68,8 @@
                         @[@{@"icon":@"icon_me_setting",@"title":NSLocalizedString(@"设置",nil),@"action":@"pushToSetting"},
                           @{@"icon":@"icon_me_tk",@"title":NSLocalizedString(@"使用条款",nil),@"action":@"pushToTermsOfUse"},
                           @{@"icon":@"icon_me_feedback",@"title":NSLocalizedString(@"意见反馈",nil),@"action":@"pushToFeedback"},
-                          @{@"icon":@"icon_me_about",@"title":NSLocalizedString(@"关于我们",nil),@"action":@"pushToAboutUs"}, @{@"icon":@"icon_me_share",@"title":NSLocalizedString(@"邀请码",nil),@"action":@"pushToInvitationCode"}]
+                          @{@"icon":@"icon_me_about",@"title":NSLocalizedString(@"关于我们",nil),@"action":@"pushToAboutUs"},
+                          @{@"icon":@"icon_me_share",@"title":NSLocalizedString(@"邀请码",nil),@"action":@"pushToInvitationCode"}]
                           ];
 }
 
