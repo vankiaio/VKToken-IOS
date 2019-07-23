@@ -72,6 +72,13 @@
  */
 "邀请好友"="Invitation";
 "等待主网确认"="Waiting for mainnet verification";
+"今日签到已获得%@"="Signed today and got %@";
+"签到共获得%@"="Signed in a total of %@";
+
+/*
+ CheckInView.m
+ */
+"恭喜签到成功"="Congratulations on signed in";
 
 /*
  AssestsMainHeaderView.m

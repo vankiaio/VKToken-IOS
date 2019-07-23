@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface CheckInView : UIView
-@property (weak, nonatomic) IBOutlet UILabel *accountName;
-@property (weak, nonatomic) IBOutlet UILabel *getAmountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *checkInLabel;
-
+@property (weak, nonatomic) IBOutlet BaseLabel1 *signedinSuccessLabel;
+@property (weak, nonatomic) IBOutlet BaseLabel1 *accountName;
+@property (weak, nonatomic) IBOutlet BaseLabel1 *todayScoreLabel;
+@property (weak, nonatomic) IBOutlet BaseLabel1 *totalScoreLabel;
 /**
  修改圆角用
  */

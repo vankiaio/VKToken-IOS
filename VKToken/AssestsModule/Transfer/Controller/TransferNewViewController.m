@@ -179,7 +179,7 @@
     [self.view addSubview:self.headerView];
     self.view.lee_theme.LeeConfigBackgroundColor(@"baseHeaderView_background_color");
     
-    [self requestRichList];
+//    [self requestRichList];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:self.headerView.nameTF];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:self.headerView.amountTF];
 }

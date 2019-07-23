@@ -64,6 +64,7 @@
 #import "PayRegistAccountViewController.h"
 #import "CreateAccountViewController.h"
 #import "CheckInView.h"
+#import "CandyScoreRequest.h"
 #import "VKToken-swift.h"
 
 @interface AssestsMainViewController ()<UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, ChangeAccountViewControllerDelegate, CQMarqueeViewDelegate, AdvertisementViewDelegate, PocketManagementViewControllerDelegate, VersionUpdateTipViewDelegate, AddAssestsViewControllerDelegate, AccountNotExistViewDelegate, CommonDialogHasTitleViewDelegate, AssestsMainAddAccountViewDelegate>
@@ -87,6 +88,7 @@
 @property(nonatomic , assign) BOOL currentWalletHasSetPassword;
 @property(nonatomic , strong) AssestsMainAddAccountView *assestsMainAddAccountView;
 @property(nonatomic , strong) CheckInView *checkInView;
+@property(nonatomic , strong) CandyScoreRequest *candyScoreRequest;
 @end
 
 @implementation AssestsMainViewController
@@ -142,6 +144,14 @@
     }
     return _currentAccountResult;
 }
+
+- (CandyScoreRequest *)candyScoreRequest{
+    if (!_candyScoreRequest) {
+        _candyScoreRequest = [[CandyScoreRequest alloc] init];
+    }
+    return _candyScoreRequest;
+}
+
 
 - (UIButton *)inviteFriendBtn{
     if(!_inviteFriendBtn){
@@ -409,8 +419,10 @@
     }];
    
     [self.navView setRightBtn1DidClickBlock:^{
+        
         [self.view addSubview:self.checkInView];
         self.checkInView.accountName.text = CURRENT_ACCOUNT_NAME;
+        [self requestCandyScoreRequest];
 //            CheckInView *vc = [[CheckInView alloc] init];
 //            vc.delegate = weakSelf;
 //            vc.mainService.currentAccountName = CURRENT_ACCOUNT_NAME;
@@ -967,5 +979,16 @@
         self.currentWalletHasSetPassword = YES;
         [self addCommonDialogHasTitleViewOfSetPassword];
     }
+}
+
+- (void)requestCandyScoreRequest{
+    WS(weakSelf);
+    self.candyScoreRequest.uid = CURRENT_ACCOUNT_NAME;
+    [self.candyScoreRequest getDataSusscess:^(id DAO, id data) {
+        weakSelf.checkInView.todayScoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"今日签到已获得%@", nil), VALIDATE_NUMBER(data[@"data"][@"scoreNum"])];
+        weakSelf.checkInView.totalScoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"签到共获得%@", nil) , VALIDATE_NUMBER(data[@"data"][@"totalscoreNum"])];
+    } failure:^(id DAO, NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 @end

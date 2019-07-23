@@ -32,7 +32,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将送您10 VKT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPJ-bp-GHR" customClass="BaseLabel1">
-                                    <rect key="frame" x="97.5" y="198" width="100" height="24"/>
+                                    <rect key="frame" x="97.5" y="191" width="100" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="M0V-vq-c0f"/>
                                         <constraint firstAttribute="height" constant="24" id="MGr-xg-FcG"/>
@@ -41,8 +41,18 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总共已送您10 VKT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daF-CY-Ogc" customClass="BaseLabel1">
+                                    <rect key="frame" x="85" y="220" width="125.5" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="RVk-Zo-hvv"/>
+                                        <constraint firstAttribute="height" constant="24" id="yjD-PC-38a"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜签到成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ct-HG-rSy" userLabel="Congratulations on signing in success" customClass="BaseLabel1">
-                                    <rect key="frame" x="57.5" y="155" width="180" height="33"/>
+                                    <rect key="frame" x="57.5" y="148" width="180" height="33"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="33" id="HRB-6O-SNs"/>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="K1n-fb-kpj"/>
@@ -52,7 +62,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_vkt_s" translatesAutoresizingMaskIntoConstraints="NO" id="EUP-Y3-7WV" userLabel="Check In Logo">
-                                    <rect key="frame" x="118.5" y="87" width="58" height="58"/>
+                                    <rect key="frame" x="118.5" y="80" width="58" height="58"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="58" id="ADj-TW-3Lk"/>
                                         <constraint firstAttribute="width" constant="58" id="WJJ-2E-uct"/>
@@ -63,9 +73,11 @@
                             <constraints>
                                 <constraint firstItem="ry1-r9-8J0" firstAttribute="top" secondItem="4JQ-wQ-cVR" secondAttribute="top" id="5xA-xR-hlE"/>
                                 <constraint firstItem="ry1-r9-8J0" firstAttribute="leading" secondItem="4JQ-wQ-cVR" secondAttribute="leading" id="94I-be-wby"/>
+                                <constraint firstItem="daF-CY-Ogc" firstAttribute="centerX" secondItem="4JQ-wQ-cVR" secondAttribute="centerX" id="Kmb-La-D2i"/>
                                 <constraint firstItem="IPJ-bp-GHR" firstAttribute="centerX" secondItem="4JQ-wQ-cVR" secondAttribute="centerX" id="Npj-mw-NIC"/>
                                 <constraint firstAttribute="trailing" secondItem="ry1-r9-8J0" secondAttribute="trailing" id="QPc-wY-4QN"/>
-                                <constraint firstItem="EUP-Y3-7WV" firstAttribute="top" secondItem="ry1-r9-8J0" secondAttribute="bottom" constant="37" id="XOf-KF-0Yy"/>
+                                <constraint firstItem="EUP-Y3-7WV" firstAttribute="top" secondItem="ry1-r9-8J0" secondAttribute="bottom" constant="30" id="XOf-KF-0Yy"/>
+                                <constraint firstItem="daF-CY-Ogc" firstAttribute="top" secondItem="IPJ-bp-GHR" secondAttribute="bottom" constant="5" id="hCd-B5-HDb"/>
                                 <constraint firstAttribute="height" constant="260" id="k1b-EE-umu"/>
                                 <constraint firstItem="3ct-HG-rSy" firstAttribute="top" secondItem="EUP-Y3-7WV" secondAttribute="bottom" constant="10" id="kfb-Tm-WgI"/>
                                 <constraint firstItem="3ct-HG-rSy" firstAttribute="centerX" secondItem="4JQ-wQ-cVR" secondAttribute="centerX" id="u7Y-Dd-d4D"/>
@@ -125,9 +137,10 @@
             <connections>
                 <outlet property="accountName" destination="ry1-r9-8J0" id="E7z-JW-pbs"/>
                 <outlet property="bottomBackgroundView" destination="IlB-5u-GE2" id="Fxv-mN-ZWe"/>
-                <outlet property="checkInLabel" destination="3ct-HG-rSy" id="7N7-39-Jbs"/>
-                <outlet property="getAmountLabel" destination="IPJ-bp-GHR" id="jdJ-Iy-Xtu"/>
                 <outlet property="mainView" destination="bqW-d8-hab" id="t61-PX-CVj"/>
+                <outlet property="signedinSuccessLabel" destination="3ct-HG-rSy" id="3Xb-RE-CgL"/>
+                <outlet property="todayScoreLabel" destination="IPJ-bp-GHR" id="AES-Se-WDX"/>
+                <outlet property="totalScoreLabel" destination="daF-CY-Ogc" id="ZqW-DZ-5Sf"/>
                 <outlet property="upBackgroundView" destination="4JQ-wQ-cVR" id="hAL-QP-LTA"/>
             </connections>
             <point key="canvasLocation" x="112.8" y="54.422788605697157"/>
