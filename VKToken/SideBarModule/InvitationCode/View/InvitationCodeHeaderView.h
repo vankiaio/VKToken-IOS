@@ -22,9 +22,10 @@
 
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (weak, nonatomic) IBOutlet UIView *qrView;
+@property (weak, nonatomic) IBOutlet UILabel *invitationCodeLabel;
 
 /**
- 收款二维码
+ 邀请二维码
  */
 @property (weak, nonatomic) IBOutlet UIImageView *shareInvitationQRCodeImg;
 @end

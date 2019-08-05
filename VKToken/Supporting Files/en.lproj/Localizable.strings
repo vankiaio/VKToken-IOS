@@ -208,6 +208,8 @@
 "映射账号录入"="I have Private Key(s) from VKT mapping.";
 "请保证输入信息的完整~"="input box can't be nil!";
 "私钥格式有误!"="private key format error!";
+"助记词格式有误!"="mnemonic format error!";
+"助记词与现有账户重复!"="Mnemonic repeats with existing accounts!";
 "本地钱包已存在该账号!"="local wallet has this account already!";
 "账号导入成功!"="account import success!";
 "未查到对应账号!"="no matching account!";
@@ -862,6 +864,7 @@
 "选择添加账号方式"="See assets after adding accounts.";
 "单私钥"="private key";
 "双私钥"="Daul keys";
+"助记词"="Mnomonic";
 "请分别输入Owner私钥和Active私钥："="Input Owner key and Active key in two boxes：";
 "请选择您想要导入的账号"="Select accounts to import:";
 "下一步"="Next";
@@ -892,6 +895,7 @@
 "请输入新的Active key"="Input new Active key";
 "请输入新的Owner key"="Input new Owner key";
 "请输入私钥："="Please Input Private key";
+"请输入助记词："="Please Input Mnemonics";
 "暂无账号"="No account";
 "变更私钥权限成功"="Change Permision Success";
 

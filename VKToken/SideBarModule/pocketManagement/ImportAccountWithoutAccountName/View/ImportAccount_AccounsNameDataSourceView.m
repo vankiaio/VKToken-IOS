@@ -113,7 +113,9 @@
         [_confirmBtn setFont:[UIFont systemFontOfSize:15]];
         [_confirmBtn addTarget:self action:@selector(confirmBtnClick) forControlEvents:(UIControlEventTouchUpInside)];
         [_confirmBtn setTitleColor:HEXCOLOR(0xFFFFFF) forState:(UIControlStateNormal)];
-        [_confirmBtn setBackgroundColor:HEXCOLOR(0x4D7BFE)];
+        [_confirmBtn setBackgroundColor:HEXCOLOR(0x08B2B8)];
+        _confirmBtn.layer.masksToBounds = YES;
+        _confirmBtn.layer.cornerRadius = 5;
     }
     return _confirmBtn;
 }

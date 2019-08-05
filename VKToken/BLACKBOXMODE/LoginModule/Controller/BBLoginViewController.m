@@ -252,7 +252,7 @@
     // 如果本地没有钱包
     Wallet *model = [[Wallet alloc] init];
 //    model.wallet_name = self.createWalletView.walletNameTF.text;
-    model.wallet_name = @"VKT";
+    model.wallet_name = @"VKToken";
     
     model.wallet_shapwd = [WalletUtil generate_wallet_shapwd_withPassword:self.createWalletView.passwordTF.text];
     model.wallet_uid = [model.wallet_name sha256];

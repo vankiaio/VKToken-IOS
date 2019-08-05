@@ -23,6 +23,8 @@
     self.tipLabel.text = NSLocalizedString(@"请输入私钥：", nil);
     self.textView.placeholder = NSLocalizedString(@"请输入私钥：", nil);
     [self.confirmBtn setTitle:NSLocalizedString(@"确认",  nil) forState:(UIControlStateNormal)];
+    self.confirmBtn.layer.masksToBounds = YES;
+    self.confirmBtn.layer.cornerRadius = 5;
 }
 
 - (IBAction)confirmBtnClick:(BaseConfirmButton *)sender {

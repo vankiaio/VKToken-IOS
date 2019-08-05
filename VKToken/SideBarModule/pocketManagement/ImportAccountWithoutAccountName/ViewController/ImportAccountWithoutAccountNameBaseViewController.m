@@ -8,7 +8,7 @@
 
 #import "ImportAccountWithoutAccountNameBaseViewController.h"
 #import "ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.h"
-#import "ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.h"
+#import "ImportAccountWithoutAccountNameMnemonicModeViewController.h"
 #import "PageSegmentView.h"
 #import "ScanQRCodeViewController.h"
 
@@ -32,7 +32,7 @@
 - (PageSegmentView *)segmentView {
     if (!_segmentView) {
         self.segmentView = [[PageSegmentView alloc]initWithFrame:CGRectMake(0, NAVIGATIONBAR_HEIGHT,SCREEN_WIDTH,SCREEN_HEIGHT-NAVIGATIONBAR_HEIGHT)];
-        self.segmentView.selectedLineWidth = 24;
+        self.segmentView.selectedLineWidth = 36;
         self.segmentView.tabViewWidth = SCREEN_WIDTH;
         self.segmentView.delegate = self;
         
@@ -74,14 +74,12 @@
     [vc1.navigationController.navigationBar setHidden: YES];
     [_allVC addObject:vc1];
     
-//    ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController *vc2 = [[ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController alloc]init];
-//    vc2.title = NSLocalizedString(@"双私钥", nil);
-//    vc2.navigationController = self.navigationController;
-//    [vc2.navigationController.navigationBar setHidden: YES];
-//    [_allVC addObject:vc2];
-//    _allVC = [NSMutableArray arrayWithObjects:vc1 , vc2, nil];
-    // VKT use only single key
-    _allVC = [NSMutableArray arrayWithObjects:vc1 , nil];
+    ImportAccountWithoutAccountNameMnemonicModeViewController *vc2 = [[ImportAccountWithoutAccountNameMnemonicModeViewController alloc]init];
+    vc2.title = NSLocalizedString(@"助记词", nil);
+    vc2.navigationController = self.navigationController;
+    [vc2.navigationController.navigationBar setHidden: YES];
+    [_allVC addObject:vc2];
+    _allVC = [NSMutableArray arrayWithObjects:vc1 , vc2, nil];
     self.segmentView.delegate = self;
     // 可自定义背景色和tab button的文字颜色等
     // _segmentView.selectedLineWidth = 50;

@@ -129,10 +129,11 @@
                 return ;
             }else{
                 TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
-                [tokenCoreVKT generateIdentity:nil:self.headerView.passwordToConfirm.text];
+                NSString *mnemonicStr = [tokenCoreVKT generateIdentity:nil:self.headerView.passwordToConfirm.text:nil];
                 NSLog(NSLocalizedString(@"generateIdentity助记词:%@", nil), tokenCoreVKT.requestResult);
                 
-                [tokenCoreVKT deriveEosWallet:self.headerView.passwordToConfirm.text];
+//                [tokenCoreVKT deriveEosWallet:self.headerView.passwordToConfirm.text];
+                NSString *imported_wallet_id = [tokenCoreVKT importVKTMnemonic:mnemonicStr : @"" :self.headerView.passwordToConfirm.text:nil];
                 NSLog(NSLocalizedString(@"deriveEosWallet助记词:%@", nil), tokenCoreVKT.requestResult);
                 
                 //    [tokenCoreVKT importEthPrivateKey];

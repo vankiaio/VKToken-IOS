@@ -17,6 +17,7 @@
 #import "ImportAccountWithoutAccountNameService.h"
 #import "ImportAccountModel.h"
 #import "ImportAccount_AccounsNameDataSourceView.h"
+#import "VKToken-Swift.h"
 
 
 
@@ -38,6 +39,7 @@
     // 在本地根据私钥算出的公钥
     NSString *public_key_1_from_local;
     BOOL private_Key_1_is_validate;
+    NSString *imported_wallet_id;
 }
 
 
@@ -157,7 +159,7 @@
     }else{
         [TOASTVIEW showWithText:NSLocalizedString(@"私钥格式有误!", nil)];
         [self removeLoginPasswordView];
-        
+        [SVProgressHUD dismiss];
     }
 }
 
@@ -199,7 +201,6 @@
     }];
     
 }
-
 
 
 // config account after import
@@ -250,16 +251,23 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    [[AccountsTableManager accountTable] addRecord:accountInfo];
-    [WalletUtil setMainAccountWithAccountInfoModel:accountInfo];
+    // 助记词找回私钥
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
     
-    self.backupVKTAccountService.backupVktAccountRequest.uid = CURRENT_WALLET_UID;
-    self.backupVKTAccountService.backupVktAccountRequest.vktAccountName = accountInfo.account_name;
-    [self.backupVKTAccountService backupAccount:^(id service, BOOL isSuccess) {
-        if (isSuccess) {
-            NSLog(@"备份到服务器成功!");
-        }
-    }];
+    NSString *privateKey_textView1 = self.headerView.textView.text;
+    
+    imported_wallet_id = [tokenCoreVKT importVKTPrivateKey:privateKey_textView1 :public_key_1_from_local :accountInfo.account_name :self.loginPasswordView.inputPasswordTF.text:nil];
+    
+    [[AccountsTableManager accountTable] addRecord:accountInfo];
+//    [WalletUtil setMainAccountWithAccountInfoModel:accountInfo];
+    
+//    self.backupVKTAccountService.backupVktAccountRequest.uid = CURRENT_WALLET_UID;
+//    self.backupVKTAccountService.backupVktAccountRequest.vktAccountName = accountInfo.account_name;
+//    [self.backupVKTAccountService backupAccount:^(id service, BOOL isSuccess) {
+//        if (isSuccess) {
+//            NSLog(@"备份到服务器成功!");
+//        }
+//    }];
     [TOASTVIEW showWithText:NSLocalizedString(@"导入账号成功!", nil)];
     
     for (ImportAccountModel *model in self.finalImportAccountModelArray) {

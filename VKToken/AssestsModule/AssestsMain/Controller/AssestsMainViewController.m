@@ -65,6 +65,7 @@
 #import "CreateAccountViewController.h"
 #import "CheckInView.h"
 #import "CandyScoreRequest.h"
+#import "ImportAccountWithoutAccountNameBaseViewController.h"
 #import "VKToken-swift.h"
 
 @interface AssestsMainViewController ()<UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, ChangeAccountViewControllerDelegate, CQMarqueeViewDelegate, AdvertisementViewDelegate, PocketManagementViewControllerDelegate, VersionUpdateTipViewDelegate, AddAssestsViewControllerDelegate, AccountNotExistViewDelegate, CommonDialogHasTitleViewDelegate, AssestsMainAddAccountViewDelegate>
@@ -592,9 +593,10 @@
     
     [self.headerView setAddAssestsImgDidTapBlock:^{
         
-            AddAssestsViewController *vc = [[AddAssestsViewController alloc] init];
-            vc.accountName = CURRENT_ACCOUNT_NAME;
-            vc.delegate = weakSelf;
+        ImportAccountWithoutAccountNameBaseViewController *vc = [[ImportAccountWithoutAccountNameBaseViewController alloc] init];
+//            AddAssestsViewController *vc = [[AddAssestsViewController alloc] init];
+//            vc.accountName = CURRENT_ACCOUNT_NAME;
+//            vc.delegate = weakSelf;
             [weakSelf.navigationController pushViewController:vc animated:YES];
        
     }];

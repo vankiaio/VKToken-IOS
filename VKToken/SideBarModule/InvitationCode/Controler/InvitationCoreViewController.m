@@ -11,6 +11,8 @@
 #import "InvitationCodeHeaderView.h"
 #import "SocialSharePanelView.h"
 #import "SocialShareModel.h"
+#import "GetInvitationCodeService.h"
+#import "VKToken-swift.h"
 
 @interface InvitationCoreViewController ()<UIGestureRecognizerDelegate , NavigationViewDelegate, InvitationCodeHeaderViewDelegate, UITextFieldDelegate>
 @property(nonatomic, strong) NavigationView *navView;
@@ -19,6 +21,7 @@
 @property(nonatomic , strong) UIView *shareBaseView;
 @property(nonatomic , strong) SocialSharePanelView *socialSharePanelView;
 @property(nonatomic , strong) NSArray *platformNameArr;
+@property(nonatomic, strong) GetInvitationCodeService *mainService;
 @end
 
 @implementation InvitationCoreViewController
@@ -48,6 +51,14 @@
     }
     return _headerView;
 }
+
+- (GetInvitationCodeService *)mainService{
+    if (!_mainService) {
+        _mainService = [[GetInvitationCodeService alloc] init];
+    }
+    return _mainService;
+}
+
 
 - (SocialSharePanelView *)socialSharePanelView{
     if (!_socialSharePanelView) {
@@ -135,6 +146,7 @@
     
     [self.view addSubview:self.navView];
     [self.view addSubview:self.headerView];
+    [self genInviteCode];
 }
 
 // navigationViewDelegate
@@ -145,6 +157,28 @@
 -(void)rightBtnDidClick{
     [self.view addSubview:self.shareBaseView];
     self.shareBaseView.sd_layout.leftSpaceToView(self.view, 0).rightSpaceToView(self.view, 0).bottomSpaceToView(self.view, 0).heightIs(SCREEN_HEIGHT);
+}
+
+/**
+ 生成邀请码
+ */
+- (void)genInviteCode{
+    WS(weakSelf);
+
+    weakSelf.mainService.invitationCodeRequest.account_id = CURRENT_ACCOUNT_NAME;
+    // 生成邀请码
+    
+    [weakSelf.mainService getInviteCode:^(id service, BOOL isSuccess) {
+        
+        if (isSuccess) {
+            NSNumber *code = service[@"code"];
+            if ([code isEqualToNumber:@0]) {
+                self.headerView.invitationCodeLabel.text = service[@"data"][@"code"];
+            }else{
+                [TOASTVIEW showWithText:VALIDATE_STRING(service[@"message"])];
+            }
+        }
+    }];
 }
 
 // SocialSharePanelViewDelegate

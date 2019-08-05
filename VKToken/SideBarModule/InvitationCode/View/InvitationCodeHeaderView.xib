@@ -114,6 +114,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="invitationCodeLabel" destination="YQb-Yc-yp1" id="o0j-ZE-oWo"/>
                 <outlet property="mainView" destination="4Qo-Dn-54S" id="fFQ-lb-52t"/>
                 <outlet property="qrView" destination="iDq-Ig-g7S" id="BbO-PH-8ah"/>
                 <outlet property="shareInvitationQRCodeImg" destination="pQK-e9-hhZ" id="19t-Dd-v1s"/>

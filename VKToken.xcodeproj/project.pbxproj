@@ -762,11 +762,8 @@
 		18CE931621A29B04002F958E /* ImportAccount_AccounsNameDataSourceViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE931521A29B04002F958E /* ImportAccount_AccounsNameDataSourceViewTableViewCell.m */; };
 		18CE931921A2B1BF002F958E /* ImportAccountWithoutAccountNameBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE931821A2B1BF002F958E /* ImportAccountWithoutAccountNameBaseViewController.m */; };
 		18CE931C21A2B1DE002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE931B21A2B1DE002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.m */; };
-		18CE931F21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE931E21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.m */; };
 		18CE932721A2B2F0002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE932621A2B2F0002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.m */; };
 		18CE932921A2B2F7002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CE932821A2B2F7002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.xib */; };
-		18CE932C21A2B303002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE932B21A2B303002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.m */; };
-		18CE932E21A2B31E002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CE932D21A2B31E002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.xib */; };
 		18CE933121A2C53A002F958E /* Get_account_permission_service.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE933021A2C53A002F958E /* Get_account_permission_service.m */; };
 		18CE933421A2CB62002F958E /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE933321A2CB62002F958E /* Keys.m */; };
 		18CE934D21A4F603002F958E /* ImportAccountPermisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE934C21A4F603002F958E /* ImportAccountPermisionViewController.m */; };
@@ -972,6 +969,11 @@
 		6E15521C22D5939A00F69404 /* AddContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E15521B22D5939A00F69404 /* AddContactCell.m */; };
 		6E15524122D8857B00F69404 /* ExportMnemonicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E15523F22D8857A00F69404 /* ExportMnemonicView.m */; };
 		6E15525122D8914B00F69404 /* ExportMnemonicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E15524F22D8914B00F69404 /* ExportMnemonicView.xib */; };
+		6E161B0D22EF0CEE0069EB76 /* InvitationCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E161B0B22EF0CEE0069EB76 /* InvitationCodeRequest.m */; };
+		6E161B1122EF0D7D0069EB76 /* GetInvitationCodeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E161B1022EF0D7D0069EB76 /* GetInvitationCodeService.m */; };
+		6E161B1522F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E161B1222F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.xib */; };
+		6E161B1622F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E161B1322F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.m */; };
+		6E161B1922F2DE600069EB76 /* ImportAccountWithoutAccountNameMnemonicModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E161B1822F2DE600069EB76 /* ImportAccountWithoutAccountNameMnemonicModeViewController.m */; };
 		6E1F521A22940C9C003D1C3D /* GetAssestLockRecordsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520622940C9C003D1C3D /* GetAssestLockRecordsRequest.m */; };
 		6E1F521B22940C9C003D1C3D /* AssestLockRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520922940C9C003D1C3D /* AssestLockRecordsViewController.m */; };
 		6E1F521C22940C9C003D1C3D /* AssestLocksResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F520B22940C9C003D1C3D /* AssestLocksResult.m */; };
@@ -2579,14 +2581,9 @@
 		18CE931821A2B1BF002F958E /* ImportAccountWithoutAccountNameBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImportAccountWithoutAccountNameBaseViewController.m; sourceTree = "<group>"; };
 		18CE931A21A2B1DE002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.h; sourceTree = "<group>"; };
 		18CE931B21A2B1DE002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.m; sourceTree = "<group>"; };
-		18CE931D21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.h; sourceTree = "<group>"; };
-		18CE931E21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.m; sourceTree = "<group>"; };
 		18CE932521A2B2F0002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.h; sourceTree = "<group>"; };
 		18CE932621A2B2F0002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.m; sourceTree = "<group>"; };
 		18CE932821A2B2F7002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.xib; sourceTree = "<group>"; };
-		18CE932A21A2B303002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.h; sourceTree = "<group>"; };
-		18CE932B21A2B303002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.m; sourceTree = "<group>"; };
-		18CE932D21A2B31E002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.xib; sourceTree = "<group>"; };
 		18CE932F21A2C53A002F958E /* Get_account_permission_service.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Get_account_permission_service.h; sourceTree = "<group>"; };
 		18CE933021A2C53A002F958E /* Get_account_permission_service.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Get_account_permission_service.m; sourceTree = "<group>"; };
 		18CE933221A2CB62002F958E /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
@@ -2968,6 +2965,15 @@
 		6E15525722D8948800F69404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ExportMnemonicView.strings; sourceTree = "<group>"; };
 		6E15525922D895C300F69404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AssestsDetailHeaderView.strings"; sourceTree = "<group>"; };
 		6E15525B22D895DE00F69404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AssestsDetailHeaderView.strings; sourceTree = "<group>"; };
+		6E161B0B22EF0CEE0069EB76 /* InvitationCodeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationCodeRequest.m; sourceTree = "<group>"; };
+		6E161B0C22EF0CEE0069EB76 /* InvitationCodeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationCodeRequest.h; sourceTree = "<group>"; };
+		6E161B0F22EF0D7D0069EB76 /* GetInvitationCodeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetInvitationCodeService.h; sourceTree = "<group>"; };
+		6E161B1022EF0D7D0069EB76 /* GetInvitationCodeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetInvitationCodeService.m; sourceTree = "<group>"; };
+		6E161B1222F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImportAccountWithoutAccountNameMnemonicModeHeaderView.xib; sourceTree = "<group>"; };
+		6E161B1322F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportAccountWithoutAccountNameMnemonicModeHeaderView.m; sourceTree = "<group>"; };
+		6E161B1422F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportAccountWithoutAccountNameMnemonicModeHeaderView.h; sourceTree = "<group>"; };
+		6E161B1722F2DE600069EB76 /* ImportAccountWithoutAccountNameMnemonicModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportAccountWithoutAccountNameMnemonicModeViewController.h; sourceTree = "<group>"; };
+		6E161B1822F2DE600069EB76 /* ImportAccountWithoutAccountNameMnemonicModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportAccountWithoutAccountNameMnemonicModeViewController.m; sourceTree = "<group>"; };
 		6E1F520522940C9C003D1C3D /* GetAssestLockRecordsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAssestLockRecordsRequest.h; sourceTree = "<group>"; };
 		6E1F520622940C9C003D1C3D /* GetAssestLockRecordsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAssestLockRecordsRequest.m; sourceTree = "<group>"; };
 		6E1F520822940C9C003D1C3D /* AssestLockRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssestLockRecordsViewController.h; sourceTree = "<group>"; };
@@ -3662,6 +3668,9 @@
 		1821083C219E6B8300897B60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E161B1422F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.h */,
+				6E161B1322F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.m */,
+				6E161B1222F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.xib */,
 				1821084D219EB9EA00897B60 /* ImportAccount_AccounsNameDataSourceView.h */,
 				1821084E219EB9EA00897B60 /* ImportAccount_AccounsNameDataSourceView.m */,
 				18CE931421A29B04002F958E /* ImportAccount_AccounsNameDataSourceViewTableViewCell.h */,
@@ -3669,9 +3678,6 @@
 				18CE932521A2B2F0002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.h */,
 				18CE932621A2B2F0002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.m */,
 				18CE932821A2B2F7002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.xib */,
-				18CE932A21A2B303002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.h */,
-				18CE932B21A2B303002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.m */,
-				18CE932D21A2B31E002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3688,12 +3694,12 @@
 		1821083E219E6B8300897B60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6E161B1722F2DE600069EB76 /* ImportAccountWithoutAccountNameMnemonicModeViewController.h */,
+				6E161B1822F2DE600069EB76 /* ImportAccountWithoutAccountNameMnemonicModeViewController.m */,
 				18CE931721A2B1BF002F958E /* ImportAccountWithoutAccountNameBaseViewController.h */,
 				18CE931821A2B1BF002F958E /* ImportAccountWithoutAccountNameBaseViewController.m */,
 				18CE931A21A2B1DE002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.h */,
 				18CE931B21A2B1DE002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.m */,
-				18CE931D21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.h */,
-				18CE931E21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -9164,6 +9170,8 @@
 		6E15520F22D4976800F69404 /* InvitationCode */ = {
 			isa = PBXGroup;
 			children = (
+				6E161B0E22EF0D7D0069EB76 /* Service */,
+				6E161B0A22EF0CEE0069EB76 /* Networking */,
 				6E15521022D4976800F69404 /* View */,
 				6E15521122D4976800F69404 /* Controler */,
 			);
@@ -9187,6 +9195,24 @@
 				6E15521922D49EC100F69404 /* InvitationCoreViewController.h */,
 			);
 			path = Controler;
+			sourceTree = "<group>";
+		};
+		6E161B0A22EF0CEE0069EB76 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6E161B0B22EF0CEE0069EB76 /* InvitationCodeRequest.m */,
+				6E161B0C22EF0CEE0069EB76 /* InvitationCodeRequest.h */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		6E161B0E22EF0D7D0069EB76 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6E161B0F22EF0D7D0069EB76 /* GetInvitationCodeService.h */,
+				6E161B1022EF0D7D0069EB76 /* GetInvitationCodeService.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		6E1F520322940C9C003D1C3D /* AssetLock */ = {
@@ -9534,11 +9560,11 @@
 				18AD2BC820D0CCFA00536084 /* BP_account_will_be_locked.rtf in Resources */,
 				186F696E20F4953B00FFF881 /* TransferHeaderView.xib in Resources */,
 				186F697C20F4955100FFF881 /* RecieveQRCodeView.xib in Resources */,
+				6E161B1522F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.xib in Resources */,
 				18B2770020B7AF530070F472 /* SpecificationBlackBoxMode.rtf in Resources */,
 				186F6A9420F497A500FFF881 /* TradeRamHeaderView.xib in Resources */,
 				18C7F774211BD887006AD456 /* PhoneLoginMainView.xib in Resources */,
 				18C7F76D211BD87B006AD456 /* LoginMainHeaderView.xib in Resources */,
-				18CE932E21A2B31E002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.xib in Resources */,
 				1814140E1FCFA2BA00334C60 /* SVProgressHUD.bundle in Resources */,
 				186F6A6320F4976400FFF881 /* BackupPocketView.xib in Resources */,
 				186F699F20F4959200FFF881 /* AdvertisementView.xib in Resources */,
@@ -9701,6 +9727,7 @@
 				6E15520422D44CE800F69404 /* MASViewAttribute.m in Sources */,
 				1850338720EF4D620023B390 /* AreaCodeService.h in Sources */,
 				18BE612020FEF58A00BAD50C /* Get_recommand_token_request.m in Sources */,
+				6E161B1622F2DE4D0069EB76 /* ImportAccountWithoutAccountNameMnemonicModeHeaderView.m in Sources */,
 				18A17828218B044E00521343 /* DiscoverMainViewController.m in Sources */,
 				1850338820EF4D620023B390 /* AreaCodeModel.h in Sources */,
 				1847F04420E22BDA00623332 /* ContractConstant.h in Sources */,
@@ -9971,6 +9998,7 @@
 				1856A4E72008887200D62FEB /* MJRefreshBackNormalFooter.m in Sources */,
 				6EC6B8EC22B7909F00E5129A /* NSString+.m in Sources */,
 				188DECF620A97F4E00ACD2A3 /* BBLoginHeaderView.m in Sources */,
+				6E161B1922F2DE600069EB76 /* ImportAccountWithoutAccountNameMnemonicModeViewController.m in Sources */,
 				181130681FCD020A00BEA0D9 /* AFAutoPurgingImageCache.m in Sources */,
 				182B02EF1FF39A99006C9DFB /* WalletTableManager.m in Sources */,
 				1889E18F217AE170002ECF38 /* AssestsCollectionFooterView.m in Sources */,
@@ -10001,6 +10029,7 @@
 				18112F6F1FCD016000BEA0D9 /* IQTextView.m in Sources */,
 				18A1784A218B11CB00521343 /* TYCyclePagerViewCell.m in Sources */,
 				183AE1FC2019C262002041F9 /* PeRichListRequest.m in Sources */,
+				6E161B0D22EF0CEE0069EB76 /* InvitationCodeRequest.m in Sources */,
 				18112F6D1FCD016000BEA0D9 /* IQKeyboardManager.m in Sources */,
 				1850338320EF4BC80023B390 /* AreaCodeService.m in Sources */,
 				18FA76C820623C6D00545E73 /* EcDsa.m in Sources */,
@@ -10033,7 +10062,6 @@
 				18FA76F32062578A00545E73 /* GetRequiredPublicKeyRequest.m in Sources */,
 				1886079C1FCC012F00B00EE7 /* NSDictionary+ExFoundation.m in Sources */,
 				18CE933421A2CB62002F958E /* Keys.m in Sources */,
-				18CE931F21A2B1ED002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeViewController.m in Sources */,
 				189CEC8B20CFB6C600F81AD8 /* MyVoteProduce.m in Sources */,
 				18BCAF2320BFFC2200571577 /* BaseTableViewCell1.m in Sources */,
 				183F044A2150DB7A008C45B3 /* Abi_bin_to_json.m in Sources */,
@@ -10484,10 +10512,10 @@
 				1862E7A320DC7C9F00F26629 /* StorageManageHeaderView.m in Sources */,
 				24FB2CB220DBF9CE00AC73A5 /* BandwidthManageCellModel.m in Sources */,
 				186857311FE13216002A683A /* UnBindSocialPlatformViewController.m in Sources */,
-				18CE932C21A2B303002F958E /* ImportAccountWithoutAccountNameDoublePrivateKeyModeHeaderView.m in Sources */,
 				1862E78220DB9FA000F26629 /* VKTResourceManageViewController.m in Sources */,
 				1856E680210B1E25008EFC88 /* AccountQRCodeManagementViewController.m in Sources */,
 				18F054ED20CBEBF2001B0A29 /* BPCandidateModel.m in Sources */,
+				6E161B1122EF0D7D0069EB76 /* GetInvitationCodeService.m in Sources */,
 				1878BCAC20845798002A76F5 /* SendRedpacketRequest.m in Sources */,
 				18BE640220EF836A00238492 /* CommonWKWebViewController.m in Sources */,
 				1861BA6C1FFCB74900404058 /* StringConstant.m in Sources */,

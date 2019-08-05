@@ -259,10 +259,11 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // 助记词找回私钥
         TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
-        [tokenCoreVKT generateIdentity: mnemonicWords: password];
+        NSString * mnemonicStr = [tokenCoreVKT generateIdentity: mnemonicWords: password:nil];
         NSLog(NSLocalizedString(@"generateIdentity助记词:%@", nil), tokenCoreVKT.requestResult);
         
-        [tokenCoreVKT deriveEosWallet:password];
+//        [tokenCoreVKT deriveEosWallet:password];
+        NSString *imported_wallet_id = [tokenCoreVKT importVKTMnemonic:mnemonicStr : @"" :password:nil];
         NSLog(NSLocalizedString(@"deriveEosWallet助记词:%@", nil), tokenCoreVKT.requestResult);
         
         NSString *privateKeyStr = [NSString stringWithFormat:@"%@", [tokenCoreVKT getVktPrivateKey: password:nil]];
