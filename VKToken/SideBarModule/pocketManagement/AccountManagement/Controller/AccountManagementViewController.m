@@ -402,7 +402,7 @@
     // 验证密码输入是否正确
     TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
     
-    if([[tokenCoreVKT  verifyWalletPassword:self.loginPasswordView.inputPasswordTF.text:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+    if([[tokenCoreVKT  verifyWalletPassword:self.model.account_vktoken_wallet_id: self.loginPasswordView.inputPasswordTF.text:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         [TOASTVIEW showWithText:NSLocalizedString(@"密码输入错误!", nil)];
         [self removePasswordView];
         return;
@@ -411,17 +411,17 @@
     if ([self.currentAction isEqualToString:@"ExportMnemonic"]) {
         [self.view addSubview:self.exportMnemonicView];
 
-        NSString *mnemonicStr = [NSString stringWithFormat:@"Mnemonic words:\n%@    \n\n",  [tokenCoreVKT getVktMnemonic: self.loginPasswordView.inputPasswordTF.text:nil]];
+        NSString *mnemonicStr = [NSString stringWithFormat:@"Mnemonic words:\n%@    \n\n",  [tokenCoreVKT getVktMnemonic: self.model.account_vktoken_wallet_id: self.loginPasswordView.inputPasswordTF.text:nil]];
         self.exportMnemonicView.contentTextView.text = mnemonicStr;
         [self.loginPasswordView removeFromSuperview];
     }else if ([self.currentAction isEqualToString:@"ExportPrivateKey"]) {
         [self.view addSubview:self.exportPrivateKeyView];
         
-        NSString *privateKeyStr = [NSString stringWithFormat:@"Private Key:\n%@    \n\n",  [tokenCoreVKT getVktPrivateKey: self.loginPasswordView.inputPasswordTF.text:nil]];
+        NSString *privateKeyStr = [NSString stringWithFormat:@"Private Key:\n%@    \n\n",  [tokenCoreVKT getVktPrivateKey: self.model.account_vktoken_wallet_id: self.loginPasswordView.inputPasswordTF.text:nil]];
         self.exportPrivateKeyView.contentTextView.text = privateKeyStr;
         [self.loginPasswordView removeFromSuperview];
     }else if ([self.currentAction isEqualToString:@"DeleteAccount"]){
-     
+
         self.loginPasswordView.inputPasswordTF.text = nil;
     }
 }
@@ -433,6 +433,9 @@
 }
 
 - (void)askQuestionTipViewConfirmBtnDidClick:(UIButton *)sender{
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    [tokenCoreVKT deleteWallet: self.model.account_vktoken_wallet_id: self.commonDialogHasPasswordTFView.passwordTF.text:nil];
+    
     Wallet *current_wallet = CURRENT_WALLET;
     // 移除本地数据, 调到登录页面
     [[WalletTableManager walletTable] deleteRecord:CURRENT_WALLET_UID];
@@ -588,6 +591,8 @@
     // 删除账号
     NSArray *accountArr = [[AccountsTableManager accountTable] selectAccountTable];
     if (accountArr.count > 1) {
+         TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+        [tokenCoreVKT deleteWallet: self.model.account_vktoken_wallet_id: self.commonDialogHasPasswordTFView.passwordTF.text:nil];
         BOOL result = [[AccountsTableManager accountTable] executeUpdate: [NSString stringWithFormat:@"DELETE FROM '%@' WHERE account_name = '%@'", current_wallet.account_info_table_name,self.model.account_name]];
         // 再默认设置一个主账号
         NSMutableArray *newAccountsArr = [[AccountsTableManager accountTable] selectAccountTable];
@@ -620,7 +625,7 @@
         if (result) {
             [TOASTVIEW showWithText:NSLocalizedString(@"删除账号成功!", nil)];
             [self.navigationController popViewControllerAnimated:YES];
-            if([VALIDATE_STRING(CURRENT_ACCOUNT_NAME) isEqualToString: self.model.account_name]) {
+            if(![VALIDATE_STRING(CURRENT_ACCOUNT_NAME) isEqualToString: self.model.account_name]) {
                 [((AppDelegate *)[[UIApplication sharedApplication] delegate]).window setRootViewController: [[BaseTabBarController alloc] init]];
             }
         }

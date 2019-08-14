@@ -74,7 +74,6 @@
     }
     
     
-    
     if (localAccount.account_active_public_key.length<6) {
         [self.activePublicKeyLabel addSubview:self.activePublicKeyTipLabel];
         self.activePublicKeyTipLabel.text = NSLocalizedString(@"该权限暂未导入", nil);
@@ -104,7 +103,6 @@
                 _ownerPublicKeyTipLabel.text = NSLocalizedString(@"私钥已失效", nil);
                 [self configOwnerPublicKeyTipLabelWidth];
                 
-                
                 self.ownerPublicKeyLabel.text = @"";
             }
         }
@@ -120,7 +118,6 @@
                 [self.activePublicKeyLabel addSubview:self.activePublicKeyTipLabel];
                 _activePublicKeyTipLabel.text = NSLocalizedString(@"私钥已失效", nil);
                 [self configActivePublicKeyTipLabelWidth];
-                
                 
                 self.activePublicKeyLabel.text = @"";
                 

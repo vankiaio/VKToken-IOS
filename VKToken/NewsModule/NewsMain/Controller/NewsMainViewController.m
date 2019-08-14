@@ -180,7 +180,7 @@
 }
 
 - (void)moveViewWithGesture:(UIPanGestureRecognizer *)panGes {
-    [self profileCenter];
+//    [self profileCenter];
 }
 
 - (void)profileCenter{

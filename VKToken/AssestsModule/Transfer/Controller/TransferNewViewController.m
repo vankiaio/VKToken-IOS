@@ -148,7 +148,7 @@
     }else{
         if (self.get_token_info_service_data_array.count > 0) {
             for (TokenInfo *token in self.get_token_info_service_data_array) {
-                if ([token.token_symbol isEqualToString:self.currentAssestsType]) {
+                if ([token.token_symbol isEqualToString:self.currentAssestsType] && [token.account_name isEqualToString:CURRENT_ACCOUNT_NAME]) {
                     self.currentToken = token;
                 }
             }
@@ -182,6 +182,7 @@
 //    [self requestRichList];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:self.headerView.nameTF];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldChange:) name:UITextFieldTextDidChangeNotification object:self.headerView.amountTF];
+    self.fromAccount = CURRENT_ACCOUNT_NAME;
 }
 
 - (void)requestRichList{
@@ -208,7 +209,9 @@
 }
 
 - (void)requestTokenInfoDataArray{
-    self.get_token_info_service.get_token_info_request.accountName = CURRENT_ACCOUNT_NAME;
+    NSMutableArray *paramsArr = [NSMutableArray array];
+    [paramsArr addObject:CURRENT_ACCOUNT_NAME];
+    self.get_token_info_service.get_token_info_request.accountNameArr = paramsArr;
     WS(weakSelf);
     [self.get_token_info_service get_token_info:^(id service, BOOL isSuccess) {
         if (isSuccess) {
@@ -298,6 +301,26 @@
     }];
 }
 
+
+- (void)selectAccountBtnDidClick:(UIButton *)sender {
+    
+    NSArray *accountArr = [[AccountsTableManager accountTable] selectAllNativeAccountName];
+    
+//    for (AccountInfo *model in accountArr) {
+//        if ([model.account_name isEqualToString:self.fromAccount]) {
+//            model.selected = YES;
+//        }
+//    }
+    WS(weakSelf);
+    [CDZPicker showSinglePickerInView:self.view withBuilder:[CDZPickerBuilder new] strings:accountArr confirm:^(NSArray<NSString *> * _Nonnull strings, NSArray<NSNumber *> * _Nonnull indexs) {
+        weakSelf.fromAccount = VALIDATE_STRING(strings[0]);
+        weakSelf.headerView.nameFromTF.text = weakSelf.fromAccount;
+    }cancel:^{
+        NSLog(@"user cancled");
+    }];
+    
+}
+
 - (void)contactBtnDidClick:(UIButton *)sender {
 //    ChangeAccountViewController *vc = [[ChangeAccountViewController alloc] init];
 //    NSMutableArray *temp = [NSMutableArray array];
@@ -343,7 +366,9 @@
     // 验证密码输入是否正确
     TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
     
-    if([[tokenCoreVKT  verifyWalletPassword:self.loginPasswordView.inputPasswordTF.text:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+    AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.headerView.nameFromTF.text];
+    
+    if([[tokenCoreVKT  verifyWalletPassword:model.account_vktoken_wallet_id :self.loginPasswordView.inputPasswordTF.text:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         [TOASTVIEW showWithText:NSLocalizedString(@"密码输入错误!", nil)];
         return;
     }
@@ -377,8 +402,8 @@
             return ;
         }
         NSLog(@"approve_abi_to_json_request_success: --binargs: %@",data[@"data"][@"binargs"] );
-//        AccountInfo *accountInfo = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:CURRENT_ACCOUNT_NAME];
-        weakSelf.mainService.available_keys = @[VALIDATE_STRING([tokenCoreVKT getVktPublicKey: self.loginPasswordView.inputPasswordTF.text:nil]) , VALIDATE_STRING([tokenCoreVKT getVktPublicKey: self.loginPasswordView.inputPasswordTF.text:nil])];
+        AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.headerView.nameFromTF.text];
+        weakSelf.mainService.available_keys = @[VALIDATE_STRING([tokenCoreVKT getVktPublicKey: model.account_vktoken_wallet_id: self.loginPasswordView.inputPasswordTF.text:nil]) , VALIDATE_STRING([tokenCoreVKT getVktPublicKey: model.account_vktoken_wallet_id :self.loginPasswordView.inputPasswordTF.text:nil])];
         
         weakSelf.mainService.action = ContractAction_TRANSFER;
         weakSelf.mainService.code = weakSelf.currentToken.contract_name;

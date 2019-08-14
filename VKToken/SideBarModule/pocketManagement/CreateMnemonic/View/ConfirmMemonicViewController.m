@@ -174,22 +174,14 @@
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:alertTitle message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        if (authenticationPass) {
-//            weakSelf.walletModel.backup = YES;
-//            weakSelf.walletModel.mnemonic = nil;
-//            [[[WalletDao alloc] init] updateWalletWithWalletModel:self.walletModel complement:^(BOOL success) {
-//                if (success) {
-//                    [[NSNotificationCenter defaultCenter] postNotificationName:kBackupWalletNotification object:weakSelf.walletModel];
-//                }
-//                [weakSelf dismissViewControllerAnimated:YES completion:nil];
-//            }];
-//        }
-        // TODO
-        for (UIView *view in WINDOW.subviews) {
-            [view removeFromSuperview];
+        if (authenticationPass) {
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            for (UIView *view in WINDOW.subviews) {
+                [view removeFromSuperview];
+            }
+            [((AppDelegate *)[[UIApplication sharedApplication] delegate]).window setRootViewController: [[BaseTabBarController alloc] init]];
         }
-        [((AppDelegate *)[[UIApplication sharedApplication] delegate]).window setRootViewController: [[BaseTabBarController alloc] init]];
-//        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+
     }];
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];

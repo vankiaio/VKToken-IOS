@@ -311,7 +311,9 @@
 
 - (void)requestTokenInfoDataArray{
     WS(weakSelf);
-    self.get_token_info_service.get_token_info_request.accountName = self.currentAccountName;
+    NSMutableArray *paramsArr = [NSMutableArray array];
+    [paramsArr addObject:self.currentAccountName];
+    self.get_token_info_service.get_token_info_request.accountNameArr = paramsArr;
     [self.get_token_info_service get_token_info:^(id service, BOOL isSuccess) {
         if (isSuccess) {
             if (IsNilOrNull(weakSelf.currentToken)) {

@@ -73,7 +73,7 @@
     if (!_assestsBalanceCnyLabel) {
         _assestsBalanceCnyLabel = [[UILabel alloc] init];
         _assestsBalanceCnyLabel.font = [UIFont systemFontOfSize:14];
-        _assestsBalanceCnyLabel.textColor = HEXCOLOR(0xB0B0B0 );
+        _assestsBalanceCnyLabel.textColor = HEXCOLOR(0x2A2A2A );
     }
     return _assestsBalanceCnyLabel;
 }
@@ -128,15 +128,15 @@
 //        self.assestsBalanceLable.sd_layout.leftSpaceToView(_assestsImg, MARGIN_15).topSpaceToView(self.contentView, topSpace).rightSpaceToView(_assestsPriceChangeLabel, 8).heightIs(labelHeight);
         
         [self.contentView addSubview:self.assestsTokenLabel];
-        self.assestsTokenLabel.sd_layout.leftSpaceToView(_assestsImg, MARGIN_15).centerYEqualToView(_assestsImg).widthIs(80).heightIs(labelHeight);
+        self.assestsTokenLabel.sd_layout.leftSpaceToView(_assestsImg, MARGIN_15).centerYEqualToView(_assestsImg).widthIs(180).heightIs(labelHeight);
         
         [self.contentView addSubview:self.assestsBalanceLable];
-        self.assestsBalanceLable.sd_layout.rightSpaceToView(self.contentView, MARGIN_20).centerYEqualToView(_assestsImg).heightIs(labelHeight);
+        self.assestsBalanceLable.sd_layout.rightSpaceToView(self.contentView, MARGIN_20).topSpaceToView(self.contentView, topSpace).heightIs(labelHeight);
         [self.assestsBalanceLable setSingleLineAutoResizeWithMaxWidth:SCREEN_WIDTH/2];
 
-//        [self.contentView addSubview:self.assestsBalanceCnyLabel];
-//        self.assestsBalanceCnyLabel.sd_layout.leftSpaceToView(_assestsImg, MARGIN_15).centerYEqualToView(_lable_nowPrice).rightSpaceToView(_assestsPriceChangeLabel, 8).heightIs(labelHeight);
-        
+        [self.contentView addSubview:self.assestsBalanceCnyLabel];
+        self.assestsBalanceCnyLabel.sd_layout.rightSpaceToView(self.contentView, MARGIN_20).topSpaceToView(self.contentView, topSpace+26).heightIs(labelHeight);
+        [self.assestsBalanceCnyLabel setSingleLineAutoResizeWithMaxWidth:SCREEN_WIDTH/2];
         
         [self.contentView addSubview:self.bottomLineView];
         self.bottomLineView.sd_layout.leftSpaceToView(self.contentView, 16).bottomSpaceToView(self.contentView, -15).rightSpaceToView(self.contentView, 16).heightIs(DEFAULT_LINE_HEIGHT);
@@ -149,7 +149,7 @@
     self.assestsImg.image = [UIImage imageNamed:model.iconUrl];
     [self.assestsImg sd_setImageWithURL:String_To_URL(model.iconUrl) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     
-    self.assestsTokenLabel.text = [NSString stringWithFormat:@"%@",VALIDATE_STRING(model.token_symbol)];
+    self.assestsTokenLabel.text = [NSString stringWithFormat:@"%@",VALIDATE_STRING(model.account_name)];
 
 //    self.assestsBalanceLable.text = [NSString stringWithFormat:@"%@ %@", VALIDATE_STRING([NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance.doubleValue ]]), VALIDATE_STRING(model.token_symbol)];
         self.assestsBalanceLable.text = [NSString stringWithFormat:@"%@", VALIDATE_STRING([NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance.doubleValue ]])];

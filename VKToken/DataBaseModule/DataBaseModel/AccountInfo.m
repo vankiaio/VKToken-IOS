@@ -18,6 +18,7 @@
     
     self.account_active_private_key = VALIDATE_STRING([resultSet stringForColumn:@"account_active_private_key"]);
     self.account_owner_private_key = VALIDATE_STRING([resultSet stringForColumn:@"account_owner_private_key"]);
+    self.account_vktoken_wallet_id = VALIDATE_STRING([resultSet stringForColumn:@"account_vktoken_wallet_id"]);
     
     self.is_privacy_policy = [resultSet stringForColumn:@"is_privacy_policy"];
     self.is_main_account = [resultSet stringForColumn:@"is_main_account"];

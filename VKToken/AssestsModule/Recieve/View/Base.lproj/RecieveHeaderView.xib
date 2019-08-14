@@ -101,6 +101,12 @@
                                         <constraint firstAttribute="width" constant="17" id="rWv-Q2-HhW"/>
                                     </constraints>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8b-22-qd8" userLabel="Select Recive Account Button">
+                                    <rect key="frame" x="10" y="16" width="330" height="49"/>
+                                    <connections>
+                                        <action selector="selectAccountBtnDidClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="xwS-g4-3oq"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -110,9 +116,13 @@
                                 <constraint firstItem="0j2-19-dYT" firstAttribute="leading" secondItem="v2n-T4-khp" secondAttribute="trailing" constant="20" id="FTA-fr-Lep"/>
                                 <constraint firstItem="vMo-cq-Z1j" firstAttribute="centerY" secondItem="dH0-dw-1YQ" secondAttribute="centerY" id="LWj-ev-FHY"/>
                                 <constraint firstAttribute="trailing" secondItem="vMo-cq-Z1j" secondAttribute="trailing" constant="20" id="O0B-aE-fhP"/>
+                                <constraint firstItem="C8b-22-qd8" firstAttribute="leading" secondItem="dH0-dw-1YQ" secondAttribute="leading" constant="10" id="R99-vS-MD8"/>
                                 <constraint firstItem="Hfq-U0-r2z" firstAttribute="top" secondItem="dH0-dw-1YQ" secondAttribute="top" id="ZMF-5a-142"/>
+                                <constraint firstItem="C8b-22-qd8" firstAttribute="top" secondItem="Hfq-U0-r2z" secondAttribute="bottom" id="agc-dC-9xQ"/>
                                 <constraint firstItem="Hfq-U0-r2z" firstAttribute="leading" secondItem="dH0-dw-1YQ" secondAttribute="leading" id="bxw-5m-dPd"/>
                                 <constraint firstAttribute="trailing" secondItem="Hfq-U0-r2z" secondAttribute="trailing" id="iJY-DW-w6e"/>
+                                <constraint firstItem="Hfq-U0-r2z" firstAttribute="trailing" secondItem="C8b-22-qd8" secondAttribute="trailing" constant="5" id="xIL-W2-54V"/>
+                                <constraint firstAttribute="bottom" secondItem="C8b-22-qd8" secondAttribute="bottom" id="xWx-H9-vzt"/>
                                 <constraint firstAttribute="height" constant="65" id="xgy-x5-IGB"/>
                                 <constraint firstItem="v2n-T4-khp" firstAttribute="centerY" secondItem="dH0-dw-1YQ" secondAttribute="centerY" id="zwB-fK-Q1b"/>
                             </constraints>

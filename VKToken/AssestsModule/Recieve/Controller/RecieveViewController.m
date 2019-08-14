@@ -233,7 +233,9 @@
 }
 
 - (void)requestTokenInfoDataArray{
-    self.get_token_info_service.get_token_info_request.accountName = CURRENT_ACCOUNT_NAME;
+    NSMutableArray *paramsArr = [NSMutableArray array];
+    [paramsArr addObject:CURRENT_ACCOUNT_NAME];
+    self.get_token_info_service.get_token_info_request.accountNameArr = paramsArr;
     WS(weakSelf);
     [self.get_token_info_service get_token_info:^(id service, BOOL isSuccess) {
         if (isSuccess) {
@@ -269,7 +271,7 @@
 //        self.headerView.tipLabel.text = [NSString stringWithFormat:@"≈%@CNY" , [NumberFormatter displayStringFromNumber:@(self.headerView.amountTF.text.doubleValue * self.assest_price_cny.doubleValue)]];
         
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        [dic setObject:VALIDATE_STRING(CURRENT_ACCOUNT_NAME)  forKey:@"account_name"];
+        [dic setObject:VALIDATE_STRING(self.headerView.accountTFLabel.text)  forKey:@"account_name"];
         [dic setObject:VALIDATE_STRING(self.currentAssestsType)  forKey:@"token"];
         [dic setObject:VALIDATE_STRING(self.headerView.amountTF.text)  forKey:@"quantity"];
         [dic setObject:VALIDATE_STRING(self.currentToken.contract_name)  forKey:@"contract"];
@@ -373,6 +375,20 @@
     }];
 }
 
+- (void)selectAccountBtnDidClick:(UIButton *)sender {
+    
+    NSArray *accountArr = [[AccountsTableManager accountTable] selectAllNativeAccountName];
+    
+    WS(weakSelf);
+    [CDZPicker showSinglePickerInView:self.view withBuilder:[CDZPickerBuilder new] strings:accountArr confirm:^(NSArray<NSString *> * _Nonnull strings, NSArray<NSNumber *> * _Nonnull indexs) {
+        weakSelf.headerView.accountTFLabel.text = VALIDATE_STRING(strings[0]);
+        [self textFieldChange:nil];
+    }cancel:^{
+        NSLog(@"user cancled");
+    }];
+    
+}
+
 - (void)createQRCodeBtnDidClick:(UIButton *)sender{
     [self.view endEditing:YES];
     [self.view addSubview:self.recieveQRCodeView];
@@ -380,7 +396,7 @@
     self.recieveQRCodeView.assestTypeLabel.text = [NSString stringWithFormat:@"/ %@", self.currentAssestsType];
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:VALIDATE_STRING(CURRENT_ACCOUNT_NAME)  forKey:@"account_name"];
+    [dic setObject:VALIDATE_STRING(self.headerView.accountTFLabel.text)  forKey:@"account_name"];
     [dic setObject:VALIDATE_STRING(self.currentAssestsType)  forKey:@"token"];
     [dic setObject:VALIDATE_STRING(self.headerView.amountTF.text)  forKey:@"quantity"];
     [dic setObject:VALIDATE_STRING(self.currentToken.contract_name)  forKey:@"contract"];

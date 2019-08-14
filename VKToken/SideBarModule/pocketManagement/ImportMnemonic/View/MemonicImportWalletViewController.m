@@ -266,7 +266,7 @@
         NSString *imported_wallet_id = [tokenCoreVKT importVKTMnemonic:mnemonicStr : @"" :password:nil];
         NSLog(NSLocalizedString(@"deriveEosWallet助记词:%@", nil), tokenCoreVKT.requestResult);
         
-        NSString *privateKeyStr = [NSString stringWithFormat:@"%@", [tokenCoreVKT getVktPrivateKey: password:nil]];
+        NSString *privateKeyStr = [NSString stringWithFormat:@"%@", [tokenCoreVKT getVktPrivateKey: imported_wallet_id: password:nil]];
         
         Get_key_accounts_request *get_key_accounts_request = [[Get_key_accounts_request alloc] init];
         get_key_accounts_request.public_key = [VKT_Key_Encode vkt_publicKey_with_wif:privateKeyStr];
@@ -292,7 +292,7 @@
                         [[NSUserDefaults standardUserDefaults] synchronize];
                     }
                     // TokenCoreVKT添加账户
-                    [tokenCoreVKT setVktAccountName:result.account_names[0]];
+                    [tokenCoreVKT setVktAccountName:imported_wallet_id: result.account_names[0]];
                     // 本地公钥和网络公钥匹配, 允许进行导入本地操作
                     AccountInfo *accountInfo = [[AccountInfo alloc] init];
                     accountInfo.account_name = result.account_names[0];
@@ -301,6 +301,7 @@
                     accountInfo.account_owner_public_key = get_key_accounts_request.public_key;
                     accountInfo.account_active_private_key = [AESCrypt encrypt:privateKeyStr password:password];
                     accountInfo.account_owner_private_key = accountInfo.account_active_private_key;
+                    accountInfo.account_vktoken_wallet_id = imported_wallet_id;
                     accountInfo.is_privacy_policy = @"0";
                     [[AccountsTableManager accountTable] addRecord:accountInfo];
                     [WalletUtil setMainAccountWithAccountInfoModel:accountInfo];

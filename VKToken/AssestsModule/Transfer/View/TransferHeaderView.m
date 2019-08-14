@@ -46,6 +46,12 @@
     .LeeAddBackgroundColor(BLACKBOX_MODE, HEXCOLOR(0xA3A3A3));
 }
 
+- (IBAction)selectAccountBtnDidClick:(UIButton *)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectAccountBtnDidClick:)]) {
+        [self.delegate selectAccountBtnDidClick: sender];
+    }
+}
+
 - (IBAction)selectAssests:(UIButton *)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(selectAssestsBtnDidClick:)]) {
         [self.delegate selectAssestsBtnDidClick: sender];

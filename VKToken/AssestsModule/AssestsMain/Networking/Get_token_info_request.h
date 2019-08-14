@@ -10,7 +10,7 @@
 
 @interface Get_token_info_request : BaseNetworkRequest
 
-@property(nonatomic, strong) NSString *accountName;
+@property(nonatomic, strong) NSMutableArray *accountNameArr;
 
 @property(nonatomic , strong) NSMutableArray *ids;
 

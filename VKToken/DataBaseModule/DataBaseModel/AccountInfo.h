@@ -27,6 +27,8 @@
 
 @property(nonatomic, copy) NSString *account_owner_private_key;
 
+@property(nonatomic, copy) NSString *account_vktoken_wallet_id;
+
 
 // 0 表示 没有隐私保护, 1 表示有隐私保护
 @property(nonatomic, copy) NSString *is_privacy_policy;

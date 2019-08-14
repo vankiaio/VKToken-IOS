@@ -24,6 +24,8 @@
 
 @property(nonatomic , copy) NSString *fromPage;
 
+@property(nonatomic , copy) NSString *fromAccount;
+
 @property(nonatomic , strong) TokenInfo *currentToken;
 @end
 

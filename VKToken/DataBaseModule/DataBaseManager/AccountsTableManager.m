@@ -19,7 +19,7 @@
         FMDatabase *database = [self openLocalDatabase];
         if ([database open]) {
             Wallet *wallet = CURRENT_WALLET;
-            NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (ID INTEGER PRIMARY KEY, account_name TEXT ,account_img TEXT, account_active_public_key TEXT,  account_owner_public_key TEXT, account_active_private_key TEXT,account_owner_private_key TEXT, is_privacy_policy TEXT, is_main_account TEXT)", wallet.account_info_table_name];
+            NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (ID INTEGER PRIMARY KEY, account_name TEXT ,account_img TEXT, account_active_public_key TEXT,  account_owner_public_key TEXT, account_active_private_key TEXT,account_owner_private_key TEXT,account_vktoken_wallet_id TEXT, is_privacy_policy TEXT, is_main_account TEXT)", wallet.account_info_table_name];
             
             BOOL isSuccess = [database executeUpdate:sql];
             if (isSuccess) {
@@ -107,7 +107,7 @@
     BOOL isOpen = [database open];
     if (isOpen) {
         Wallet *wallet = CURRENT_WALLET;
-        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (account_name, account_img, account_active_public_key, account_owner_public_key, account_active_private_key,account_owner_private_key, is_privacy_policy, is_main_account) VALUES ('%@', '%@', '%@','%@', '%@','%@' ,'%@','%@')", wallet.account_info_table_name, model.account_name, model.account_img, model.account_active_public_key , model.account_owner_public_key ,  model.account_active_private_key,model.account_owner_private_key, model.is_privacy_policy, model.is_main_account];
+        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (account_name, account_img, account_active_public_key, account_owner_public_key, account_active_private_key,account_owner_private_key,account_vktoken_wallet_id, is_privacy_policy, is_main_account) VALUES ('%@', '%@', '%@','%@', '%@','%@','%@','%@','%@')", wallet.account_info_table_name, model.account_name, model.account_img, model.account_active_public_key , model.account_owner_public_key ,  model.account_active_private_key,model.account_owner_private_key,model.account_vktoken_wallet_id, model.is_privacy_policy, model.is_main_account];
         BOOL result = [database executeUpdate:sql];
         if (result) {
             NSLog(NSLocalizedString(@"添加账号成功", nil));

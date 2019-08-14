@@ -106,13 +106,14 @@
     .heightIs(50)
     .widthIs(100);
     
-    NSString *curLanguageText = NSLocalizedString(@"中文", nil);
+    NSString *curLanguageText = NSLocalizedString(@"English", nil);
     NSString *curLanguageCode = [DAConfig userLanguage];
     NSLog(@"curLanguage = %@", curLanguageCode);
     if([curLanguageCode hasPrefix:@"en"]){
         curLanguageText = @"English";
     }else if([curLanguageCode hasPrefix:@"zh-Hans"]) {
         curLanguageText = NSLocalizedString(@"中文", nil);
+        [DAConfig setUserLanguage:@"zh-Hans"];
     }
     //    vktbtnCreateAccount.frame = CGRectMake(72.5,431,230,50);
     [vktbtnLanguage setTitle: [NSString stringWithFormat: @"%@ >", curLanguageText] forState:(UIControlStateNormal)];

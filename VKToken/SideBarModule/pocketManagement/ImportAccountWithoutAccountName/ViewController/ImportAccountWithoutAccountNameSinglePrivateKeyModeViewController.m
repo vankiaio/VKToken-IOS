@@ -136,9 +136,10 @@
 }
 
 -(void)confirmBtnDidClick:(UIButton *)sender{
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: CURRENT_ACCOUNT_NAME];
     // 验证密码输入是否正确
-    Wallet *current_wallet = CURRENT_WALLET;
-    if (![WalletUtil validateWalletPasswordWithSha256:current_wallet.wallet_shapwd password:self.loginPasswordView.inputPasswordTF.text]) {
+    if([[tokenCoreVKT  verifyWalletPassword:model.account_vktoken_wallet_id :self.loginPasswordView.inputPasswordTF.text:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
         [TOASTVIEW showWithText:NSLocalizedString(@"密码输入错误!", nil)];
         return;
     }
@@ -209,6 +210,10 @@
     accountInfo.account_name = self.importAccountModel.accountName;
     accountInfo.account_img = ACCOUNT_DEFALUT_AVATAR_IMG_URL_STR;
     accountInfo.is_privacy_policy = @"0";
+    
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    // 验证密码输入是否正确
+    [tokenCoreVKT setVktAccountName:imported_wallet_id: self.importAccountModel.accountName];
     
     NSString *privateKey_textView1 = [AESCrypt encrypt:self.headerView.textView.text password:self.loginPasswordView.inputPasswordTF.text];
     

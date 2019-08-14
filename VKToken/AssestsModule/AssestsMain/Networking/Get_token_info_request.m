@@ -16,7 +16,7 @@
 
 -(id)parameters{
     return @{
-             @"accountName" : VALIDATE_STRING(self.accountName),
+             @"accountNameArr" : VALIDATE_ARRAY(self.accountNameArr),
               @"ids" : VALIDATE_ARRAY(self.ids)
              
              };

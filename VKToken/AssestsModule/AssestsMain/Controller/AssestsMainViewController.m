@@ -295,9 +295,6 @@
         self.mainTableView.mj_footer.hidden = YES;
         self.mainTableView.backgroundColor = [UIColor whiteColor];
         
-        
-        
-        
         [self.mainTableView setTableHeaderView:self.headerView];
         [self loadAllBlocks];
         
@@ -324,8 +321,21 @@
 // 构建数据源
 - (void)buidDataSource{
     WS(weakSelf);
+    NSArray *accountInfoArr = [[AccountsTableManager accountTable] selectAccountTable];
+    NSMutableArray *paramsArr = [NSMutableArray array];
+    for (AccountInfo *accountInfo in accountInfoArr) {
+        [paramsArr addObject:accountInfo.account_name];
+    }
     
-    self.get_token_info_service.get_token_info_request.accountName = IsStrEmpty(CURRENT_ACCOUNT_NAME) ? NSLocalizedString(@"暂未导入账号", nil) : CURRENT_ACCOUNT_NAME;
+    if (CURRENT_AccountTable_HAS_Account == false || accountInfoArr.count <= 0) {
+        // 创建账号(TokenCoreVKT)
+        AddAccountViewController *vc = [[AddAccountViewController alloc] init];
+        vc.addAccountViewControllerFromMode = AddAccountViewControllerFromLoginPage;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
+    self.get_token_info_service.get_token_info_request.accountNameArr = paramsArr;
     
     self.get_token_info_service.get_token_info_request.ids = self.ids;
     [self.get_token_info_service get_token_info:^(GetTokenInfoResult *result, BOOL isSuccess) {
@@ -686,7 +696,7 @@
 }
 
 - (void)moveViewWithGesture:(UIPanGestureRecognizer *)panGes {
-    [self profileCenter];
+//    [self profileCenter];
 }
 
 - (void)profileCenter{

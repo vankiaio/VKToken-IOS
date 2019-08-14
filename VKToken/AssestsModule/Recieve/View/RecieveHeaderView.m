@@ -52,4 +52,11 @@
     }
 }
 
+- (IBAction)selectAccountBtnDidClick:(UIButton *)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectAccountBtnDidClick:)]) {
+        [self.delegate selectAccountBtnDidClick: sender];
+    }
+}
+
+
 @end

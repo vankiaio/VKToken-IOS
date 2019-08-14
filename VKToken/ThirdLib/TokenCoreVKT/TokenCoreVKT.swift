@@ -63,7 +63,7 @@ public class TokenCoreVKT:NSObject{
     @objc(importVKTPrivateKey: : : : :)
     func importVKTPrivateKey(privateKey: String? = nil, publicKey: String? = nil, accountName: String? = nil, password: String? = nil) throws -> NSString{
         do {
-
+            
             let privateKeys = [
                 privateKey,
                 privateKey
@@ -72,7 +72,9 @@ public class TokenCoreVKT:NSObject{
                 EOS.PermissionObject(permission: "owner", publicKey: publicKey! , parent: ""),
                 EOS.PermissionObject(permission: "active", publicKey: publicKey! , parent: "")
             ]
-            guard let wallet = try? WalletManager.importEOS(from: privateKeys as! [String], accountName: accountName!, permissions: permissions, encryptedBy: password!, metadata: WalletMeta(chain: .eos, source: .privateKey))
+            var meta = WalletMeta(chain: .eos, source: .privateKey);
+            meta.name = "EOS";
+            guard let wallet = try? WalletManager.importEOS(from: privateKeys as! [String], accountName: accountName!, permissions: permissions, encryptedBy: password!, metadata: meta)
                 else {
                     return "";
             }
@@ -84,43 +86,14 @@ public class TokenCoreVKT:NSObject{
     @objc(importVKTMnemonic: : : :)
     func importVKTMnemonic(mnemonic: String? = nil, accountName: String? = nil, password: String? = nil) throws -> NSString{
         do {
-           guard let wallet = try? WalletManager.importEOS(from: mnemonic!, accountName: accountName!, permissions: [], metadata: WalletMeta(chain: .eos, source: .mnemonic), encryptBy: password!, at: BIP44.eos)
-            else {
-                return "";
+            var meta = WalletMeta(chain: .eos, source: .mnemonic);
+            meta.name = "EOS";
+            guard let wallet = try? WalletManager.importEOS(from: mnemonic!, accountName: accountName!, permissions: [], metadata: meta, encryptBy: password!, at: BIP44.eosLedger)
+                else {
+                    return "";
             }
             return wallet.walletID as NSString;
             
-        }
-    }
-    
-    @objc(deriveEosWallet:)
-    func deriveEosWallet(password: String? = nil) {
-        do {
-            guard let identity = Identity.currentIdentity else {
-                requestResult = "Pls create or recover an identity first"
-                return
-            }
-            let wallets = try! identity.deriveWallets(for: [.eos], password: password!)
-            let eosWallet = wallets.first!
-            requestResult = "Derived EOS Wallet by identity mnemonic success:\n"
-            requestResult = requestResult + prettyPrintJSON(eosWallet.serializeToMap())
-        }
-    }
-    
-    @objc(getVktPrivateKey::)
-    func getVktPrivateKey(password: String? = nil) throws -> NSString{
-        do {
-            guard let identity = Identity.currentIdentity else {
-                requestResult = "Pls create or recover an identity first"
-                return NSString("");
-            }
-            
-            if let existWallet = try? WalletManager.findWalletByAddress( identity.wallets.first { (wallet) -> Bool in
-                return wallet.imTokenMeta.chain == .eos}!.address, on: .eos) {
-                return NSString(string:try! existWallet.privateKeys(password: password!)[0].privateKey)
-            }else{
-                return NSString("");
-            }
         }
     }
     
@@ -143,20 +116,15 @@ public class TokenCoreVKT:NSObject{
                 requestResult = "Pls create or recover an identity first"
                 return NSNumber(value: 0);
             }
-            return NSNumber(value: identity.wallets.count == 3)
+            return NSNumber(value: identity.wallets.count >= 3)
         }
     }
     
-    @objc(getVktPublicKey::)
-    func getVktPublicKey(password: String? = nil) throws -> NSString{
+    @objc(getVktPublicKey:::)
+    func getVktPublicKey(walletID: String? = nil, password: String? = nil) throws -> NSString{
         do {
-            guard let identity = Identity.currentIdentity else {
-                requestResult = "Pls create or recover an identity first"
-                return NSString("");
-            }
             
-            if let existWallet = try? WalletManager.findWalletByAddress( identity.wallets.first { (wallet) -> Bool in
-                return wallet.imTokenMeta.chain == .eos}!.address, on: .eos) {
+            if let existWallet = try? WalletManager.findWalletByWalletID(walletID!) {
                 return NSString(string:try! existWallet.privateKeys(password: password!)[0].publicKey)
             }else{
                 return NSString("");
@@ -181,17 +149,13 @@ public class TokenCoreVKT:NSObject{
         }
     }
     
-    @objc(setVktAccountName:)
-    func setVktAccountName(accountName: String? = nil){
+    @objc(getVktAccountName::)
+    func getVktAccountName(walletID: String? = nil) throws -> NSString{
         do {
-            guard let identity = Identity.currentIdentity else {
-                requestResult = "Pls create or recover an identity first"
-                return 
-            }
-            
-            if let existWallet = try? WalletManager.findWalletByAddress(identity.wallets.first { (wallet) -> Bool in
-                return wallet.imTokenMeta.chain == .eos}!.address, on: .eos) {
-                _ = try? WalletManager.setEOSAccountName(walletID:existWallet.walletID, accountName:accountName!)
+            if let existWallet = try? WalletManager.findWalletByWalletID(walletID!) {
+                return NSString(string:existWallet.address)
+            }else{
+                return NSString("");
             }
         }
     }
@@ -199,28 +163,16 @@ public class TokenCoreVKT:NSObject{
     @objc(setVktAccountName::)
     func setVktAccountName(walletID: String? = nil, accountName: String? = nil){
         do {
-            guard let identity = Identity.currentIdentity else {
-                requestResult = "Pls create or recover an identity first"
-                return
-            }
-            
-            if let existWallet = try? WalletManager.findWalletByAddress(identity.wallets.first { (wallet) -> Bool in
-                return wallet.imTokenMeta.chain == .eos && wallet.walletID == walletID}!.address, on: .eos) {
-                _ = try? WalletManager.setEOSAccountName(walletID:existWallet.walletID, accountName:accountName!)
-            }
+
+            _ = try? WalletManager.setEOSAccountName(walletID:walletID!, accountName:accountName!);
         }
     }
     
-    @objc(getVktMnemonic::)
-    func getVktMnemonic(password: String? = nil) throws -> NSString{
+    @objc(getVktMnemonic:::)
+    func getVktMnemonic(walletID: String? = nil, password: String? = nil) throws -> NSString{
         do {
-            guard let identity = Identity.currentIdentity else {
-                requestResult = "Pls create or recover an identity first"
-                return NSString("");
-            }
             
-            if let existWallet = try? WalletManager.findWalletByAddress( identity.wallets.first { (wallet) -> Bool in
-                return wallet.imTokenMeta.chain == .eth}!.address, on: .eth) {
+            if let existWallet = try? WalletManager.findWalletByWalletID(walletID!) {
                 return NSString(string:try! existWallet.exportMnemonic(password: password!))
             }else{
                 return NSString("");
@@ -245,16 +197,11 @@ public class TokenCoreVKT:NSObject{
         }
     }
     
-    @objc(verifyWalletPassword::)
-    func verifyWalletPassword(password: String? = nil) throws -> NSNumber{
+    @objc(verifyWalletPassword:::)
+    func verifyWalletPassword(walletID: String? = nil, password: String? = nil) throws -> NSNumber{
         do {
-            guard let identity = Identity.currentIdentity else {
-                requestResult = "Pls create or recover an identity first"
-                return false as NSNumber;
-            }
-            
-            if let existWallet = try? WalletManager.findWalletByAddress( identity.wallets.first { (wallet) -> Bool in
-                return wallet.imTokenMeta.chain == .eth}!.address, on: .eth) {
+
+            if let existWallet = try? WalletManager.findWalletByWalletID( walletID! ) {
                 return try! existWallet.verifyPassword(password!) as NSNumber
             }else{
                 return false as NSNumber;
@@ -268,6 +215,22 @@ public class TokenCoreVKT:NSObject{
             let validator = MnemonicValidator(mnemonic!);
             let boolIsValid = validator.isValid;
             return boolIsValid as NSNumber;
+        }
+    }
+    
+    @objc(deleteWallet:::)
+    func deleteWallet(walletID: String? = nil, password: String? = nil) throws -> NSNumber{
+        do {
+            
+            if let existWallet = try? WalletManager.findWalletByWalletID( walletID! ) {
+                guard existWallet.verifyPassword(password!) else {
+                    return false as NSNumber;
+                }
+                existWallet.delete();
+                return true as NSNumber;
+            }else{
+                return false as NSNumber;
+            }
         }
     }
     

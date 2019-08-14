@@ -180,7 +180,7 @@
 }
 
 - (void)pushTransactionRequestOperation{
-//    AccountInfo *accountInfo = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:self.sender];
+    AccountInfo *accountInfo = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:self.sender];
     NSString *wif;
 //    if ([accountInfo.account_owner_public_key isEqualToString:self.required_Publickey]) {
 //        wif = [AESCrypt decrypt:accountInfo.account_owner_private_key password:self.password];
@@ -193,7 +193,7 @@
     TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
     
     if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] != NSOrderedSame) {
-        wif = [tokenCoreVKT getVktPrivateKey:self.password: nil];
+        wif = [tokenCoreVKT getVktPrivateKey:accountInfo.account_vktoken_wallet_id :self.password: nil];
     }
     
     const int8_t *private_key = [[VKT_Key_Encode getRandomBytesDataWithWif:wif] bytes];

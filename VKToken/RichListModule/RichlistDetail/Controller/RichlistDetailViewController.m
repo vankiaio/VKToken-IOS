@@ -182,8 +182,10 @@
                             if (IsNilOrNull(model.vktAccountName)) {
                                 return;
                             }
-                           
-                            self.get_token_info_service.get_token_info_request.accountName = model.vktAccountName;
+                            
+                            NSMutableArray *paramsArr = [NSMutableArray array];
+                            [paramsArr addObject:model.vktAccountName];
+                            self.get_token_info_service.get_token_info_request.accountNameArr = paramsArr;
                             [self.get_token_info_service get_token_info:^(id service, BOOL isSuccess) {
                                 // 拿到当前的下拉刷新控件，结束刷新状态
                                 [weakSelf.mainTableView.mj_header endRefreshing];
@@ -212,9 +214,11 @@
         if (IsNilOrNull(self.model.displayName)) {
             return;
         }
+        NSMutableArray *paramsArr = [NSMutableArray array];
+        [paramsArr addObject:self.model.displayName];
         self.headerView.userNameLabel.text = [NSString stringWithFormat : @"%@:", [NSString stringWithFormat:NSLocalizedString(@"账号", nil)]];
         [self.headerView.avatarImg sd_setImageWithURL:String_To_URL(@"") placeholderImage:[UIImage imageNamed:@"wallet_default_avatar"]];
-        self.get_token_info_service.get_token_info_request.accountName = self.model.displayName;
+        self.get_token_info_service.get_token_info_request.accountNameArr = paramsArr;
         [self.get_token_info_service get_token_info:^(id service, BOOL isSuccess) {
             // 拿到当前的下拉刷新控件，结束刷新状态
             [weakSelf.mainTableView.mj_header endRefreshing];
@@ -392,8 +396,10 @@
     if (IsNilOrNull(name)) {
         return;
     }
+    NSMutableArray *paramsArr = [NSMutableArray array];
+    [paramsArr addObject:name];
     self.headerView.userAccountLabel.text = name;
-    self.get_token_info_service.get_token_info_request.accountName = name;
+    self.get_token_info_service.get_token_info_request.accountNameArr = paramsArr;
     [self.get_token_info_service get_token_info:^(id service, BOOL isSuccess) {
         // 拿到当前的下拉刷新控件，结束刷新状态
         [weakSelf.mainTableView.mj_header endRefreshing];

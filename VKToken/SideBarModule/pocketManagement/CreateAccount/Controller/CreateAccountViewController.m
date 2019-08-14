@@ -33,6 +33,7 @@
 @property(nonatomic, strong) CreateAccountService *createAccountService;
 @property(nonatomic, strong) LoginPasswordView *loginPasswordView;
 @property(nonatomic, strong) GetAccountRequest *getAccountRequest;
+@property(nonatomic, strong) NSString *imported_wallet_id;
 @end
 
 @implementation CreateAccountViewController
@@ -133,7 +134,7 @@
                 NSLog(NSLocalizedString(@"generateIdentity助记词:%@", nil), tokenCoreVKT.requestResult);
                 
 //                [tokenCoreVKT deriveEosWallet:self.headerView.passwordToConfirm.text];
-                NSString *imported_wallet_id = [tokenCoreVKT importVKTMnemonic:mnemonicStr : @"" :self.headerView.passwordToConfirm.text:nil];
+                _imported_wallet_id = [tokenCoreVKT importVKTMnemonic:mnemonicStr : @"" :self.headerView.passwordToConfirm.text:nil];
                 NSLog(NSLocalizedString(@"deriveEosWallet助记词:%@", nil), tokenCoreVKT.requestResult);
                 
                 //    [tokenCoreVKT importEthPrivateKey];
@@ -217,8 +218,8 @@
         weakSelf.createAccountService.createVKTAccountRequest.uid = @"6f1a8e0eb24afb7ddc829f96f9f74e9d";
     }
     weakSelf.createAccountService.createVKTAccountRequest.vktAccountName = weakSelf.headerView.accountNameTF.text;
-    weakSelf.createAccountService.createVKTAccountRequest.ownerKey = [tokenCoreVKT getVktPublicKey:weakSelf.headerView.passwordToConfirm.text:nil];
-    weakSelf.createAccountService.createVKTAccountRequest.activeKey = [tokenCoreVKT getVktPublicKey:weakSelf.headerView.passwordToConfirm.text:nil];
+    weakSelf.createAccountService.createVKTAccountRequest.ownerKey = [tokenCoreVKT getVktPublicKey:_imported_wallet_id :weakSelf.headerView.passwordToConfirm.text:nil];
+    weakSelf.createAccountService.createVKTAccountRequest.activeKey = [tokenCoreVKT getVktPublicKey:_imported_wallet_id :weakSelf.headerView.passwordToConfirm.text:nil];
     
 //    NSLog(@"{ownerPrivateKey:%@\nvktPublicKey:%@\nactivePrivateKey:%@\nvktPublicKey:%@\n}", ownerPrivateKey.vktPrivateKey, ownerPrivateKey.vktPublicKey, activePrivateKey.vktPrivateKey, activePrivateKey.vktPublicKey);
     // 创建vkt账号
@@ -231,12 +232,39 @@
                 // 创建账号成功
                 [TOASTVIEW showWithText:NSLocalizedString(@"创建账号成功!", nil)];
                 // TokenCoreVKT添加账户
-                [tokenCoreVKT setVktAccountName:weakSelf.headerView.accountNameTF.text];
+                [tokenCoreVKT setVktAccountName:_imported_wallet_id: weakSelf.headerView.accountNameTF.text];
+
+                // 如果本地没有钱包
+                Wallet *model = [[Wallet alloc] init];
+                //    model.wallet_name = self.createWalletView.walletNameTF.text;
+                model.wallet_name = @"VKToken";
+                
+                model.wallet_shapwd = [WalletUtil generate_wallet_shapwd_withPassword:weakSelf.headerView.passwordToConfirm.text];
+                model.wallet_uid = [model.wallet_name sha256];
+                model.account_info_table_name = [NSString stringWithFormat:@"%@_%@", ACCOUNTS_TABLE,model.wallet_uid];
+                [[WalletTableManager walletTable] addRecord: model];
+                [[NSUserDefaults standardUserDefaults] setObject: model.wallet_uid  forKey:Current_wallet_uid];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                // 创建账号(本地数据库)
+                
+                // 本地公钥和网络公钥匹配, 允许进行导入本地操作
+                AccountInfo *accountInfo = [[AccountInfo alloc] init];
+                accountInfo.account_name = weakSelf.headerView.accountNameTF.text;
+                accountInfo.account_img = ACCOUNT_DEFALUT_AVATAR_IMG_URL_STR;
+                accountInfo.account_active_public_key = [tokenCoreVKT getVktPublicKey:_imported_wallet_id: weakSelf.headerView.passwordToConfirm.text:nil];
+                accountInfo.account_owner_public_key = [tokenCoreVKT getVktPublicKey:_imported_wallet_id: weakSelf.headerView.passwordToConfirm.text:nil];
+                accountInfo.account_active_private_key = [AESCrypt encrypt:[tokenCoreVKT getVktPrivateKey:_imported_wallet_id :weakSelf.headerView.passwordToConfirm.text:nil] password:weakSelf.headerView.passwordToConfirm.text];
+                accountInfo.account_owner_private_key = accountInfo.account_active_private_key;
+                accountInfo.account_vktoken_wallet_id = _imported_wallet_id;
+                accountInfo.is_privacy_policy = @"0";
+                [[AccountsTableManager accountTable] addRecord:accountInfo];
+                [WalletUtil setMainAccountWithAccountInfoModel:accountInfo];
+                
                 
                 CreateMemonicViewController *vc = [[CreateMemonicViewController alloc] init];
                 //                    createPrivateKeyViewController.walletModel = _walletModel;
                 //                    createPrivateKeyViewController.privateWords = [[_walletModel.mnemonic tb_encodeStringWithKey:_walletModel.password] componentsSeparatedByString:@" "];
-                NSString* nsmnemonic = [tokenCoreVKT getVktMnemonic:weakSelf.headerView.passwordToConfirm.text:nil];
+                NSString* nsmnemonic = [tokenCoreVKT getVktMnemonic:_imported_wallet_id: weakSelf.headerView.passwordToConfirm.text:nil];
                 NSArray *mnemonicList = [nsmnemonic componentsSeparatedByString:@" "];
                 vc.privateWords = mnemonicList;
                 [weakSelf.navigationController pushViewController:vc animated:YES];
