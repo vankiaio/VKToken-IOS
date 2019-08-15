@@ -679,7 +679,7 @@
         AssestsDetailViewController *vc = [[AssestsDetailViewController alloc] init];
         TokenInfo *model = self.get_token_info_service.dataSourceArray[indexPath.row];
         vc.model = model;
-        vc.accountName = CURRENT_ACCOUNT_NAME;
+        vc.accountName = model.account_name;
         vc.get_token_info_service_data_array = self.get_token_info_service.dataSourceArray;
         [self.navigationController pushViewController:vc animated:YES];
     
@@ -823,7 +823,7 @@
 }
 
 - (void)updateBtnDidClick:(UIButton *)sender{
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://VKToken.com"]];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.vankia.net"]];
 }
 
 //AddAssestsViewControllerDelegate

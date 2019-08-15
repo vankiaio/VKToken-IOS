@@ -308,7 +308,7 @@
 - (void)rightBtnDidClick {
     WS(weakSelf);
     AccountInfo *model;
-    model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:CURRENT_ACCOUNT_NAME];
+    model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:self.accountName];
     AccountManagementViewController *vc = [[AccountManagementViewController alloc] init];
     vc.model = model;
     [weakSelf.navigationController pushViewController:vc animated:YES];
