@@ -29,7 +29,6 @@
 
 - (void)buildDataSource:(CompleteBlock)complete{
     WS(weakSelf);
-    self.getAssestLockRecordsRequest.account_name = CURRENT_ACCOUNT_NAME;
     [self.getAssestLockRecordsRequest postOuterDataSuccess:^(id DAO, id data) {
         
         [weakSelf.dataSourceArray removeAllObjects];

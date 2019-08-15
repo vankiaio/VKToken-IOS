@@ -21,7 +21,6 @@
 @property(nonatomic, strong) PopUpWindow *popUpWindow;
 @property(nonatomic, strong) AssestLockRecordsHeaderView *headerView;
 @property(nonatomic, strong) AssestLockRecordsService *mainService;
-@property(nonatomic, strong) NSString *currentAccountName;
 
 @end
 

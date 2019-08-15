@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AssestLockRecordsViewController : BaseViewController
+@property(nonatomic, strong) NSString *currentAccountName;
 
 @end

@@ -382,6 +382,7 @@
 
 - (void)assetsLocksBtnDidClick:(UIButton *)sender{
     AssestLockRecordsViewController *vc = [[AssestLockRecordsViewController alloc] init];
+    vc.currentAccountName = self.accountName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
