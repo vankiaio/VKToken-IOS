@@ -49,7 +49,7 @@
 
 - (NavigationView *)navView{
     if (!_navView) {
-        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"资产转账", nil) rightBtnTitleName:NSLocalizedString(@"转账记录", nil) delegate:self];
+        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"资产转账", nil) rightBtnImgName:@"scan_black" delegate:self];
         _navView.leftBtn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal);
     }
     return _navView;
@@ -148,7 +148,7 @@
     }else{
         if (self.get_token_info_service_data_array.count > 0) {
             for (TokenInfo *token in self.get_token_info_service_data_array) {
-                if ([token.token_symbol isEqualToString:self.currentAssestsType] && [token.account_name isEqualToString:CURRENT_ACCOUNT_NAME]) {
+                if ([token.token_symbol isEqualToString:self.currentAssestsType] && [token.account_name isEqualToString:self.fromAccount]) {
                     self.currentToken = token;
                 }
             }
@@ -210,7 +210,7 @@
 
 - (void)requestTokenInfoDataArray{
     NSMutableArray *paramsArr = [NSMutableArray array];
-    [paramsArr addObject:CURRENT_ACCOUNT_NAME];
+    [paramsArr addObject:self.fromAccount];
     self.get_token_info_service.get_token_info_request.accountNameArr = paramsArr;
     WS(weakSelf);
     [self.get_token_info_service get_token_info:^(id service, BOOL isSuccess) {
@@ -261,12 +261,54 @@
 }
 
 -(void)rightBtnDidClick{
-    [MobClick event:@"发送_转账记录"];
-    TransferRecordsViewController *vc = [[TransferRecordsViewController alloc] init];
-    vc.get_token_info_service_data_array = self.get_token_info_service_data_array;
-    vc.currentToken = self.currentToken;
-    vc.from = CURRENT_ACCOUNT_NAME;
-    [self.navigationController pushViewController:vc animated:YES];
+    WS(weakSelf);
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if (device) {
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (status == AVAuthorizationStatusNotDetermined) {
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                
+                if (granted) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        ScanQRCodeViewController *vc = [[ScanQRCodeViewController alloc] init];
+                        [weakSelf.navigationController pushViewController:vc animated:YES];
+                    });
+                    // 用户第一次同意了访问相机权限
+                    NSLog(NSLocalizedString(@"用户第一次同意了访问相机权限 - - %@", nil), [NSThread currentThread]);
+                }else {
+                    // 用户第一次拒绝了访问相机权限
+                    NSLog(NSLocalizedString(@"用户第一次拒绝了访问相机权限 - - %@", nil), [NSThread currentThread]);
+                }
+                
+                
+            }];
+        }else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+            ScanQRCodeViewController *vc = [[ScanQRCodeViewController alloc] init];
+            vc.get_token_info_service_data_array = self.get_token_info_service.dataSourceArray;
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"温馨提示", nil)message:NSLocalizedString(@"请去-> [设置 - 隐私 - 相机 - VKT Wallet] 打开访问开关", nil)preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *alertA = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil)style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertC addAction:alertA];
+            [weakSelf presentViewController:alertC animated:YES completion:nil];
+            
+        } else if (status == AVAuthorizationStatusRestricted) {
+            NSLog(NSLocalizedString(@"因为系统原因, 无法访问相册", nil));
+        }
+        
+        
+    }else {
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"温馨提示", nil)message:NSLocalizedString(@"未检测到您的摄像头", nil)preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *alertA = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil)style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alertC addAction:alertA];
+        [weakSelf presentViewController:alertC animated:YES completion:nil];
+    }
 }
 
 - (void)selectAssestsBtnDidClick:(UIButton *)sender {
@@ -306,15 +348,19 @@
     
     NSArray *accountArr = [[AccountsTableManager accountTable] selectAllNativeAccountName];
     
-//    for (AccountInfo *model in accountArr) {
-//        if ([model.account_name isEqualToString:self.fromAccount]) {
-//            model.selected = YES;
-//        }
-//    }
+
     WS(weakSelf);
     [CDZPicker showSinglePickerInView:self.view withBuilder:[CDZPickerBuilder new] strings:accountArr confirm:^(NSArray<NSString *> * _Nonnull strings, NSArray<NSNumber *> * _Nonnull indexs) {
         weakSelf.fromAccount = VALIDATE_STRING(strings[0]);
         weakSelf.headerView.nameFromTF.text = weakSelf.fromAccount;
+
+        for (TokenInfo *token in self.get_token_info_service_data_array) {
+            if ([token.token_symbol isEqualToString:self.currentAssestsType] && [token.account_name isEqualToString:weakSelf.fromAccount]) {
+                weakSelf.currentToken = token;
+            }
+        }
+        [weakSelf requestRate];
+        
     }cancel:^{
         NSLog(@"user cancled");
     }];
@@ -389,7 +435,7 @@
     }
     
     self.transferAbi_json_to_bin_request.action = ContractAction_TRANSFER;
-    self.transferAbi_json_to_bin_request.from = CURRENT_ACCOUNT_NAME;
+    self.transferAbi_json_to_bin_request.from = self.fromAccount;
     self.transferAbi_json_to_bin_request.to = self.headerView.nameTF.text;
     self.transferAbi_json_to_bin_request.memo = self.headerView.memoTV.text;
     WS(weakSelf);
@@ -407,7 +453,7 @@
         
         weakSelf.mainService.action = ContractAction_TRANSFER;
         weakSelf.mainService.code = weakSelf.currentToken.contract_name;
-        weakSelf.mainService.sender = CURRENT_ACCOUNT_NAME;
+        weakSelf.mainService.sender = weakSelf.fromAccount;
 #pragma mark -- [@"data"]
         weakSelf.mainService.binargs = data[@"data"][@"binargs"];
         weakSelf.mainService.pushTransactionType = PushTransactionTypeTransfer;
