@@ -110,13 +110,28 @@
 
 - (void)updateViewWithDataArray:(NSMutableArray<TokenInfo *> *)dataArray{
     self.tokenInfoDataArray = dataArray;
-    double totalBalanceCnyValue =0;
+    double totalBalanceCurrencyValue =0;
+    Wallet *wallet = CURRENT_WALLET;
     for (TokenInfo *model in dataArray) {
-        totalBalanceCnyValue += model.balance_cny.doubleValue;
+        if ([wallet.wallet_currency isEqualToString:@"USD"]) {
+            totalBalanceCurrencyValue += model.balance_usd.doubleValue;
+        }else if([wallet.wallet_currency isEqualToString:@"KRW"]){
+            totalBalanceCurrencyValue += model.balance_krw.doubleValue;
+        }else{
+            totalBalanceCurrencyValue += model.balance_cny.doubleValue;
+        }
+    }
+    
+    if ([wallet.wallet_currency isEqualToString:@"USD"]) {
+        self.totalAssetsTitleLabel.text = [NSString stringWithFormat:@"%@(%@)", NSLocalizedString(@"总资产", nil), @"$"];
+    }else if([wallet.wallet_currency isEqualToString:@"KRW"]){
+        self.totalAssetsTitleLabel.text = [NSString stringWithFormat:@"%@(%@)", NSLocalizedString(@"总资产", nil), @"₩"];
+    }else{
+        self.totalAssetsTitleLabel.text = [NSString stringWithFormat:@"%@(%@)", NSLocalizedString(@"总资产", nil), @"￥"];
     }
     
     if ( [[[NSUserDefaults standardUserDefaults] objectForKey: Total_assets_visibel] isEqual:@1]) {
-        self.totalAssetsLabel.text = [NSString stringWithFormat:@"≈%.4f", totalBalanceCnyValue];
+        self.totalAssetsLabel.text = [NSString stringWithFormat:@"≈%.4f", totalBalanceCurrencyValue];
         [self.totalAssestsVisibleBtn setImage:[UIImage imageNamed:@"eye_open"] forState:(UIControlStateNormal)];
     }else{
         [self.totalAssestsVisibleBtn setImage:[UIImage imageNamed:@"eye_close"] forState:(UIControlStateNormal)];

@@ -37,6 +37,7 @@
 
 @property(nonatomic, strong) NSString *userName;
 @property(nonatomic, strong) NSString *wallet_avatar;
+@property(nonatomic, strong) NSString *wallet_currency;
 
 - (void)parseFromSet:(FMResultSet *)resultSet;
 

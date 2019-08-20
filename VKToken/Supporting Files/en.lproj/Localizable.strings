@@ -30,6 +30,7 @@
 "资产"="Assets";
 "微信好友"="WeChat";
 "朋友圈"="Moments";
+"截图保存"="Screenshot";
 "QQ好友"="QQ";
 "QQ空间"="Q Zone";
 "额"="Volume";
@@ -88,6 +89,7 @@
 "请移步至社交模式"="Go to social mode please";
 "当前账号"="Current Account";
 "账号"="Account";
+"主账号"="Main Account";
 
 /*
  AssestsMainTableViewCell.m
@@ -278,6 +280,11 @@
 "语言切换中"="Changing Language";
 "当前语言已经是中文！"="The current language is already Chinese!";
 "当前语言已经是英文！"="The current language is already English!";
+
+/*
+ CurrencySettingViewController.m
+ */
+"货币单位"="Currency Unit";
 
 /*
  SystemSettingViewController.m
@@ -1017,3 +1024,12 @@
 "请输入名称"="Please enter the user name";
 "请输入或者粘贴账号名称"="Please enter or paste the account name";
 "请输入备注"="Please enter the note";
+
+/*
+ InvitationCoreViewController.m
+ */
+"邀请函" = "Invitation card";
+"您的专属邀请码："="Your exclusive invitation code：";
+"使用邀请码创建账号获取VKT奖励"="Create an account with an invitation code to get a VKT reward";
+"保存失败"="Save failed";
+"保存成功"="Successfully saved";

@@ -18,7 +18,8 @@
              @"wallet_avatar" : @"avatar",
              @"wallet_weixin" : @"wechat",
              @"wallet_qq" : @"qq",
-             @"wallet_phone" : @"phoneNum"
+             @"wallet_phone" : @"phoneNum",
+             @"wallet_currency" : @"currency"
              };
 }
 
@@ -32,6 +33,7 @@
     self.wallet_qq = VALIDATE_STRING([resultSet stringForColumn:@"wallet_qq"]);
     self.wallet_weixin = VALIDATE_STRING([resultSet stringForColumn:@"wallet_weixin"]);
     self.wallet_shapwd = VALIDATE_STRING([resultSet stringForColumn:@"wallet_shapwd"]);
+    self.wallet_currency = VALIDATE_STRING([resultSet stringForColumn:@"wallet_currency"]);
     self.password_check = VALIDATE_STRING([resultSet stringForColumn:@"password_check"]);
     self.account_info_table_name = VALIDATE_STRING([resultSet stringForColumn:@"account_info_table_name"]);
 }

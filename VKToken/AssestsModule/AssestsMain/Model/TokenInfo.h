@@ -47,6 +47,10 @@
  balance_cny
  */
 @property(nonatomic, copy) NSString *balance_cny;
+/**
+ balance_krw
+ */
+@property(nonatomic, copy) NSString *balance_krw;
 
 /**
  asset_price_usd
@@ -57,6 +61,11 @@
  asset_price_cny
  */
 @property(nonatomic, copy) NSString *asset_price_cny;
+
+/**
+ asset_price_krw
+ */
+@property(nonatomic, copy) NSString *asset_price_krw;
 
 /**
  asset_price_change_in_24h

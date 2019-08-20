@@ -106,6 +106,8 @@
 	<string>VKToken将通过相机读取二维码</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>VKToken将通过相册读取二维码</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>VKToken通过册存储邀请码截图</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array/>
 	<key>UISupportedInterfaceOrientations</key>

@@ -17,7 +17,7 @@
         
         FMDatabase *database = [self openLocalDatabase];
         if ([database open]) {
-            NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@(ID INTEGER PRIMARY KEY, wallet_name TEXT NOT NULL ,wallet_uid TEXT NOT NULL, wallet_img TEXT, wallet_main_account TEXT,wallet_main_account_img TEXT, wallet_phone TEXT NOT NULL, wallet_shapwd TEXT,wallet_qq TEXT, wallet_weixin TEXT, password_check TEXT, account_info_table_name     TEXT )", WALLET_TABLE];
+            NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@(ID INTEGER PRIMARY KEY, wallet_name TEXT NOT NULL ,wallet_uid TEXT NOT NULL, wallet_img TEXT, wallet_main_account TEXT,wallet_main_account_img TEXT, wallet_phone TEXT NOT NULL, wallet_shapwd TEXT,wallet_qq TEXT, wallet_weixin TEXT, wallet_currency TEXT,password_check TEXT, account_info_table_name     TEXT )", WALLET_TABLE];
             BOOL isSuccess = [database executeUpdate:sql];
             if (isSuccess) {
             }
@@ -41,7 +41,7 @@
     FMDatabase *database = [self openLocalDatabase];
     BOOL isOpen = [database open];
     if (isOpen) {
-        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (wallet_name , wallet_uid, wallet_img, wallet_main_account ,wallet_main_account_img, wallet_phone , wallet_shapwd , wallet_qq, wallet_weixin, password_check , account_info_table_name) VALUES  ('%@','%@' ,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", WALLET_TABLE, model.wallet_name,  model.wallet_uid, model.wallet_img , model.wallet_main_account , model.wallet_main_account_img, model.wallet_phone , model.wallet_shapwd, model.wallet_qq , model.wallet_weixin , model.password_check, model.account_info_table_name ];
+        NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (wallet_name , wallet_uid, wallet_img, wallet_main_account ,wallet_main_account_img, wallet_phone , wallet_shapwd , wallet_qq, wallet_weixin, wallet_currency, password_check , account_info_table_name) VALUES  ('%@','%@' ,'%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", WALLET_TABLE, model.wallet_name,  model.wallet_uid, model.wallet_img , model.wallet_main_account , model.wallet_main_account_img, model.wallet_phone , model.wallet_shapwd, model.wallet_qq , model.wallet_currency, model.wallet_weixin , model.password_check, model.account_info_table_name ];
         BOOL result = [database executeUpdate:sql];
         if (result) {
             NSLog(NSLocalizedString(@"添加钱包成功!", nil));

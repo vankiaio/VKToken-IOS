@@ -22,8 +22,8 @@
                         <constraint firstAttribute="height" constant="145" id="SvG-x6-Wmv"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总资产(￥)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6w9-Qs-9bF">
-                    <rect key="frame" x="140" y="22" width="98" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总资产" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6w9-Qs-9bF">
+                    <rect key="frame" x="140" y="22" width="63" height="20"/>
                     <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="21"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYH-sY-JUc">
-                    <rect key="frame" x="248" y="25" width="24" height="15"/>
+                    <rect key="frame" x="213" y="25" width="24" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="Bq6-B6-111"/>
                         <constraint firstAttribute="height" constant="15" id="gdX-b3-qjc"/>
@@ -343,6 +343,7 @@
                 <outlet property="shortageImageView" destination="Mz6-vz-KVn" id="BTC-uC-sIN"/>
                 <outlet property="totalAssestsVisibleBtn" destination="pYH-sY-JUc" id="pFt-Ca-ZEJ"/>
                 <outlet property="totalAssetsLabel" destination="Yqo-6x-K23" id="VpT-k3-4o0"/>
+                <outlet property="totalAssetsTitleLabel" destination="6w9-Qs-9bF" id="ETY-Aa-2ic"/>
                 <outlet property="transferLabel" destination="T9L-La-SPP" id="lzH-Mg-eHX"/>
                 <outlet property="userAccountLabel" destination="YEZ-SM-uzb" id="uT4-Mc-GRx"/>
             </connections>

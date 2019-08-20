@@ -12,6 +12,7 @@
 #import "SocialSharePanelView.h"
 #import "SocialShareModel.h"
 #import "GetInvitationCodeService.h"
+#import "UIImage+ExFoundation.h"
 #import "VKToken-swift.h"
 
 @interface InvitationCoreViewController ()<UIGestureRecognizerDelegate , NavigationViewDelegate, InvitationCodeHeaderViewDelegate, UITextFieldDelegate>
@@ -22,6 +23,7 @@
 @property(nonatomic , strong) SocialSharePanelView *socialSharePanelView;
 @property(nonatomic , strong) NSArray *platformNameArr;
 @property(nonatomic, strong) GetInvitationCodeService *mainService;
+@property(nonatomic, strong) NSString *qRCodeJsonURL;
 @end
 
 @implementation InvitationCoreViewController
@@ -66,7 +68,7 @@
         _socialSharePanelView.backgroundColor = HEXCOLOR(0xF7F7F7);
         _socialSharePanelView.delegate = self;
         NSMutableArray *modelArr = [NSMutableArray array];
-        NSArray *titleArr = @[NSLocalizedString(@"微信好友", nil),NSLocalizedString(@"朋友圈", nil)];//, NSLocalizedString(@"QQ好友", nil), NSLocalizedString(@"QQ空间", nil)
+        NSArray *titleArr = @[NSLocalizedString(@"微信好友", nil),NSLocalizedString(@"朋友圈", nil),NSLocalizedString(@"截图保存", nil)];//, NSLocalizedString(@"QQ好友", nil), NSLocalizedString(@"QQ空间", nil)
         for (int i = 0; i < titleArr.count; i++) {
             SocialShareModel *model = [[SocialShareModel alloc] init];
             model.platformName = titleArr[i];
@@ -81,7 +83,7 @@
 
 - (NSArray *)platformNameArr{
     if (!_platformNameArr) {
-        _platformNameArr = @[@"wechat_friends",@"wechat_moments", @"qq_friends", @"qq_Zone"];
+        _platformNameArr = @[@"wechat_friends",@"wechat_moments",@"save_screenshot", @"qq_friends", @"qq_Zone"];
     }
     return _platformNameArr;
 }
@@ -118,22 +120,14 @@
 }
 
 - (void)requestDownloadURL{
-//    self.get_token_info_service.get_token_info_request.accountName = CURRENT_ACCOUNT_NAME;
-//    WS(weakSelf);
-//    [self.get_token_info_service get_token_info:^(id service, BOOL isSuccess) {
-//        if (isSuccess) {
-//
-//        }
-//    }];
     //钱包二维码
-    NSString *QRCodeJsonStr = @"https://ttmcmobiledev.github.io/download/ttmc/ios-en.html?isForeign=0";
+    NSString *QRCodeJsonStr = self.qRCodeJsonURL;
     self.headerView.shareInvitationQRCodeImg.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:QRCodeJsonStr logoImageName:@"logo_bg_blue" logoScaleToSuperView:0.2];
 }
 
 // 隐藏自带的导航栏
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self requestDownloadURL];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -174,6 +168,8 @@
             NSNumber *code = service[@"code"];
             if ([code isEqualToNumber:@0]) {
                 self.headerView.invitationCodeLabel.text = service[@"data"][@"code"];
+                self.qRCodeJsonURL = service[@"data"][@"qrcodeurl"];
+                [self requestDownloadURL];
             }else{
                 [TOASTVIEW showWithText:VALIDATE_STRING(service[@"message"])];
             }
@@ -190,7 +186,7 @@
     model.title = [NSString stringWithFormat:@"%@", NSLocalizedString(@"邀请函", nil)];
 
     model.detailDescription = [NSString stringWithFormat:@"%@%@\n%@\n", NSLocalizedString(@"您的专属邀请码：", nil),@"5V213", NSLocalizedString(@"使用邀请码创建账号获取VKT奖励", nil)];
-    model.webPageUrl = @"http://www.vankia.net";
+    model.webPageUrl = self.qRCodeJsonURL;
     NSLog(@"%@", platformName);
     if ([platformName isEqualToString:@"wechat_friends"]) {
         [[SocialManager socialManager] wechatShareToScene:0 withShareModel:model];
@@ -200,9 +196,30 @@
         [[SocialManager socialManager] qqShareToScene:0 withShareModel:model];
     }else if ([platformName isEqualToString:@"qq_Zone"]){
         [[SocialManager socialManager] qqShareToScene:1 withShareModel:model];
+    }else if ([platformName isEqualToString:@"save_screenshot"]){
+        //  hiden sharebar
+        [self dismiss];
+        //    1.获取一个截图图片
+        UIImage *newImage = [ UIImage convertViewToImage:self.view];
+        //    2.写入相册
+        UIImageWriteToSavedPhotosAlbum(newImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        
     }
 }
 
+#pragma mark 用来监听图片保存到相册的状况
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    if (error) {
+        [TOASTVIEW showWithText:NSLocalizedString(@"保存失败", nil)];
+    }else{
+        [TOASTVIEW showWithText:NSLocalizedString(@"保存成功", nil)];
+        
+    }
+    
+    NSLog(@"%@",contextInfo);
+    
+}
 
 - (void)dismiss{
     [self.shareBaseView removeFromSuperview];

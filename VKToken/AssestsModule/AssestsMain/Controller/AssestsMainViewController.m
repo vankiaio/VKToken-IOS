@@ -243,7 +243,7 @@
         [_navView.leftBtn sd_setImageWithURL:wallet.wallet_img forState:(UIControlStateNormal) placeholderImage:[UIImage imageNamed:@"wallet_default_avatar"]];
     }
     
-    self.headerView.userAccountLabel.text = [NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"当前账号", nil), IsStrEmpty(CURRENT_ACCOUNT_NAME) ? NSLocalizedString(@"暂未导入账号", nil) : VALIDATE_STRING(CURRENT_ACCOUNT_NAME) ] ;
+    self.headerView.userAccountLabel.text = [NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"主账号", nil), IsStrEmpty(CURRENT_ACCOUNT_NAME) ? NSLocalizedString(@"暂未导入账号", nil) : VALIDATE_STRING(CURRENT_ACCOUNT_NAME) ] ;
     [self loadNewData];
 }
 

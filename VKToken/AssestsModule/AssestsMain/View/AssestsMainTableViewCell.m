@@ -146,15 +146,22 @@
 }
 
 -(void)setModel:(TokenInfo *)model{
+    Wallet *wallet = CURRENT_WALLET;
     self.assestsImg.image = [UIImage imageNamed:model.iconUrl];
     [self.assestsImg sd_setImageWithURL:String_To_URL(model.iconUrl) placeholderImage:[UIImage imageNamed:@"logo_bg_blue"]];
     
     self.assestsTokenLabel.text = [NSString stringWithFormat:@"%@",VALIDATE_STRING(model.account_name)];
 
-//    self.assestsBalanceLable.text = [NSString stringWithFormat:@"%@ %@", VALIDATE_STRING([NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance.doubleValue ]]), VALIDATE_STRING(model.token_symbol)];
-        self.assestsBalanceLable.text = [NSString stringWithFormat:@"%@", VALIDATE_STRING([NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance.doubleValue ]])];
+    self.assestsBalanceLable.text = [NSString stringWithFormat:@"%@ %@", VALIDATE_STRING([NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance.doubleValue ]]), VALIDATE_STRING(model.token_symbol)];
     
-    self.assestsBalanceCnyLabel.text = [NSString stringWithFormat:@"≈%@ CNY", [NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance_cny.doubleValue ]]];
+    // 如果本地没有当前账号对应的钱包
+    if ([wallet.wallet_currency isEqualToString:@"USD"]) {
+        self.assestsBalanceCnyLabel.text = [NSString stringWithFormat:@"≈%@ USD", [NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance_usd.doubleValue ]]];
+    }else if([wallet.wallet_currency isEqualToString:@"KRW"]) {
+        self.assestsBalanceCnyLabel.text = [NSString stringWithFormat:@"≈%@ KRW", [NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance_krw.doubleValue ]]];
+    }else{
+        self.assestsBalanceCnyLabel.text = [NSString stringWithFormat:@"≈%@ CNY", [NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.balance_cny.doubleValue ]]];
+    }
     
     self.nowPriceLabel.text = [NSString stringWithFormat:@"¥%@", [NumberFormatter displayStringFromNumber:[NSNumber numberWithDouble:model.asset_price_cny.doubleValue ]]];
 }

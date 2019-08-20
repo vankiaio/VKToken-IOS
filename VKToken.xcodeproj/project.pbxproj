@@ -984,6 +984,9 @@
 		6E1F522122940C9C003D1C3D /* AssestLockRecordsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F521522940C9C003D1C3D /* AssestLockRecordsHeaderView.m */; };
 		6E1F522222940C9C003D1C3D /* AssestLockRecordsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F521922940C9C003D1C3D /* AssestLockRecordsService.m */; };
 		6E1F5224229548F6003D1C3D /* VKTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F5223229548F6003D1C3D /* VKTButton.m */; };
+		6E2C0268230AA34100F2355B /* CurrencySettingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0267230AA34100F2355B /* CurrencySettingService.m */; };
+		6E2C026B230AA36900F2355B /* CurrencySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0269230AA36900F2355B /* CurrencySettingViewController.m */; };
+		6E2C0288230AAD2500F2355B /* GetCurrenciesListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0286230AAD2500F2355B /* GetCurrenciesListRequest.m */; };
 		6E9AF83622B1055B00D3514D /* CreateMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */; };
 		6E9AF83722B1055B00D3514D /* CreateMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */; };
 		6E9AF83822B1055B00D3514D /* ConfirmMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */; };
@@ -2993,6 +2996,12 @@
 		6E1F521922940C9C003D1C3D /* AssestLockRecordsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssestLockRecordsService.m; sourceTree = "<group>"; };
 		6E1F5223229548F6003D1C3D /* VKTButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKTButton.m; sourceTree = "<group>"; };
 		6E1F522522954906003D1C3D /* VKTButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKTButton.h; sourceTree = "<group>"; };
+		6E2C0266230AA34100F2355B /* CurrencySettingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencySettingService.h; sourceTree = "<group>"; };
+		6E2C0267230AA34100F2355B /* CurrencySettingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencySettingService.m; sourceTree = "<group>"; };
+		6E2C0269230AA36900F2355B /* CurrencySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencySettingViewController.m; sourceTree = "<group>"; };
+		6E2C026A230AA36900F2355B /* CurrencySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencySettingViewController.h; sourceTree = "<group>"; };
+		6E2C0286230AAD2500F2355B /* GetCurrenciesListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCurrenciesListRequest.m; sourceTree = "<group>"; };
+		6E2C0287230AAD2500F2355B /* GetCurrenciesListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCurrenciesListRequest.h; sourceTree = "<group>"; };
 		6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateMemonicViewController.xib; sourceTree = "<group>"; };
 		6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemonicViewController.m; sourceTree = "<group>"; };
 		6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMemonicViewController.m; sourceTree = "<group>"; };
@@ -5973,6 +5982,7 @@
 		187268461FDE315F00C898D1 /* SystemSetting */ = {
 			isa = PBXGroup;
 			children = (
+				6E2C0285230AAD2500F2355B /* Networking */,
 				187268471FDE315F00C898D1 /* Controller */,
 				187268481FDE315F00C898D1 /* Service */,
 				187268491FDE315F00C898D1 /* View */,
@@ -5983,6 +5993,8 @@
 		187268471FDE315F00C898D1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6E2C026A230AA36900F2355B /* CurrencySettingViewController.h */,
+				6E2C0269230AA36900F2355B /* CurrencySettingViewController.m */,
 				1806FA2C200EE10800BDFEC4 /* SystemSettingViewController.h */,
 				1806FA2D200EE10800BDFEC4 /* SystemSettingViewController.m */,
 				188F7A0B20CA5A7E00911034 /* LanguageSettingViewController.h */,
@@ -5994,6 +6006,8 @@
 		187268481FDE315F00C898D1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6E2C0266230AA34100F2355B /* CurrencySettingService.h */,
+				6E2C0267230AA34100F2355B /* CurrencySettingService.m */,
 				1806FA2F200EE12A00BDFEC4 /* SystemSettingService.h */,
 				1806FA30200EE12A00BDFEC4 /* SystemSettingService.m */,
 				188F7A0E20CA5B0400911034 /* LanguageSettingService.h */,
@@ -9279,6 +9293,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		6E2C0285230AAD2500F2355B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6E2C0286230AAD2500F2355B /* GetCurrenciesListRequest.m */,
+				6E2C0287230AAD2500F2355B /* GetCurrenciesListRequest.h */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		6E9AF82D22B1055B00D3514D /* CreateMnemonic */ = {
 			isa = PBXGroup;
 			children = (
@@ -9737,6 +9760,7 @@
 				6E15521C22D5939A00F69404 /* AddContactCell.m in Sources */,
 				24C59BE020DC028B008E81A4 /* PageSegmentView.m in Sources */,
 				18ECBCC2215B340700BAE3C2 /* DappPushMessageModel.m in Sources */,
+				6E2C0288230AAD2500F2355B /* GetCurrenciesListRequest.m in Sources */,
 				183AE1F92019B8FE002041F9 /* EnterpriseListRequest.m in Sources */,
 				1886079D1FCC012F00B00EE7 /* NSMutableAttributedString+ExFoundation.m in Sources */,
 				18BE612620FF2B4C00BAD50C /* RecommandToken.m in Sources */,
@@ -9931,6 +9955,7 @@
 				183BB21F2123B3D400FA85AF /* ExcuteActionsContentTableViewCell.m in Sources */,
 				1811306D1FCD020A00BEA0D9 /* UIImageView+AFNetworking.m in Sources */,
 				18FA76CA20623C6D00545E73 /* VktPrivateKey.m in Sources */,
+				6E2C0268230AA34100F2355B /* CurrencySettingService.m in Sources */,
 				1837D76C20E3C93C005A9E98 /* WalletUtil.m in Sources */,
 				18FA76DA20623C8A00545E73 /* tommath.c in Sources */,
 				1886079B1FCC012F00B00EE7 /* NSDate+ExFoundation.m in Sources */,
@@ -10507,6 +10532,7 @@
 				1864FA541FF1F8B9005F636D /* RichListRequest.m in Sources */,
 				1862E78A20DBA62000F26629 /* VKTResourceService.m in Sources */,
 				18A2F46C1FF0A20A00B6CE43 /* FMResultSet.m in Sources */,
+				6E2C026B230AA36900F2355B /* CurrencySettingViewController.m in Sources */,
 				18DBBB2D206525F10050EE20 /* PGPickerColumnView.m in Sources */,
 				18A99A8520E6613F00E32A29 /* UIView+SDExtension.m in Sources */,
 				1862E7A320DC7C9F00F26629 /* StorageManageHeaderView.m in Sources */,

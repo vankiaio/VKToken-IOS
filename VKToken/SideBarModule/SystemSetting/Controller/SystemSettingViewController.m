@@ -18,6 +18,7 @@
 #import "Macro.h"
 #import "AuthID.h"
 #import "AuthPasswordViewController.h"
+#import "CurrencySettingViewController.h"
 
 @import LocalAuthentication;
 
@@ -78,7 +79,7 @@
                                       };//NSLocalizedString(@"语言", nil),
         }else if(LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
             _dataSourceDictionary = @{
-                                      @"firstSection" : @[NSLocalizedString(@"清空缓存", nil), NSLocalizedString(@"语言", nil), @{@"title":NSLocalizedString(_authString, nil),@"switch":@(isSwitchOn)}],
+                                      @"firstSection" : @[NSLocalizedString(@"清空缓存", nil), NSLocalizedString(@"语言", nil),NSLocalizedString(@"货币单位", nil), @{@"title":NSLocalizedString(_authString, nil),@"switch":@(isSwitchOn)}],
                                       @"secondSection" : @[ NSLocalizedString(@"法律条款与隐私政策", nil), NSLocalizedString(@"关于我们", nil)]
                                       };//NSLocalizedString(@"语言", nil),
         }
@@ -216,7 +217,11 @@
         LanguageSettingViewController *vc = [[LanguageSettingViewController alloc] init];
         vc.languageSettingViewControllerFromMode = LanguageSettingViewControllerFromOtherPage;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if([cell.textLabel.text isEqualToString:NSLocalizedString(@"清空缓存", nil)]){
+    }else if([cell.textLabel.text isEqualToString:NSLocalizedString(@"货币单位", nil)]){
+        CurrencySettingViewController *vc = [[CurrencySettingViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if([cell.textLabel.text isEqualToString:NSLocalizedString(@"清空缓存", nil)]){
         // clear cache
         NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)[0];
         NSFileManager *mgr = [NSFileManager defaultManager];
