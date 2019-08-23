@@ -168,6 +168,14 @@ public class TokenCoreVKT:NSObject{
         }
     }
     
+    @objc(changeVktPassword:::)
+    func changeVktPassword(walletID: String? = nil, oldPassword: String? = nil,  newPassword: String? = nil){
+        do {
+            
+            _ = try? WalletManager.changePassword(walletID:walletID!, oldPassword:oldPassword!, newPassword: newPassword!);
+        }
+    }
+    
     @objc(getVktMnemonic:::)
     func getVktMnemonic(walletID: String? = nil, password: String? = nil) throws -> NSString{
         do {

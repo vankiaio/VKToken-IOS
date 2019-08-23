@@ -182,19 +182,20 @@
 - (void)pushTransactionRequestOperation{
     AccountInfo *accountInfo = [[AccountsTableManager accountTable] selectAccountTableWithAccountName:self.sender];
     NSString *wif;
-//    if ([accountInfo.account_owner_public_key isEqualToString:self.required_Publickey]) {
-//        wif = [AESCrypt decrypt:accountInfo.account_owner_private_key password:self.password];
-//    }else if ([accountInfo.account_active_public_key isEqualToString:self.required_Publickey]) {
-//        wif = [AESCrypt decrypt:accountInfo.account_active_private_key password:self.password];
-//    }else{
-//        [TOASTVIEW showWithText:NSLocalizedString(@"未找到账号的私钥!", nil)];
-//        return;
-//    }
-    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
-    
-    if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] != NSOrderedSame) {
-        wif = [tokenCoreVKT getVktPrivateKey:accountInfo.account_vktoken_wallet_id :self.password: nil];
+    if ([accountInfo.account_owner_public_key isEqualToString:self.required_Publickey]) {
+        wif = [AESCrypt decrypt:accountInfo.account_owner_private_key password:self.password];
+    }else if ([accountInfo.account_active_public_key isEqualToString:self.required_Publickey]) {
+        wif = [AESCrypt decrypt:accountInfo.account_active_private_key password:self.password];
+    }else{
+        [TOASTVIEW showWithText:NSLocalizedString(@"未找到账号的私钥!", nil)];
+        return;
     }
+    
+//    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+//
+//    if([[tokenCoreVKT hasVktWallet:nil]  compare:[NSNumber numberWithInt:0]] != NSOrderedSame) {
+//        wif = [tokenCoreVKT getVktPrivateKey:accountInfo.account_vktoken_wallet_id :self.password: nil];
+//    }
     
     const int8_t *private_key = [[VKT_Key_Encode getRandomBytesDataWithWif:wif] bytes];
     //     [NSObject out_Int8_t:private_key andLength:32];

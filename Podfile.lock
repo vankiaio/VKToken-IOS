@@ -43,7 +43,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   TokenCore:
-    :commit: dbef13e3384ee841f401f4794ebb73336bd01e17
+    :commit: bb7f678b5ee4f67342f0503cce3aaa4f0ef43439
     :git: https://github.com/vankiaio/token-core-ios.git
 
 SPEC CHECKSUMS:

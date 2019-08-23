@@ -114,6 +114,14 @@
         cell.textLabel.textColor = [UIColor colorWithRGBHex:0x323334];
         cell.textLabel.text = [dict objectForKey:@"title"];
         cell.imageView.image = [UIImage imageNamed:[dict objectForKey:@"icon"]];
+        CGSize imageSize = CGSizeMake(32, 32);
+        //调整image的大小
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO,0.0);
+        CGRect imageRect=CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
+        [cell.imageView.image drawInRect:imageRect];
+        cell.imageView.image=UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     

@@ -19,14 +19,17 @@
 #import "AuthID.h"
 #import "AuthPasswordViewController.h"
 #import "CurrencySettingViewController.h"
+#import "ChangePasswordView.h"
+#import "VKToken-swift.h"
 
 @import LocalAuthentication;
 
-@interface SystemSettingViewController ()< UIGestureRecognizerDelegate, NavigationViewDelegate, UITableViewDelegate , UITableViewDataSource>
+@interface SystemSettingViewController ()< UIGestureRecognizerDelegate, NavigationViewDelegate, UITableViewDelegate , UITableViewDataSource, ChangePasswordViewDelegate>
 @property(nonatomic, strong) NavigationView *navView;
 @property(nonatomic , strong) NSDictionary *dataSourceDictionary;
 @property (nonatomic, strong) UISwitch *fingerprintLoginSwitch;
 @property (nonatomic, strong) NSString *authString;
+@property(nonatomic, strong) ChangePasswordView *changePasswordView;
 @end
 
 @implementation SystemSettingViewController
@@ -37,6 +40,15 @@
         _navView.leftBtn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal);
     }
     return _navView;
+}
+
+- (ChangePasswordView *)changePasswordView{
+    if (!_changePasswordView) {
+        _changePasswordView = [[[NSBundle mainBundle] loadNibNamed:@"ChangePasswordView" owner:nil options:nil] firstObject];
+        _changePasswordView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        _changePasswordView.delegate = self;
+    }
+    return _changePasswordView;
 }
 
 - (NSDictionary *)dataSourceDictionary{
@@ -79,8 +91,9 @@
                                       };//NSLocalizedString(@"语言", nil),
         }else if(LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
             _dataSourceDictionary = @{
-                                      @"firstSection" : @[NSLocalizedString(@"清空缓存", nil), NSLocalizedString(@"语言", nil),NSLocalizedString(@"货币单位", nil), @{@"title":NSLocalizedString(_authString, nil),@"switch":@(isSwitchOn)}],
-                                      @"secondSection" : @[ NSLocalizedString(@"法律条款与隐私政策", nil), NSLocalizedString(@"关于我们", nil)]
+                                      @"firstSection" : @[NSLocalizedString(@"清空缓存", nil), NSLocalizedString(@"语言", nil),NSLocalizedString(@"货币单位", nil),NSLocalizedString(@"修改密码", nil), @{@"title":NSLocalizedString(_authString, nil),@"switch":@(isSwitchOn)}]
+//                                      ,
+//                                      @"secondSection" : @[ NSLocalizedString(@"法律条款与隐私政策", nil), NSLocalizedString(@"关于我们", nil)]
                                       };//NSLocalizedString(@"语言", nil),
         }
     }
@@ -252,6 +265,9 @@
         [self.navigationController pushViewController:vc animated:YES];
 
         
+    }else if([cell.textLabel.text isEqualToString:NSLocalizedString(@"修改密码", nil)]){
+
+        [self.view addSubview:self.changePasswordView];
     }
 }
 
@@ -261,6 +277,71 @@
 }
 -(void)leftBtnDidClick{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+//ChangePasswordViewDelegate
+- (void)cancleBtnDidClick:(UIButton *)sender{
+    [self remove_change_passwordView];
+}
+
+- (void)confirmPasswordBtnDidClick:(UIButton *)sender{
+    // 校验输入
+    if (IsStrEmpty(self.changePasswordView.oraginalPasswordTF.text) || IsStrEmpty(self.changePasswordView.confirmPasswordTF.text) || IsStrEmpty(self.changePasswordView.inputNewPasswordTF.text)) {
+        [TOASTVIEW showWithText:NSLocalizedString(@"输入不能为空!", nil)];
+        return;
+    }
+    
+    if (![self.changePasswordView.inputNewPasswordTF.text isEqualToString:self.changePasswordView.confirmPasswordTF.text]) {
+        [TOASTVIEW showWithText:NSLocalizedString(@"两次输入的密码不一致!", nil)];
+        return;
+    }
+    
+    Wallet *current_wallet = CURRENT_WALLET;
+    if (![WalletUtil validateWalletPasswordWithSha256:current_wallet.wallet_shapwd password:self.changePasswordView.oraginalPasswordTF.text]) {
+        [TOASTVIEW showWithText:NSLocalizedString(@"原始密码输入有误!", nil)];
+        [self remove_change_passwordView];
+        return;
+    }
+    [SVProgressHUD show];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 开始修改密码
+        [self changeWalletPassword];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            [self remove_change_passwordView];
+        });
+    });
+}
+
+- (void)changeWalletPassword{
+    NSArray *allLocalAccount = [[AccountsTableManager accountTable] selectAccountTable];
+    Wallet *wallet = CURRENT_WALLET;
+    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+    for (AccountInfo *model in allLocalAccount) {
+        [tokenCoreVKT changeVktPassword: model.account_vktoken_wallet_id: self.changePasswordView.oraginalPasswordTF.text:self.changePasswordView.confirmPasswordTF.text];
+        NSString *decrypt_active_private_key = [AESCrypt decrypt:model.account_active_private_key password:self.changePasswordView.oraginalPasswordTF.text];
+        NSString *decrypt_owner_private_key = [AESCrypt decrypt:model.account_owner_private_key password:self.changePasswordView.oraginalPasswordTF.text];
+        
+        NSString *encrypt_active_private_key = [AESCrypt encrypt:decrypt_active_private_key password:self.changePasswordView.confirmPasswordTF.text];
+        NSString *encrypt_owner_private_key = [AESCrypt encrypt:decrypt_owner_private_key password:self.changePasswordView.confirmPasswordTF.text];
+        
+        // update table
+        BOOL result = [[AccountsTableManager accountTable] executeUpdate:[NSString stringWithFormat: @"UPDATE '%@' SET account_active_private_key = '%@', account_owner_private_key = '%@'  WHERE account_name = '%@'", wallet.account_info_table_name, encrypt_active_private_key, encrypt_owner_private_key , model.account_name]];
+        if (result) {
+            NSLog(@"changeWalletPassword Success");
+        }
+    }
+    
+    // 验证通过, 修改密码
+    BOOL result = [[WalletTableManager walletTable] executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET wallet_shapwd = '%@' WHERE wallet_uid = '%@'",  WALLET_TABLE, [WalletUtil generate_wallet_shapwd_withPassword:self.changePasswordView.confirmPasswordTF.text], CURRENT_WALLET_UID]];
+    if (result) {
+        [TOASTVIEW showWithText:NSLocalizedString(@"修改密码成功!", nil)];
+    }
+}
+
+- (void)remove_change_passwordView{
+    [self.changePasswordView removeFromSuperview];
+    self.changePasswordView = nil;
 }
 
 @end

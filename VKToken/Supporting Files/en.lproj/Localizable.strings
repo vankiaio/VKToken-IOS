@@ -90,6 +90,7 @@
 "当前账号"="Current Account";
 "账号"="Account";
 "主账号"="Main Account";
+"总资产"="Assets";
 
 /*
  AssestsMainTableViewCell.m

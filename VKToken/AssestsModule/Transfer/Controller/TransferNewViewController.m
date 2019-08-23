@@ -413,8 +413,9 @@
     TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
     
     AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.headerView.nameFromTF.text];
-    
-    if([[tokenCoreVKT  verifyWalletPassword:model.account_vktoken_wallet_id :self.loginPasswordView.inputPasswordTF.text:nil]  compare:[NSNumber numberWithInt:0]] == NSOrderedSame) {
+    Wallet *current_wallet = CURRENT_WALLET;
+
+    if (![WalletUtil validateWalletPasswordWithSha256:current_wallet.wallet_shapwd password:self.loginPasswordView.inputPasswordTF.text]) {
         [TOASTVIEW showWithText:NSLocalizedString(@"密码输入错误!", nil)];
         return;
     }
@@ -449,7 +450,7 @@
         }
         NSLog(@"approve_abi_to_json_request_success: --binargs: %@",data[@"data"][@"binargs"] );
         AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.headerView.nameFromTF.text];
-        weakSelf.mainService.available_keys = @[VALIDATE_STRING([tokenCoreVKT getVktPublicKey: model.account_vktoken_wallet_id: self.loginPasswordView.inputPasswordTF.text:nil]) , VALIDATE_STRING([tokenCoreVKT getVktPublicKey: model.account_vktoken_wallet_id :self.loginPasswordView.inputPasswordTF.text:nil])];
+        weakSelf.mainService.available_keys = @[VALIDATE_STRING(model.account_owner_public_key) , VALIDATE_STRING(model.account_active_public_key)];
         
         weakSelf.mainService.action = ContractAction_TRANSFER;
         weakSelf.mainService.code = weakSelf.currentToken.contract_name;
