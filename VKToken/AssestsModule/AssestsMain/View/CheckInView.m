@@ -22,7 +22,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     tap.delegate = self;
     [self addGestureRecognizer:tap];
-    self.signedinSuccessLabel.text = NSLocalizedString(@"恭喜签到成功", nil);
+    self.signedinSuccessLabel.text = NSLocalizedString(@"签到成功", nil);
     
 //    [self.bottomBackgroundView addSubview:self.socialSharePanelView];
 }

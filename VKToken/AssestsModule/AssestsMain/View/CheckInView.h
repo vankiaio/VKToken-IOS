@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet BaseLabel1 *accountName;
 @property (weak, nonatomic) IBOutlet BaseLabel1 *todayScoreLabel;
 @property (weak, nonatomic) IBOutlet BaseLabel1 *totalScoreLabel;
+@property (weak, nonatomic) IBOutlet BaseLabel1 *consecutiveDaysLabel;
+
 /**
  修改圆角用
  */

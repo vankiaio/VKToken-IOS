@@ -997,8 +997,14 @@
     WS(weakSelf);
     self.candyScoreRequest.uid = CURRENT_ACCOUNT_NAME;
     [self.candyScoreRequest getDataSusscess:^(id DAO, id data) {
-        weakSelf.checkInView.todayScoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"今日签到已获得%@", nil), VALIDATE_NUMBER(data[@"data"][@"scoreNum"])];
-        weakSelf.checkInView.totalScoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"签到共获得%@", nil) , VALIDATE_NUMBER(data[@"data"][@"totalscoreNum"])];
+        if([data[@"data"][@"isRewardedToday"] boolValue]){
+            weakSelf.checkInView.signedinSuccessLabel.text = NSLocalizedString(@"今日已签到", nil);
+        }else{
+            weakSelf.checkInView.signedinSuccessLabel.text = NSLocalizedString(@"签到成功", nil);
+        }
+        weakSelf.checkInView.todayScoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"今日已获得%@", nil), VALIDATE_NUMBER(data[@"data"][@"scoreNum"])];
+        weakSelf.checkInView.consecutiveDaysLabel.text = [NSString stringWithFormat:NSLocalizedString(@"连续签到%@天", nil) ,VALIDATE_NUMBER(data[@"data"][@"totalscoreDays"])];
+        weakSelf.checkInView.totalScoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"共获得%@", nil) , VALIDATE_NUMBER(data[@"data"][@"totalscoreNum"])];
     } failure:^(id DAO, NSError *error) {
         NSLog(@"%@",error);
     }];

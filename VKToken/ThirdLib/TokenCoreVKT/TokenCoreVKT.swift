@@ -92,6 +92,7 @@ public class TokenCoreVKT:NSObject{
                 else {
                     return "";
             }
+
             return wallet.walletID as NSString;
             
         }
