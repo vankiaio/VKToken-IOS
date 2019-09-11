@@ -1,9 +1,9 @@
 
-/* Class = "UILabel"; text = "    交易历史"; ObjectID = "5KL-o6-YHw"; */
-"5KL-o6-YHw.text" = "    Tx history";
-
 /* Class = "UIButton"; normalTitle = "生成收款二维码"; ObjectID = "Ocb-6Z-yYt"; */
 "Ocb-6Z-yYt.normalTitle" = "Get Receiving QR Code";
+
+/* Class = "UILabel"; text = "指定金额"; ObjectID = "STz-eT-USL"; */
+"STz-eT-USL.text" = "Specified amount";
 
 /* Class = "UITextField"; placeholder = "填写数额"; ObjectID = "icK-vt-TuD"; */
 "icK-vt-TuD.placeholder" = "Input the amount";

@@ -987,11 +987,11 @@
 		6E2C0268230AA34100F2355B /* CurrencySettingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0267230AA34100F2355B /* CurrencySettingService.m */; };
 		6E2C026B230AA36900F2355B /* CurrencySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0269230AA36900F2355B /* CurrencySettingViewController.m */; };
 		6E2C0288230AAD2500F2355B /* GetCurrenciesListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0286230AAD2500F2355B /* GetCurrenciesListRequest.m */; };
+		6E5F4BD32328EA040006034D /* MemonicImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5F4BD52328EA040006034D /* MemonicImportWalletViewController.xib */; };
 		6E9AF83622B1055B00D3514D /* CreateMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */; };
 		6E9AF83722B1055B00D3514D /* CreateMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */; };
 		6E9AF83822B1055B00D3514D /* ConfirmMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */; };
 		6E9AF83922B1055B00D3514D /* ConfirmMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83322B1055B00D3514D /* ConfirmMemonicViewController.xib */; };
-		6E9AF83F22B106B700D3514D /* MemonicImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83C22B106B700D3514D /* MemonicImportWalletViewController.xib */; };
 		6E9AF84022B106B700D3514D /* MemonicImportWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83D22B106B700D3514D /* MemonicImportWalletViewController.m */; };
 		6E9AF84222B1E80000D3514D /* RetrivePathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF84122B1E80000D3514D /* RetrivePathCell.m */; };
 		6E9AF84622B1EF7D00D3514D /* PasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF84522B1EF7D00D3514D /* PasswordView.m */; };
@@ -1970,8 +1970,6 @@
 		186F697220F4953D00FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TransferHeaderView.strings; sourceTree = "<group>"; };
 		186F697420F4953F00FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TransferHeaderView.strings"; sourceTree = "<group>"; };
 		186F697620F4954700FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RecieveHeaderView.xib; sourceTree = "<group>"; };
-		186F697920F4954900FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecieveHeaderView.strings; sourceTree = "<group>"; };
-		186F697B20F4954A00FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RecieveHeaderView.strings"; sourceTree = "<group>"; };
 		186F697D20F4955100FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RecieveQRCodeView.xib; sourceTree = "<group>"; };
 		186F698020F4955200FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecieveQRCodeView.strings; sourceTree = "<group>"; };
 		186F698220F4955300FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RecieveQRCodeView.strings"; sourceTree = "<group>"; };
@@ -2057,8 +2055,6 @@
 		186F6A4B20F4972E00FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ImportPocketHeaderView.strings; sourceTree = "<group>"; };
 		186F6A4D20F4972F00FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ImportPocketHeaderView.strings"; sourceTree = "<group>"; };
 		186F6A4F20F4973800FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreateAccountHeaderView.xib; sourceTree = "<group>"; };
-		186F6A5220F4973A00FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CreateAccountHeaderView.strings; sourceTree = "<group>"; };
-		186F6A5420F4973B00FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CreateAccountHeaderView.strings"; sourceTree = "<group>"; };
 		186F6A5620F4975100FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BBCreateAccountHeaderView.xib; sourceTree = "<group>"; };
 		186F6A5920F4975300FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BBCreateAccountHeaderView.strings; sourceTree = "<group>"; };
 		186F6A5B20F4975400FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BBCreateAccountHeaderView.strings"; sourceTree = "<group>"; };
@@ -3002,13 +2998,19 @@
 		6E2C026A230AA36900F2355B /* CurrencySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencySettingViewController.h; sourceTree = "<group>"; };
 		6E2C0286230AAD2500F2355B /* GetCurrenciesListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCurrenciesListRequest.m; sourceTree = "<group>"; };
 		6E2C0287230AAD2500F2355B /* GetCurrenciesListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCurrenciesListRequest.h; sourceTree = "<group>"; };
+		6E5F4BD02328E3C30006034D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecieveHeaderView.strings; sourceTree = "<group>"; };
+		6E5F4BD22328E3C40006034D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RecieveHeaderView.strings"; sourceTree = "<group>"; };
+		6E5F4BD42328EA040006034D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MemonicImportWalletViewController.xib; sourceTree = "<group>"; };
+		6E5F4BD72328EA120006034D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MemonicImportWalletViewController.strings; sourceTree = "<group>"; };
+		6E5F4BD92328EA170006034D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MemonicImportWalletViewController.strings"; sourceTree = "<group>"; };
+		6E5F4BDC2328ECD70006034D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CreateAccountHeaderView.strings; sourceTree = "<group>"; };
+		6E5F4BDE2328ECDE0006034D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CreateAccountHeaderView.strings"; sourceTree = "<group>"; };
 		6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateMemonicViewController.xib; sourceTree = "<group>"; };
 		6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemonicViewController.m; sourceTree = "<group>"; };
 		6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMemonicViewController.m; sourceTree = "<group>"; };
 		6E9AF83322B1055B00D3514D /* ConfirmMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmMemonicViewController.xib; sourceTree = "<group>"; };
 		6E9AF83422B1055B00D3514D /* ConfirmMemonicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmMemonicViewController.h; sourceTree = "<group>"; };
 		6E9AF83522B1055B00D3514D /* CreateMemonicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemonicViewController.h; sourceTree = "<group>"; };
-		6E9AF83C22B106B700D3514D /* MemonicImportWalletViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemonicImportWalletViewController.xib; sourceTree = "<group>"; };
 		6E9AF83D22B106B700D3514D /* MemonicImportWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = sourcecode.c.objc; path = MemonicImportWalletViewController.m; sourceTree = "<group>"; };
 		6E9AF83E22B106B700D3514D /* MemonicImportWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemonicImportWalletViewController.h; sourceTree = "<group>"; };
 		6E9AF84122B1E80000D3514D /* RetrivePathCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RetrivePathCell.m; sourceTree = "<group>"; };
@@ -9342,7 +9344,7 @@
 		6E9AF83B22B106B700D3514D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6E9AF83C22B106B700D3514D /* MemonicImportWalletViewController.xib */,
+				6E5F4BD52328EA040006034D /* MemonicImportWalletViewController.xib */,
 				6E9AF83D22B106B700D3514D /* MemonicImportWalletViewController.m */,
 				6E9AF83E22B106B700D3514D /* MemonicImportWalletViewController.h */,
 			);
@@ -9627,7 +9629,7 @@
 				18CEA641210233A500B2BFE2 /* PocketManagementHeaderView.xib in Resources */,
 				18A99B0720E6644000E32A29 /* Vkt.js in Resources */,
 				18CE935221A4F627002F958E /* ImportAccountPermisionHeaderView.xib in Resources */,
-				6E9AF83F22B106B700D3514D /* MemonicImportWalletViewController.xib in Resources */,
+				6E5F4BD32328EA040006034D /* MemonicImportWalletViewController.xib in Resources */,
 				18DBBB30206525F10050EE20 /* README.md in Resources */,
 				6E15521622D4980000F69404 /* InvitationCodeHeaderView.xib in Resources */,
 				1865C3A92137E5B100FE18C0 /* ForwardRedPacketHeaderView.xib in Resources */,
@@ -10756,8 +10758,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				186F697620F4954700FFF881 /* Base */,
-				186F697920F4954900FFF881 /* en */,
-				186F697B20F4954A00FFF881 /* zh-Hans */,
+				6E5F4BD02328E3C30006034D /* en */,
+				6E5F4BD22328E3C40006034D /* zh-Hans */,
 			);
 			name = RecieveHeaderView.xib;
 			sourceTree = "<group>";
@@ -11046,8 +11048,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				186F6A4F20F4973800FFF881 /* Base */,
-				186F6A5220F4973A00FFF881 /* en */,
-				186F6A5420F4973B00FFF881 /* zh-Hans */,
+				6E5F4BDC2328ECD70006034D /* en */,
+				6E5F4BDE2328ECDE0006034D /* zh-Hans */,
 			);
 			name = CreateAccountHeaderView.xib;
 			sourceTree = "<group>";
@@ -11376,6 +11378,16 @@
 				6E15525722D8948800F69404 /* en */,
 			);
 			name = ExportMnemonicView.xib;
+			sourceTree = "<group>";
+		};
+		6E5F4BD52328EA040006034D /* MemonicImportWalletViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E5F4BD42328EA040006034D /* Base */,
+				6E5F4BD72328EA120006034D /* en */,
+				6E5F4BD92328EA170006034D /* zh-Hans */,
+			);
+			name = MemonicImportWalletViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

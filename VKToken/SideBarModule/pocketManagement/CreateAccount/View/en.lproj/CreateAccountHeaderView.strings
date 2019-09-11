@@ -3,14 +3,19 @@
 "3kw-Jf-ufJ.normalTitle" = "Agree Term of Usage and Private Policy by login";
 
 /* Class = "UIButton"; normalTitle = "创建"; ObjectID = "EDq-RB-L2T"; */
-"EDq-RB-L2T.normalTitle" = "Create";
+"EDq-RB-L2T.normalTitle" = "Create an new account";
 
-/* Class = "UILabel"; text = "账号名称"; ObjectID = "EKa-pF-KHJ"; */
-"EKa-pF-KHJ.text" = "Account Name";
+/* Class = "UITextField"; placeholder = "请再次输入钱包密码。"; ObjectID = "XH0-MS-HVF"; */
+"XH0-MS-HVF.placeholder" = "Please enter your wallet password again.";
 
-/* Class = "UITextField"; placeholder = "5~12位字符，只能由小写字母a~z和数字1~5组成。"; ObjectID = "aK5-fw-Dyj"; */
-"aK5-fw-Dyj.placeholder" = "Make up of 1-5 and a-z, 5~12 characters.";
+/* Class = "UITextField"; placeholder = "用户名,5~12位字符,只能由小写a~z和1~5组成"; ObjectID = "aK5-fw-Dyj"; */
+"aK5-fw-Dyj.placeholder" = "5~12 characters,can only lowercase a~z &1~5";
 
-/* Class = "BaseTextView"; placeholder = "备份提示：由于区块链的去中心化特性，VKT账号一旦丢失将无法找回。
- 创建账号后请根据下页的提示妥善备份，以防账号丢失带来的损失。"; ObjectID = "ul6-4s-jaR"; */
-"ul6-4s-jaR.placeholder" = "Warning：VKT account could not be recovered if you foget it due to the decentralization of blockchain. \nDO backup according to the following flow, or you will take the risk of losing your account and asset";
+/* Class = "UILabel"; text = "如无邀请码，可不填"; ObjectID = "b5m-QU-6t8"; */
+"b5m-QU-6t8.text" = "If no invitation code,leave it blank.";
+
+/* Class = "UITextField"; placeholder = "请输入钱包密码。"; ObjectID = "kck-tU-vQl"; */
+"kck-tU-vQl.placeholder" = "Please enter your wallet password.";
+
+/* Class = "UITextField"; placeholder = "请填写5位字符邀请码。"; ObjectID = "wVd-YH-Fzp"; */
+"wVd-YH-Fzp.placeholder" = "Please fill in the 5-digit invitation code.";

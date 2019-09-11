@@ -1,0 +1,36 @@
+
+/* Class = "UIButton"; normalTitle = "开始导入"; ObjectID = "Djp-eU-pF4"; */
+"Djp-eU-pF4.normalTitle" = "Start importing";
+
+/* Class = "UILabel"; text = "提示信息"; ObjectID = "GqV-3w-ddw"; */
+"GqV-3w-ddw.text" = "Prompt Message";
+
+/* Class = "UILabel"; text = "确认密码"; ObjectID = "NY1-jl-Qne"; */
+"NY1-jl-Qne.text" = "Confirm Password";
+
+/* Class = "UIButton"; normalTitle = "服务及隐私条款"; ObjectID = "Rxf-BF-lLG"; */
+"Rxf-BF-lLG.normalTitle" = "Service and Privacy Policy";
+
+/* Class = "UILabel"; text = "请输入助记词，按空格做分隔"; ObjectID = "Vqe-7v-9xV"; */
+"Vqe-7v-9xV.text" = "Please enter a mnemonic, separated by spaces";
+
+/* Class = "UILabel"; text = "以太坊体系"; ObjectID = "YJ8-X9-UDp"; */
+"YJ8-X9-UDp.text" = "以太坊体系";
+
+/* Class = "UILabel"; text = "设置密码"; ObjectID = "fGY-KF-qpl"; */
+"fGY-KF-qpl.text" = "Password";
+
+/* Class = "UITextField"; text = "m/44'/60'/0'/0/0"; ObjectID = "hPK-oX-lOV"; */
+"hPK-oX-lOV.text" = "m/44'/60'/0'/0/0";
+
+/* Class = "UILabel"; text = "选择路径"; ObjectID = "pLh-vR-OXO"; */
+"pLh-vR-OXO.text" = "选择路径";
+
+/* Class = "UILabel"; text = "钱包体系"; ObjectID = "t65-QK-OLZ"; */
+"t65-QK-OLZ.text" = "钱包体系";
+
+/* Class = "UITextField"; placeholder = "选填"; ObjectID = "txc-OL-cDJ"; */
+"txc-OL-cDJ.placeholder" = "Optional";
+
+/* Class = "UIButton"; normalTitle = "我已仔细阅读并同意"; ObjectID = "xpO-0u-Z23"; */
+"xpO-0u-Z23.normalTitle" = "I've read & agreed";

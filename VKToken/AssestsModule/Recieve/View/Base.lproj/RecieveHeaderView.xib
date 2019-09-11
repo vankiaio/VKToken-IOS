@@ -46,8 +46,11 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="指定金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STz-eT-USL" userLabel="Notice Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="指定金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STz-eT-USL">
                                     <rect key="frame" x="138.5" y="341" width="68" height="24"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" none="YES"/>
+                                    </accessibility>
                                     <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="17"/>
                                     <color key="textColor" red="0.35686274509999999" green="0.82352941180000006" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -250,6 +253,7 @@
                 <outlet property="assetLogoImg" destination="v2n-T4-khp" id="wQE-1q-VSF"/>
                 <outlet property="generateQRCodeBtn" destination="Ocb-6Z-yYt" id="dLQ-hD-u13"/>
                 <outlet property="mainView" destination="v7A-EC-7tI" id="j2S-nU-yzI"/>
+                <outlet property="noticeLabel" destination="STz-eT-USL" id="YCD-sA-zMC"/>
                 <outlet property="qrView" destination="yod-gk-gjf" id="69f-Q6-Tcv"/>
                 <outlet property="recieveAssestsQRCodeImg" destination="3TE-9y-nde" id="rZx-uc-vS3"/>
                 <outlet property="tipLabel" destination="nSz-Dy-8MG" id="Ynh-yj-MLh"/>

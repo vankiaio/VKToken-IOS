@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *assetLogoImg;
 @property (weak, nonatomic) IBOutlet UILabel *accountTFLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noticeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *generateQRCodeBtn;
 /**
  收款二维码

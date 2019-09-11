@@ -1,9 +1,9 @@
 
-/* Class = "UILabel"; text = "    交易历史"; ObjectID = "5KL-o6-YHw"; */
-"5KL-o6-YHw.text" = "    交易历史";
-
 /* Class = "UIButton"; normalTitle = "生成收款二维码"; ObjectID = "Ocb-6Z-yYt"; */
 "Ocb-6Z-yYt.normalTitle" = "生成收款二维码";
+
+/* Class = "UILabel"; text = "指定金额"; ObjectID = "STz-eT-USL"; */
+"STz-eT-USL.text" = "指定金额";
 
 /* Class = "UITextField"; placeholder = "填写数额"; ObjectID = "icK-vt-TuD"; */
 "icK-vt-TuD.placeholder" = "填写数额";
