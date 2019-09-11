@@ -80,10 +80,10 @@
     self.mainService.model = self.model;
     
     
-    if ([CURRENT_ACCOUNT_NAME isEqualToString:self.model.from]) {
+    if ([self.currentAccountName isEqualToString:self.model.from]) {
         self.headerView.amountLabel.text = [NSString stringWithFormat:@"-%@",  self.model.amount];
 //        self.headerView.amountLabel.textColor = LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE ? HEXCOLOR(0xFFFFFF ) : HEXCOLOR(0x140F26 );
-    }else if([CURRENT_ACCOUNT_NAME isEqualToString:self.model.to]){
+    }else if([self.currentAccountName isEqualToString:self.model.to]){
         self.headerView.amountLabel.text = [NSString stringWithFormat:@"+%@",  self.model.amount];
 //        self.amountLabel.textColor = HEXCOLOR(0xE903C);
     }
@@ -213,10 +213,10 @@
 - (void)footerBtnDidClick{
     DAppDetailViewController *vc = [[DAppDetailViewController alloc] init];
     DappModel *model = [[DappModel alloc] init];
-    model.dappUrl = [NSString stringWithFormat:@"http://tracker.devicexx.com/transactions/%@", self.model.trxid];
+    model.dappUrl = [NSString stringWithFormat:@"http://tracker.greaspace.com/transactions/%@", self.model.trxid];
     model.dappName = @"VKT Tracker";
     vc.model = model;
-    vc.choosedAccountName = CURRENT_ACCOUNT_NAME;
+    vc.choosedAccountName = self.currentAccountName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

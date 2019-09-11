@@ -293,6 +293,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TransactionRecord *model = self.transactionRecordsService.dataSourceArray[indexPath.row];
     TransferDetailsViewController *vc = [[TransferDetailsViewController alloc] init];
+    vc.currentAccountName = self.currentAccountName;
     vc.model = model;
     [self.navigationController pushViewController:vc animated:YES];
 }

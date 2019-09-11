@@ -10,6 +10,6 @@
 #import "TransactionRecord.h"
 
 @interface TransferDetailsViewController : BaseViewController
-
+@property(nonatomic , strong) NSString *currentAccountName;
 @property(nonatomic , strong) TransactionRecord *model;
 @end

@@ -49,7 +49,7 @@
  AssestDetailFooterView.m
  */
 "发起转账"="转账";
-"发起收款"="发起收款";
+"发起收款"="收款";
 "发送红包"="发送红包";
 
 /*
@@ -98,7 +98,7 @@
 /*
  RecieveViewController.m
  */
-"资产收款"="收款";
+"收款"="收款";
 
 /*
  ForwardRedPacketViewController.m
@@ -735,6 +735,7 @@
 /*
  TransferDetailsService.m
  */
+"转账类型"="转账类型";
 "发起人"="发起人";
 "接收人"="接收人";
 "数量"="数量";
@@ -743,6 +744,8 @@
 "区块时间"="区块时间";
 "CPU消耗"="CPU消耗";
 "net消耗"="net消耗";
+"transfer"="转账";
+"reward"="签到奖励";
 
 /*
  TransferDetailsViewController.m

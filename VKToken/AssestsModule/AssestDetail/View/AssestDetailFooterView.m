@@ -19,9 +19,9 @@
         NSMutableArray *arr = [NSMutableArray array];
         NSArray *imageArr = @[@"transfer_icon", @"recieve_white" , @"redpacket_icon"];
         if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE)  {
-            arr = [NSMutableArray arrayWithObjects:NSLocalizedString(@"发起转账", nil), NSLocalizedString(@"资产收款", nil), nil];
+            arr = [NSMutableArray arrayWithObjects:NSLocalizedString(@"转账", nil), NSLocalizedString(@"收款", nil), nil];
         }else if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE){
-            arr = [NSMutableArray arrayWithObjects:NSLocalizedString(@"发起转账", nil), NSLocalizedString(@"资产收款", nil), NSLocalizedString(@"发红包", nil), nil];
+            arr = [NSMutableArray arrayWithObjects:NSLocalizedString(@"转账", nil), NSLocalizedString(@"收款", nil), NSLocalizedString(@"发红包", nil), nil];
         }
         CGFloat itemWidth = SCREEN_WIDTH/arr.count -30;
         CGFloat itemheight = TABBAR_HEIGHT -30;

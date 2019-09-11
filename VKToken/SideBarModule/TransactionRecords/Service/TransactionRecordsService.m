@@ -50,7 +50,8 @@
                 }
 
                 //transfer
-                if ([record.transactionType isEqualToString:@"transfer"]) {
+                if ([record.transactionType isEqualToString:@"transfer"] ||
+                    [record.transactionType isEqualToString:@"reward"]) {
                     [weakSelf.responseArray addObject:record];
                 }
             }
@@ -87,7 +88,8 @@
                     record.assestsType = quantityArr[1];
                 }
 
-                if ([record.transactionType isEqualToString:@"transfer"]) {
+                if ([record.transactionType isEqualToString:@"transfer"] ||
+                    [record.transactionType isEqualToString:@"reward"]) {
                     [weakSelf.responseArray addObject:record];
                 }
             }

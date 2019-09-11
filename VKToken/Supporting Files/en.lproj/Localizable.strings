@@ -120,7 +120,7 @@
 /*
  RecieveViewController.m
  */
-"资产收款"="Receive";
+"收款"="Receive";
 
 /*
  ForwardRedPacketViewController.m
@@ -765,6 +765,7 @@
 /*
  TransferDetailsService.m
  */
+"转账类型"="Transfer Type";
 "发起人"="From";
 "接收人"="To";
 "数量"="Quantity";
@@ -773,6 +774,8 @@
 "区块时间"="Block Time";
 "CPU消耗"="Transfer CPU";
 "net消耗"="Transfer Net";
+"transfer"="transfer";
+"reward"="Sign-in Reward";
 
 /*
  TransferDetailsViewController.m

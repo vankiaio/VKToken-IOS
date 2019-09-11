@@ -935,6 +935,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//  NavigationViewDelegate
+-(void)leftBtnDidClick{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)backNative {
     if([self.webView canGoBack]) {
         //如果有则返回

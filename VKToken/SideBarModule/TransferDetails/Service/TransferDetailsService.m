@@ -33,8 +33,8 @@
     }
     
     
-    NSArray *secondSectionNameArr = [NSArray arrayWithObjects:NSLocalizedString(@"发起人", nil) ,NSLocalizedString(@"接收人", nil) , nil];
-    NSArray *secondSecionItemDetailArr = [NSArray arrayWithObjects:self.model.from, self.model.to, nil];
+    NSArray *secondSectionNameArr = [NSArray arrayWithObjects:NSLocalizedString(@"转账类型", nil) ,NSLocalizedString(@"发起人", nil) ,NSLocalizedString(@"接收人", nil) , nil];
+    NSArray *secondSecionItemDetailArr = [NSArray arrayWithObjects:NSLocalizedString(self.model.transactionType, nil), self.model.from, self.model.to, nil];
     NSMutableArray *secondSecionModelArr = [NSMutableArray array];
     for (int i = 0 ; i < secondSectionNameArr.count; i++) {
         OptionModel *item = [[OptionModel alloc] init];
