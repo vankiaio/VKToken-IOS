@@ -184,6 +184,7 @@
             <connections>
                 <outlet property="accountNameTF" destination="aK5-fw-Dyj" id="0Wf-T9-LyA"/>
                 <outlet property="agreeItemBtn" destination="TXA-SA-Z7G" id="bh7-aG-IYO"/>
+                <outlet property="inviteCodeTF" destination="wVd-YH-Fzp" id="Wac-kW-m2o"/>
                 <outlet property="passwordToConfirm" destination="XH0-MS-HVF" id="MR0-gT-dwt"/>
                 <outlet property="passwordToSet" destination="kck-tU-vQl" id="V3W-nh-8D1"/>
                 <outlet property="tipTextView" destination="ul6-4s-jaR" id="3IV-dc-lXI"/>

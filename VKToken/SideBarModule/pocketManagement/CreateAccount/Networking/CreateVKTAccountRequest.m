@@ -19,8 +19,8 @@
              @"uid" : VALIDATE_STRING(self.uid),
              @"vktAccountName" : VALIDATE_STRING(self.vktAccountName),
              @"activeKey" : VALIDATE_STRING(self.activeKey),
-             @"ownerKey" : VALIDATE_STRING(self.ownerKey)
-             
+             @"ownerKey" : VALIDATE_STRING(self.ownerKey),
+             @"invitationCode" : VALIDATE_STRING(self.inviteCode)
              };
 }
 @end

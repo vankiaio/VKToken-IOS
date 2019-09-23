@@ -5,4 +5,5 @@ target "VKToken" do
   pod 'PocketSocket', '~> 1.0.1'
   pod 'Toast'
   pod 'Masonry'
+  pod 'FCUUID'
 end

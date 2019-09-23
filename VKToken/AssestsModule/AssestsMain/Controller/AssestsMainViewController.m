@@ -6,6 +6,7 @@
 //  Copyright © 2017年 vankiachain. All rights reserved.
 //
 
+#import <CoreMotion/CoreMotion.h>
 #import "AssestsMainViewController.h"
 #import "AssestsDetailViewController.h"
 #import "CustomNavigationView.h"
@@ -66,6 +67,8 @@
 #import "CheckInView.h"
 #import "CandyScoreRequest.h"
 #import "ImportAccountWithoutAccountNameBaseViewController.h"
+#import "UploadAccessInfoRequest.h"
+#import "FCUUID.h"
 #import "VKToken-swift.h"
 
 @interface AssestsMainViewController ()<UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, ChangeAccountViewControllerDelegate, CQMarqueeViewDelegate, AdvertisementViewDelegate, PocketManagementViewControllerDelegate, VersionUpdateTipViewDelegate, AddAssestsViewControllerDelegate, AccountNotExistViewDelegate, CommonDialogHasTitleViewDelegate, AssestsMainAddAccountViewDelegate>
@@ -80,6 +83,7 @@
 @property(nonatomic, strong) UIButton *inviteFriendBtn;
 @property(nonatomic , strong) VersionUpdateTipView *versionUpdateTipView;
 @property(nonatomic , strong) GetVersionInfoRequest *getVersionInfoRequest;
+@property(nonatomic , strong) UploadAccessInfoRequest *uploadAccessInfoRequest;
 @property(nonatomic , strong) VersionUpdateModel *versionUpdateModel;
 @property(nonatomic , strong) NSMutableArray *ids;
 @property(nonatomic , strong) GetAccountOrderStatusRequest *getAccountOrderStatusRequest;
@@ -185,6 +189,13 @@
         _getVersionInfoRequest = [[GetVersionInfoRequest alloc] init];
     }
     return _getVersionInfoRequest;
+}
+
+- (UploadAccessInfoRequest *)uploadAccessInfoRequest{
+    if (!_uploadAccessInfoRequest) {
+        _uploadAccessInfoRequest = [[UploadAccessInfoRequest alloc] init];
+    }
+    return _uploadAccessInfoRequest;
 }
 
 - (NSMutableArray *)ids{
@@ -303,6 +314,9 @@
         leftEdgeGesture.edges = UIRectEdgeLeft;
         [self.view addGestureRecognizer:leftEdgeGesture];
         leftEdgeGesture.delegate = self;
+        
+        // uploaddevieceinfo
+        [self uploadAccessInfo];
         
         // 配置开屏广告
         //    [self configAdvertisement];
@@ -801,6 +815,21 @@
             [weakSelf.versionUpdateTipView setModel:weakSelf.versionUpdateModel];
         }else{
             
+        }
+    } failure:^(id DAO, NSError *error) {
+        NSLog(@"%@", error);
+        
+    }];
+}
+
+- (void)uploadAccessInfo{
+    WS(weakSelf);
+    self.uploadAccessInfoRequest.uid = CURRENT_ACCOUNT_NAME;
+    self.uploadAccessInfoRequest.os = @"2";
+    self.uploadAccessInfoRequest.did = [FCUUID uuidForDevice];
+    [self.uploadAccessInfoRequest postDataSuccess:^(id DAO, id data) {
+        if (![data[@"code"] isEqualToNumber:@0]) {
+            NSLog(@"%s", "uploadAccessInfo Failed");
         }
     } failure:^(id DAO, NSError *error) {
         NSLog(@"%@", error);

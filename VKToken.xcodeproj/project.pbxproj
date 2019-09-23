@@ -691,9 +691,6 @@
 		18BA1F232111B762008558DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F222111B761008558DE /* QuartzCore.framework */; };
 		18BA1F252111B778008558DE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F242111B778008558DE /* CoreText.framework */; };
 		18BA1F272111B78A008558DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F262111B789008558DE /* CoreGraphics.framework */; };
-		18BA1F292111B79E008558DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F282111B79E008558DE /* UIKit.framework */; };
-		18BA1F2B2111B7BC008558DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F2A2111B7BC008558DE /* Foundation.framework */; };
-		18BA1F2D2111B7CA008558DE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F2C2111B7CA008558DE /* CoreMotion.framework */; };
 		18BCAF1820BFD8E600571577 /* BPVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BCAF1720BFD8E600571577 /* BPVoteViewController.m */; };
 		18BCAF2320BFFC2200571577 /* BaseTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BCAF2220BFFC2200571577 /* BaseTableViewCell1.m */; };
 		18BE5E9C21808731001B4610 /* CpuNetManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE5E9B21808731001B4610 /* CpuNetManageViewController.m */; };
@@ -796,7 +793,6 @@
 		18D02F0C214F809E006D2776 /* PSWebSocketDeflater.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D02F04214F809E006D2776 /* PSWebSocketDeflater.m */; };
 		18D02F11214F8ED7006D2776 /* ScatterResult_type_requestSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D02F0D214F8ED7006D2776 /* ScatterResult_type_requestSignature.m */; };
 		18D02F12214F8ED7006D2776 /* ScatterResult_type_identityFromPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D02F0E214F8ED7006D2776 /* ScatterResult_type_identityFromPermissions.m */; };
-		18D02F52214F91AB006D2776 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D02F51214F91AB006D2776 /* libSystem.tbd */; };
 		18D07A3C20E9F0FE00DF1FDF /* ForwardRedPacketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D07A3B20E9F0FE00DF1FDF /* ForwardRedPacketService.m */; };
 		18D07A4020E9F1FB00DF1FDF /* AuthRedPacketResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D07A3F20E9F1FB00DF1FDF /* AuthRedPacketResult.m */; };
 		18D07A4320E9F20500DF1FDF /* AuthRedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D07A4220E9F20500DF1FDF /* AuthRedPacket.m */; };
@@ -1011,6 +1007,8 @@
 		6EC8B6B022C5E44B0006D9F0 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6A922C5E44A0006D9F0 /* SearchResultController.m */; };
 		6EC8B6B122C5E44B0006D9F0 /* ContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6AA22C5E44A0006D9F0 /* ContactTableViewController.m */; };
 		6EC8B6B222C5E44B0006D9F0 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */; };
+		6EFE45542330A7F100681CDD /* UploadAccessInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE45522330A7F000681CDD /* UploadAccessInfoRequest.m */; };
+		6EFE45582330BD0600681CDD /* FCUUID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EFE45572330BD0600681CDD /* FCUUID.framework */; };
 		D5BDAA720B08CDDFDEACA5C8 /* Pods_VKToken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD54694ABA61B4EAAED3C32 /* Pods_VKToken.framework */; };
 /* End PBXBuildFile section */
 
@@ -3043,6 +3041,10 @@
 		6EC8B6AB22C5E44A0006D9F0 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
 		6EC8B6AD22C5E44A0006D9F0 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		6EFE45522330A7F000681CDD /* UploadAccessInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAccessInfoRequest.m; sourceTree = "<group>"; };
+		6EFE45532330A7F100681CDD /* UploadAccessInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAccessInfoRequest.h; sourceTree = "<group>"; };
+		6EFE45552330B35F00681CDD /* FCUUID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FCUUID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EFE45572330BD0600681CDD /* FCUUID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FCUUID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFAE409D652850E019785CE8 /* Pods-VKToken.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKToken.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKToken/Pods-VKToken.debug.xcconfig"; sourceTree = "<group>"; };
 		E9EE9F0D161AD0B85DB36F92 /* Pods-VKToken.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKToken.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKToken/Pods-VKToken.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3052,10 +3054,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18D02F52214F91AB006D2776 /* libSystem.tbd in Frameworks */,
-				18BA1F2D2111B7CA008558DE /* CoreMotion.framework in Frameworks */,
-				18BA1F2B2111B7BC008558DE /* Foundation.framework in Frameworks */,
-				18BA1F292111B79E008558DE /* UIKit.framework in Frameworks */,
+				6EFE45582330BD0600681CDD /* FCUUID.framework in Frameworks */,
 				18BA1F272111B78A008558DE /* CoreGraphics.framework in Frameworks */,
 				18BA1F252111B778008558DE /* CoreText.framework in Frameworks */,
 				18BA1F232111B762008558DE /* QuartzCore.framework in Frameworks */,
@@ -3905,6 +3904,8 @@
 		182B02EB1FF3962B006C9DFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EFE45572330BD0600681CDD /* FCUUID.framework */,
+				6EFE45552330B35F00681CDD /* FCUUID.framework */,
 				18D02F51214F91AB006D2776 /* libSystem.tbd */,
 				18BA1F2C2111B7CA008558DE /* CoreMotion.framework */,
 				18BA1F2A2111B7BC008558DE /* Foundation.framework */,
@@ -8202,6 +8203,8 @@
 		18E72E071FCC0FDD00D09CA3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				6EFE45532330A7F100681CDD /* UploadAccessInfoRequest.h */,
+				6EFE45522330A7F000681CDD /* UploadAccessInfoRequest.m */,
 				1831F3A420170B63002CE94D /* GetAccountAssetRequest.h */,
 				1831F3A520170B63002CE94D /* GetAccountAssetRequest.m */,
 				180FDF7A20215DD700BE593F /* GetWalletAccountsRequest.h */,
@@ -9693,12 +9696,14 @@
 				"${PODS_ROOT}/Target Support Files/Pods-VKToken/Pods-VKToken-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/FCUUID/FCUUID.framework",
 				"${PODS_ROOT}/GRKOpenSSLFramework/OpenSSL-iOS/bin/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/PocketSocket/PocketSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
 				"${BUILT_PRODUCTS_DIR}/TokenCore/TokenCore.framework",
+				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -9706,12 +9711,14 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCUUID.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PocketSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TokenCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -10437,6 +10444,7 @@
 				18466D802010725B002E675A /* VersionUpdateViewController.m in Sources */,
 				182A661C1FD12E8B007FD541 /* RichListService.m in Sources */,
 				18B291302089942D0032EE27 /* GetRedPacketDetailRequest.m in Sources */,
+				6EFE45542330A7F100681CDD /* UploadAccessInfoRequest.m in Sources */,
 				182CDF48201EFF2D002B87B6 /* PostFeedbackRequest.m in Sources */,
 				18DBBB1A206523A00050EE20 /* PGDatePicker.m in Sources */,
 				1808FCCD202ADBCC00625C37 /* GetTransactionRecordsRequest.m in Sources */,
@@ -11520,13 +11528,16 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/VKToken/Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/VKToken/ThirdLib/PGPickerView\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/VKToken/ThirdLib/PGPickerView\"",
+					"\"${PODS_ROOT}/FCUUID/FCUUID\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/VKToken/Info.plist";
 				IPHONVKT_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
+					"\"$(PROJECT_DIR)/VKToken/SocialModule/Wechat\"",
 					"$(inherited)",
-					"$(PROJECT_DIR)/VKToken/SocialModule/Wechat",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -11569,13 +11580,16 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/VKToken/Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/VKToken/ThirdLib/PGPickerView\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/VKToken/ThirdLib/PGPickerView\"",
+					"\"${PODS_ROOT}/FCUUID/FCUUID\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/VKToken/Info.plist";
 				IPHONVKT_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
+					"\"$(PROJECT_DIR)/VKToken/SocialModule/Wechat\"",
 					"$(inherited)",
-					"$(PROJECT_DIR)/VKToken/SocialModule/Wechat",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (

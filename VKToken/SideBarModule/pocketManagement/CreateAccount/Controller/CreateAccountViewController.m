@@ -220,6 +220,7 @@
     weakSelf.createAccountService.createVKTAccountRequest.vktAccountName = weakSelf.headerView.accountNameTF.text;
     weakSelf.createAccountService.createVKTAccountRequest.ownerKey = [tokenCoreVKT getVktPublicKey:_imported_wallet_id :weakSelf.headerView.passwordToConfirm.text:nil];
     weakSelf.createAccountService.createVKTAccountRequest.activeKey = [tokenCoreVKT getVktPublicKey:_imported_wallet_id :weakSelf.headerView.passwordToConfirm.text:nil];
+    weakSelf.createAccountService.createVKTAccountRequest.inviteCode = weakSelf.headerView.inviteCodeTF.text;
     
 //    NSLog(@"{ownerPrivateKey:%@\nvktPublicKey:%@\nactivePrivateKey:%@\nvktPublicKey:%@\n}", ownerPrivateKey.vktPrivateKey, ownerPrivateKey.vktPublicKey, activePrivateKey.vktPrivateKey, activePrivateKey.vktPublicKey);
     // 创建vkt账号

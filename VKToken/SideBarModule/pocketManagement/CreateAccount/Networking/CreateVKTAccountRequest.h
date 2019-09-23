@@ -29,5 +29,10 @@
  */
 @property(nonatomic, copy) NSString *ownerKey;
 
+/**
+ 邀请码uid
+ */
+@property(nonatomic, copy) NSString *inviteCode;
+
 
 @end

@@ -9,11 +9,6 @@
 #import "BaseNetworkRequest.h"
 
 @interface InviteCodeRegisterRequest : BaseNetworkRequest
-/**
- 用户uid
- */
-@property(nonatomic, copy) NSString *inviteCode;
-
 
 /**
  用户uid
@@ -35,6 +30,9 @@
  */
 @property(nonatomic, copy) NSString *ownerKey;
 
-
+/**
+ 邀请码uid
+ */
+@property(nonatomic, copy) NSString *inviteCode;
 
 @end
