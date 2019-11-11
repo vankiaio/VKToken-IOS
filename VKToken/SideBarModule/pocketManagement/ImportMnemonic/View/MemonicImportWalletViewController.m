@@ -321,7 +321,7 @@
         
         weakSelf.importing = NO;
         [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"import_succ", nil)];
-        [weakSelf responseLeftButton];
+//        [weakSelf responseLeftButton];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];

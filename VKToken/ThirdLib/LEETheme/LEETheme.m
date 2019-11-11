@@ -522,7 +522,7 @@ static NSString * const LEEThemeConfigInfo = @"LEEThemeConfigInfo";
     
     return ^(NSString *tag , id color){
         
-        return weakSelf.LeeAddKeyPathAndValue(tag , @"_placeholderLabel.textColor" , color);
+        return weakSelf.LeeAddKeyPathAndValue(tag , @"placeholderLabel.textColor" , color);
     };
     
 }
@@ -1194,7 +1194,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeConfigKeyPathAndIdentifier(@"_placeholderLabel.textColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"placeholderLabel.textColor" , identifier);
     };
     
 }

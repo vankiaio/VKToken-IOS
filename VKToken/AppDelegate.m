@@ -55,7 +55,7 @@ void uncaughtExceptionHandler(NSException*exception){
     [self configLEEBubble];
     
     
-    [[SocialManager socialManager] initWithSocialSDK:application didFinishLaunchingWithOptions:launchOptions];
+//    [[SocialManager socialManager] initWithSocialSDK:application didFinishLaunchingWithOptions:launchOptions];
     
 //    Wallet *wallet = CURRENT_WALLET;
     
@@ -87,7 +87,7 @@ void uncaughtExceptionHandler(NSException*exception){
     // registor messeage
     [self registerNotifications];
     
-    [self integrateUMengSDK];
+//    [self integrateUMengSDK];
 
     return YES;
 }

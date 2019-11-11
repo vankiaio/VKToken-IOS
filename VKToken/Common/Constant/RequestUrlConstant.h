@@ -28,6 +28,9 @@
 //#define REQUEST_PERSONAL_BASEURL @"https://api6.VKToken.top/api_oc_personal/v1.0.0"
 //#define REQUEST_PERSONAL_BASEURL @"http://wapi.devicexx.com:3030/api_oc_personal/v1.0.0"
 #define REQUEST_PERSONAL_BASEURL @"http://wapi.devicexx.com:3030/api_oc_personal/v1.0.0"
+#define REQUEST_NEWS_BASEURL @"http://www.vankia.io/wankiaweb"
+
+//#define REQUEST_NEWS_BASEURL @"http://192.178.1.100:8085/wankiaweb"
 //#define REQUEST_CANDYSYSTEM_BASEURL @"https://api6.VKToken.top/api_oc_pe_candy_system"
 #define REQUEST_CANDYSYSTEM_BASEURL @"https://wapi.devicexx.com:3033/api_oc_pe_candy_system"
 //#define REQUEST_CONTRACT_BASEURL @"https://api6.VKToken.top"

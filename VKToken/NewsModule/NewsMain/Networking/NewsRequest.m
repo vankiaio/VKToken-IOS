@@ -10,7 +10,7 @@
 
 @implementation NewsRequest
 -(NSString *)requestUrlPath{
-    return [NSString stringWithFormat:@"%@/news_list", REQUEST_PERSONAL_BASEURL];
+    return [NSString stringWithFormat:@"%@/news_list", REQUEST_NEWS_BASEURL];
 }
 
 -(id)parameters{

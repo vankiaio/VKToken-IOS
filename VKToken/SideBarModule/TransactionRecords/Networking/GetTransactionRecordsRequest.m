@@ -10,7 +10,7 @@
 
 @implementation GetTransactionRecordsRequest
 -(NSString *)requestUrlPath{
-    return [NSString stringWithFormat:@"%@/VX/GetActions", REQUEST_TRANSACTION_RECORDS];
+    return [NSString stringWithFormat:@"%@/VX/GetActions2", REQUEST_TRANSACTION_RECORDS];
 }
 
 -(id)parameters{

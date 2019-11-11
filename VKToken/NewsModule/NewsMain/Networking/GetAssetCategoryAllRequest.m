@@ -11,7 +11,7 @@
 @implementation GetAssetCategoryAllRequest
 
 -(NSString *)requestUrlPath{
-    return [NSString stringWithFormat:@"%@/getAssetCategoryAll", REQUEST_PERSONAL_BASEURL];
+    return [NSString stringWithFormat:@"%@/getAssetCategoryAll", REQUEST_NEWS_BASEURL];
 }
 
 @end
