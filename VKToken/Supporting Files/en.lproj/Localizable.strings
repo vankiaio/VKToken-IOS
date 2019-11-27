@@ -121,6 +121,7 @@
  RecieveViewController.m
  */
 "收款"="Receive";
+"分享收款二维码"="Share payment QRcode";
 
 /*
  ForwardRedPacketViewController.m
@@ -275,6 +276,7 @@
  */
 "意见反馈"="Feedbacks";
 "提交"="Submit";
+"分享客服微信二维码"="Share customer service WeChat QRcode";
 
 /*
  LanguageSettingViewController.m
@@ -1039,6 +1041,8 @@
  */
 "邀请函" = "Invitation card";
 "您的专属邀请码："="Your exclusive invitation code：";
-"使用邀请码创建账号获取VKT奖励"="Create an account with an invitation code to get a VKT reward";
+"分享并使用邀请码创建账号获取VKT奖励"="Share & Create an account with an invitcode to get a VKT reward";
 "保存失败"="Save failed";
 "保存成功"="Successfully saved";
+"分享成功"="Shared successful.";
+"取消分享"="Shared cancel.";

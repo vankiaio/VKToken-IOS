@@ -19,8 +19,8 @@
 @property(nonatomic, strong) NavigationView *navView;
 @property(nonatomic, strong) InvitationCodeHeaderView *headerView;
 @property(nonatomic, strong) NSString *currentAssestsType;
-@property(nonatomic , strong) UIView *shareBaseView;
-@property(nonatomic , strong) SocialSharePanelView *socialSharePanelView;
+//@property(nonatomic , strong) UIView *shareBaseView;
+//@property(nonatomic , strong) SocialSharePanelView *socialSharePanelView;
 @property(nonatomic , strong) NSArray *platformNameArr;
 @property(nonatomic, strong) GetInvitationCodeService *mainService;
 @property(nonatomic, strong) NSString *qRCodeJsonURL;
@@ -61,7 +61,7 @@
     return _mainService;
 }
 
-
+#if 0
 - (SocialSharePanelView *)socialSharePanelView{
     if (!_socialSharePanelView) {
         _socialSharePanelView = [[SocialSharePanelView alloc] init];
@@ -80,6 +80,7 @@
     }
     return _socialSharePanelView;
 }
+#endif
 
 - (NSArray *)platformNameArr{
     if (!_platformNameArr) {
@@ -88,22 +89,23 @@
     return _platformNameArr;
 }
 
+#if 0
 - (UIView *)shareBaseView{
     if (!_shareBaseView) {
         _shareBaseView = [[UIView alloc] init];
         _shareBaseView.userInteractionEnabled = YES;
         _shareBaseView.backgroundColor = [UIColor clearColor];
-        
+
         UIView *topView = [[UIView alloc] init];
         topView.backgroundColor = [UIColor blackColor];
         topView.alpha = 0.5;
         topView.userInteractionEnabled = YES;
         [_shareBaseView addSubview:topView];
         topView.sd_layout.leftSpaceToView(_shareBaseView, 0).rightSpaceToView(_shareBaseView, 0).topSpaceToView(_shareBaseView, 0).heightIs(SCREEN_HEIGHT - 47 - 116);
-        
+
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
         [topView addGestureRecognizer:tap];
-        
+
         UIButton *cancleBtn = [[UIButton alloc] init];
         [cancleBtn setTitle:NSLocalizedString(@"取消", nil)forState:(UIControlStateNormal)];
         [cancleBtn setBackgroundColor:HEXCOLOR(0xF7F7F7)];
@@ -111,13 +113,14 @@
         [cancleBtn addTarget:self action:@selector(cancelShareAssestsDetail) forControlEvents:(UIControlEventTouchUpInside)];
         [_shareBaseView addSubview:cancleBtn];
         cancleBtn.sd_layout.leftSpaceToView(_shareBaseView ,0 ).rightSpaceToView(_shareBaseView, 0).bottomSpaceToView(_shareBaseView, 0).heightIs(47);
-        
+
         [_shareBaseView addSubview:self.socialSharePanelView];
         _socialSharePanelView.sd_layout.leftSpaceToView(_shareBaseView, 0).rightSpaceToView(_shareBaseView, 0).bottomSpaceToView(cancleBtn, 0).heightIs(116);
 
     }
     return _shareBaseView;
 }
+#endif
 
 - (void)requestDownloadURL{
     //钱包二维码
@@ -149,8 +152,34 @@
 }
 
 -(void)rightBtnDidClick{
+#if 0
     [self.view addSubview:self.shareBaseView];
     self.shareBaseView.sd_layout.leftSpaceToView(self.view, 0).rightSpaceToView(self.view, 0).bottomSpaceToView(self.view, 0).heightIs(SCREEN_HEIGHT);
+#endif
+    
+    // 分享的title
+    NSString *textToShare = NSLocalizedString(@"分享并使用邀请码创建账号获取VKT奖励", nil);
+    // 分享的图片
+    //    1.获取一个截图图片
+    UIImage *imageToShare = [ UIImage convertViewToImage:self.view];
+    // 分享的链接地址
+    NSURL *urlToShare = [NSURL URLWithString:@"https://vktokendev.github.io/download/vktoken/index.html"];
+    // 顺序可以混乱，系统会自动识别类型
+    NSArray *activityItems = @[textToShare,imageToShare];
+    // 调起系统分享视图
+    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[]];
+    // 设置忽略分享App的属性
+    //    vc.excludedActivityTypes = @[UIActivityTypePostToVimeo];
+    // 分享结果后的回调Block
+    vc.completionWithItemsHandler = ^(UIActivityType  _Nullable activityType, BOOL completed, NSArray * _Nullable returnedItems, NSError * _Nullable activityError) {
+        NSLog(@"%@", activityType);
+        if (completed) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"分享成功",nil) message:NSLocalizedString(@"分享成功",nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"取消分享",nil) message:NSLocalizedString(@"取消分享",nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
+    };
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 /**
@@ -177,6 +206,7 @@
     }];
 }
 
+#if 0
 // SocialSharePanelViewDelegate
 - (void)SocialSharePanelViewDidTap:(UITapGestureRecognizer *)sender{
     NSString *platformName = self.platformNameArr[sender.view.tag-1000];
@@ -185,7 +215,7 @@
     
     model.title = [NSString stringWithFormat:@"%@", NSLocalizedString(@"邀请函", nil)];
 
-    model.detailDescription = [NSString stringWithFormat:@"%@%@\n%@\n", NSLocalizedString(@"您的专属邀请码：", nil),@"5V213", NSLocalizedString(@"使用邀请码创建账号获取VKT奖励", nil)];
+    model.detailDescription = [NSString stringWithFormat:@"%@%@\n%@\n", NSLocalizedString(@"您的专属邀请码：", nil),@"5V213", NSLocalizedString(@"分享并使用邀请码创建账号获取VKT奖励", nil)];
     model.webPageUrl = self.qRCodeJsonURL;
     NSLog(@"%@", platformName);
     if ([platformName isEqualToString:@"wechat_friends"]) {
@@ -206,6 +236,7 @@
         
     }
 }
+#endif
 
 #pragma mark 用来监听图片保存到相册的状况
 
@@ -214,7 +245,6 @@
         [TOASTVIEW showWithText:NSLocalizedString(@"保存失败", nil)];
     }else{
         [TOASTVIEW showWithText:NSLocalizedString(@"保存成功", nil)];
-        
     }
     
     NSLog(@"%@",contextInfo);
@@ -222,11 +252,11 @@
 }
 
 - (void)dismiss{
-    [self.shareBaseView removeFromSuperview];
+//    [self.shareBaseView removeFromSuperview];
 }
 
 - (void)cancelShareAssestsDetail{
-    [self.shareBaseView removeFromSuperview];
+//    [self.shareBaseView removeFromSuperview];
 }
 
 -(void)dealloc{
