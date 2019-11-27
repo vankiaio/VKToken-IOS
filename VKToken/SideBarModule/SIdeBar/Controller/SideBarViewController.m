@@ -10,7 +10,7 @@
 #import "TransactionRecordsViewController.h"
 #import "PocketManagementViewController.h"
 #import "PersonalSettingViewController.h"
-#import "MessageFeedbackViewController.h"
+//#import "MessageFeedbackViewController.h"
 #import "SystemSettingViewController.h"
 #import "VersionUpdateViewController.h"
 #import "MessageCenterViewController.h"
@@ -132,8 +132,8 @@
 }
 
 - (void)feedBackBtnDidClick:(UIButton *)sender{
-    MessageFeedbackViewController *vc = [[MessageFeedbackViewController alloc] init];
-    [self cw_pushViewController:vc];
+//    MessageFeedbackViewController *vc = [[MessageFeedbackViewController alloc] init];
+//    [self cw_pushViewController:vc];
 }
 
 - (void)systemSettingDidClick:(UIButton *)sender{

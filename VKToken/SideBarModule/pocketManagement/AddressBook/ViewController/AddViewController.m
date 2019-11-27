@@ -27,7 +27,7 @@
 
 - (NavigationView *)navView{
     if (!_navView) {
-        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"新建联系人", nil)rightBtnTitleName:@"" delegate:self];
+        _navView = [NavigationView navigationViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT*0.75) LeftBtnImgName:@"icon_back" title:NSLocalizedString(@"新建联系人", nil)rightBtnTitleName:@"" delegate:self];
         _navView.leftBtn.lee_theme.LeeAddButtonImage(SOCIAL_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal).LeeAddButtonImage(BLACKBOX_MODE, [UIImage imageNamed:@"icon_back"], UIControlStateNormal);
     }
     return _navView;
@@ -106,6 +106,7 @@
     __block NSInteger enable = 0;
     [_dataList enumerateObjectsUsingBlock:^(NSMutableDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *value = obj[@"value"];
+        value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if (idx < 4 && value.length > 0) {
             enable |= (1 << idx);
         }
@@ -142,6 +143,10 @@
     if ([name isEqualToString:@""] || name == nil || [account isEqualToString:@""] || account == nil) {
         _alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示",nil) message:NSLocalizedString(@"姓名或区块链账号不能为空",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"确定",nil) otherButtonTitles:nil, nil];
         [_alertView show];
+        return NO;
+    }
+    if (![ RegularExpression validateVktAccountName:account]) {
+        [TOASTVIEW showWithText:NSLocalizedString(@"账号名,5~12位字符,只能由小写a~z和1~5组成!", nil)];
         return NO;
     }
     
@@ -183,7 +188,7 @@
     [cell updateWithTitle:data[@"title"] value:data[@"value"]];
     cell.delegate = self;
     if (indexPath.row == 2) {
-        cell.inputTextField.keyboardType = UIKeyboardTypeDecimalPad;
+        cell.inputTextField.keyboardType = UIKeyboardTypeNamePhonePad;
     } else if (indexPath.row == 1) {
         cell.inputTextField.keyboardType = UIKeyboardTypeNamePhonePad;
     } else {
@@ -245,7 +250,7 @@
 
 - (NSArray *)dataList {
     if (!_dataList) {
-        NSMutableArray *dataList = [NSMutableArray arrayWithCapacity:5];
+        NSMutableArray *dataList = [NSMutableArray arrayWithCapacity:3];
         [dataList addObject:@{@"title":NSLocalizedString(@"名称",nil),@"value":@"",@"action":@"",@"textFieldEnable":@YES,@"placeHolder":NSLocalizedString(@"请输入名称",nil)}.mutableCopy];
         [dataList addObject:@{@"title":NSLocalizedString(@"账号",nil),@"value":@"",@"action":@"",@"textFieldEnable":@YES,@"placeHolder":NSLocalizedString(@"请输入或者粘贴账号名称",nil)}.mutableCopy];
         [dataList addObject:@{@"title":NSLocalizedString(@"备注",nil),@"value":@"",@"action":@"",@"textFieldEnable":@YES,@"placeHolder":NSLocalizedString(@"请输入备注",nil)}.mutableCopy];

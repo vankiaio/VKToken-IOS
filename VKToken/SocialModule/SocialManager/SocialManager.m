@@ -11,6 +11,7 @@
 
 #define WX_APP_ID @"wx54d2b8e4b2e42792"
 #define WX_AppSecret @"3fccafd6d2a6002bb34c758b789ebfa6"
+#define UNIVERSAL_LINK @"https://vktokendev.github.io/"
 
 #define QQ_APP_ID @"1109933169"
 #define QQ_KEY @"yVtwKwZXlZUsqML2"
@@ -34,7 +35,7 @@
 
 - (void)initWithSocialSDK:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //注册微信SDK
-    BOOL result =  [WXApi registerApp:WX_APP_ID];
+    BOOL result =  [WXApi registerApp:WX_APP_ID universalLink:UNIVERSAL_LINK ];
     if (result) {
         NSLog(@"WXApi registerApp status 1");
     }else{
@@ -43,7 +44,23 @@
     
 }
 
+- (BOOL)initWithSocialSDK:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [WXApi handleOpenURL:url delegate:self];
+}
 
+- (BOOL)initWithSocialSDK:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)initWithSocialSDK:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray<id<UIUserActivityRestoring>> * __nullable restorableObjects))restorationHandler {
+    return [WXApi handleOpenUniversalLink:userActivity delegate:self];
+}
+
+- (BOOL) completion{
+    return true;
+}
 
 #pragma mark qq
 - (void)qqLoginRequest{
@@ -123,13 +140,13 @@
     SendAuthReq *req = [[SendAuthReq alloc] init];
     req.scope = @"snsapi_userinfo";
     req.state = @"1";
-    
-   BOOL result =  [WXApi sendReq:req];
-    if (result) {
-        NSLog(@"WXApi sendReq status 1");
-    }else{
-        NSLog(@"WXApi sendReq status 0");
-    }
+    [WXApi sendReq:req completion:NULL];
+//   BOOL result =  [WXApi sendReq:req completion:NULL];
+//    if (result) {
+//        NSLog(@"WXApi sendReq status 1");
+//    }else{
+//        NSLog(@"WXApi sendReq status 0");
+//    }
     
 }
 
@@ -242,7 +259,7 @@
     req.bText = NO;
     req.message = message;
     req.scene = scene;
-    [WXApi sendReq:req];
+    [WXApi sendReq:req completion:NULL];
 }
 
 /**WXImageObject
@@ -261,8 +278,9 @@
     req.bText = NO;
     req.message = message;
     req.scene = scene;
-    [WXApi sendReq:req];
+    [WXApi sendReq:req completion:NULL];
 }
+
 
 
 

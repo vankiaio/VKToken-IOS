@@ -10,6 +10,7 @@
 
 @interface ChangePasswordView()<UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *upBackgroundView;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end
 
@@ -20,6 +21,10 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     tap.delegate = self;
     [self addGestureRecognizer:tap];
+            //设置圆角的大小
+    self.confirmButton.layer.cornerRadius = 5.0f;
+    //此行代码必须有（UIView例外）
+    self.confirmButton.layer.masksToBounds = YES;
     
 }
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,9 +15,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BDS-Hg-9Ec" userLabel="bg Image View">
                     <rect key="frame" x="20" y="5" width="335" height="182"/>
                     <color key="backgroundColor" red="0.031372549020000001" green="0.69867295029999998" blue="0.7216107249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="335" id="Uww-3v-YFn"/>
-                    </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="vk_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="cPT-XA-d7o" userLabel="token Image View">
                     <rect key="frame" x="40" y="20" width="22" height="22"/>
@@ -161,6 +155,7 @@
                 <constraint firstItem="zCS-8Q-VNc" firstAttribute="centerY" secondItem="TUT-Ff-Vaq" secondAttribute="centerY" id="Azu-jP-cZV"/>
                 <constraint firstItem="cPT-XA-d7o" firstAttribute="topMargin" secondItem="BDS-Hg-9Ec" secondAttribute="topMargin" constant="15" id="EBT-yF-EGn"/>
                 <constraint firstItem="4D7-Dd-bnL" firstAttribute="leading" secondItem="YaW-Op-6Nm" secondAttribute="leading" id="EIt-0n-WLJ"/>
+                <constraint firstItem="BDS-Hg-9Ec" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ES6-6H-8gy"/>
                 <constraint firstItem="cPT-XA-d7o" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="F2e-mJ-O7Z"/>
                 <constraint firstItem="l1P-w5-hlp" firstAttribute="top" secondItem="zCS-8Q-VNc" secondAttribute="top" id="LGQ-ef-lxf"/>
                 <constraint firstItem="cPT-XA-d7o" firstAttribute="leading" secondItem="EKl-YA-NB5" secondAttribute="leading" id="MQX-TJ-cJ3"/>
@@ -173,6 +168,7 @@
                 <constraint firstItem="UbY-ef-ieH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fWC-uc-KKk"/>
                 <constraint firstItem="cPT-XA-d7o" firstAttribute="leading" secondItem="BDS-Hg-9Ec" secondAttribute="leading" constant="20" id="fe8-7l-v13"/>
                 <constraint firstItem="YaW-Op-6Nm" firstAttribute="top" secondItem="cPT-XA-d7o" secondAttribute="bottom" constant="25" id="goD-Zc-93q"/>
+                <constraint firstAttribute="trailing" secondItem="BDS-Hg-9Ec" secondAttribute="trailing" constant="20" id="jQM-xV-Lr9"/>
                 <constraint firstItem="EKl-YA-NB5" firstAttribute="top" secondItem="4D7-Dd-bnL" secondAttribute="bottom" constant="10" id="lsQ-tp-lpD"/>
                 <constraint firstItem="BDS-Hg-9Ec" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YaW-Op-6Nm" secondAttribute="trailing" symbolic="YES" id="nZx-6R-Zeo"/>
                 <constraint firstItem="cPT-XA-d7o" firstAttribute="top" secondItem="TUT-Ff-Vaq" secondAttribute="top" id="ob4-no-9nn"/>

@@ -49,7 +49,6 @@
 #import "GetTokenInfoResult.h"
 #import "TokenInfo.h"
 #import "AccountNotExistView.h"
-#import "MessageFeedbackViewController.h"
 #import "GetAccountOrderStatusRequest.h"
 #import "AccountOrderStatus.h"
 #import "AccountOrderStatusResult.h"
@@ -852,7 +851,34 @@
 }
 
 - (void)updateBtnDidClick:(UIButton *)sender{
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.vankia.net"]];
+    NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1487435649"];
+
+    // 注意: 跳转之前, 可以使用 canOpenURL: 判断是否可以跳转
+    if (![[UIApplication sharedApplication]canOpenURL:url]) {
+            // 不能跳转就不要往下执行了
+            return;
+    }
+
+    if (@available(iOS 10.0, *)){
+
+          [[UIApplication sharedApplication]openURL:url options:@{UIApplicationOpenURLOptionsSourceApplicationKey:@YES} completionHandler:^(BOOL success) {
+      
+                if (success) {
+                     NSLog(@"10以后可以跳转url");
+                }else{
+                    NSLog(@"10以后不可以跳转url");
+                }
+          }];
+     }else{
+
+         BOOL success = [[UIApplication sharedApplication]openURL:url];
+
+         if (success) {
+             NSLog(@"10以前可以跳转url");
+         }else{
+             NSLog(@"10以前不可以跳转url");
+         }
+    }
 }
 
 //AddAssestsViewControllerDelegate
@@ -869,8 +895,8 @@
 
 - (void)contactUsLabelDidTap{
     if (LEETHEME_CURRENTTHEME_IS_SOCAIL_MODE) {
-        MessageFeedbackViewController *vc = [[MessageFeedbackViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+//        MessageFeedbackViewController *vc = [[MessageFeedbackViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
     }else if (LEETHEME_CURRENTTHEME_IS_BLACKBOX_MODE){
         [TOASTVIEW showWithText:NSLocalizedString(@"请使用社交模式反馈错误，以便我们能与您取得联系", nil)];
     }

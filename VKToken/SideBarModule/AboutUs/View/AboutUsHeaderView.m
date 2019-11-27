@@ -42,7 +42,7 @@
 
 
 - (IBAction)officialSiteBtnClick:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: IsStrEmpty(self.officialWebsite) ?  @"http://www.vankia.net" :  self.officialWebsite]];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: IsStrEmpty(self.officialWebsite) ?  @"http://www.vankia.io" :  self.officialWebsite]];
 }
 
 

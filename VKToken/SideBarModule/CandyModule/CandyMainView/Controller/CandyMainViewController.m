@@ -11,7 +11,7 @@
 #import "CandyMainHeaderView.h"
 #import "CandyTopView.h"
 #import "CandyMainTableViewCell.h"
-#import "FeedbackTableViewCell.h"
+//#import "FeedbackTableViewCell.h"
 #import "CandyTaskModel.h"
 #import "CandyMainService.h"
 #import "CandyScoreRequest.h"

@@ -23,8 +23,8 @@
 #pragma mark - WXApiDelegate
 extern NSString *WechatPayDidFinishNotification;
 - (void)onResp:(BaseResp *)resp {
-    if([resp isKindOfClass:[PayResp class]]){
-         [[NSNotificationCenter defaultCenter] postNotificationName:WechatPayDidFinishNotification object:resp];
+//    if([resp isKindOfClass:[PayResp class]]){
+//         [[NSNotificationCenter defaultCenter] postNotificationName:WechatPayDidFinishNotification object:resp];
         
 //        //支付返回结果，实际支付结果需要去微信服务器端查询
 //        NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
@@ -42,8 +42,8 @@ extern NSString *WechatPayDidFinishNotification;
 //        }
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //        [alert show];
-    }else {
-    }
+//    }else {
+//    }
 }
 
 - (void)onReq:(BaseReq *)req {

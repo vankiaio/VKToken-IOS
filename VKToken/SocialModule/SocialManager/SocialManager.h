@@ -18,7 +18,9 @@ typedef enum {
 #import "SocialModel.h"
 #import "ShareModel.h"
 
-@interface SocialManager : NSObject<WXApiDelegate,  TencentSessionDelegate, QQApiInterfaceDelegate>
+@interface SocialManager : NSObject<UIApplicationDelegate, WXApiDelegate,  TencentSessionDelegate, QQApiInterfaceDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 + (SocialManager *)socialManager;
 

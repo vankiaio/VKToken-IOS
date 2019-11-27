@@ -92,7 +92,7 @@
     }
     
     if (![ RegularExpression validateVktAccountName:self.headerView.accountNameTF.text ]) {
-        [TOASTVIEW showWithText:NSLocalizedString(@"用户名,5~12位字符,只能由小写a~z和1~5组成", nil)];
+        [TOASTVIEW showWithText:NSLocalizedString(@"账号名,5~12位字符,只能由小写a~z和1~5组成", nil)];
         return;
     }
     

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SearchResultController : UIViewController<UISearchControllerDelegate,UISearchResultsUpdating>
-
+#import "ContactTableViewController.h"
+@interface SearchResultController : UITableViewController<UISearchControllerDelegate,UISearchResultsUpdating>
+/**
+ 从网络请求获取的Account数组, 还是从本地获取的Account数据
+ */
+@property (nonatomic, strong) NSMutableDictionary *datas;
+@property(nonatomic, weak) id<ChangeContactViewControllerDelegate> delegate;
+@property(nonatomic, weak) ContactTableViewController *parent;
 @end

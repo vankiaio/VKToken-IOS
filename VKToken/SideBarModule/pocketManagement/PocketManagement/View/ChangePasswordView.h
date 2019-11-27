@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *oraginalPasswordTF;
 @property (weak, nonatomic) IBOutlet UITextField *inputNewPasswordTF;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTF;
+@property (weak, nonatomic) IBOutlet UILabel *pwdStrengthLabel;
 @property(nonatomic, weak) id<ChangePasswordViewDelegate> delegate;
 @end

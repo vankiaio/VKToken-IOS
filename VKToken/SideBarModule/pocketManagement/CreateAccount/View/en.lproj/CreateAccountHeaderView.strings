@@ -8,7 +8,7 @@
 /* Class = "UITextField"; placeholder = "请再次输入钱包密码。"; ObjectID = "XH0-MS-HVF"; */
 "XH0-MS-HVF.placeholder" = "Please enter your wallet password again.";
 
-/* Class = "UITextField"; placeholder = "用户名,5~12位字符,只能由小写a~z和1~5组成"; ObjectID = "aK5-fw-Dyj"; */
+/* Class = "UITextField"; placeholder = "账号名,5~12位字符,只能由小写a~z和1~5组成"; ObjectID = "aK5-fw-Dyj"; */
 "aK5-fw-Dyj.placeholder" = "5~12 characters,can only lowercase a~z &1~5";
 
 /* Class = "UILabel"; text = "如无邀请码，可不填"; ObjectID = "b5m-QU-6t8"; */

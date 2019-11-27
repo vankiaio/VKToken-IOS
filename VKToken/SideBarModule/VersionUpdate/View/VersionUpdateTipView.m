@@ -106,7 +106,7 @@
         _updateBtn = [[UIButton alloc] init];
         [_updateBtn setTitle:NSLocalizedString(@"立即更新", nil)forState:(UIControlStateNormal)];
         [_updateBtn setTitleColor:HEXCOLOR(0xFFFFFF) forState:(UIControlStateNormal)];
-        [_updateBtn setBackgroundColor:HEXCOLOR(0x4D7BFE)];
+        [_updateBtn setBackgroundColor:HEXCOLOR(0x08B2B8)];
         _updateBtn.sd_cornerRadius =@4;
         _updateBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [_updateBtn addTarget:self action:@selector(updateBtnClick:) forControlEvents:(UIControlEventTouchUpInside)];

@@ -405,12 +405,14 @@
  CreateAccountViewController.m
  */
 "创建新账号"="Create New Account";
-"用户名,5~12位字符,只能由小写a~z和1~5组成!"="Make up of 1-5 and a-z, 5~12 characters.";
-"密码不可少于8位!"="At least 8 characters!";
+"账号名,5~12位字符,只能由小写a~z和1~5组成!"="Make up of 1-5 and a-z, 5~12 characters.";
+"密码格式有误（至少8个字符，至少1个字母，1个数字）"="The password format is incorrect(At least 8 characters, at least 1 letter, 1 number)";
 "如果已有账号，请点击这里导入"="Own an account? Click here to import.";
 "创建账号成功!"="Create account success!";
 "两次输入密码不一致!"="Password doesn't match!";
-
+"请输入5位邀请码"="Please enter a 5-digit invitation code";
+"邀请码不存在，请重新输入"="Invitation code does not exist, please re-enter";
+ 
 /*
  PocketManagementViewController.m
  */
@@ -776,6 +778,7 @@
 "net消耗"="Transfer Net";
 "transfer"="transfer";
 "reward"="Sign-in Reward";
+"链上无此接收人"="No such recipient on the chain";
 
 /*
  TransferDetailsViewController.m

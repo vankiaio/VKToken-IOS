@@ -151,14 +151,44 @@
 }
 
 - (void)updateBtnDidClick:(UIButton *)sender{
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.vankia.net"]];
+    [self gotoAppStore];
 }
 
 //CommonDialogHasTitleViewDelegate
 - (void)commonDialogHasTitleViewConfirmBtnDidClick:(UIButton *)sender{
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.vankia.net"]];
+    [self gotoAppStore];
 }
 
+- (void)gotoAppStore{
+    NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1487435649"];
+
+    // 注意: 跳转之前, 可以使用 canOpenURL: 判断是否可以跳转
+    if (![[UIApplication sharedApplication]canOpenURL:url]) {
+            // 不能跳转就不要往下执行了
+            return;
+    }
+
+    if (@available(iOS 10.0, *)){
+
+          [[UIApplication sharedApplication]openURL:url options:@{UIApplicationOpenURLOptionsSourceApplicationKey:@YES} completionHandler:^(BOOL success) {
+      
+                if (success) {
+                     NSLog(@"10以后可以跳转url");
+                }else{
+                    NSLog(@"10以后不可以跳转url");
+                }
+          }];
+     }else{
+
+         BOOL success = [[UIApplication sharedApplication]openURL:url];
+
+         if (success) {
+             NSLog(@"10以前可以跳转url");
+         }else{
+             NSLog(@"10以前不可以跳转url");
+         }
+    }
+}
 
 - (NSInteger)queryVersionNumberInBundle{
     

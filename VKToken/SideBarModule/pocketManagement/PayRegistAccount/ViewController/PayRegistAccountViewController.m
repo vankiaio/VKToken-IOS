@@ -203,7 +203,7 @@ NSString * const WechatPayDidFinishNotification = @"WechatPayDidFinishNotificati
     }
 
     if (![ RegularExpression validateVktAccountName:self.headerView.accountNameTF.text ]) {
-        [TOASTVIEW showWithText:NSLocalizedString(@"用户名,5~12位字符,只能由小写a~z和1~5组成", nil)];
+        [TOASTVIEW showWithText:NSLocalizedString(@"账号名,5~12位字符,只能由小写a~z和1~5组成", nil)];
         return;
     }
 
@@ -310,13 +310,13 @@ NSString * const WechatPayDidFinishNotification = @"WechatPayDidFinishNotificati
         [self.payRegistAccountService createAccountOrderByWechatPay:^(WechatPayRespResult *result, BOOL isSuccess) {
             if (isSuccess) {
                 //调起微信支付
-                PayReq* req = [[PayReq alloc] init];
-                req.partnerId = result.data.partnerId;
-                req.prepayId = result.data.prepayId;
-                req.nonceStr = result.data.nonceStr;
-                req.timeStamp = result.data.timestamp.intValue;
-                req.package = result.data.exPackage;
-                req.sign = result.data.sign;
+//                PayReq* req = [[PayReq alloc] init];
+//                req.partnerId = result.data.partnerId;
+//                req.prepayId = result.data.prepayId;
+//                req.nonceStr = result.data.nonceStr;
+//                req.timeStamp = result.data.timestamp.intValue;
+//                req.package = result.data.exPackage;
+//                req.sign = result.data.sign;
                 
                 //            req.partnerId           = @"1509617931";
                 //            req.prepayId            = @"wx06115858391917fde79dcedc1461487879";
@@ -325,7 +325,7 @@ NSString * const WechatPayDidFinishNotification = @"WechatPayDidFinishNotificati
                 //            req.timeStamp           = stampStr.intValue;
                 //            req.package             = @"Sign=WXPay";
                 //            req.sign                = @"F4624EF0D3F83189696BFE9E4B60339A";
-                [WXApi sendReq:req];
+//                [WXApi sendReq:req];
             }
         }];
         
@@ -430,32 +430,32 @@ NSString * const WechatPayDidFinishNotification = @"WechatPayDidFinishNotificati
     NSLog(@"wechatPay noti.userInfo %@", noti.object);
     //支付返回结果，实际支付结果需要去微信服务器端查询
     NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
-    PayResp *result = [PayResp mj_objectWithKeyValues:noti.object];
-    switch (result.errCode) {
-        case WXSuccess:
-            strMsg = @"支付结果：成功！";
-            [self storeAccountInfoToLocalDatabase];
-            break;
-        case WXErrCodeCommon:
-            strMsg = @"支付结果：普通错误类型";
-            break;
-        case WXErrCodeUserCancel:
-            strMsg = @"支付结果：用户点击取消并返回";
-            break;
-        case WXErrCodeSentFail:
-            strMsg = @"支付结果：发送失败";
-            break;
-        case WXErrCodeAuthDeny:
-            strMsg = @"支付结果：授权失败";
-            break;
-        case WXErrCodeUnsupport:
-            strMsg = @"支付结果：微信不支持";
-            break;
-        default:
-            strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", result.errCode,result.errStr];
-            
-            break;
-    }
+//    PayResp *result = [PayResp mj_objectWithKeyValues:noti.object];
+//    switch (result.errCode) {
+//        case WXSuccess:
+//            strMsg = @"支付结果：成功！";
+//            [self storeAccountInfoToLocalDatabase];
+//            break;
+//        case WXErrCodeCommon:
+//            strMsg = @"支付结果：普通错误类型";
+//            break;
+//        case WXErrCodeUserCancel:
+//            strMsg = @"支付结果：用户点击取消并返回";
+//            break;
+//        case WXErrCodeSentFail:
+//            strMsg = @"支付结果：发送失败";
+//            break;
+//        case WXErrCodeAuthDeny:
+//            strMsg = @"支付结果：授权失败";
+//            break;
+//        case WXErrCodeUnsupport:
+//            strMsg = @"支付结果：微信不支持";
+//            break;
+//        default:
+//            strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", result.errCode,result.errStr];
+//            
+//            break;
+//    }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }

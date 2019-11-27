@@ -11,6 +11,8 @@
 #import "AddViewController.h"
 #import "ContactCell.h"
 #import "SearchResultController.h"
+@import Masonry;
+@import Toast;
 
 @interface ContactTableViewController ()<UITableViewDelegate,AddNewPerson>
 
@@ -19,13 +21,14 @@
 @property (nonatomic,retain) UISearchController *searchController;
 @property (nonatomic,retain) NSString *addressPath;
 @property (nonatomic , strong) UIBarButtonItem *backItem;
-
+@property (nonatomic , strong) UIView *topView ;
 @end
 
 @implementation ContactTableViewController
 
 //设置重用标志
 static NSString *identifier = @"myCellReuse";
+
 
 //数据处理
 - (instancetype)initWithStyle:(UITableViewStyle)style{
@@ -71,15 +74,47 @@ static NSString *identifier = @"myCellReuse";
     //添加添加联系人按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewContact:)];
     //设置搜索控制器
-    SearchResultController *search = [[SearchResultController alloc] init];
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:search];
-    self.searchController.searchResultsUpdater = search;
-    self.searchController.delegate = search;
+    SearchResultController *searchresult = [[SearchResultController alloc] init];
+    searchresult.datas = _dictionary;
+    searchresult.delegate = self.delegate;
+    searchresult.parent = self;
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchresult];
+    // 设置结果更新代理
+    self.searchController.searchResultsUpdater = searchresult;
+    self.searchController.delegate = searchresult;
+    self.searchController.hidesNavigationBarDuringPresentation = NO;
+    [self.searchController.searchBar sizeToFit];
+    
+    self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.definesPresentationContext = NO;//不设置会导致一些位置错乱，无动画等问题
+    
 #warning searchBar上面的背景跟tableview不一样,怎么去掉
-    UIView *myView = [UIView new];
-    myView.frame = CGRectMake(0, 0, self.view.frame.size.width, 54);
-    [myView addSubview:self.searchController.searchBar];
-    self.tableView.tableHeaderView = myView;
+
+    self.topView = [UIView new];
+    [self.topView addSubview:self.searchController.searchBar];
+    [self.tableView addSubview:self.topView];
+    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(-50);
+        make.left.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(self.tableView.frame.size.width, 50));
+    }];
+    // 将topView移到最顶层，防止被其他view挡住
+    [self.tableView bringSubviewToFront:self.topView];
+    // 设置tableView的向下偏移50
+    self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offset = self.tableView.contentOffset.y;
+    [self.topView mas_updateConstraints:^(MASConstraintMaker *make) {
+        // 此处有加上navigationBar的高度
+        make.top.mas_equalTo(offset - 5);
+    }];
+    [self.tableView layoutIfNeeded];
+    // 将topView移到最顶层，防止被其他view挡住
+    [self.tableView bringSubviewToFront:self.topView];
 }
 
 -(UIBarButtonItem *)backItem{
@@ -109,12 +144,6 @@ static NSString *identifier = @"myCellReuse";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - 计算文本高度
-- (CGFloat)calTextHeight:(NSString *)str{
-    CGRect size = [str boundingRectWithSize:CGSizeMake(300, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil];
-    return size.size.height;
 }
 
 #pragma mark - 添加功能

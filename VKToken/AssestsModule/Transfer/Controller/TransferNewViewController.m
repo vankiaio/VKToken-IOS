@@ -14,6 +14,7 @@
 #import "ChangeAccountViewController.h"
 #import "TransferService.h"
 #import "TransactionResult.h"
+#import "VKTResourceService.h"
 #import "AssestsMainService.h"
 #import "Account.h"
 #import "GetRateResult.h"
@@ -39,7 +40,7 @@
 @property(nonatomic, strong) TransactionRecordsService *transactionRecordsService;
 @property(nonatomic, strong) LoginPasswordView *loginPasswordView;
 @property(nonatomic , strong) TransferAbi_json_to_bin_request *transferAbi_json_to_bin_request;
-
+@property(nonatomic , strong) VKTResourceService *vktResourceService;
 @property(nonatomic , copy) NSString *assest_price_cny;
 
 @end
@@ -73,6 +74,13 @@
         _mainService.delegate = self;
     }
     return _mainService;
+}
+
+- (VKTResourceService *)vktResourceService{
+    if (!_vktResourceService) {
+        _vktResourceService = [[VKTResourceService alloc] init];
+    }
+    return _vktResourceService;
 }
 
 - (Get_token_info_service *)get_token_info_service{
@@ -237,7 +245,7 @@
 }
 
 - (void)textFieldChange:(NSNotification *)notification {
-    BOOL isCanSubmit = (self.headerView.nameTF.text.length != 0 && self.headerView.amountTF.text.length != 0);
+    BOOL isCanSubmit = (self.headerView.nameTF.text.length != 0 && self.headerView.amountTF.text.length != 0 && [self.headerView.amountTF.text doubleValue] >= 0.0001);
     if (isCanSubmit) {
         
         self.headerView.transferBtn.lee_theme
@@ -409,61 +417,9 @@
 }
 
 - (void)confirmBtnDidClick:(UIButton *)sender{
-    // 验证密码输入是否正确
-    TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
     
-    AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.headerView.nameFromTF.text];
-    Wallet *current_wallet = CURRENT_WALLET;
-
-    if (![WalletUtil validateWalletPasswordWithSha256:current_wallet.wallet_shapwd password:self.loginPasswordView.inputPasswordTF.text]) {
-        [TOASTVIEW showWithText:NSLocalizedString(@"密码输入错误!", nil)];
-        return;
-    }
-    if (IsNilOrNull(self.currentToken)) {
-        [TOASTVIEW showWithText: NSLocalizedString(@"当前账号未添加资产", nil)];
-        return;
-    }
-    self.transferAbi_json_to_bin_request.code = self.currentToken.contract_name;
+    [self isExistAccount];
     
-    if ([self.currentToken.balance isEqualToString:@"0"] || ( self.currentToken.balance.doubleValue  < self.headerView.amountTF.text.doubleValue)) {
-        [TOASTVIEW showWithText: NSLocalizedString(@"可用余额不足", nil)];
-        [self removeLoginPasswordView];
-        return;
-    }else{
-        
-        NSString *percision = [NSString stringWithFormat:@"%lu", [NSString getDecimalStringPercisionWithDecimalStr:self.currentToken.balance]];
-        self.transferAbi_json_to_bin_request.quantity = [NSString stringWithFormat:@"%@ %@", [NSString stringWithFormat:@"%.*f", percision.intValue, self.headerView.amountTF.text.doubleValue], self.currentToken.token_symbol];
-    }
-    
-    self.transferAbi_json_to_bin_request.action = ContractAction_TRANSFER;
-    self.transferAbi_json_to_bin_request.from = self.fromAccount;
-    self.transferAbi_json_to_bin_request.to = self.headerView.nameTF.text;
-    self.transferAbi_json_to_bin_request.memo = self.headerView.memoTV.text;
-    WS(weakSelf);
-    [self.transferAbi_json_to_bin_request postOuterDataSuccess:^(id DAO, id data) {
-#pragma mark -- [@"data"]
-        BaseResult *result = [BaseResult mj_objectWithKeyValues:data];
-        if (![result.code isEqualToNumber:@0]) {
-            [TOASTVIEW showWithText:result.message];
-            [weakSelf cancleBtnDidClick:nil];
-            return ;
-        }
-        NSLog(@"approve_abi_to_json_request_success: --binargs: %@",data[@"data"][@"binargs"] );
-        AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.headerView.nameFromTF.text];
-        weakSelf.mainService.available_keys = @[VALIDATE_STRING(model.account_owner_public_key) , VALIDATE_STRING(model.account_active_public_key)];
-        
-        weakSelf.mainService.action = ContractAction_TRANSFER;
-        weakSelf.mainService.code = weakSelf.currentToken.contract_name;
-        weakSelf.mainService.sender = weakSelf.fromAccount;
-#pragma mark -- [@"data"]
-        weakSelf.mainService.binargs = data[@"data"][@"binargs"];
-        weakSelf.mainService.pushTransactionType = PushTransactionTypeTransfer;
-        weakSelf.mainService.password = weakSelf.loginPasswordView.inputPasswordTF.text;
-        [weakSelf.mainService pushTransaction];
-        [weakSelf removeLoginPasswordView];
-    } failure:^(id DAO, NSError *error) {
-        NSLog(@"%@", error);
-    }];
 }
 
 // TransferServiceDelegate
@@ -480,6 +436,77 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
 }
 
+- (void)isExistAccount{
+    WS(weakSelf);
+    self.vktResourceService.getAccountRequest.name = self.headerView.nameTF.text;
+    [self.vktResourceService get_account:^(VKTResourceResult *result, BOOL isSuccess) {
+        if (isSuccess) {
+            if([result.message isEqualToString:@"ok"]){
+                // 验证密码输入是否正确
+                TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
+                
+                AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.headerView.nameFromTF.text];
+                Wallet *current_wallet = CURRENT_WALLET;
+
+                if (![WalletUtil validateWalletPasswordWithSha256:current_wallet.wallet_shapwd password:self.loginPasswordView.inputPasswordTF.text]) {
+                    [TOASTVIEW showWithText:NSLocalizedString(@"密码输入错误!", nil)];
+                    return;
+                }
+                if (IsNilOrNull(self.currentToken)) {
+                    [TOASTVIEW showWithText: NSLocalizedString(@"当前账号未添加资产", nil)];
+                    return;
+                }
+                self.transferAbi_json_to_bin_request.code = self.currentToken.contract_name;
+                
+                if ([self.currentToken.balance isEqualToString:@"0"] || ( self.currentToken.balance.doubleValue  < self.headerView.amountTF.text.doubleValue)) {
+                    [TOASTVIEW showWithText: NSLocalizedString(@"可用余额不足", nil)];
+                    [self removeLoginPasswordView];
+                    return;
+                }else{
+                    
+                    NSString *percision = [NSString stringWithFormat:@"%lu", [NSString getDecimalStringPercisionWithDecimalStr:self.currentToken.balance]];
+                    self.transferAbi_json_to_bin_request.quantity = [NSString stringWithFormat:@"%@ %@", [NSString stringWithFormat:@"%.*f", percision.intValue, self.headerView.amountTF.text.doubleValue], self.currentToken.token_symbol];
+                }
+                
+                self.transferAbi_json_to_bin_request.action = ContractAction_TRANSFER;
+                self.transferAbi_json_to_bin_request.from = self.fromAccount;
+                self.transferAbi_json_to_bin_request.to = self.headerView.nameTF.text;
+                self.transferAbi_json_to_bin_request.memo = self.headerView.memoTV.text;
+                WS(weakSelf);
+                [self.transferAbi_json_to_bin_request postOuterDataSuccess:^(id DAO, id data) {
+            #pragma mark -- [@"data"]
+                    BaseResult *result = [BaseResult mj_objectWithKeyValues:data];
+                    if (![result.code isEqualToNumber:@0]) {
+                        [TOASTVIEW showWithText:result.message];
+                        [weakSelf cancleBtnDidClick:nil];
+                        return ;
+                    }
+                    NSLog(@"approve_abi_to_json_request_success: --binargs: %@",data[@"data"][@"binargs"] );
+                    AccountInfo *model = [[AccountsTableManager accountTable] selectAccountTableWithAccountName: self.headerView.nameFromTF.text];
+                    weakSelf.mainService.available_keys = @[VALIDATE_STRING(model.account_owner_public_key) , VALIDATE_STRING(model.account_active_public_key)];
+                    
+                    weakSelf.mainService.action = ContractAction_TRANSFER;
+                    weakSelf.mainService.code = weakSelf.currentToken.contract_name;
+                    weakSelf.mainService.sender = weakSelf.fromAccount;
+            #pragma mark -- [@"data"]
+                    weakSelf.mainService.binargs = data[@"data"][@"binargs"];
+                    weakSelf.mainService.pushTransactionType = PushTransactionTypeTransfer;
+                    weakSelf.mainService.password = weakSelf.loginPasswordView.inputPasswordTF.text;
+                    [weakSelf.mainService pushTransaction];
+                    [weakSelf removeLoginPasswordView];
+                } failure:^(id DAO, NSError *error) {
+                    NSLog(@"%@", error);
+                }];
+            }else{
+                [self removeLoginPasswordView];
+                [TOASTVIEW showWithText: NSLocalizedString(@"链上无此接收人", nil)];
+            }
+        }else{
+            [TOASTVIEW showWithText: NSLocalizedString(@"网络异常", nil)];
+        }
+    }];
+    
+}
 
 - (void)removeLoginPasswordView{
     [self.loginPasswordView removeFromSuperview];

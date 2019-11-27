@@ -5,7 +5,7 @@
 //  Created by vankiachain on 2017/11/27.
 //  Copyright © 2017年 vankiachain. All rights reserved.
 //
-#define YOUMENG_AppKey @"5b39ed6fb27b0a50be00012d"
+#define YOUMENG_AppKey @"5dcb7fd7570df3d475000ca9"
 
 #import "AppDelegate.h"
 #import "BaseTabBarController.h"
@@ -87,7 +87,7 @@ void uncaughtExceptionHandler(NSException*exception){
     // registor messeage
     [self registerNotifications];
     
-//    [self integrateUMengSDK];
+    [self integrateUMengSDK];
 
     return YES;
 }
@@ -127,7 +127,7 @@ void uncaughtExceptionHandler(NSException*exception){
     [UMConfigure setLogEnabled:NO];//设置日志, 上线模式
 #endif
     
-    [UMConfigure initWithAppkey:YOUMENG_AppKey channel:@"pgyer"];// pgyer ||   APP STORE
+    [UMConfigure initWithAppkey:YOUMENG_AppKey channel:@"App Store"];// pgyer ||   APP STORE
     NSString* deviceID = [UMConfigure deviceIDForIntegration];
     NSLog(@"集成测试的deviceID:%@",deviceID);
 }

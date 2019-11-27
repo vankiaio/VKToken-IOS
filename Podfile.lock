@@ -31,7 +31,7 @@ DEPENDENCIES:
   - TokenCore (from `https://github.com/vankiaio/token-core-ios.git`, branch `master`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - BigInt
     - CryptoSwift
     - FCUUID
@@ -64,6 +64,6 @@ SPEC CHECKSUMS:
   TokenCore: ddbea2578a2b091c8429a9b9671460b5e22a56c4
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: 460efcb7b4934ad82932e53d4547924983a98ed6
+PODFILE CHECKSUM: 79ea6b301fd001ebdce548a72a71295fd6b02d90
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

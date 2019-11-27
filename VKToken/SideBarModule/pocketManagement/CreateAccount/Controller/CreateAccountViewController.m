@@ -24,6 +24,7 @@
 #import "GetAccount.h"
 #import "GetAccountResult.h"
 #import "CreateMemonicViewController.h"
+#import "Validata_Invitecode_Request.h"
 #import "VKToken-swift.h"
 
 
@@ -33,6 +34,7 @@
 @property(nonatomic, strong) CreateAccountService *createAccountService;
 @property(nonatomic, strong) LoginPasswordView *loginPasswordView;
 @property(nonatomic, strong) GetAccountRequest *getAccountRequest;
+@property(nonatomic, strong) Validata_Invitecode_Request *validata_Invitecode_Request;
 @property(nonatomic, strong) NSString *imported_wallet_id;
 @end
 
@@ -77,6 +79,13 @@
     return _getAccountRequest;
 }
 
+- (Validata_Invitecode_Request *)validata_Invitecode_Request{
+    if (!_validata_Invitecode_Request) {
+        _validata_Invitecode_Request = [[Validata_Invitecode_Request alloc] init];
+    }
+    return _validata_Invitecode_Request;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.navView];
@@ -101,19 +110,46 @@
         return;
     }
     if (![ RegularExpression validateVktAccountName:self.headerView.accountNameTF.text ]) {
-        [TOASTVIEW showWithText:NSLocalizedString(@"用户名,5~12位字符,只能由小写a~z和1~5组成!", nil)];
+        [TOASTVIEW showWithText:NSLocalizedString(@"账号名,5~12位字符,只能由小写a~z和1~5组成!", nil)];
         return;
     }
-    if (self.headerView.passwordToSet.text.length < 1
-               || self.headerView.passwordToConfirm.text.length < 1) {
-         [TOASTVIEW showWithText:NSLocalizedString(@"密码不可少于8位!", nil)];
+    if (![self checkPassword:self.headerView.passwordToSet.text]
+               || ![self checkPassword : self.headerView.passwordToConfirm.text]) {
+         [TOASTVIEW showWithText:NSLocalizedString(@"密码格式有误（至少8个字符，至少1个字母，1个数字）", nil)];
         return;
     }
     if (![self.headerView.passwordToSet.text isEqualToString:self.headerView.passwordToConfirm.text]) {
          [TOASTVIEW showWithText:NSLocalizedString(@"两次输入密码不一致!", nil)];
         return;
     }
-    [self checkAccountExist];
+    if (self.headerView.inviteCodeTF.text.length != 5) {
+         [TOASTVIEW showWithText:NSLocalizedString(@"请输入5位邀请码", nil)];
+        return;
+    }
+    [self checkInviteCodeExist];
+}
+
+- (BOOL)checkPassword:(NSString *) password
+{
+    NSString *pattern = @"^(?=.*\\d)(?=.*[a-zA-Z]).{8,}$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:password];
+    return isMatch;
+}
+
+- (void)checkInviteCodeExist{
+    WS(weakSelf);
+    self.validata_Invitecode_Request.InvitationCode = VALIDATE_STRING(self.headerView.inviteCodeTF.text) ;
+    [self.validata_Invitecode_Request postDataSuccess:^(id DAO, id data) {
+         if ([data[@"code"] isEqualToNumber:@0] && [data[@"message"] isEqualToString:@"ok"]) {
+             [self checkAccountExist];
+         }else{
+             [TOASTVIEW showWithText: NSLocalizedString(@"邀请码不存在，请重新输入", nil)];
+              NSLog(@"%s", "validata_Invitecode_Request doesn't exsit.");
+         }
+    } failure:^(id DAO, NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void)checkAccountExist{

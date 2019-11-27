@@ -11,7 +11,9 @@
 #import "BaseTabBarController.h"
 #import "AppDelegate.h"
 #import "RtfBrowserViewController.h"
-#import "MessageFeedbackViewController.h"
+#import "PasswordView.h"
+#import "NJOPasswordStrengthEvaluator.h"
+#import "FeedbackViewController.h"
 #import "LanguageSettingViewController.h"
 #import "AboutUsViewController.h"
 #import "ShareToFrirndsViewController.h"
@@ -112,6 +114,8 @@
     self.mainTableView.lee_theme
     .LeeConfigBackgroundColor(@"baseHeaderView_background_color");
     [self.mainTableView reloadData];
+    [self.changePasswordView.inputNewPasswordTF addTarget:self action:@selector(textFiledDidChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self.changePasswordView.confirmPasswordTF addTarget:self action:@selector(textFiledDidChanged:) forControlEvents:UIControlEventEditingChanged];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -240,15 +244,16 @@
         NSFileManager *mgr = [NSFileManager defaultManager];
         if ([mgr fileExistsAtPath:cachePath]) {
             // 删除子文件夹
-            BOOL isRemoveSuccessed = [mgr removeItemAtPath:cachePath error:nil];
-            if (isRemoveSuccessed) { // 删除成功
+            [self removeCache];
+//            BOOL isRemoveSuccessed = [mgr removeItemAtPath:cachePath error:nil];
+//            if (isRemoveSuccessed) { // 删除成功
                 [TOASTVIEW showWithText:NSLocalizedString(@"清理成功~", nil)];
-            }
+//            }
         }
         [tableView reloadData];
         
     }else if([cell.textLabel.text isEqualToString:NSLocalizedString(@"意见反馈", nil)]){
-        MessageFeedbackViewController *vc = [[MessageFeedbackViewController alloc] init];
+        FeedbackViewController *vc = [[FeedbackViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if([cell.textLabel.text isEqualToString:NSLocalizedString(@"法律条款与隐私政策", nil)]){
@@ -284,6 +289,26 @@
     [self remove_change_passwordView];
 }
 
+- (void)textFiledDidChanged:(UITextField *)textfield {
+    if ([self.changePasswordView.inputNewPasswordTF isEqual:textfield] ||
+        [self.changePasswordView.confirmPasswordTF isEqual:textfield]) {
+        [self showPasswordTipLabelWithField:textfield];
+    }
+}
+
+- (void)showPasswordTipLabelWithField:(UITextField *)textField {
+    [self.changePasswordView.pwdStrengthLabel setTextColor:[UIColor redColor]];
+    if (textField.text.length == 0) {
+        self.changePasswordView.pwdStrengthLabel.text = NSLocalizedString(@"pwd_length_tip", nil);
+    } else {
+        if ([self judgePasswordStrength:textField.text] == eWeakPassword) {
+            self.changePasswordView.pwdStrengthLabel.text = NSLocalizedString(@"pwd_length_weak", nil);
+        } else {
+            self.changePasswordView.pwdStrengthLabel.text = @"";
+        }
+    }
+}
+
 - (void)confirmPasswordBtnDidClick:(UIButton *)sender{
     // 校验输入
     if (IsStrEmpty(self.changePasswordView.oraginalPasswordTF.text) || IsStrEmpty(self.changePasswordView.confirmPasswordTF.text) || IsStrEmpty(self.changePasswordView.inputNewPasswordTF.text)) {
@@ -296,13 +321,22 @@
         return;
     }
     
+    if ([self judgePasswordStrength:self.changePasswordView.inputNewPasswordTF.text] == eWeakPassword) {
+        self.changePasswordView.pwdStrengthLabel.text = NSLocalizedString(@"pwd_length_weak", nil);
+        return;
+    } else {
+        self.changePasswordView.pwdStrengthLabel.text = @"";
+    }
+    
+    [SVProgressHUD show];
     Wallet *current_wallet = CURRENT_WALLET;
     if (![WalletUtil validateWalletPasswordWithSha256:current_wallet.wallet_shapwd password:self.changePasswordView.oraginalPasswordTF.text]) {
         [TOASTVIEW showWithText:NSLocalizedString(@"原始密码输入有误!", nil)];
+        [SVProgressHUD dismiss];
         [self remove_change_passwordView];
         return;
     }
-    [SVProgressHUD show];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // 开始修改密码
         [self changeWalletPassword];
@@ -341,7 +375,63 @@
 
 - (void)remove_change_passwordView{
     [self.changePasswordView removeFromSuperview];
-    self.changePasswordView = nil;
+//    self.changePasswordView = nil;
+    self.changePasswordView.inputNewPasswordTF.text = @"";
+    self.changePasswordView.confirmPasswordTF.text = @"";
+    self.changePasswordView.oraginalPasswordTF.text = @"";
+}
+
+-(void)removeCache
+{
+    //===============清除缓存==============
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachePath];
+
+    // NSLog(@"文件数 ：%lu",(unsigned long)[files count]);
+    for (NSString *p in files)
+    {
+        NSError *error;
+        NSString *path = [cachePath stringByAppendingPathComponent:p];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:path] && [[NSFileManager defaultManager] isDeletableFileAtPath:path])
+        {
+            if (![[NSFileManager defaultManager] removeItemAtPath:path error:&error]) {
+                NSLog(@"Error trying to delete %@: %@", path, error);
+            }
+        } else {
+            NSLog(@"Can't delete %@", path);
+        }
+    }
+}
+
+#pragma mark - TODO
+- (PasswordEnum)judgePasswordStrength:(NSString*)password {
+    
+    if (password.length == 0) {
+        return eEmptyPassword;
+    }
+    
+    NJOPasswordStrength strength = [NJOPasswordStrengthEvaluator strengthOfPassword:password];
+    
+    PasswordEnum pwdStrong = eWeakPassword;
+    switch (strength) {
+        case NJOVeryWeakPasswordStrength:
+        case NJOWeakPasswordStrength:
+            pwdStrong = eWeakPassword;
+            break;
+        case NJOReasonablePasswordStrength:
+            pwdStrong = eSosoPassword;
+            break;
+        case NJOStrongPasswordStrength:
+            pwdStrong = eGoodPassword;
+            break;
+        case NJOVeryStrongPasswordStrength:
+            pwdStrong = eSafePassword;
+            break;
+        default:
+            break;
+    }
+    
+    return pwdStrong;
 }
 
 @end

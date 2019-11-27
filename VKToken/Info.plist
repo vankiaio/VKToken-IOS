@@ -27,7 +27,7 @@
 			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxde396b6e74029855</string>
+				<string>wx54d2b8e4b2e42792</string>
 			</array>
 		</dict>
 		<dict>
@@ -52,12 +52,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>0.1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>weixin</string>
+		<string>weixinULAPI</string>
 		<string>mqq</string>
 		<string>mqqapi</string>
 		<string>mqqwpa</string>

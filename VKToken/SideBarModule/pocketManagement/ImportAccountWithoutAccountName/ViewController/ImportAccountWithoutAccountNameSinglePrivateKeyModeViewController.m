@@ -212,8 +212,6 @@
     accountInfo.is_privacy_policy = @"0";
     
     TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
-    // 验证密码输入是否正确
-    [tokenCoreVKT setVktAccountName:imported_wallet_id: self.importAccountModel.accountName];
     
     NSString *privateKey_textView1 = [AESCrypt encrypt:self.headerView.textView.text password:self.loginPasswordView.inputPasswordTF.text];
     
@@ -223,18 +221,24 @@
         accountInfo.account_active_public_key = @"";
         accountInfo.account_active_private_key = @"";
         [self saveAccountWithAccountInfo:accountInfo];
+        // 验证密码输入是否正确
+        [tokenCoreVKT setVktAccountName:imported_wallet_id: self.importAccountModel.accountName];
     }else if (![self.get_account_permission_service.chainAccountOwnerPublicKeyArray containsObject:public_key_1_from_local] && [self.get_account_permission_service.chainAccountActivePublicKeyArray containsObject:public_key_1_from_local]){// //只active匹配
         accountInfo.account_owner_public_key = @"";
         accountInfo.account_owner_private_key = @"";
         accountInfo.account_active_public_key = public_key_1_from_local;
         accountInfo.account_active_private_key = privateKey_textView1;
         [self saveAccountWithAccountInfo:accountInfo];
+        // 验证密码输入是否正确
+        [tokenCoreVKT setVktAccountName:imported_wallet_id: self.importAccountModel.accountName];
     }else if ([self.get_account_permission_service.chainAccountOwnerPublicKeyArray containsObject:public_key_1_from_local] && [self.get_account_permission_service.chainAccountActivePublicKeyArray containsObject:public_key_1_from_local]){//owner和active全部匹配
         accountInfo.account_owner_public_key = public_key_1_from_local;
         accountInfo.account_owner_private_key = privateKey_textView1;
         accountInfo.account_active_public_key = public_key_1_from_local;
         accountInfo.account_active_private_key = privateKey_textView1;
         [self saveAccountWithAccountInfo:accountInfo];
+        // 验证密码输入是否正确
+        [tokenCoreVKT setVktAccountName:imported_wallet_id: self.importAccountModel.accountName];
     }else{//不匹配 导入失败
         [TOASTVIEW showWithText:NSLocalizedString(@"权限错误", nil)];
         for (ImportAccountModel *model in self.finalImportAccountModelArray) {

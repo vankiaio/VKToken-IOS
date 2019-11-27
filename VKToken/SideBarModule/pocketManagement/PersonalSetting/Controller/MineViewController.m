@@ -13,8 +13,9 @@
 #import "SystemSettingViewController.h"
 #import "ContactTableViewController.h"
 #import "AboutUsViewController.h"
-#import "MessageFeedbackViewController.h"
-#import "MessageCenterViewController.h"
+//#import "MessageFeedbackViewController.h"
+//#import "MessageCenterViewController.h"
+#import "FeedbackViewController.h"
 #import "InvitationCoreViewController.h"
 #import "MineHeaderView.h"
 
@@ -158,8 +159,8 @@
     [self cw_pushViewController:vc];}
 
 - (void)pushToMessage {
-    MessageCenterViewController *vc = [[MessageCenterViewController alloc] init];
-    [self cw_pushViewController:vc];
+//    MessageCenterViewController *vc = [[MessageCenterViewController alloc] init];
+//    [self cw_pushViewController:vc];
 }
 
 - (void)pushToSetting {
@@ -172,8 +173,10 @@
     [self cw_pushViewController:vc];
 }
 - (void)pushToFeedback {
-    MessageFeedbackViewController *vc = [[MessageFeedbackViewController alloc] init];
-    [self cw_pushViewController:vc];
+//    MessageFeedbackViewController *vc = [[MessageFeedbackViewController alloc] init];
+//    [self cw_pushViewController:vc];
+    FeedbackViewController *vc = [[FeedbackViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)pushToTermsOfUse {

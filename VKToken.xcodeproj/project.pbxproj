@@ -189,14 +189,6 @@
 		182CDEB7201EBBAA002B87B6 /* GetMessageListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDEB6201EBBAA002B87B6 /* GetMessageListRequest.m */; };
 		182CDEBA201EBCFA002B87B6 /* MessageCenterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDEB9201EBCFA002B87B6 /* MessageCenterResult.m */; };
 		182CDEBD201EBD07002B87B6 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDEBC201EBD07002B87B6 /* MessageCenter.m */; };
-		182CDF3C201EFED5002B87B6 /* MessageFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDF3B201EFED5002B87B6 /* MessageFeedbackViewController.m */; };
-		182CDF3F201EFEEA002B87B6 /* MessageFeedbackResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDF3E201EFEEA002B87B6 /* MessageFeedbackResult.m */; };
-		182CDF42201EFEFF002B87B6 /* MessageFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDF41201EFEFF002B87B6 /* MessageFeedback.m */; };
-		182CDF45201EFF1B002B87B6 /* GetFeedbackListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDF44201EFF1B002B87B6 /* GetFeedbackListRequest.m */; };
-		182CDF48201EFF2D002B87B6 /* PostFeedbackRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDF47201EFF2D002B87B6 /* PostFeedbackRequest.m */; };
-		182CDF4B201EFF4C002B87B6 /* MessageFeedbackService.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDF4A201EFF4C002B87B6 /* MessageFeedbackService.m */; };
-		182CDF51201EFFB4002B87B6 /* FeedbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDF4D201EFFB4002B87B6 /* FeedbackTableViewCell.m */; };
-		182CDF52201EFFB4002B87B6 /* FeedbackHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CDF4F201EFFB4002B87B6 /* FeedbackHeaderView.m */; };
 		1831F39D2016D8D1002CE94D /* AuthResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831F39C2016D8D1002CE94D /* AuthResult.m */; };
 		1831F3A02016E515002CE94D /* BackupVktAccountRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831F39F2016E515002CE94D /* BackupVktAccountRequest.m */; };
 		1831F3A320170AEA002CE94D /* AssestsMainService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831F3A220170AEA002CE94D /* AssestsMainService.m */; };
@@ -490,7 +482,6 @@
 		186F69EC20F4960900FFF881 /* BPVoteHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F69EE20F4960900FFF881 /* BPVoteHeaderView.xib */; };
 		186F69F320F4961F00FFF881 /* BPCandidateFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F69F520F4961F00FFF881 /* BPCandidateFooterView.xib */; };
 		186F69FA20F4963200FFF881 /* BackupAccountHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F69FC20F4963200FFF881 /* BackupAccountHeaderView.xib */; };
-		186F6A0120F4964000FFF881 /* FeedbackHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F6A0320F4964000FFF881 /* FeedbackHeaderView.xib */; };
 		186F6A0820F4964900FFF881 /* WalletQRCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F6A0A20F4964900FFF881 /* WalletQRCodeView.xib */; };
 		186F6A0F20F4965500FFF881 /* SideBarMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F6A1120F4965500FFF881 /* SideBarMainView.xib */; };
 		186F6A1620F4966300FFF881 /* VersionUpdateHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F6A1820F4966300FFF881 /* VersionUpdateHeaderView.xib */; };
@@ -984,6 +975,11 @@
 		6E2C026B230AA36900F2355B /* CurrencySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0269230AA36900F2355B /* CurrencySettingViewController.m */; };
 		6E2C0288230AAD2500F2355B /* GetCurrenciesListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0286230AAD2500F2355B /* GetCurrenciesListRequest.m */; };
 		6E5F4BD32328EA040006034D /* MemonicImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5F4BD52328EA040006034D /* MemonicImportWalletViewController.xib */; };
+		6E8E43D92387D7FC0076C512 /* FeedbackHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E43D82387D7FC0076C512 /* FeedbackHeaderView.m */; };
+		6E8E43DC2387D8640076C512 /* FeedbackHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8E43DB2387D8640076C512 /* FeedbackHeaderView.xib */; };
+		6E8E43DE2387E5360076C512 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E43DD2387E5360076C512 /* FeedbackViewController.m */; };
+		6E8E43E1238B87A30076C512 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8E43E0238B87A30076C512 /* WebKit.framework */; };
+		6E8E43E3238E14DF0076C512 /* Validata_Invitecode_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E43E2238E14DE0076C512 /* Validata_Invitecode_Request.m */; };
 		6E9AF83622B1055B00D3514D /* CreateMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */; };
 		6E9AF83722B1055B00D3514D /* CreateMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */; };
 		6E9AF83822B1055B00D3514D /* ConfirmMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */; };
@@ -1391,22 +1387,6 @@
 		182CDEB9201EBCFA002B87B6 /* MessageCenterResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCenterResult.m; sourceTree = "<group>"; };
 		182CDEBB201EBD07002B87B6 /* MessageCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCenter.h; sourceTree = "<group>"; };
 		182CDEBC201EBD07002B87B6 /* MessageCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCenter.m; sourceTree = "<group>"; };
-		182CDF3A201EFED5002B87B6 /* MessageFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageFeedbackViewController.h; sourceTree = "<group>"; };
-		182CDF3B201EFED5002B87B6 /* MessageFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageFeedbackViewController.m; sourceTree = "<group>"; };
-		182CDF3D201EFEEA002B87B6 /* MessageFeedbackResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageFeedbackResult.h; sourceTree = "<group>"; };
-		182CDF3E201EFEEA002B87B6 /* MessageFeedbackResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageFeedbackResult.m; sourceTree = "<group>"; };
-		182CDF40201EFEFF002B87B6 /* MessageFeedback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageFeedback.h; sourceTree = "<group>"; };
-		182CDF41201EFEFF002B87B6 /* MessageFeedback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageFeedback.m; sourceTree = "<group>"; };
-		182CDF43201EFF1B002B87B6 /* GetFeedbackListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetFeedbackListRequest.h; sourceTree = "<group>"; };
-		182CDF44201EFF1B002B87B6 /* GetFeedbackListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetFeedbackListRequest.m; sourceTree = "<group>"; };
-		182CDF46201EFF2D002B87B6 /* PostFeedbackRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostFeedbackRequest.h; sourceTree = "<group>"; };
-		182CDF47201EFF2D002B87B6 /* PostFeedbackRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostFeedbackRequest.m; sourceTree = "<group>"; };
-		182CDF49201EFF4C002B87B6 /* MessageFeedbackService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageFeedbackService.h; sourceTree = "<group>"; };
-		182CDF4A201EFF4C002B87B6 /* MessageFeedbackService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageFeedbackService.m; sourceTree = "<group>"; };
-		182CDF4C201EFFB4002B87B6 /* FeedbackHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackHeaderView.h; sourceTree = "<group>"; };
-		182CDF4D201EFFB4002B87B6 /* FeedbackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackTableViewCell.m; sourceTree = "<group>"; };
-		182CDF4E201EFFB4002B87B6 /* FeedbackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackTableViewCell.h; sourceTree = "<group>"; };
-		182CDF4F201EFFB4002B87B6 /* FeedbackHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackHeaderView.m; sourceTree = "<group>"; };
 		1831F39B2016D8D1002CE94D /* AuthResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthResult.h; sourceTree = "<group>"; };
 		1831F39C2016D8D1002CE94D /* AuthResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthResult.m; sourceTree = "<group>"; };
 		1831F39E2016E515002CE94D /* BackupVktAccountRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackupVktAccountRequest.h; sourceTree = "<group>"; };
@@ -2019,9 +1999,6 @@
 		186F69FB20F4963200FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BackupAccountHeaderView.xib; sourceTree = "<group>"; };
 		186F69FE20F4963400FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BackupAccountHeaderView.strings; sourceTree = "<group>"; };
 		186F6A0020F4963600FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BackupAccountHeaderView.strings"; sourceTree = "<group>"; };
-		186F6A0220F4964000FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FeedbackHeaderView.xib; sourceTree = "<group>"; };
-		186F6A0520F4964200FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FeedbackHeaderView.strings; sourceTree = "<group>"; };
-		186F6A0720F4964300FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/FeedbackHeaderView.strings"; sourceTree = "<group>"; };
 		186F6A0920F4964900FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WalletQRCodeView.xib; sourceTree = "<group>"; };
 		186F6A0C20F4964B00FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletQRCodeView.strings; sourceTree = "<group>"; };
 		186F6A0E20F4964C00FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WalletQRCodeView.strings"; sourceTree = "<group>"; };
@@ -3003,6 +2980,14 @@
 		6E5F4BD92328EA170006034D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MemonicImportWalletViewController.strings"; sourceTree = "<group>"; };
 		6E5F4BDC2328ECD70006034D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CreateAccountHeaderView.strings; sourceTree = "<group>"; };
 		6E5F4BDE2328ECDE0006034D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CreateAccountHeaderView.strings"; sourceTree = "<group>"; };
+		6E8E43D82387D7FC0076C512 /* FeedbackHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackHeaderView.m; sourceTree = "<group>"; };
+		6E8E43DA2387D81F0076C512 /* FeedbackHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackHeaderView.h; sourceTree = "<group>"; };
+		6E8E43DB2387D8640076C512 /* FeedbackHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackHeaderView.xib; sourceTree = "<group>"; };
+		6E8E43DD2387E5360076C512 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		6E8E43DF2387E5420076C512 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		6E8E43E0238B87A30076C512 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		6E8E43E2238E14DE0076C512 /* Validata_Invitecode_Request.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Validata_Invitecode_Request.m; sourceTree = "<group>"; };
+		6E8E43E4238E14F80076C512 /* Validata_Invitecode_Request.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Validata_Invitecode_Request.h; sourceTree = "<group>"; };
 		6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateMemonicViewController.xib; sourceTree = "<group>"; };
 		6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemonicViewController.m; sourceTree = "<group>"; };
 		6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMemonicViewController.m; sourceTree = "<group>"; };
@@ -3067,6 +3052,7 @@
 				1820075A2069F3E600D281EF /* libWeChatSDK.a in Frameworks */,
 				1820076C206A668E00D281EF /* TencentOpenAPI.framework in Frameworks */,
 				1820074C2069E31300D281EF /* CFNetwork.framework in Frameworks */,
+				6E8E43E1238B87A30076C512 /* WebKit.framework in Frameworks */,
 				1820074A2069E30500D281EF /* CoreTelephony.framework in Frameworks */,
 				182007472069E2E300D281EF /* libc++.1.dylib in Frameworks */,
 				18CEA65821057E0300B2BFE2 /* UMCommonLog.framework in Frameworks */,
@@ -3904,6 +3890,7 @@
 		182B02EB1FF3962B006C9DFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E8E43E0238B87A30076C512 /* WebKit.framework */,
 				6EFE45572330BD0600681CDD /* FCUUID.framework */,
 				6EFE45552330B35F00681CDD /* FCUUID.framework */,
 				18D02F51214F91AB006D2776 /* libSystem.tbd */,
@@ -4020,70 +4007,6 @@
 				182CDEB6201EBBAA002B87B6 /* GetMessageListRequest.m */,
 			);
 			path = NetworkingRequest;
-			sourceTree = "<group>";
-		};
-		182CDF34201EFE9B002B87B6 /* Feedback(意见反馈) */ = {
-			isa = PBXGroup;
-			children = (
-				182CDF35201EFE9B002B87B6 /* Controller */,
-				182CDF36201EFE9B002B87B6 /* Model */,
-				182CDF37201EFE9B002B87B6 /* Networking */,
-				182CDF38201EFE9B002B87B6 /* Service */,
-				182CDF39201EFE9B002B87B6 /* View */,
-			);
-			path = "Feedback(意见反馈)";
-			sourceTree = "<group>";
-		};
-		182CDF35201EFE9B002B87B6 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				182CDF3A201EFED5002B87B6 /* MessageFeedbackViewController.h */,
-				182CDF3B201EFED5002B87B6 /* MessageFeedbackViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		182CDF36201EFE9B002B87B6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				182CDF3D201EFEEA002B87B6 /* MessageFeedbackResult.h */,
-				182CDF3E201EFEEA002B87B6 /* MessageFeedbackResult.m */,
-				182CDF40201EFEFF002B87B6 /* MessageFeedback.h */,
-				182CDF41201EFEFF002B87B6 /* MessageFeedback.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		182CDF37201EFE9B002B87B6 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				182CDF43201EFF1B002B87B6 /* GetFeedbackListRequest.h */,
-				182CDF44201EFF1B002B87B6 /* GetFeedbackListRequest.m */,
-				182CDF46201EFF2D002B87B6 /* PostFeedbackRequest.h */,
-				182CDF47201EFF2D002B87B6 /* PostFeedbackRequest.m */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		182CDF38201EFE9B002B87B6 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				182CDF49201EFF4C002B87B6 /* MessageFeedbackService.h */,
-				182CDF4A201EFF4C002B87B6 /* MessageFeedbackService.m */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		182CDF39201EFE9B002B87B6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				182CDF4C201EFFB4002B87B6 /* FeedbackHeaderView.h */,
-				182CDF4F201EFFB4002B87B6 /* FeedbackHeaderView.m */,
-				186F6A0320F4964000FFF881 /* FeedbackHeaderView.xib */,
-				182CDF4E201EFFB4002B87B6 /* FeedbackTableViewCell.h */,
-				182CDF4D201EFFB4002B87B6 /* FeedbackTableViewCell.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		1831F3972016D195002CE94D /* Model */ = {
@@ -5881,6 +5804,7 @@
 		187268321FDE315F00C898D1 /* SideBarModule */ = {
 			isa = PBXGroup;
 			children = (
+				6E8E43D32387D6CC0076C512 /* Feedback */,
 				6E15520F22D4976800F69404 /* InvitationCode */,
 				18BE5F0C2189AD43001B4610 /* ShareToFriends */,
 				18BE5EFF21899E05001B4610 /* AboutUs */,
@@ -5891,7 +5815,6 @@
 				18B276F320B7A8590070F472 /* Specification */,
 				18AFBEF820B3080E00E880DD /* BackupAccount */,
 				187268331FDE315F00C898D1 /* MessageCenter(消息中心) */,
-				182CDF34201EFE9B002B87B6 /* Feedback(意见反馈) */,
 				1872683F1FDE315F00C898D1 /* SIdeBar */,
 				187268461FDE315F00C898D1 /* SystemSetting */,
 				1872684A1FDE315F00C898D1 /* TransactionRecords */,
@@ -8221,6 +8144,8 @@
 				18ECBCC8215B6A6100BAE3C2 /* GetTransactionByIdRequest.m */,
 				1889E196217B0C19002ECF38 /* Get_account_assetsRequest.h */,
 				1889E197217B0C19002ECF38 /* Get_account_assetsRequest.m */,
+				6E8E43E2238E14DE0076C512 /* Validata_Invitecode_Request.m */,
+				6E8E43E4238E14F80076C512 /* Validata_Invitecode_Request.h */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -9307,6 +9232,34 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		6E8E43D32387D6CC0076C512 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				6E8E43D72387D7470076C512 /* View */,
+				6E8E43D42387D6E50076C512 /* Controller */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		6E8E43D42387D6E50076C512 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6E8E43DD2387E5360076C512 /* FeedbackViewController.m */,
+				6E8E43DF2387E5420076C512 /* FeedbackViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6E8E43D72387D7470076C512 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E8E43D82387D7FC0076C512 /* FeedbackHeaderView.m */,
+				6E8E43DA2387D81F0076C512 /* FeedbackHeaderView.h */,
+				6E8E43DB2387D8640076C512 /* FeedbackHeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E9AF82D22B1055B00D3514D /* CreateMnemonic */ = {
 			isa = PBXGroup;
 			children = (
@@ -9515,6 +9468,7 @@
 			files = (
 				18A99B0620E6644000E32A29 /* Javascript.html in Resources */,
 				18D07A4A20EA034A00DF1FDF /* ForwardRedPacketFooterView.xib in Resources */,
+				6E8E43DC2387D8640076C512 /* FeedbackHeaderView.xib in Resources */,
 				18CEA65621057DFB00B2BFE2 /* UMCommonLog.bundle in Resources */,
 				18CE932921A2B2F7002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.xib in Resources */,
 				186F6A8D20F4979D00FFF881 /* ModifyApproveHeaderView.xib in Resources */,
@@ -9583,7 +9537,6 @@
 				18C7F77B211C28CB006AD456 /* AccountNotExistView.xib in Resources */,
 				186F696020F4951200FFF881 /* AssestsDetailHeaderView.xib in Resources */,
 				186F69FA20F4963200FFF881 /* BackupAccountHeaderView.xib in Resources */,
-				186F6A0120F4964000FFF881 /* FeedbackHeaderView.xib in Resources */,
 				186F69B420F495BC00FFF881 /* ApplicationMainHeaderView.xib in Resources */,
 				18AD2BC820D0CCFA00536084 /* BP_account_will_be_locked.rtf in Resources */,
 				186F696E20F4953B00FFF881 /* TransferHeaderView.xib in Resources */,
@@ -9690,8 +9643,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VKToken/Pods-VKToken-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
@@ -9706,8 +9657,6 @@
 				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
@@ -9774,7 +9723,6 @@
 				1886079D1FCC012F00B00EE7 /* NSMutableAttributedString+ExFoundation.m in Sources */,
 				18BE612620FF2B4C00BAD50C /* RecommandToken.m in Sources */,
 				183FF6EC20C0D6820058D010 /* NSData+CommonCrypto.m in Sources */,
-				182CDF42201EFEFF002B87B6 /* MessageFeedback.m in Sources */,
 				182CDEB7201EBBAA002B87B6 /* GetMessageListRequest.m in Sources */,
 				1806D0F7206E58540023D83B /* SocialModel.m in Sources */,
 				18BE5F0921899E65001B4610 /* AboutUsHeaderView.m in Sources */,
@@ -9847,6 +9795,7 @@
 				18D07A5A20EA563200DF1FDF /* RedPacketDetailService.m in Sources */,
 				18BE612A20FF3B3300BAD50C /* Add_user_token_request.m in Sources */,
 				18D475B6215CD6C400F3BF22 /* GetVktBalanceModel.m in Sources */,
+				6E8E43E3238E14DF0076C512 /* Validata_Invitecode_Request.m in Sources */,
 				18E72E241FCC116F00D09CA3 /* ApplicationMainViewController.m in Sources */,
 				18291F5520EE548E00D19CB9 /* UserInfoResult.m in Sources */,
 				1856A4EE2008887200D62FEB /* NSBundle+MJRefresh.m in Sources */,
@@ -9899,7 +9848,6 @@
 				18F576D8212C094C00AE54E9 /* TransferDetailsService.m in Sources */,
 				1864FA851FF23218005F636D /* RichListCell.m in Sources */,
 				188607A01FCC012F00B00EE7 /* UIColor+SNFoundation.m in Sources */,
-				182CDF51201EFFB4002B87B6 /* FeedbackTableViewCell.m in Sources */,
 				6E15524122D8857B00F69404 /* ExportMnemonicView.m in Sources */,
 				18291F4920EE399400D19CB9 /* ScrollMenuView.m in Sources */,
 				18A1782E218B047000521343 /* DiscoverMainHeaderView.m in Sources */,
@@ -10029,6 +9977,7 @@
 				1811301B1FCD01B800BEA0D9 /* UIImageView+WebCache.m in Sources */,
 				1856A4DE2008887200D62FEB /* MJRefreshAutoFooter.m in Sources */,
 				18112F711FCD016000BEA0D9 /* IQPreviousNextView.m in Sources */,
+				6E8E43DE2387E5360076C512 /* FeedbackViewController.m in Sources */,
 				1856A4E72008887200D62FEB /* MJRefreshBackNormalFooter.m in Sources */,
 				6EC6B8EC22B7909F00E5129A /* NSString+.m in Sources */,
 				188DECF620A97F4E00ACD2A3 /* BBLoginHeaderView.m in Sources */,
@@ -10177,7 +10126,6 @@
 				183F04442150DA11008C45B3 /* Abi_bin_to_jsonRequest.m in Sources */,
 				1832CC4120074EFB00C055B6 /* AskQuestionTableViewCell.m in Sources */,
 				1856A4E02008887200D62FEB /* MJRefreshComponent.m in Sources */,
-				182CDF45201EFF1B002B87B6 /* GetFeedbackListRequest.m in Sources */,
 				24FB2CAE20DBF99700AC73A5 /* BandwidthManageTableViewCell.m in Sources */,
 				183F04472150DB62008C45B3 /* Abi_bin_to_json_Result.m in Sources */,
 				18CE935A21A508DA002F958E /* ResetAccountPermisionViewController.m in Sources */,
@@ -10207,7 +10155,6 @@
 				185BBA9C1FF4883100DE2AC1 /* Wallet.m in Sources */,
 				6E0E95E222C5E42300089F46 /* ContactCell.m in Sources */,
 				6E1F522122940C9C003D1C3D /* AssestLockRecordsHeaderView.m in Sources */,
-				182CDF4B201EFF4C002B87B6 /* MessageFeedbackService.m in Sources */,
 				183C6442211AA1F7001C9C4A /* AccountOrderStatus.m in Sources */,
 				18CE936221A544CF002F958E /* GeneratePrivateKeyView.m in Sources */,
 				18AFBEFE20B3082900E880DD /* BackupAccountViewController.m in Sources */,
@@ -10280,6 +10227,7 @@
 				18F576C8212BE58600AE54E9 /* TransferRecordsService.m in Sources */,
 				18112F6A1FCD016000BEA0D9 /* IQUIView+Hierarchy.m in Sources */,
 				181130041FCD01B800BEA0D9 /* MKAnnotationView+WebCache.m in Sources */,
+				6E8E43D92387D7FC0076C512 /* FeedbackHeaderView.m in Sources */,
 				18CE931C21A2B1DE002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeViewController.m in Sources */,
 				6EC292EE228D8034006DB42F /* Constants.swift in Sources */,
 				18112F0C1FCD00B700BEA0D9 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
@@ -10322,7 +10270,6 @@
 				1841134E200476F000CD6F3F /* NewsMainHeaderView.m in Sources */,
 				18D02F05214F809E006D2776 /* PSWebSocket.m in Sources */,
 				181130051FCD01B800BEA0D9 /* NSData+ImageContentType.m in Sources */,
-				182CDF3F201EFEEA002B87B6 /* MessageFeedbackResult.m in Sources */,
 				181130141FCD01B800BEA0D9 /* SDWebImageWebPCoder.m in Sources */,
 				18A1783A218B0C7D00521343 /* Get_recommend_dapp_result.m in Sources */,
 				18AD2BD020D0F04700536084 /* VKTMappingResult.m in Sources */,
@@ -10445,7 +10392,6 @@
 				182A661C1FD12E8B007FD541 /* RichListService.m in Sources */,
 				18B291302089942D0032EE27 /* GetRedPacketDetailRequest.m in Sources */,
 				6EFE45542330A7F100681CDD /* UploadAccessInfoRequest.m in Sources */,
-				182CDF48201EFF2D002B87B6 /* PostFeedbackRequest.m in Sources */,
 				18DBBB1A206523A00050EE20 /* PGDatePicker.m in Sources */,
 				1808FCCD202ADBCC00625C37 /* GetTransactionRecordsRequest.m in Sources */,
 				181EC30A20C4C43E001994D3 /* ApplicationMainHeaderBottomView.m in Sources */,
@@ -10482,7 +10428,6 @@
 				1812BB5D20B3AD3800C70801 /* AssestDetailFooterView.m in Sources */,
 				18372D312063371B004D19D0 /* TransactionResult.m in Sources */,
 				1889E1BB217B4661002ECF38 /* AssestsCollectionDetailTableViewCell.m in Sources */,
-				182CDF52201EFFB4002B87B6 /* FeedbackHeaderView.m in Sources */,
 				18A99A8420E6613F00E32A29 /* SDCollectionViewCell.m in Sources */,
 				185DD6D4206CA80400BCFFCF /* MJPropertyKey.m in Sources */,
 				18351659212FFCD300F074E7 /* DappExcuteActionsDataSourceService.m in Sources */,
@@ -10527,7 +10472,6 @@
 				188DECFB20A98B3200ACD2A3 /* BBLoginCreateWalletView.m in Sources */,
 				18AD2BCC20D0CE8600536084 /* GetAccountNameByWifRequest.m in Sources */,
 				1811300D1FCD01B800BEA0D9 /* SDWebImageDownloader.m in Sources */,
-				182CDF3C201EFED5002B87B6 /* MessageFeedbackViewController.m in Sources */,
 				1838496F20BE5AD700B89549 /* CWLateralSlideAnimator.m in Sources */,
 				180FDF7C20215DD700BE593F /* GetWalletAccountsRequest.m in Sources */,
 				183C643F211AA1EC001C9C4A /* AccountOrderStatusResult.m in Sources */,
@@ -10940,16 +10884,6 @@
 				186F6A0020F4963600FFF881 /* zh-Hans */,
 			);
 			name = BackupAccountHeaderView.xib;
-			sourceTree = "<group>";
-		};
-		186F6A0320F4964000FFF881 /* FeedbackHeaderView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				186F6A0220F4964000FFF881 /* Base */,
-				186F6A0520F4964200FFF881 /* en */,
-				186F6A0720F4964300FFF881 /* zh-Hans */,
-			);
-			name = FeedbackHeaderView.xib;
 			sourceTree = "<group>";
 		};
 		186F6A0A20F4964900FFF881 /* WalletQRCodeView.xib */ = {
@@ -11520,6 +11454,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos12.1]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.2;
 				DEVELOPMENT_TEAM = 83AYZ4GGP2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -11574,6 +11509,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos12.1]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.2;
 				DEVELOPMENT_TEAM = 83AYZ4GGP2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

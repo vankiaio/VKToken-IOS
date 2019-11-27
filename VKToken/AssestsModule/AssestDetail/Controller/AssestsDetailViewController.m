@@ -65,7 +65,7 @@
 - (AssestsDetailHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[[NSBundle mainBundle] loadNibNamed:@"AssestsDetailHeaderView" owner:nil options:nil] firstObject];
-        if (kIs_iPhoneX) {
+        if([DeviceType isiPhoneX]){
             _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 243+50+25);
         }else{
             _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 243+50);

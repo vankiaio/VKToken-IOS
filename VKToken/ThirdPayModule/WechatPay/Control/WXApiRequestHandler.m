@@ -41,7 +41,7 @@
                 NSMutableString *stamp  = [dict objectForKey:@"timestamp"];
 
                 //调起微信支付
-                PayReq* req             = [[PayReq alloc] init];
+//                PayReq* req             = [[PayReq alloc] init];
 //                req.partnerId           = [dict objectForKey:@"partnerid"];
 //                req.prepayId            = [dict objectForKey:@"prepayid"];
 //                req.nonceStr            = [dict objectForKey:@"noncestr"];
@@ -50,16 +50,16 @@
 //                req.sign                = [dict objectForKey:@"sign"];
                 
                 
-                req.partnerId           = @"1509617931";
-                req.prepayId            = @"wx071409516272863a9e6268fb2418767810";
-                req.nonceStr            = @"536eecee295b92db6b32194e269541f8";
-                NSString *stampStr = @"1533622195";
-                req.timeStamp           = stampStr.intValue;
-                req.package             = @"Sign=WXPay";
-                req.sign                = @"351B143FFDD88697654FE24441EF40B9";
-                [WXApi sendReq:req];
+//                req.partnerId           = @"1509617931";
+//                req.prepayId            = @"wx071409516272863a9e6268fb2418767810";
+//                req.nonceStr            = @"536eecee295b92db6b32194e269541f8";
+//                NSString *stampStr = @"1533622195";
+//                req.timeStamp           = stampStr.intValue;
+//                req.package             = @"Sign=WXPay";
+//                req.sign                = @"351B143FFDD88697654FE24441EF40B9";
+//                [WXApi sendReq:req];
                 //日志输出
-                NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
+//                NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
                 return @"";
             }else{
                 return [dict objectForKey:@"retmsg"];

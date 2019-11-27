@@ -10,7 +10,7 @@
 #import "TendencyChartView.h"
 
 @interface AssestsDetailHeaderView()
-@property (weak, nonatomic) IBOutlet TendencyChartView *chartView;
+//@property (weak, nonatomic) IBOutlet TendencyChartView *chartView;
 
 @end
 
@@ -19,7 +19,7 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    self.chartView.frame = CGRectMake(20, 98, SCREEN_WIDTH - MARGIN_20 * 2, 55);
+//    self.chartView.frame = CGRectMake(20, 98, SCREEN_WIDTH - MARGIN_20 * 2, 55);
     self.imageView.layer.cornerRadius = 10;
     self.tabBar.barStyle = UIBarStyleDefault;// 黑 和 白
     self.tabBar.translucent = YES;// 透明属性
