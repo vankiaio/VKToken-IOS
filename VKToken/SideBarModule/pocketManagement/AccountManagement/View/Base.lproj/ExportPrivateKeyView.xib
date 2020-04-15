@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -51,24 +48,11 @@
                                 <constraint firstItem="Oip-wa-hXB" firstAttribute="leading" secondItem="pV8-IS-cZm" secondAttribute="leading" constant="20" id="wMx-xV-gLW"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCj-nC-IX7" customClass="SWWButton">
-                            <rect key="frame" x="173" y="268" width="60" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="60" id="QEI-gU-MJc"/>
-                                <constraint firstAttribute="height" constant="60" id="mkv-4N-6hL"/>
-                            </constraints>
-                            <state key="normal" title="二维码" image="QRCode_green.png">
-                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="generateQRCodeBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="cIK-fg-AcR"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2F-lV-jFi" customClass="SWWButton">
-                            <rect key="frame" x="57" y="268" width="60" height="60"/>
+                            <rect key="frame" x="110" y="268" width="60" height="60"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="60" id="Bhx-Xs-7j0"/>
-                                <constraint firstAttribute="width" constant="60" id="BpM-es-CJS"/>
+                                <constraint firstAttribute="width" constant="60" id="tfd-aC-11L"/>
+                                <constraint firstAttribute="height" constant="60" id="xye-kQ-CFh"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <state key="normal" title="私钥" image="copy_orange.png">
@@ -165,21 +149,19 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="BEE-Xc-pAA" secondAttribute="trailing" id="03s-vb-Dcg"/>
-                        <constraint firstItem="mCj-nC-IX7" firstAttribute="centerX" secondItem="VaI-cw-3f5" secondAttribute="centerX" multiplier="1.4" id="2bV-9g-asg"/>
                         <constraint firstItem="pV8-IS-cZm" firstAttribute="top" secondItem="VaI-cw-3f5" secondAttribute="top" id="2zJ-Ae-rGs"/>
                         <constraint firstAttribute="width" constant="290" id="3ms-HB-lLT"/>
                         <constraint firstItem="BEE-Xc-pAA" firstAttribute="top" secondItem="pV8-IS-cZm" secondAttribute="bottom" id="7Lh-4K-pBG"/>
-                        <constraint firstAttribute="bottom" secondItem="mCj-nC-IX7" secondAttribute="bottom" constant="10" id="7ue-JG-3ub"/>
                         <constraint firstAttribute="trailing" secondItem="wpy-db-1nu" secondAttribute="trailing" id="8cL-bT-XeE"/>
                         <constraint firstAttribute="trailing" secondItem="pV8-IS-cZm" secondAttribute="trailing" id="DN9-mh-hWG"/>
-                        <constraint firstAttribute="bottom" secondItem="J2F-lV-jFi" secondAttribute="bottom" constant="10" id="EnC-MQ-dNi"/>
                         <constraint firstItem="BEE-Xc-pAA" firstAttribute="leading" secondItem="VaI-cw-3f5" secondAttribute="leading" id="HV1-ap-ZyE"/>
+                        <constraint firstAttribute="bottom" secondItem="J2F-lV-jFi" secondAttribute="bottom" constant="10" id="L6m-cq-VMc"/>
+                        <constraint firstItem="J2F-lV-jFi" firstAttribute="top" secondItem="wpy-db-1nu" secondAttribute="bottom" constant="20" id="LCZ-26-fb7"/>
                         <constraint firstAttribute="height" constant="338" id="Nzl-FH-tcm"/>
                         <constraint firstItem="wpy-db-1nu" firstAttribute="leading" secondItem="VaI-cw-3f5" secondAttribute="leading" id="QOW-C8-TU1"/>
+                        <constraint firstItem="J2F-lV-jFi" firstAttribute="leading" secondItem="VaI-cw-3f5" secondAttribute="leading" constant="110" id="Su2-Fx-tBf"/>
                         <constraint firstItem="pV8-IS-cZm" firstAttribute="leading" secondItem="VaI-cw-3f5" secondAttribute="leading" id="Vmh-XY-pH9"/>
                         <constraint firstItem="wpy-db-1nu" firstAttribute="top" secondItem="BEE-Xc-pAA" secondAttribute="bottom" id="bsV-Xl-OZd"/>
-                        <constraint firstItem="mCj-nC-IX7" firstAttribute="top" secondItem="wpy-db-1nu" secondAttribute="bottom" constant="20" id="eKF-mJ-vsk"/>
-                        <constraint firstItem="J2F-lV-jFi" firstAttribute="centerX" secondItem="VaI-cw-3f5" secondAttribute="centerX" multiplier="0.6" id="gHe-fx-UUw"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -197,7 +179,6 @@
             <connections>
                 <outlet property="contentTextBaseView" destination="eR8-c9-jPy" id="4lV-lb-JbL"/>
                 <outlet property="contentTextView" destination="bT6-cc-ete" id="g3b-GT-FIp"/>
-                <outlet property="generateQRCodeBtn" destination="mCj-nC-IX7" id="x9t-yf-d46"/>
                 <outlet property="privateKeyCopyBtn" destination="J2F-lV-jFi" id="mQL-S5-JBg"/>
                 <outlet property="titleLabel" destination="SPF-LZ-qo2" id="mMH-jx-0ud"/>
                 <outlet property="upBackgroundView" destination="VaI-cw-3f5" id="sN8-bX-i00"/>
@@ -206,7 +187,6 @@
         </view>
     </objects>
     <resources>
-        <image name="QRCode_green.png" width="24" height="24"/>
         <image name="copy-icon_gray.png" width="14" height="14"/>
         <image name="copy_orange.png" width="69" height="78"/>
     </resources>
