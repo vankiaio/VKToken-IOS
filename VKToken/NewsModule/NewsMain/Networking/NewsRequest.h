@@ -6,9 +6,9 @@
 //  Copyright © 2017年 vankiachain. All rights reserved.
 //
 
-#import "BaseNetworkRequest.h"
+#import "BaseHttps2NetworkRequest.h"
 
-@interface NewsRequest : BaseNetworkRequest
+@interface NewsRequest : BaseHttps2NetworkRequest
 
 /**
  一页显示的记录数

@@ -125,7 +125,7 @@
     //通过这两个参数来调整badge位置
     [self.tabBar setTabIconWidth:40];
     [self.tabBar setBadgeTop:6];
-    [self.tabBar setBadgeStyle:kCustomBadgeStyleNumber value:1 atIndex:1];
+//    [self.tabBar setBadgeStyle:kCustomBadgeStyleNumber value:1 atIndex:1];
 }
 
 -(void)setupChildViewController:(UIViewController*)controller title:(NSString *)title imageName:(NSString *)imageName seleceImageName:(NSString *)selectImageName BB_imageName:(NSString *)BB_imageName BB_seleceImageName:(NSString *)BB_selectImageName{

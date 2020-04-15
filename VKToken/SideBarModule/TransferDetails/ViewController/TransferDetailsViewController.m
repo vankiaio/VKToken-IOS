@@ -213,7 +213,7 @@
 - (void)footerBtnDidClick{
     DAppDetailViewController *vc = [[DAppDetailViewController alloc] init];
     DappModel *model = [[DappModel alloc] init];
-    model.dappUrl = [NSString stringWithFormat:@"http://tracker.greaspace.com/transactions/%@", self.model.trxid];
+    model.dappUrl = [NSString stringWithFormat:@"http://explorer.vankia.io/transactions/%@", self.model.trxid];
     model.dappName = @"VKT Tracker";
     vc.model = model;
     vc.choosedAccountName = self.currentAccountName;

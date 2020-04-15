@@ -292,7 +292,8 @@
             }];
         }else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
             ScanQRCodeViewController *vc = [[ScanQRCodeViewController alloc] init];
-            vc.get_token_info_service_data_array = self.get_token_info_service.dataSourceArray;
+//            vc.get_token_info_service_data_array = self.get_token_info_service.dataSourceArray;
+            vc.get_token_info_service_data_array = self.get_token_info_service_data_array;
             [weakSelf.navigationController pushViewController:vc animated:YES];
         } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
             UIAlertController *alertC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"温馨提示", nil)message:NSLocalizedString(@"请去-> [设置 - 隐私 - 相机 - VKT Wallet] 打开访问开关", nil)preferredStyle:(UIAlertControllerStyleAlert)];

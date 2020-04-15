@@ -133,9 +133,6 @@
 		181EC32120C58C20001994D3 /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 181EC31F20C58C20001994D3 /* client.p12 */; };
 		181EC32220C58C20001994D3 /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = 181EC32020C58C20001994D3 /* server.cer */; };
 		182007412069E1F100D281EF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182007402069E1E600D281EF /* SystemConfiguration.framework */; };
-		182007432069E27000D281EF /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 182007422069E27000D281EF /* libz.1.dylib */; };
-		182007452069E2AD00D281EF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 182007442069E2AC00D281EF /* libsqlite3.dylib */; };
-		182007472069E2E300D281EF /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 182007462069E2E300D281EF /* libc++.1.dylib */; };
 		1820074A2069E30500D281EF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182007492069E2FA00D281EF /* CoreTelephony.framework */; };
 		1820074C2069E31300D281EF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1820074B2069E30C00D281EF /* CFNetwork.framework */; };
 		1820075A2069F3E600D281EF /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 182007552069F3E500D281EF /* libWeChatSDK.a */; };
@@ -676,8 +673,6 @@
 		18BA1EF321106767008558DE /* WXApiRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BA1EEE21106767008558DE /* WXApiRequestHandler.m */; };
 		18BA1EF421106767008558DE /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BA1EF121106767008558DE /* WXApiManager.m */; };
 		18BA1EF921106BD7008558DE /* ThirdPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BA1EF821106BD7008558DE /* ThirdPayManager.m */; };
-		18BA1F1E2111B6F3008558DE /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18BA1F1C2111B6F2008558DE /* AlipaySDK.bundle */; };
-		18BA1F1F2111B6F3008558DE /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F1D2111B6F3008558DE /* AlipaySDK.framework */; };
 		18BA1F212111B739008558DE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F202111B738008558DE /* libc++.tbd */; };
 		18BA1F232111B762008558DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F222111B761008558DE /* QuartzCore.framework */; };
 		18BA1F252111B778008558DE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA1F242111B778008558DE /* CoreText.framework */; };
@@ -765,11 +760,6 @@
 		18CEA64021022E9400B2BFE2 /* RecieveTokenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEA63F21022E9400B2BFE2 /* RecieveTokenModel.m */; };
 		18CEA641210233A500B2BFE2 /* PocketManagementHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CEA643210233A500B2BFE2 /* PocketManagementHeaderView.xib */; };
 		18CEA64B2105781600B2BFE2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CEA64A2105781600B2BFE2 /* libz.tbd */; };
-		18CEA64E21057DCF00B2BFE2 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CEA64D21057DCF00B2BFE2 /* UMCommon.framework */; };
-		18CEA65021057DDB00B2BFE2 /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CEA64F21057DDB00B2BFE2 /* UMAnalytics.framework */; };
-		18CEA65221057DEB00B2BFE2 /* SecurityEnvSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CEA65121057DEB00B2BFE2 /* SecurityEnvSDK.framework */; };
-		18CEA65621057DFB00B2BFE2 /* UMCommonLog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18CEA65521057DFB00B2BFE2 /* UMCommonLog.bundle */; };
-		18CEA65821057E0300B2BFE2 /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CEA65721057E0300B2BFE2 /* UMCommonLog.framework */; };
 		18CEA65A21057EBD00B2BFE2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CEA65921057EBD00B2BFE2 /* libsqlite3.tbd */; };
 		18CEA6672105D22500B2BFE2 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEA6652105D22500B2BFE2 /* RootNavigationController.m */; };
 		18CEA66C2105D25400B2BFE2 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEA66A2105D25400B2BFE2 /* XYTransition.m */; };
@@ -975,11 +965,16 @@
 		6E2C026B230AA36900F2355B /* CurrencySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0269230AA36900F2355B /* CurrencySettingViewController.m */; };
 		6E2C0288230AAD2500F2355B /* GetCurrenciesListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C0286230AAD2500F2355B /* GetCurrenciesListRequest.m */; };
 		6E5F4BD32328EA040006034D /* MemonicImportWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5F4BD52328EA040006034D /* MemonicImportWalletViewController.xib */; };
+		6E73B755244441B100E83826 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E73B751244441B100E83826 /* UTDID.framework */; };
+		6E73B756244441B100E83826 /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E73B752244441B100E83826 /* UMCommonLog.framework */; };
+		6E73B757244441B100E83826 /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E73B753244441B100E83826 /* UMAnalytics.framework */; };
+		6E73B758244441B100E83826 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E73B754244441B100E83826 /* UMCommon.framework */; };
 		6E8E43D92387D7FC0076C512 /* FeedbackHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E43D82387D7FC0076C512 /* FeedbackHeaderView.m */; };
 		6E8E43DC2387D8640076C512 /* FeedbackHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8E43DB2387D8640076C512 /* FeedbackHeaderView.xib */; };
 		6E8E43DE2387E5360076C512 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E43DD2387E5360076C512 /* FeedbackViewController.m */; };
 		6E8E43E1238B87A30076C512 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8E43E0238B87A30076C512 /* WebKit.framework */; };
 		6E8E43E3238E14DF0076C512 /* Validata_Invitecode_Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E43E2238E14DE0076C512 /* Validata_Invitecode_Request.m */; };
+		6E8E43E82390BF350076C512 /* BaseHttps2NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E43E72390BF340076C512 /* BaseHttps2NetworkRequest.m */; };
 		6E9AF83622B1055B00D3514D /* CreateMemonicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */; };
 		6E9AF83722B1055B00D3514D /* CreateMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */; };
 		6E9AF83822B1055B00D3514D /* ConfirmMemonicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */; };
@@ -2582,11 +2577,6 @@
 		18CEA645210233A800B2BFE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PocketManagementHeaderView.strings; sourceTree = "<group>"; };
 		18CEA647210233A900B2BFE2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PocketManagementHeaderView.strings"; sourceTree = "<group>"; };
 		18CEA64A2105781600B2BFE2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		18CEA64D21057DCF00B2BFE2 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
-		18CEA64F21057DDB00B2BFE2 /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMAnalytics.framework; sourceTree = "<group>"; };
-		18CEA65121057DEB00B2BFE2 /* SecurityEnvSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecurityEnvSDK.framework; sourceTree = "<group>"; };
-		18CEA65521057DFB00B2BFE2 /* UMCommonLog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMCommonLog.bundle; sourceTree = "<group>"; };
-		18CEA65721057E0300B2BFE2 /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommonLog.framework; sourceTree = "<group>"; };
 		18CEA65921057EBD00B2BFE2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		18CEA6652105D22500B2BFE2 /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		18CEA6662105D22500B2BFE2 /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
@@ -2980,6 +2970,10 @@
 		6E5F4BD92328EA170006034D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MemonicImportWalletViewController.strings"; sourceTree = "<group>"; };
 		6E5F4BDC2328ECD70006034D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CreateAccountHeaderView.strings; sourceTree = "<group>"; };
 		6E5F4BDE2328ECDE0006034D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CreateAccountHeaderView.strings"; sourceTree = "<group>"; };
+		6E73B751244441B100E83826 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
+		6E73B752244441B100E83826 /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommonLog.framework; sourceTree = "<group>"; };
+		6E73B753244441B100E83826 /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMAnalytics.framework; sourceTree = "<group>"; };
+		6E73B754244441B100E83826 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
 		6E8E43D82387D7FC0076C512 /* FeedbackHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackHeaderView.m; sourceTree = "<group>"; };
 		6E8E43DA2387D81F0076C512 /* FeedbackHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackHeaderView.h; sourceTree = "<group>"; };
 		6E8E43DB2387D8640076C512 /* FeedbackHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackHeaderView.xib; sourceTree = "<group>"; };
@@ -2988,6 +2982,8 @@
 		6E8E43E0238B87A30076C512 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6E8E43E2238E14DE0076C512 /* Validata_Invitecode_Request.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Validata_Invitecode_Request.m; sourceTree = "<group>"; };
 		6E8E43E4238E14F80076C512 /* Validata_Invitecode_Request.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Validata_Invitecode_Request.h; sourceTree = "<group>"; };
+		6E8E43E62390BF230076C512 /* BaseHttps2NetworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseHttps2NetworkRequest.h; sourceTree = "<group>"; };
+		6E8E43E72390BF340076C512 /* BaseHttps2NetworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseHttps2NetworkRequest.m; sourceTree = "<group>"; };
 		6E9AF83022B1055B00D3514D /* CreateMemonicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateMemonicViewController.xib; sourceTree = "<group>"; };
 		6E9AF83122B1055B00D3514D /* CreateMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemonicViewController.m; sourceTree = "<group>"; };
 		6E9AF83222B1055B00D3514D /* ConfirmMemonicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMemonicViewController.m; sourceTree = "<group>"; };
@@ -3045,23 +3041,19 @@
 				18BA1F232111B762008558DE /* QuartzCore.framework in Frameworks */,
 				18BA1F212111B739008558DE /* libc++.tbd in Frameworks */,
 				18CEA65A21057EBD00B2BFE2 /* libsqlite3.tbd in Frameworks */,
+				6E73B756244441B100E83826 /* UMCommonLog.framework in Frameworks */,
 				18CEA64B2105781600B2BFE2 /* libz.tbd in Frameworks */,
-				18BA1F1F2111B6F3008558DE /* AlipaySDK.framework in Frameworks */,
+				6E73B758244441B100E83826 /* UMCommon.framework in Frameworks */,
 				1820076D206A719000D281EF /* Security.framework in Frameworks */,
-				18CEA65221057DEB00B2BFE2 /* SecurityEnvSDK.framework in Frameworks */,
 				1820075A2069F3E600D281EF /* libWeChatSDK.a in Frameworks */,
 				1820076C206A668E00D281EF /* TencentOpenAPI.framework in Frameworks */,
 				1820074C2069E31300D281EF /* CFNetwork.framework in Frameworks */,
 				6E8E43E1238B87A30076C512 /* WebKit.framework in Frameworks */,
+				6E73B755244441B100E83826 /* UTDID.framework in Frameworks */,
 				1820074A2069E30500D281EF /* CoreTelephony.framework in Frameworks */,
-				182007472069E2E300D281EF /* libc++.1.dylib in Frameworks */,
-				18CEA65821057E0300B2BFE2 /* UMCommonLog.framework in Frameworks */,
-				182007452069E2AD00D281EF /* libsqlite3.dylib in Frameworks */,
-				18CEA64E21057DCF00B2BFE2 /* UMCommon.framework in Frameworks */,
-				182007432069E27000D281EF /* libz.1.dylib in Frameworks */,
 				182007412069E1F100D281EF /* SystemConfiguration.framework in Frameworks */,
-				18CEA65021057DDB00B2BFE2 /* UMAnalytics.framework in Frameworks */,
 				D5BDAA720B08CDDFDEACA5C8 /* Pods_VKToken.framework in Frameworks */,
+				6E73B757244441B100E83826 /* UMAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6229,6 +6221,7 @@
 		1886076B1FCBF6D300B00EE7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6E8E43E52390BEDC0076C512 /* BaseHttps2NetworkRequest */,
 				6EC6B8E422B78AA900E5129A /* CommonControllers */,
 				6EC6B8DE22B77CF300E5129A /* Auth */,
 				18ECBCB6215A1A1900BAE3C2 /* CommonDialogView */,
@@ -7741,11 +7734,10 @@
 		18CEA64C21057DC600B2BFE2 /* YouMeng */ = {
 			isa = PBXGroup;
 			children = (
-				18CEA65721057E0300B2BFE2 /* UMCommonLog.framework */,
-				18CEA65521057DFB00B2BFE2 /* UMCommonLog.bundle */,
-				18CEA65121057DEB00B2BFE2 /* SecurityEnvSDK.framework */,
-				18CEA64F21057DDB00B2BFE2 /* UMAnalytics.framework */,
-				18CEA64D21057DCF00B2BFE2 /* UMCommon.framework */,
+				6E73B753244441B100E83826 /* UMAnalytics.framework */,
+				6E73B754244441B100E83826 /* UMCommon.framework */,
+				6E73B752244441B100E83826 /* UMCommonLog.framework */,
+				6E73B751244441B100E83826 /* UTDID.framework */,
 			);
 			path = YouMeng;
 			sourceTree = "<group>";
@@ -9260,6 +9252,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E8E43E52390BEDC0076C512 /* BaseHttps2NetworkRequest */ = {
+			isa = PBXGroup;
+			children = (
+				6E8E43E62390BF230076C512 /* BaseHttps2NetworkRequest.h */,
+				6E8E43E72390BF340076C512 /* BaseHttps2NetworkRequest.m */,
+			);
+			path = BaseHttps2NetworkRequest;
+			sourceTree = "<group>";
+		};
 		6E9AF82D22B1055B00D3514D /* CreateMnemonic */ = {
 			isa = PBXGroup;
 			children = (
@@ -9469,7 +9470,6 @@
 				18A99B0620E6644000E32A29 /* Javascript.html in Resources */,
 				18D07A4A20EA034A00DF1FDF /* ForwardRedPacketFooterView.xib in Resources */,
 				6E8E43DC2387D8640076C512 /* FeedbackHeaderView.xib in Resources */,
-				18CEA65621057DFB00B2BFE2 /* UMCommonLog.bundle in Resources */,
 				18CE932921A2B2F7002F958E /* ImportAccountWithoutAccountNameSinglePrivateKeyModeHeaderView.xib in Resources */,
 				186F6A8D20F4979D00FFF881 /* ModifyApproveHeaderView.xib in Resources */,
 				186F6A7820F4978500FFF881 /* ExportPrivateKeyView.xib in Resources */,
@@ -9485,7 +9485,6 @@
 				1889E1C9217B6360002ECF38 /* AssetsCollection.rtf in Resources */,
 				18C7F75A211AEFFA006AD456 /* AccountManagementHeaderView.xib in Resources */,
 				189E3EBE201C5B980022AF19 /* RSKImageCropperStrings.bundle in Resources */,
-				18BA1F1E2111B6F3008558DE /* AlipaySDK.bundle in Resources */,
 				1820076B206A668E00D281EF /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				18B276FE20B7AF530070F472 /* AboutVKToken.rtf in Resources */,
 				186F6A5520F4975100FFF881 /* BBCreateAccountHeaderView.xib in Resources */,
@@ -10201,6 +10200,7 @@
 				18DBBB12206523A00050EE20 /* PGDatePicker+DateHourMinuteSecond.m in Sources */,
 				186564E8201228920044BBC3 /* CreateAccountRequest.m in Sources */,
 				1872685A1FDE31A500C898D1 /* TransactionRecordsViewController.m in Sources */,
+				6E8E43E82390BF350076C512 /* BaseHttps2NetworkRequest.m in Sources */,
 				1868179220FD877200FEE7B5 /* AddAssestsHeaderView.m in Sources */,
 				18BE613020FF559400BAD50C /* Search_token_request.m in Sources */,
 				189E3ECA201C78D10022AF19 /* ApplicationModuleBodyRequest.m in Sources */,

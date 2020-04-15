@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "11841586415154_.pic_hd.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icon_wechat_customer@2x.jpeg",
+      "filename" : "11841586415154_.pic_hd-1.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icon_wechat_customer@3x.jpeg",
+      "filename" : "11841586415154_.pic_hd-2.jpg",
       "scale" : "3x"
     }
   ],

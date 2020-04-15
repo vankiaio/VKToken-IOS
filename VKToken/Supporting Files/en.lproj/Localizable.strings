@@ -730,6 +730,7 @@
 "继续操作"="Stay In";
 "确认离开"="Depart";
 "请先安装微信应用"="Please install WeChat first.";
+"助记词正在生成中，请稍候..."="Mnemonics are being generated, please wait ...";
 
 /*
  ImportAccountHeaderView.m

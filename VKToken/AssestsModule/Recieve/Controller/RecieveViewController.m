@@ -356,7 +356,7 @@
         priceChange = [NSString stringWithFormat:@"+%@%%", self.currentToken.asset_price_change_in_24h];
     }
     model.detailDescription = [NSString stringWithFormat:@"%@%@\n%@%@\n%@¥%@\n", NSLocalizedString(@"参考价格", nil),[NSString stringWithFormat:@"¥%@", [NumberFormatter displayStringFromNumber:@(self.currentToken.asset_price_cny.doubleValue)]], NSLocalizedString(@"24小时涨跌幅", nil), priceChange,NSLocalizedString(@"总市值", nil), [NumberFormatter displayStringFromNumber:@(self.currentToken.asset_market_cap_cny.doubleValue)]];
-    model.webPageUrl = @"http://www.vankia.io";
+    model.webPageUrl = @"https://www.vankia.io";
     NSLog(@"%@", platformName);
     if ([platformName isEqualToString:@"wechat_friends"]) {
         [[SocialManager socialManager] wechatShareToScene:0 withShareModel:model];

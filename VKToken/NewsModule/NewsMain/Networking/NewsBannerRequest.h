@@ -6,8 +6,8 @@
 //  Copyright © 2018年 vankiachain. All rights reserved.
 //
 
-#import "BaseNetworkRequest.h"
+#import "BaseHttps2NetworkRequest.h"
 
-@interface NewsBannerRequest : BaseNetworkRequest
+@interface NewsBannerRequest : BaseHttps2NetworkRequest
 
 @end

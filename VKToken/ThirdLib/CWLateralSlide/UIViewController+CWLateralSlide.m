@@ -11,7 +11,6 @@
 #import "CWDrawerTransition.h"
 #import <objc/runtime.h>
 
-
 @implementation UIViewController (CWLateralSlide)
 
 // 显示默认抽屉
@@ -42,7 +41,9 @@
     [animator setValue:interactiveHidden forKey:@"interactiveHidden"];
     animator.configuration = configuration;
     animator.animationType = animationType;
-
+    if (@available(iOS 13.0, *)) {
+        viewController.modalPresentationStyle =  UIModalPresentationFullScreen;
+    }
     [self presentViewController:viewController animated:YES completion:nil];
     
 }
@@ -56,10 +57,9 @@
     objc_setAssociatedObject(self, &CWLateralSlideAnimatorKey, animator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     CWInteractiveTransition *interactiveShow = [CWInteractiveTransition interactiveWithTransitiontype:CWDrawerTransitiontypeShow];
-    [interactiveShow addPanGestureForViewController:self];
     [interactiveShow setValue:@(openEdgeGesture) forKey:@"openEdgeGesture"];
     [interactiveShow setValue:transitionDirectionAutoBlock forKey:@"transitionDirectionAutoBlock"];
-    [interactiveShow setValue:@(CWDrawerTransitionFromLeft) forKey:@"direction"];
+    [interactiveShow addPanGestureForViewController:self];
     
     [animator setValue:interactiveShow forKey:@"interactiveShow"];
 }
@@ -73,7 +73,8 @@
     
     CWLateralSlideAnimator *animator = (CWLateralSlideAnimator *)self.transitioningDelegate;
     animator.configuration.HiddenAnimDuration = duration > 0 ? duration : animator.configuration.HiddenAnimDuration;
-    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+//    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *rootVC = [[UIApplication sharedApplication] delegate].window.rootViewController;
     UINavigationController *nav;
     NSString *TransitionType = kCATransitionPush;
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
@@ -104,20 +105,45 @@
 
 // 抽屉内present页面
 - (void)cw_presentViewController:(UIViewController *)viewController {
-    [self cw_presentViewController:viewController drewerHiddenDuration:0];
+    [self cw_presentViewController:viewController drewerHidden:NO];
 }
 
-- (void)cw_presentViewController:(UIViewController *)vc drewerHiddenDuration:(NSTimeInterval)duration {
-    
-    if (duration > 0) {
-        CWLateralSlideAnimator *animator = (CWLateralSlideAnimator *)self.transitioningDelegate;
-        animator.configuration.HiddenAnimDuration = duration;
-    }
+- (void)cw_presentViewController:(UIViewController *)vc drewerHidden:(BOOL)hidden {
     UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [rootVC presentViewController:vc animated:YES completion:nil];
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    vc.view.frame = CGRectMake(0, kCWSCREENHEIGHT, kCWSCREENWIDTH, kCWSCREENHEIGHT);
+    vc.view.tag = 5201314;
+    [keyWindow addSubview:vc.view];
+    [UIView animateWithDuration:0.25 animations:^{
+        vc.view.frame = CGRectMake(0, 0, kCWSCREENWIDTH, kCWSCREENHEIGHT);
+    } completion:^(BOOL finished) {
+        // 强引用，不然会被释放
+        [rootVC addChildViewController:vc];
+        if (hidden) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
 }
 
+- (void)cw_dismissViewController {
+    if (self.view.tag != 5201314 && self.parentViewController.view.tag != 5201314) {
+        NSLog(@"只有通过cw_presentViewController显示的控制器才能调用此方法...");
+        return;
+    }
+    
+    UIViewController *weakSelf = self;
+    if (self.parentViewController.view.tag == 5201314) {
+        weakSelf = self.parentViewController;
+    }
+    weakSelf.edgesForExtendedLayout = UIRectEdgeNone;
+    [UIView animateWithDuration:0.25 animations:^{
+        weakSelf.view.frame = CGRectMake(0, kCWSCREENHEIGHT, kCWSCREENWIDTH, kCWSCREENHEIGHT);
+    } completion:^(BOOL finished) {
+        [weakSelf.view removeFromSuperview];
+        [weakSelf removeFromParentViewController];
+    }];
+    
+}
 
 
 @end

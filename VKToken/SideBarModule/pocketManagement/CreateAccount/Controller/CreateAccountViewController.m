@@ -122,7 +122,7 @@
          [TOASTVIEW showWithText:NSLocalizedString(@"两次输入密码不一致!", nil)];
         return;
     }
-    if (self.headerView.inviteCodeTF.text.length != 5) {
+    if (self.headerView.inviteCodeTF.text.length != 0 && self.headerView.inviteCodeTF.text.length != 5) {
          [TOASTVIEW showWithText:NSLocalizedString(@"请输入5位邀请码", nil)];
         return;
     }
@@ -140,16 +140,20 @@
 - (void)checkInviteCodeExist{
     WS(weakSelf);
     self.validata_Invitecode_Request.InvitationCode = VALIDATE_STRING(self.headerView.inviteCodeTF.text) ;
-    [self.validata_Invitecode_Request postDataSuccess:^(id DAO, id data) {
-         if ([data[@"code"] isEqualToNumber:@0] && [data[@"message"] isEqualToString:@"ok"]) {
-             [self checkAccountExist];
-         }else{
-             [TOASTVIEW showWithText: NSLocalizedString(@"邀请码不存在，请重新输入", nil)];
-              NSLog(@"%s", "validata_Invitecode_Request doesn't exsit.");
-         }
-    } failure:^(id DAO, NSError *error) {
-        NSLog(@"%@", error);
-    }];
+    if (self.validata_Invitecode_Request.InvitationCode.length == 5) {
+        [self.validata_Invitecode_Request postDataSuccess:^(id DAO, id data) {
+             if ([data[@"code"] isEqualToNumber:@0] && [data[@"message"] isEqualToString:@"ok"]) {
+                 [self checkAccountExist];
+             }else{
+                 [TOASTVIEW showWithText: NSLocalizedString(@"邀请码不存在，请重新输入", nil)];
+                  NSLog(@"%s", "validata_Invitecode_Request doesn't exsit.");
+             }
+        } failure:^(id DAO, NSError *error) {
+            NSLog(@"%@", error);
+        }];
+    }else{
+        [self checkAccountExist];
+    }
 }
 
 - (void)checkAccountExist{
@@ -165,6 +169,7 @@
                 [TOASTVIEW showWithText: NSLocalizedString(@"账号已存在", nil)];
                 return ;
             }else{
+                [TOASTVIEW showWithText: NSLocalizedString(@"助记词正在生成中，请稍候...", nil)];
                 TokenCoreVKT *tokenCoreVKT = [TokenCoreVKT sharedTokenCoreVKT];
                 NSString *mnemonicStr = [tokenCoreVKT generateIdentity:nil:self.headerView.passwordToConfirm.text:nil];
                 NSLog(NSLocalizedString(@"generateIdentity助记词:%@", nil), tokenCoreVKT.requestResult);

@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, PaymentWay) {
 #import "WXApiRequestHandler.h"
 #import "WXApiManager.h"
 #import "WechatAuthSDK.h"
-#import <AlipaySDK/AlipaySDK.h>
+//#import <AlipaySDK/AlipaySDK.h>
 #import "GetAccountRequest.h"
 #import "GetAccount.h"
 #import "GetAccountResult.h"
@@ -346,9 +346,9 @@ NSString * const WechatPayDidFinishNotification = @"WechatPayDidFinishNotificati
 //
             // NOTE: 调用支付结果开始支付
             NSString *appScheme = @"VKToken";
-            [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-                NSLog(@"reslut = %@",resultDic);
-            }];
+//            [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+//                NSLog(@"reslut = %@",resultDic);
+//            }];
         }
     }];
 

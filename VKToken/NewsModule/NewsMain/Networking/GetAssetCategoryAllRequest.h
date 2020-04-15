@@ -6,12 +6,12 @@
 //  Copyright © 2018年 vankiachain. All rights reserved.
 //
 
-#import "BaseNetworkRequest.h"
+#import "BaseHttps2NetworkRequest.h"
 
 
 /**
  获取所有的代币种类
  */
-@interface GetAssetCategoryAllRequest : BaseNetworkRequest
+@interface GetAssetCategoryAllRequest : BaseHttps2NetworkRequest
 
 @end
