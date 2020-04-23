@@ -1940,8 +1940,6 @@
 		186F696B20F4952A00FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AssestsShareDetailView.strings; sourceTree = "<group>"; };
 		186F696D20F4952B00FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AssestsShareDetailView.strings"; sourceTree = "<group>"; };
 		186F696F20F4953B00FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TransferHeaderView.xib; sourceTree = "<group>"; };
-		186F697220F4953D00FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TransferHeaderView.strings; sourceTree = "<group>"; };
-		186F697420F4953F00FFF881 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TransferHeaderView.strings"; sourceTree = "<group>"; };
 		186F697620F4954700FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RecieveHeaderView.xib; sourceTree = "<group>"; };
 		186F697D20F4955100FFF881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RecieveQRCodeView.xib; sourceTree = "<group>"; };
 		186F698020F4955200FFF881 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RecieveQRCodeView.strings; sourceTree = "<group>"; };
@@ -3022,6 +3020,8 @@
 		6EC8B6AB22C5E44A0006D9F0 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
 		6EC8B6AD22C5E44A0006D9F0 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		6EC8B6AE22C5E44A0006D9F0 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		6ED2CB16244DA27E00321C06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TransferHeaderView.strings; sourceTree = "<group>"; };
+		6ED2CB18244DA28700321C06 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TransferHeaderView.strings"; sourceTree = "<group>"; };
 		6EFE45522330A7F000681CDD /* UploadAccessInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadAccessInfoRequest.m; sourceTree = "<group>"; };
 		6EFE45532330A7F100681CDD /* UploadAccessInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadAccessInfoRequest.h; sourceTree = "<group>"; };
 		6EFE45552330B35F00681CDD /* FCUUID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FCUUID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -10700,8 +10700,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				186F696F20F4953B00FFF881 /* Base */,
-				186F697220F4953D00FFF881 /* en */,
-				186F697420F4953F00FFF881 /* zh-Hans */,
+				6ED2CB16244DA27E00321C06 /* en */,
+				6ED2CB18244DA28700321C06 /* zh-Hans */,
 			);
 			name = TransferHeaderView.xib;
 			sourceTree = "<group>";
@@ -11469,6 +11469,7 @@
 					"\"${PODS_ROOT}/FCUUID/FCUUID\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/VKToken/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				IPHONVKT_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -11482,7 +11483,7 @@
 					"-all_load",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.vankia.ios.VKToken;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.vankia.ios.VKToken-AdHoc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -11524,6 +11525,7 @@
 					"\"${PODS_ROOT}/FCUUID/FCUUID\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/VKToken/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				IPHONVKT_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -11537,7 +11539,7 @@
 					"-all_load",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.vankia.ios.VKToken;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.vankia.ios.VKToken-AdHoc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;

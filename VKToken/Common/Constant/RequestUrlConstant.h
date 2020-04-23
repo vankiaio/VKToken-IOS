@@ -31,6 +31,7 @@
 //#define REQUEST_PERSONAL_BASEURL @"http://wapi.devicexx.com:3030/api_oc_personal/v1.0.0"
 #define REQUEST_PERSONAL_BASEURL @"http://dapi.vankia.io/api_oc_personal/v1.0.0"
 #define REQUEST_NEWS_BASEURL @"https://www.vankia.io/wankiaweb"
+#define REQUEST_MESSAGE_BASEURL @"http://adminapi.greaspace.com"
 
 //#define REQUEST_NEWS_BASEURL @"http://192.178.1.100:8085/wankiaweb"
 //#define REQUEST_CANDYSYSTEM_BASEURL @"https://api6.VKToken.top/api_oc_pe_candy_system"

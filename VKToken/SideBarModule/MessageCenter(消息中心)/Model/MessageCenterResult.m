@@ -9,6 +9,13 @@
 #import "MessageCenterResult.h"
 
 @implementation MessageCenterResult
+
++(NSDictionary *)mj_replacedKeyFromPropertyName{
+    return @{
+             @"data" : @"result.records"
+             };
+}
+
 + (NSDictionary *)mj_objectClassInArray{
     return @{
              @"data" : @"MessageCenter"

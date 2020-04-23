@@ -14,7 +14,7 @@
 #import "ContactTableViewController.h"
 #import "AboutUsViewController.h"
 //#import "MessageFeedbackViewController.h"
-//#import "MessageCenterViewController.h"
+#import "MessageCenterViewController.h"
 #import "FeedbackViewController.h"
 #import "InvitationCoreViewController.h"
 #import "MineHeaderView.h"
@@ -159,8 +159,8 @@
     [self cw_pushViewController:vc];}
 
 - (void)pushToMessage {
-//    MessageCenterViewController *vc = [[MessageCenterViewController alloc] init];
-//    [self cw_pushViewController:vc];
+    MessageCenterViewController *vc = [[MessageCenterViewController alloc] init];
+    [self cw_pushViewController:vc];
 }
 
 - (void)pushToSetting {

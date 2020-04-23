@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData/
+firim/
 
 ## Various settings
 *.pbxuser
@@ -27,6 +28,7 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+Gemfile.lock
 
 # CocoaPods
 #

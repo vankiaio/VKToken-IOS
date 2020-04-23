@@ -73,7 +73,7 @@
 -(void)setModel:(MessageCenter *)model{
     _model = model;
     self.titleLabel.text = model.title;
-    self.summaryLable.text = model.summary;
+    self.summaryLable.text = model.content;
     self.timeLabel.text = model.createTime;
     
 }

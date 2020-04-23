@@ -1,0 +1,79 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  
+    before_all do
+        # 如果你用 pod install
+        cocoapods 
+    end
+  
+    desc "打包上传ipa到fir.im"
+    lane :build do
+    
+    # 如果你没有申请adhoc证书，sigh会自动帮你申请，并且添加到Xcode里
+    #   sigh(adhoc: true)
+      
+    # 以下两个action来自fastlane-plugin-versioning，
+    # 第一个递增 Build，第二个设定Version。
+    # 如果你有多个target，就必须指定target的值，否则它会直接找找到的第一个plist修改
+    # 在这里我建议每一个打的包的Build都要不一样，这样crash了拿到日志，可以对应到ipa上
+  
+    increment_build_number_in_plist(
+        target: 'VKToken',
+        build_number: '0.2'
+    )
+    increment_version_number_in_plist(
+        target: 'VKToken',
+        version_number: '1.0.0'
+    )
+    # gym用来编译ipa
+    gym(
+        scheme: 'VKToken',
+        export_method: "ad-hoc", # 指定打包方式 ["app-store", "ad-hoc", "package", "enterprise", "development", "developer-id"]
+        #teamID: "xxxxxx",  # developer.apple.com 上查看
+        xcargs: "-allowProvisioningUpdates",
+        output_directory: './firim',
+        output_name: 'VKToken.ipa'
+    )
+    # 上传ipa到fir.im服务器，在fir.im获取firim_api_token
+    firim(firim_api_token: "xxxxxxxxxxxxx")  # token 在fir 上查看。
+  end
+  
+  desc "打包上传testflight/app-store"
+  lane :tf do
+
+    increment_build_number_in_plist(
+        target: 'VKToken'
+    )
+    increment_version_number_in_plist(
+        target: 'VKToken',
+        version_number: '1.0.0'
+    )
+    # gym用来编译ipa
+    gym(
+        scheme: 'VKToken',
+        export_method: "app-store", # 指定打包方式
+        #teamID: "xxxxxx",  # developer.apple.com 上查看
+        xcargs: "-allowProvisioningUpdates",
+        output_directory: './testflight',
+        output_name: 'VKToken.ipa'
+    )
+    #upload_to_testflight
+    appstore       # 上传你的App iTunes Connect
+  end
+end

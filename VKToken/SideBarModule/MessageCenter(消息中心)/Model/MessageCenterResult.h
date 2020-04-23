@@ -10,8 +10,8 @@
 
 @interface MessageCenterResult : NSObject
 
+@property(nonatomic, strong) NSString *success;
 @property(nonatomic, strong) NSString *message;
-
 
 @property(nonatomic, strong) NSNumber *code;
 @property(nonatomic, strong) NSMutableArray *data;

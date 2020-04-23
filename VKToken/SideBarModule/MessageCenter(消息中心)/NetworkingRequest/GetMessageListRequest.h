@@ -19,4 +19,9 @@
  */
 @property(nonatomic, strong) NSNumber *offset;
 
+/**
+ 账户名
+ */
+@property(nonatomic, strong) NSString *userID;
+
 @end
